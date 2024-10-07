@@ -23,6 +23,7 @@ class VendingMachine():
     - add_product: add a product to the vending machine
     - remove_product: remove a product from the vending machine
     - update_product: update a product in the vending machine
+    - check_string: check if a string is valid
     """
     def __init__(self, ID, name, owner_ID, location, **kwargs):
         """
@@ -174,6 +175,18 @@ class VendingMachine():
 
         Returns:
         - None
+        """
+        pass
+
+    def check_string(self, string):
+        """
+        Check if a string is valid
+
+        Parameters:
+        - string (str): String to be checked
+
+        Returns:
+        - bool: True if the string is valid, False otherwise
         """
         pass
 

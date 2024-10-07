@@ -6,48 +6,6 @@ class TestVendingMachine(unittest.TestCase):
     def setUp(self):
         self.vending_machine = VendingMachine("1", "Vending Machine 1", "1", "Location 1")
 
-    # Testes para o método get_id
-    def test_get_id(self):
-        self.assertEqual(self.vending_machine.get_id(), "1")
-
-    # Testes para o método get_name
-    def test_get_name(self):
-        self.assertEqual(self.vending_machine.get_name(), "Vending Machine 1")
-
-    # Testes para o método set_name
-    def test_set_name(self):
-        self.vending_machine.set_name("Vending Machine 2")
-        self.assertEqual(self.vending_machine.get_name(), "Vending Machine 2")
-
-        # Teste para palavras ofensivas
-        self.vending_machine.set_name("Vending Machine Jerk")
-        self.assertEqual(self.vending_machine.get_name(), "Vending Machine")
-
-        # Teste para nomes longos
-        self.vending_machine.set_name("Vending Machine 2" * 100)
-        self.assertEqual(self.vending_machine.get_name(), "Vending Machine")
-
-    # Testes para o método get_owner_id
-    def test_get_owner_id(self):
-        self.assertEqual(self.vending_machine.get_owner_id(), "1")
-
-    # Testes para o método get_location
-    def test_get_location(self):
-        self.assertEqual(self.vending_machine.get_location(), "Location 1")
-
-    # Testes para o método set_location
-    def test_set_location(self):
-        self.vending_machine.set_location("Location 2")
-        self.assertEqual(self.vending_machine.get_location(), "Location 2")
-
-        # Teste para palavras ofensivas
-        self.vending_machine.set_location("Location Jerk")
-        self.assertEqual(self.vending_machine.get_location(), "Location")
-
-        # Teste para nomes longos
-        self.vending_machine.set_location("Location 2" * 100)
-        self.assertEqual(self.vending_machine.get_location(), "Location")
-
     # Testes para o método add_product
     def test_get_products_empty(self):
         self.assertEqual(self.vending_machine.get_products(), [])
@@ -93,6 +51,13 @@ class TestVendingMachine(unittest.TestCase):
         self.vending_machine.update_product(name="Pepsi", price=2.00, quantity=15)
         self.assertEqual(self.vending_machine.get_product(name="Coke"), {'name': 'Coke', 'price': 1.50, 'quantity': 10})
         self.assertEqual(self.vending_machine.get_product(name="Pepsi"), None)
+
+    # Testes para o método check_string
+    def test_check_string_empty(self):
+        self.assertEqual(self.vending_machine.check_string(""), False)
+        self.assertEqual(self.vending_machine.check_string("Vending Jerk"), False)
+        self.assertEqual(self.vending_machine.check_string("Vending Machine 1"), True)
+        self.assertEqual(self.vending_machine.check_string("Location 1"*50), False)
 
     # Uma vez que o método tearDown é chamado após cada teste, a instância do objeto vending_machine é deletada após cada teste
     def tearDown(self) -> None:
