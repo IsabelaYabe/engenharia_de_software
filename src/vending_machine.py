@@ -12,8 +12,12 @@ class VendingMachine():
     - products: list
 
     Methods:
+    - get_id: get the ID of the vending machine
     - get_name: get the name of the vending machine
+    - set_name: change the name of the vending machine
     - get_location: get the location of the vending machine
+    - set_location: change the location of the vending machine
+    - get_owner_id: get the owner of the vending machine
     - get_products: get all products in the vending machine
     - get_product: get a specific product in the vending machine
     - add_product: add a product to the vending machine
@@ -35,10 +39,23 @@ class VendingMachine():
         - None
         """
         self.ID = ID
-        self.name = name
-        self.owner_ID = owner_ID
-        self.location = location
+        self.set_name(name)
+        self.set_owner_id(owner_ID)
+        self.set_location(location)
         self.products = []
+    
+    def get_id(self):
+        """
+        Get the ID of the vending machine
+
+        Parameters:
+        - None
+
+        Returns:
+        - str: ID of the vending machine
+        """
+        return self.ID
+    
     def get_name(self):
         """
         Get the name of the vending machine
@@ -50,6 +67,19 @@ class VendingMachine():
         - str: Name of the vending machine
         """
         return self.name 
+    
+    def set_name(self, name):
+        """
+        Change the name of the vending machine
+
+        Parameters:
+        - name (str): New name of the vending machine
+
+        Returns:
+        - None
+        """
+        self.name = name
+
     def get_location(self):
         """
         Get the location of the vending machine
@@ -61,6 +91,31 @@ class VendingMachine():
         - str: Location of the vending machine
         """
         return self.location
+    
+    def set_location(self, location):
+        """
+        Change the location of the vending machine
+
+        Parameters:
+        - location (str): New location of the vending machine
+
+        Returns:
+        - None
+        """
+        self.location = location
+
+    def get_owner_id(self):
+        """
+        Get the owner of the vending machine
+
+        Parameters:
+        - None
+
+        Returns:
+        - str: ID of the owner of the vending machine
+        """
+        return self.owner_ID
+
     def get_products(self):
         """
         Get all products in the vending machine
@@ -71,7 +126,8 @@ class VendingMachine():
         Returns:
         - list: List of products in the vending machine
         """
-        return self.products  
+        return self.products
+     
     def get_product(self, *args):
         """
         Get a specific product in the vending machine
@@ -83,6 +139,7 @@ class VendingMachine():
         - dict: Product in the vending machine
         """
         pass
+
     def add_product(self, **kwargs):
         """
     '   Add a product to the vending machine
@@ -94,6 +151,7 @@ class VendingMachine():
         - None
         """
         pass
+
     def remove_product(self, *args):
         """
         Remove a product from the vending machine
@@ -105,6 +163,7 @@ class VendingMachine():
         - None
         """
         pass
+
     def update_product(self, *args, **kwargs):
         """
         Update a product in the vending machine
@@ -117,6 +176,7 @@ class VendingMachine():
         - None
         """
         pass
+
     def __del__(self):
         """
         Destructor for VendingMachine class
