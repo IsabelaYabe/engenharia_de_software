@@ -1,0 +1,7 @@
+
+class ProdutcProfile():
+    """
+    ProductProfile class
+
+    
+    """
