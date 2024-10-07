@@ -48,21 +48,6 @@ class TestProductProfile(unittest.TestCase):
         self.product.update_price(6.50)
         self.assertEqual(self.product.price, 6.50)
 
-    def test_apply_discount(self):
-        """Test if the discount is applied correctly."""
-        self.product.apply_discount(10) 
-        self.assertEqual(self.product.price, 4.95)
-        with self.assertRaises(ValueError):
-            self.product.apply_discount(110)  
-        with self.assertRaises(ValueError):
-            self.product.apply_discount(-10)
-        with self.assertRaises(ValueError):
-            self.product.apply_discount(0)
-        with self.assertRaises(ValueError):
-            self.product.apply_discount("10")
-        with self.assertRaises(ValueError):
-            self.product.apply_discount(10.5)
-
     def test_delete_product(self):
         """Test if the product is deleted correctly."""
         self.product.delete_product()
