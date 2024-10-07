@@ -34,6 +34,7 @@ class ProductProfile:
             name (str): The name of the product.
             description (str): The description of the product.
             price (float): The price of the product.
+            review (int): The review of the product.
 
         Returns:
             None
@@ -42,6 +43,7 @@ class ProductProfile:
         self.__set_name(name)
         self.__set_description(description)
         self.__set_price(price)
+        self.review = 0
     
     def __set_product_id(self):
         """
@@ -88,6 +90,16 @@ class ProductProfile:
             None
         """
 
+    def __set_review(self, review):
+        """
+        Define a review for the product, ensuring it is valid.
+
+        Parameters:
+            review (int): The review of the product.
+
+        Returns:
+            None
+        """
 
     def update_price(self, price):
         """
@@ -119,6 +131,16 @@ class ProductProfile:
 
         Parameters:
             description (str): The description of the product.
+
+        Returns:
+            None
+        """
+    def update_review(self, review):
+        """
+        Update the review for the product, ensuring it is valid.
+
+        Parameters:
+            review (int): The review of the product.
 
         Returns:
             None
