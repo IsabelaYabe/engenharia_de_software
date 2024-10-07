@@ -48,6 +48,17 @@ class TestProductProfile(unittest.TestCase):
         self.product.update_price(6.50)
         self.assertEqual(self.product.price, 6.50)
 
+    def test_update_review(self):
+        """Test if the product review updates correctly."""
+        self.product.update_review(5)
+        self.assertEqual(self.product.review, 5)
+        self.product.update_review(6)
+        self.assertLessEqual(self.product.review, 5)
+        self.product.update_review(-1)
+        self.assertGreaterEqual(self.product.review, 0)
+        self.product.update_review(0.5)
+        self.assertIsInstance(self.product.review, int)
+
     def test_delete_product(self):
         """Test if the product is deleted correctly."""
         self.product.delete_product()
