@@ -1,4 +1,14 @@
+/**
+ * VendingMachineApp is an object that initializes and manages the vending machine application.
+ * It fetches machine details, displays parameters, sets meta parameters, and displays products.
+ * It is the bridge between the vending machine data and the webpage.
+ */
 const VendingMachineApp = {
+    /**
+     * Initializes the vending machine application.
+     * Fetches machine details and displays parameters, meta parameters, and products.
+     * Logs an error message if initialization fails.
+     */
     init: function() {
         this.getMachineDetails().then(() => {
             this.displayParam();
@@ -7,11 +17,21 @@ const VendingMachineApp = {
         }).catch(error => console.error('Initialization failed:', error));
     },
 
+    /**
+     * Retrieves the value of a query parameter from the URL.
+     * @param {string} param - The name of the query parameter.
+     * @returns {string|null} The value of the query parameter, or null if not found.
+     */
     getQueryParam: function(param) {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(param);
     },
 
+    /**
+     * Fetches the details of the vending machine from a JSON file.
+     * Logs the machine details if found, otherwise logs an error message.
+     * @returns {Promise<void>} A promise that resolves when the machine details are fetched.
+     */
     getMachineDetails: function() {
         const machineId = this.getQueryParam('machine_id') || 'vm1';
         if (machineId) {
@@ -31,6 +51,10 @@ const VendingMachineApp = {
         return Promise.reject('Machine ID not provided');
     },
 
+    /**
+     * Displays the parameters of the vending machine on the webpage.
+     * Updates the text content of elements with class names 'name', 'location', 'review', 'status', and 'description'.
+     */
     displayParam: function() {
         const machineId = this.getQueryParam('machine_id') || 'vm1';
         const machineDetails = this.data[machineId];
@@ -53,6 +77,10 @@ const VendingMachineApp = {
         }
     },
 
+    /**
+     * Sets the meta parameter for the vending machine.
+     * Updates the content attribute of the meta tag with name 'keywords'.
+     */
     setMetaParam: function() {
         const machineId = this.getQueryParam('machine_id') || '1';
         const machineDetails = this.data[machineId];
@@ -61,6 +89,11 @@ const VendingMachineApp = {
         }
     },
 
+    /**
+     * Displays the products of the vending machine on the webpage.
+     * Updates the inner HTML of the element with class name 'productsList'.
+     * If no products are available, displays a message indicating no products are available.
+     */
     displayProducts: function() {
         const machineId = this.getQueryParam('machine_id') || 'vm1';
         const machineDetails = this.data[machineId];
@@ -76,6 +109,9 @@ const VendingMachineApp = {
             }
         }
     }
+
 };
 
+// Initialize the vending machine application
 VendingMachineApp.init();
+
