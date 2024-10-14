@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar Estoque</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .filter-section {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Visualizar Estoque das Vending Machines</h1>
+
+    <div class="filter-section">
+        <label for="vm-filter">Filtrar por Vending Machine:</label>
+        <input type="text" id="vm-filter" placeholder="Digite o nome da VM" oninput="filterProducts()">
+        <br><br>
+        <label for="product-filter">Filtrar por Produto:</label>
+        <input type="text" id="product-filter" placeholder="Digite o nome do produto" oninput="filterProducts()">
+    </div>
+
+    <table id="stock-table">
+        <thead>
+            <tr>
+                <th>Vending Machine</th>
+                <th>Produto</th>
+                <th>Estoque</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Linhas de produtos e estoque serão geradas dinamicamente -->
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
