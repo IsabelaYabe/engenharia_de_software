@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Complaint</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+        }
+        label, textarea, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        textarea {
+            height: 100px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        .success {
+            color: green;
+            font-size: 14px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Submit a Complaint</h1>
+    <label for="user_id">User ID:</label>
+    <input type="text" id="user_id" placeholder="Enter your user ID" required>
+
+    <label for="complaint_text">Complaint Text:</label>
+    <textarea id="complaint_text" placeholder="Write your complaint..." required></textarea>
+
+    <button onclick="submitComplaint()">Submit</button>
+
+    <p id="message" class="hidden"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
