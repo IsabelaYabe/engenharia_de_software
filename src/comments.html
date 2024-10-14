@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Comments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        label, textarea, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        textarea {
+            height: 100px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        .success {
+            color: green;
+            font-size: 14px;
+        }
+        .hidden {
+            display: none;
+        }
+        .comments-section {
+            margin-top: 30px;
+        }
+        .comment {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+        .comment p {
+            margin: 0;
+        }
+        .timestamp {
+            color: gray;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Leave a Comment</h1>
+    <label for="user">Your Name:</label>
+    <input type="text" id="user" placeholder="Enter your name" required>
+
+    <label for="comment_text">Your Comment:</label>
+    <textarea id="comment_text" placeholder="Write your comment..." required></textarea>
+
+    <button onclick="submitComment()">Submit</button>
+
+    <p id="message" class="hidden"></p>
+
+    <div class="comments-section">
+        <h2>Comments</h2>
+        <div id="comments"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
