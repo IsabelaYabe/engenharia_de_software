@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizar Estoque</title>
+    <title>View Stock</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,29 +30,31 @@
     </style>
 </head>
 <body>
-    <h1>Visualizar Estoque das Vending Machines</h1>
+    <h1>Vending Machine Stock</h1>
 
+    <!-- Filters for searching products or vending machines -->
     <div class="filter-section">
-        <label for="vm-filter">Filtrar por Vending Machine:</label>
-        <input type="text" id="vm-filter" placeholder="Digite o nome da VM" oninput="filterProducts()">
+        <label for="vm-filter">Filter by Vending Machine:</label>
+        <input type="text" id="vm-filter" placeholder="Enter VM name" oninput="stockScreen.filterProducts()">
         <br><br>
-        <label for="product-filter">Filtrar por Produto:</label>
-        <input type="text" id="product-filter" placeholder="Digite o nome do produto" oninput="filterProducts()">
+        <label for="product-filter">Filter by Product:</label>
+        <input type="text" id="product-filter" placeholder="Enter product name" oninput="stockScreen.filterProducts()">
     </div>
 
+    <!-- Stock display table -->
     <table id="stock-table">
         <thead>
             <tr>
                 <th>Vending Machine</th>
-                <th>Produto</th>
-                <th>Estoque</th>
+                <th>Product</th>
+                <th>Stock</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Linhas de produtos e estoque serão geradas dinamicamente -->
+            <!-- Product and stock rows will be generated dynamically -->
         </tbody>
     </table>
 
-    <script src="script.js"></script>
+    <script src="script_stock.js"></script>
 </body>
 </html>
