@@ -32,23 +32,39 @@
         .hidden {
             display: none;
         }
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>Submit a Complaint</h1>
+
+    <!-- Input field for user ID -->
     <label for="user_id">User ID:</label>
     <input type="text" id="user_id" placeholder="Enter your user ID" required>
 
+    <!-- Textarea for the complaint -->
     <label for="complaint_text">Complaint Text:</label>
     <textarea id="complaint_text" placeholder="Write your complaint..." required></textarea>
 
-    <button onclick="submitComplaint()">Submit</button>
+    <!-- Button to submit the complaint -->
+    <button onclick="complaints_screen_user.submitComplaint()">Submit</button>
 
+    <!-- Message element to show feedback -->
     <p id="message" class="hidden"></p>
 </div>
 
-<script src="script.js"></script>
+<script src="complaints_user.js"></script>
 </body>
 </html>
