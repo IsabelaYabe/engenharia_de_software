@@ -1,5 +1,10 @@
+"""
+    Module for adding utility functions to the program.
+"""
+
 import json
 
+# Function to load banned words from a json file
 def load_banned_words():
     with open('config/banned_words.json', 'r') as f:
         data = json.load(f)
@@ -17,7 +22,7 @@ def contains_banned_words(text):
         bool: True if the text contains banned words, False otherwise.
        
     """
-    for word in banned_words:
-        if word in text.lower():
+    for word in text.lower():
+        if word in banned_words:
             return True
     return False
