@@ -5,14 +5,12 @@ class VendingMachine():
     VendingMachine class
     
     Attributes:
-    - __ID: str
-    - __name: str
+    - __db: mysql.connector.MySQLConnection
     - __owner_ID: str
     - __location: str
     - __products: list
 
     Methods:
-    - get_id: get the ID of the vending machine
     - get_name: get the name of the vending machine
     - __set_name: change the name of the vending machine
     - get_location: get the location of the vending machine
@@ -30,7 +28,7 @@ class VendingMachine():
         Constructor for VendingMachine class
         
         Parameters:
-        - ID (str): ID of the vending machine
+        - db (mysql.connector.MySQLConnection): Connection to the database
         - name (str): Name of the vending machine
         - owner_ID (str): ID of the owner of the vending machine
         - location (str): Location of the vending machine
@@ -39,14 +37,11 @@ class VendingMachine():
         Returns:
         - None
         """
-        self.__ID = ID
+        self.__db = db
         self.__set_name(name)
         self.__set_owner_id(owner_ID)
         self.__set_location(location)
         self.__products = []
-    
-    def get_id(self):
-        return self.__ID
     
     def get_name(self):
         return self.__name 

@@ -1,10 +1,16 @@
 import unittest
-from src.vending_machine import VendingMachine
+import mysql.connector
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+from vending_machine import VendingMachine
+from access_db import get_connection
 
 class TestVendingMachine(unittest.TestCase):
     # Uma vez que o método setUp é chamado antes de cada teste, a instância do objeto vending_machine é criada antes de cada teste
     def setUp(self):
-        self.vending_machine = VendingMachine("1", "Vending Machine 1", "1", "Location 1")
+        db = get_connection()
+        self.vending_machine = VendingMachine(db, "Vending Machine 1", "1", "Location 1")
 
     # Testes para o método add_product
     def test_get_products_empty(self):
