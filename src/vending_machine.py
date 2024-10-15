@@ -1,133 +1,176 @@
+"""
+    This module contains the VendingMachine class.
+    It provides a simple interface for managing vending machines in a database.
+    The class inherits from DatabaseManager to leverage common database operations.
 
+    Author: Rodrigo Kalil
 
-class VendingMachine():
+    Date: 15/10/2024
+"""
+import uuid
+from database_manager import DatabaseManager
+
+class VendingMachine(DatabaseManager):
     """
-    VendingMachine class
+    VendingMachine class.
+    
+    This class acts as an interface for managing vending machine records in a MySQL database.
+    It provides methods for creating, updating, monitoring, and deleting vending machines.
+    
+    Inherits from DatabaseManager to leverage common database operations.
     
     Attributes:
-    - __db: mysql.connector.MySQLConnection
-    - __owner_ID: str
-    - __location: str
-    - __products: list
-
+    - db_config (dict): A dictionary containing the MySQL database configuration.
+    
     Methods:
-    - get_name: get the name of the vending machine
-    - __set_name: change the name of the vending machine
-    - get_location: get the location of the vending machine
-    - __set_location: change the location of the vending machine
-    - get_owner_id: get the owner of the vending machine
-    - get_products: get all products in the vending machine
-    - get_product: get a specific product in the vending machine
-    - add_product: add a product to the vending machine
-    - remove_product: remove a product from the vending machine
-    - update_product: update a product in the vending machine
-    - __check_string: check if a string is valid
+    - create_vending_machine(self, name, owner_id, location): Creates a new vending machine in the database.
+    - get_vending_machine(self, vending_machine_id): Retrieves a vending machine by its ID.
+    - update_location(self, vending_machine_id, location): Update the location for a vending machine by its ID.
+    - update_name(self, vending_machine_id, name): Update the name for a vending machine by its ID.
+    - delete_vending_machine(self, vending_machine_id): Delete a vending machine from the database.
+    - get_products(self, vending_machine_id): Get all products from a vending machine.
+    - get_product(self, vending_machine_id, product_id): Get a product from a vending machine by its ID.
+    - add_product(self, vending_machine_id, name, price, quantity): Add a product to a vending machine.
+    - update_product(self, vending_machine_id, product_id, name, price, quantity): Update a product in a vending machine.
+    - remove_product(self, vending_machine_id, product_id): Remove a product from a vending machine.
     """
-    def __init__(self, ID, name, owner_ID, location, **kwargs):
+    def __init__(self, db_config):
         """
-        Constructor for VendingMachine class
+        Constructor for the VendingMachine class.
         
         Parameters:
-        - db (mysql.connector.MySQLConnection): Connection to the database
-        - name (str): Name of the vending machine
-        - owner_ID (str): ID of the owner of the vending machine
-        - location (str): Location of the vending machine
-        - kwargs (dict): Contains additional parameters for the vending machine
-
-        Returns:
-        - None
+        - db_config (dict): A dictionary containing the MySQL database configuration.
         """
-        self.__db = db
-        self.__set_name(name)
-        self.__set_owner_id(owner_ID)
-        self.__set_location(location)
-        self.__products = []
+        super().__init__(db_config)
     
-    def get_name(self):
-        return self.__name 
+    def create_vending_machine(self, name, owner_id, location):
+        """
+        Creates a new vending machine in the database.
+        
+        Parameters:
+        - name (str): The name of the vending machine.
+        - owner_id (str): The ID of the owner of the vending machine.
+        - location (str): The location of the vending machine.
+        
+        Returns:
+        - str: The ID of the newly created vending machine.
+        """
+        pass
     
-    def __set_name(self, name):
-        self.__name = name
-
-    def get_location(self):
-        return self.__location
-    
-    def __set_location(self, location):
-        self.__location = location
-
-    def get_owner_id(self):
-        return self.__owner_ID
-
-    def get_products(self):
-        return self.__products
-     
-    def get_product(self, *kwargs):
+    def get_vending_machine(self, vending_machine_id):
         """
-        Get a specific product in the vending machine
-
+        Retrieves a vending machine by its ID.
+        
         Parameters:
-        - kwargs (dict): Contains parameters that identify the product to be retrieved
-
+        - vending_machine_id (str): The ID of the vending machine.
+        
         Returns:
-        - dict: Product in the vending machine
+        - dict: A dictionary containing the vending machine details.
         """
         pass
 
-    def add_product(self, **kwargs):
+    def update_location(self, vending_machine_id, location):
         """
-    '   Add a product to the vending machine
-
+        Update the location for a vending machine by its ID.
+        
         Parameters:
-        - kwargs (dict): Contains parameters for the product to be added
-
+        - vending_machine_id (str): The ID of the vending machine.
+        - location (str): The new location of the vending machine.
+        
         Returns:
         - None
         """
         pass
 
-    def remove_product(self, *kwargs):
+    def update_name(self, vending_machine_id, name):
         """
-        Remove a product from the vending machine
-
+        Update the name for a vending machine by its ID.
+        
         Parameters:
-        - kwargs (dict): Contains parameters that identify the product to be removed
-
+        - vending_machine_id (str): The ID of the vending machine.
+        - name (str): The new name of the vending machine.
+        
         Returns:
         - None
         """
         pass
 
-    def update_product(self, **kwargs):
+    def delete_vending_machine(self, vending_machine_id):
         """
-        Update a product in the vending machine
-
+        Delete a vending machine from the database.
+        
         Parameters:
-        - kwargs (dict): Contains parameters that identify the product to be updated and provide the new values
-
+        - vending_machine_id (str): The ID of the vending machine.
+        
         Returns:
         - None
         """
         pass
 
-    def check_string(self, string):
+    def get_products(self, vending_machine_id):
         """
-        Check if a string is valid
-
+        Get all products from a vending machine.
+        
         Parameters:
-        - string (str): String to be checked
-
+        - vending_machine_id (str): The ID of the vending machine.
+        
         Returns:
-        - bool: True if the string is valid, False otherwise
+        - list: A list of dictionaries containing product details.
         """
         pass
 
-    def __del__(self):
+    def get_product(self, vending_machine_id, product_id):
         """
-        Destructor for VendingMachine class
-
+        Get a product from a vending machine by its ID.
+        
         Parameters:
-        - None
+        - vending_machine_id (str): The ID of the vending machine.
+        - product_id (str): The ID of the product.
+        
+        Returns:
+        - dict: A dictionary containing the product details.
+        """
+        pass
 
+    def add_product(self, vending_machine_id, name, price, quantity):
+        """
+        Add a product to a vending machine.
+        
+        Parameters:
+        - vending_machine_id (str): The ID of the vending machine.
+        - name (str): The name of the product.
+        - price (float): The price of the product.
+        - quantity (int): The quantity of the product.
+        
+        Returns:
+        - str: The ID of the newly added product.
+        """
+        pass
+
+    def update_product(self, vending_machine_id, product_id, name, price, quantity):
+        """
+        Update a product in a vending machine.
+        
+        Parameters:
+        - vending_machine_id (str): The ID of the vending machine.
+        - product_id (str): The ID of the product.
+        - name (str): The name of the product.
+        - price (float): The price of the product.
+        - quantity (int): The quantity of the product.
+        
+        Returns:
+        - None
+        """
+        pass
+
+    def remove_product(self, vending_machine_id, product_id):
+        """
+        Remove a product from a vending machine.
+        
+        Parameters:
+        - vending_machine_id (str): The ID of the vending machine.
+        - product_id (str): The ID of the product.
+        
         Returns:
         - None
         """

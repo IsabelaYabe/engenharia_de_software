@@ -1,3 +1,11 @@
+"""
+    This module contains the unit tests for the VendingMachine class.
+
+    Author: Rodrigo Kalil
+
+    Date: 15/10/2024
+"""
+
 import unittest
 import mysql.connector
 import os
