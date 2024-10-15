@@ -115,3 +115,4 @@ const VendingMachineApp = {
 // Initialize the vending machine application
 VendingMachineApp.init();
 
+module.exports = VendingMachineApp;

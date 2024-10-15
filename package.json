@@ -1,0 +1,27 @@
+{
+  "name": "engenharia_de_software",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --setupFiles ./jest.setup.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsabelaYabe/engenharia_de_software.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsabelaYabe/engenharia_de_software/issues"
+  },
+  "homepage": "https://github.com/IsabelaYabe/engenharia_de_software#readme",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-fetch-mock": "^3.0.3"
+  }
+}
