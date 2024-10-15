@@ -1,6 +1,21 @@
+"""
+    Module for unit testing the ProductProfile class.
+
+    Author: Isabela Yabe 
+
+    Last Modified: 14/10/2024
+
+    Dependencies: 
+        - unittest
+        - uuid
+        - ProductProfile
+        - load_banned_words
+        - contains_banned_words
+"""
+
 import unittest
 import uuid
-from src.ProductProfile import ProductProfile
+from src.product_profile import ProductProfile
 from src.utils import load_banned_words, contains_banned_words
 
 class TestProductProfile(unittest.TestCase):
