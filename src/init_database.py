@@ -28,7 +28,8 @@ def init_database():
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
         owner_id INT NOT NULL,
-        location VARCHAR(255) NOT NULL
+        location VARCHAR(255) NOT NULL,
+        status VARCHAR(255) DEFAULT 'active'
     )
     """
 
