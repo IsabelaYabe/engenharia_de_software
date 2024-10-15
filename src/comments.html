@@ -35,10 +35,19 @@
         .comments-section {
             margin-top: 30px;
         }
+        /* Style for the comments container */
+        #comments {
+            border: 1px solid #ddd;
+            padding: 10px;
+            height: 200px; /* Fixed height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            margin-top: 10px;
+        }
         .comment {
             border-bottom: 1px solid #ddd;
             margin-bottom: 10px;
             padding-bottom: 10px;
+            padding-top: 10px;
         }
         .comment p {
             margin: 0;
@@ -59,16 +68,17 @@
     <label for="comment_text">Your Comment:</label>
     <textarea id="comment_text" placeholder="Write your comment..." required></textarea>
 
-    <button onclick="submitComment()">Submit</button>
+    <button onclick="comment.submitComment()">Submit</button>
 
     <p id="message" class="hidden"></p>
 
     <div class="comments-section">
         <h2>Comments</h2>
+        <!-- Comments container with fixed height and scroll -->
         <div id="comments"></div>
     </div>
 </div>
 
-<script src="script.js"></script>
+<script src="comments.js"></script>
 </body>
 </html>
