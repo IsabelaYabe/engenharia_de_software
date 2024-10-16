@@ -6,9 +6,9 @@ import json
 
 # Function to load banned words from a json file
 def load_banned_words():
-    with open('config/banned_words.json', 'r') as f:
+    with open("C:/Users/Isas_/.vscode/engenharia_de_software/src/banned_words.json", "r") as f:
         data = json.load(f)
-    return data['banned_words']
+    return data["banned_words"]
 
 banned_words = load_banned_words()
 

@@ -7,7 +7,7 @@
 
     Dependencies: 
         - uuid
-        - util
+        - utils
         - mysql.connector
 """
 
@@ -38,36 +38,33 @@ class ProductProfile(DatabaseManager):
     """
     def __init__(self, host, user, password, database):
         """
-        Constructor for the ProductProfileDB class.
+        Constructor for the ProductProfile class.
         
         Parameters:
             host (str): The MySQL server host.
             user (str): The MySQL user.
             password (str): The MySQL user's password.
             database (str): The name of the MySQL database.
-
-        Returns:
-            None
         """
         super().__init__(host, user, password, database, "products")
-        self.__create_table()
-    
-        def __create_table(self):
-            """
-            Creates the products table in the MySQL database.
-            """
-            create_table_sql = '''
-            CREATE TABLE IF NOT EXISTS products (
-                product_id CHAR(36) PRIMARY KEY,
-                name VARCHAR(255) NOT NULL,
-                description TEXT,
-                price DECIMAL(10, 2) NOT NULL,
-                review INT(1) DEFAULT 0
-            );
-            '''
-            self._create_table(create_table_sql)
+        self._create_table()
 
-    def create_product(self, name, description, price):
+    def _create_table(self):
+        """
+        Creates the products table in the database if it doesn't exist.
+        """
+        create_table_sql = """
+        CREATE TABLE IF NOT EXISTS products (
+            id VARCHAR(36) PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            description TEXT,
+            price DECIMAL(10, 2) NOT NULL,
+            quantity INT NOT NULL
+        );
+        """
+        super()._create_table(create_table_sql)
+
+    def create_product(self, name, description, price, quantity):
         """
         Creates a new product in the database.
         
@@ -80,88 +77,90 @@ class ProductProfile(DatabaseManager):
             product_id (str): The ID of the newly created product.
         """
         product_id = str(uuid.uuid4())
-        conn = mysql.connector.connect(**self.db_config)
-        cursor = conn.cursor()
-        cursor.execute('INSERT INTO products (product_id, name, description, price, review) VALUES (%s, %s, %s, %s, %s)',
-                       (product_id, name, description, price, 0))
-        conn.commit()
-        cursor.close()
-        conn.close()
+        self._insert_row(
+            columns=["product_id", "name", "description", "price", "quantity"],
+            values=(product_id, name, description, price, quantity)
+        )
         return product_id
     
     def get_product(self, product_id):
         """
-        Retrieves a product by its ID from the database.
-
+        Retrieves a product by its ID, returning all details (id, name, description, price, quantity).
+        
         Parameters:
             product_id (str): The ID of the product.
 
         Returns:
-            product (dict): A dictionary with the product details, or None if not found.
+            dict: A dictionary with all the product details, or None if not found.
         """
-        conn = mysql.connector.connect(**self.db_config)
+        conn = self._connect()
         cursor = conn.cursor()
-        cursor.execute('SELECT * FROM products WHERE product_id = %s', (product_id,))
-        product = cursor.fetchone()
+
+        query = f'SELECT id, name, description, price, quantity FROM {self.table_name} WHERE id = %s'
+        cursor.execute(query, (product_id,))
+        record = cursor.fetchone()
         cursor.close()
         conn.close()
 
-        if product:
-            return {'product_id': product[0], 'name': product[1], 'description': product[2], 'price': product[3]}
+        if record:
+            return {
+                "product_id": record[0],
+                "name": record[1],
+                "description": record[2],
+                "price": record[3],
+                "quantity": record[4]
+            }
         return None
 
-    def update_price(self, price):
+    def update_price(self, product_id, price):
         """
-        Update the price for the product, ensuring it is valid.
+        Update the price for a product by its ID.
 
         Parameters:
-            price (float): The price of the product.
+            product_id (str): The ID of the product.
+            price (float): The new price of the product.
 
         Returns:
             None
         """
+        self._update_row({"price": price}, f"product_id = '{product_id}'")
 
 
-    def update_name(self, name):
+    def update_name(self, product_id, name):
         """
-        Update the name for the product, ensuring it is valid.	
+        Update the name for a product by its ID.
 
         Parameters:
-            name (str): The name of the product.
+            product_id (str): The ID of the product.
+            name (str): The new name of the product.
 
         Returns:
             None
         """
+        self._update_row({"name": name}, f"product_id = '{product_id}'")
 
 
-    def update_description(self, description):
+    def update_description(self, product_id, description):
         """
-        Update the description for the product, ensuring it is valid.
+        Update the description for a product by its ID.
 
         Parameters:
-            description (str): The description of the product.
+            product_id (str): The ID of the product.
+            description (str): The new description of the product.
 
         Returns:
             None
         """
-    def update_review(self, review):
+        self._update_row({"description": description}, f"product_id = '{product_id}'")
+
+    def delete_product(self, product_id):
         """
-        Update the review for the product, ensuring it is valid.
+        Delete a product from the database.
 
         Parameters:
-            review (int): The review of the product.
+            product_id (str): The ID of the product to delete.
 
         Returns:
             None
         """
-
-    def delete_product(self):
-        """
-        Delete the product, setting its attributes to None.
-
-        Parameters:
-            None
-
-        Returns:
-            None
-        """
+        self._delete_row(product_id)

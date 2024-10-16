@@ -3,84 +3,142 @@
 
     Author: Isabela Yabe 
 
-    Last Modified: 14/10/2024
-
     Dependencies: 
         - unittest
         - uuid
+        - os
+        - sys
         - ProductProfile
         - load_banned_words
         - contains_banned_words
 """
 
 import unittest
+from unittest.mock import patch, MagicMock
 import uuid
-from src.product_profile import ProductProfile
-from src.utils import load_banned_words, contains_banned_words
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
+from product_profile import ProductProfile
+
 
 class TestProductProfile(unittest.TestCase):
 
-    def setUp(self):
-        """This method sets up a default product to be used in each test."""
-        # Gera um UUID único para o product_id
-        self.product_id = str(uuid.uuid4())  
-        
-        self.product = ProductProfile(product_id=self.product_id, name="The Good Cookie", description="A good cookie, that cookie covered in chocolate chips and filled with a filling that makes you feel goood.", price=5.50)
-        self.banned_words = load_banned_words() 
+    @patch("mysql.connector.connect")  # Mockando a conexão ao MySQL
+    def setUp(self, mock_connect):
+        """
+        This method sets up the environment for each test.
+        Initializes a ProductProfile instance and patches database connection.
+        """
+        mock_connection = MagicMock()
+        mock_connect.return_value = mock_connection
+        self.mock_cursor = mock_connection.cursor.return_value
 
-    def test_initialization(self):
-        """Test if the product profile is initialized correctly."""
-        self.assertEqual(self.product.name, "The Good Cookie") 
-        self.assertEqual(self.product.description, "A good cookie, that cookie covered in chocolate chips and filled with a filling that makes you feel goood.")
-        self.assertEqual(self.product.price, 5.50)
-        self.assertIsNotNone(self.product.product_id)  
-        self.assertEqual(self.product.product_id, self.product_id)
+        self.product_profile = ProductProfile("localhost", "root", "password", "test_db")
+        self.product_id = str(uuid.uuid4())
 
-    def test_name_validity(self):
-        """Test if the product name is valid."""
-        self.assertTrue(contains_banned_words("The Twat Cookie"))  
-        self.assertFalse(contains_banned_words("The Good Cookie"))
-        self.assertLessEqual(len(self.product.name), 35)
+    @patch("mysql.connector.connect")
+    def test_create_product(self, mock_connect):
+        """
+        Test if the create_product method inserts a new product into the database correctly.
+        """
+        mock_connection = MagicMock()
+        mock_connect.return_value = mock_connection
+        mock_cursor = mock_connection.cursor.return_value
 
-    def test_description_validity(self):
-        """Test if the product description is valid."""
-        self.assertTrue(contains_banned_words("A twat cookie, that cookie covered in chocolate chips and filled with a filling that makes you feel goood."))  
-        self.assertFalse(contains_banned_words("Just a good cookie, nothing special, like you as an human.")) 
-        self.assertLessEqual(len(self.product.description), 300)
+        product_id = self.product_profile.create_product("Test Product", "A test description", 19.99, 10)
 
-    def test_update_name(self):
-        """Test if the product name updates correctly."""
-        self.product.update_name("The Great Cookie")
-        self.assertEqual(self.product.name, "The Great Cookie")
+        expected_sql = "INSERT INTO products (product_id, name, description, price, quantity) VALUES (%s, %s, %s, %s, %s);"
 
-    def test_update_description(self):
-        """Test if the product description updates correctly."""
-        self.product.update_description("Just a good cookie, nothing special, like you as an human.")
-        self.assertEqual(self.product.description, "Just a good cookie, nothing special, like you as an human.")
+        mock_cursor.execute.assert_called_with(expected_sql, (product_id, "Test Product", "A test description", 19.99, 10))
 
-    def test_update_price(self):
-        """Test if the product price updates correctly."""
-        self.product.update_price(6.50)
-        self.assertEqual(self.product.price, 6.50)
+        mock_connection.commit.assert_called_once()
+        mock_cursor.close.assert_called_once()
+        mock_connection.close.assert_called_once()
+    
+    @patch("mysql.connector.connect")
+    def test_get_product(self, mock_connect):
+        """
+        Test if the get_product method retrieves a product by its ID and returns all product details.
+        """
+        mock_connection = MagicMock()
+        mock_connect.return_value = mock_connection
+        mock_cursor = mock_connection.cursor.return_value
 
-    def test_update_review(self):
-        """Test if the product review updates correctly."""
-        self.product.update_review(5)
-        self.assertEqual(self.product.review, 5)
-        self.product.update_review(6)
-        self.assertLessEqual(self.product.review, 5)
-        self.product.update_review(-1)
-        self.assertGreaterEqual(self.product.review, 0)
-        self.product.update_review(0.5)
-        self.assertIsInstance(self.product.review, int)
+        mock_cursor.fetchone.return_value = (
+            self.product_id, "Test Product", "A test description", 19.99, 100
+        )
 
-    def test_delete_product(self):
-        """Test if the product is deleted correctly."""
-        self.product.delete_product()
-        self.assertIsNone(self.product.name)
-        self.assertIsNone(self.product.description)
-        self.assertIsNone(self.product.price)
+        product = self.product_profile.get_product(self.product_id)
 
+        expected_product = {
+            "product_id": self.product_id,
+            "name": "Test Product",
+            "description": "A test description",
+            "price": 19.99,
+            "quantity": 100
+        }
+
+        self.assertEqual(product, expected_product)
+
+        mock_cursor.execute.assert_called_with(
+            "SELECT id, name, description, price, quantity FROM products WHERE id = %s", 
+            (self.product_id,)
+        )
+
+        mock_cursor.close.assert_called_once()
+        mock_connection.close.assert_called_once()
+    
+    @patch("mysql.connector.connect")
+    def test_update_price(self, mock_connect):
+        """
+        Test if the update_price method updates the product's price in the database.
+        """
+        mock_connection = MagicMock()
+        mock_connect.return_value = mock_connection
+        mock_cursor = mock_connection.cursor.return_value
+
+        self.product_profile.update_price(self.product_id, 25.99)
+
+        expected_sql = f"UPDATE products SET price = %s WHERE product_id = '{self.product_id}';"
+
+        mock_cursor.execute.assert_called_with(expected_sql, (25.99,))
+    
+        mock_connection.commit.assert_called_once()
+        mock_cursor.close.assert_called_once()
+    
+    @patch("mysql.connector.connect")
+    def test_update_name(self, mock_connect):
+        """
+        Test if the update_name method updates the product's name in the database.
+        """
+        mock_connection = MagicMock()
+        mock_connect.return_value = mock_connection
+        mock_cursor = mock_connection.cursor.return_value
+
+        self.product_profile.update_name(self.product_id, "Updated Product")
+
+        expected_sql = f"UPDATE products SET name = %s WHERE product_id = '{self.product_id}';"
+        mock_cursor.execute.assert_called_with(expected_sql, ("Updated Product",))
+        mock_connection.commit.assert_called_once()
+        mock_cursor.close.assert_called_once()
+    
+    @patch("mysql.connector.connect")
+    def test_delete_product(self, mock_connect):
+        """
+        Test if the delete_product method removes a product from the database.
+        """
+        mock_connection = MagicMock()
+        mock_connect.return_value = mock_connection
+        mock_cursor = mock_connection.cursor.return_value
+
+        self.product_profile.delete_product(self.product_id)
+
+        expected_sql = "DELETE FROM products WHERE id = %s;"
+        mock_cursor.execute.assert_called_with(expected_sql, (self.product_id,))
+        mock_connection.commit.assert_called_once()
+        mock_cursor.close.assert_called_once()
+    
 
 if __name__ == '__main__':
     unittest.main()

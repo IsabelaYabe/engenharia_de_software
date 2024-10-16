@@ -4,8 +4,6 @@
     This module provides a class for managing a single MySQL table in a database.
 
     Author: Isabela Yabe
-
-    Date: 15/10/2024
 """
 import uuid
 import mysql.connector
@@ -75,7 +73,7 @@ class DatabaseManager:
         cursor.close()
         conn.close()
 
-    def modify_column(self, old_column_name, new_column_name):
+    def _modify_column(self, old_column_name, new_column_name):
         """
         Modifies a column name in the managed table.
         
@@ -91,7 +89,7 @@ class DatabaseManager:
         cursor.close()
         conn.close()
 
-    def delete_row(self, row_id):
+    def _delete_row(self, row_id):
         """
         Deletes a row from the managed table based on row_id.
 
@@ -107,7 +105,7 @@ class DatabaseManager:
         conn.close()
 
 
-    def delete_table(self):
+    def _delete_table(self):
         """
         Deletes the managed table from the database.
         """
@@ -119,7 +117,7 @@ class DatabaseManager:
         cursor.close()
         conn.close()
 
-    def insert_row(self, columns, values):
+    def _insert_row(self, columns, values):
         """
         Inserts a new row into the managed table.
         
@@ -137,7 +135,7 @@ class DatabaseManager:
         cursor.close()
         conn.close()
 
-    def update_row(self, column_values, condition):
+    def _update_row(self, column_values, condition):
         """
         Updates specific columns with the provided values based on a condition.
 
@@ -151,19 +149,17 @@ class DatabaseManager:
         conn = self._connect()
         cursor = conn.cursor()
 
-        # Formata os pares "coluna = valor"
         updates = ", ".join([f"{column} = %s" for column in column_values.keys()])
         values = tuple(column_values.values())
 
         update_sql = f"UPDATE {self.table_name} SET {updates} WHERE {condition};"
         
-        # Executa a query com os valores
         cursor.execute(update_sql, values)
         conn.commit()
         cursor.close()
         conn.close()
 
-    def get_by_id(self, record_id, id_column="id"):
+    def _get_by_id(self, record_id, id_column="id"):
         """
         Retrieves a record by its ID from the database.
     
@@ -177,7 +173,6 @@ class DatabaseManager:
         conn = self._connect()
         cursor = conn.cursor()
         
-        # Query usando a coluna de ID explícita
         query = f'SELECT * FROM {self.table_name} WHERE {id_column} = %s'
         cursor.execute(query, (record_id,))
         record = cursor.fetchone()
@@ -185,7 +180,7 @@ class DatabaseManager:
         conn.close()
     
         if record:
-            return {f"{id_column}": record[0], "name": record[1], "description": record[2], "price": record[3]}
+            return {f"{id_column}": record[0]} # Adapt for each subclass
         return None
     
         

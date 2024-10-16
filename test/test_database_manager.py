@@ -8,6 +8,8 @@
     Dependencies: 
         - unittest
         - uuid
+        - os
+        - sys
         - ProductProfile
         - load_banned_words
         - contains_banned_words
@@ -15,8 +17,10 @@
 
 import unittest
 from unittest.mock import patch, MagicMock
-from src.database_manager import DatabaseManager  
-
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
+from database_manager import DatabaseManager
 
 class TestDatabaseManager(unittest.TestCase):
 
@@ -80,7 +84,7 @@ class TestDatabaseManager(unittest.TestCase):
         columns = ["id", "name"]
         values = ("123e4567-e89b-12d3-a456-426614174000", "Product")
 
-        self.db_manager.insert_row(columns, values)
+        self.db_manager._insert_row(columns, values)
 
         expected_sql = "INSERT INTO test_table (id, name) VALUES (%s, %s);"
         mock_cursor.execute.assert_called_with(expected_sql, values)
@@ -96,7 +100,7 @@ class TestDatabaseManager(unittest.TestCase):
         mock_connect.return_value = mock_connection
         mock_cursor = mock_connection.cursor.return_value
 
-        self.db_manager.modify_column("old_name", "new_name")
+        self.db_manager._modify_column("old_name", "new_name")
 
         expected_sql = "ALTER TABLE test_table CHANGE old_name new_name;"
         mock_cursor.execute.assert_called_with(expected_sql)
@@ -112,13 +116,10 @@ class TestDatabaseManager(unittest.TestCase):
         mock_connect.return_value = mock_connection
         mock_cursor = mock_connection.cursor.return_value
 
-        # Chamando o método com o row_id diretamente (sem a condição SQL)
-        self.db_manager.delete_row("123e4567-e89b-12d3-a456-426614174000")
+        self.db_manager._delete_row("123e4567-e89b-12d3-a456-426614174000")
 
-        # Verifica se o cursor executou a query correta com o placeholder %s
         expected_sql = "DELETE FROM test_table WHERE id = %s;"
 
-        # Verifica se o SQL e o parâmetro estão corretos
         mock_cursor.execute.assert_called_with(expected_sql, ("123e4567-e89b-12d3-a456-426614174000",))
         mock_connection.commit.assert_called_once()
         mock_cursor.close.assert_called_once()
@@ -132,7 +133,7 @@ class TestDatabaseManager(unittest.TestCase):
         mock_connect.return_value = mock_connection
         mock_cursor = mock_connection.cursor.return_value
 
-        self.db_manager.delete_table()
+        self.db_manager._delete_table()
 
         expected_sql = "DROP TABLE IF EXISTS test_table;"
         mock_cursor.execute.assert_called_with(expected_sql)
@@ -152,7 +153,7 @@ class TestDatabaseManager(unittest.TestCase):
         column_values = {"name": "Updated Name", "price": 59.99}
         condition = "id = '123e4567-e89b-12d3-a456-426614174000'"
 
-        self.db_manager.update_row(column_values, condition)
+        self.db_manager._update_row(column_values, condition)
 
         expected_sql = "UPDATE test_table SET name = %s, price = %s WHERE id = '123e4567-e89b-12d3-a456-426614174000';"
 
@@ -173,15 +174,12 @@ class TestDatabaseManager(unittest.TestCase):
         mock_connect.return_value = mock_connection
         mock_cursor = mock_connection.cursor.return_value
 
-        mock_cursor.fetchone.return_value = ("123e4567-e89b-12d3-a456-426614174000", "Product A", "A sample product", 19.99)
+        mock_cursor.fetchone.return_value = ("123e4567-e89b-12d3-a456-426614174000", "Product")
 
-        result = self.db_manager.get_by_id("123e4567-e89b-12d3-a456-426614174000", id_column="product_id")
+        result = self.db_manager._get_by_id("123e4567-e89b-12d3-a456-426614174000", id_column="product_id")
 
         expected_result = {
-            "product_id": "123e4567-e89b-12d3-a456-426614174000",
-            "name": "Product A",
-            "description": "A sample product",
-            "price": 19.99
+            "product_id": "123e4567-e89b-12d3-a456-426614174000"
         }
 
         self.assertEqual(result, expected_result)
@@ -193,6 +191,7 @@ class TestDatabaseManager(unittest.TestCase):
 
         mock_cursor.close.assert_called_once()
         mock_connection.close.assert_called_once()
+
 
 
 if __name__ == "__main__":
