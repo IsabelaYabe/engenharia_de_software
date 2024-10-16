@@ -1,137 +1,73 @@
-// Defining banned words (cursewords)
-const bannedWords = ["curseword1", "curseword2", "curseword3"]; // Example of banned words
+// Get comments for a product and display them on the page
+function fetchComments(productId) {
+    fetch(`/get_comments/${productId}`)
+        .then(response => response.json())
+        .then(comments => {
+            const commentsSection = document.getElementById('comments-section');
+            // Clear the comments section
+            commentsSection.innerHTML = '';
+            
+            if (comments.length > 0) {
+                comments.forEach(comment => {
+                    const commentDiv = document.createElement('div');
+                    commentDiv.innerHTML = `
+                        <p><strong>User ${comment.user_id}:</strong> ${comment.text}</p>
+                        <p><em>Posted on ${comment.timestamp}</em></p>
+                    `;
+                    commentsSection.appendChild(commentDiv);
+                });
+            } else {
+                commentsSection.innerHTML = '<p>No comments for this product.</p>';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
 
-/**
- * Object to manage comment-related functionality.
- */
-const comment = {
-    /**
-     * Submits a comment after performing validation.
-     * Checks if the comment text is empty, contains banned words, and validates the username.
-     * Stores the comment and displays it on the screen.
-     */
-    submitComment() {
-        // Retrieve input values
-        const user = document.getElementById("user").value.trim();
-        const commentText = document.getElementById("comment_text").value.trim();
-        const messageElement = document.getElementById("message");
+// Load comments for the default product when the page loads
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the default product ID from the hidden input field
+    const defaultProductId = 1
+    fetchComments(defaultProductId);
 
-        // Clear previous message
-        messageElement.classList.add("hidden");
-        messageElement.textContent = "";
+    // Set the default product ID in the input field
+    document.getElementById('product-id').value = defaultProductId;
+});
 
-        // Validate empty comment text
-        if (commentText === "") {
-            screen_comment.showMessage("Comment has no text", "error");
-            return;
-        }
+// Add a new comment for the product
+document.getElementById('submit-comment').addEventListener('click', function () {
+    const productId = document.getElementById('product-id').value;
+    const userId = document.getElementById('user-id').value;
+    const commentText = document.getElementById('comment-text').value;
 
-        // Check if the comment contains banned words
-        if (this.containsBannedWords(commentText)) {
-            screen_comment.showMessage("Comment contains inappropriate language", "error");
-            return;
-        }
-
-        // Validate username
-        if (user === "") {
-            screen_comment.showMessage("User name is required", "error");
-            return;
-        }
-
-        // Create a new comment object
-        const timestamp = new Date().toLocaleString();
-        const newComment = {
-            user: user,
-            text: commentText,
-            timestamp: timestamp
-        };
-
-        // Store the comment in localStorage
-        this.saveComment(newComment);
-
-        // Display success message
-        screen_comment.showMessage(`Comment successfully submitted by ${user} on ${timestamp}.`, "success");
-
-        // Clear form fields after submission
-        document.getElementById("user").value = "";
-        document.getElementById("comment_text").value = "";
-
-        // Display the new comment immediately
-        screen_comment.addCommentToDisplay(newComment);
-    },
-
-    /**
-     * Checks if the text contains any banned words.
-     * @param {string} text - The comment text to check.
-     * @returns {boolean} - Returns true if banned words are found, otherwise false.
-     */
-    containsBannedWords(text) {
-        return bannedWords.some(word => text.toLowerCase().includes(word));
-    },
-
-    /**
-     * Saves the comment to localStorage.
-     * @param {Object} newComment - The comment object containing user, text, and timestamp.
-     */
-    saveComment(newComment) {
-        let comments = JSON.parse(localStorage.getItem("comments")) || [];
-        comments.push(newComment);
-        localStorage.setItem("comments", JSON.stringify(comments));
-    },
-
-    /**
-     * Loads comments from localStorage and displays them on the screen.
-     */
-    loadComments() {
-        const comments = JSON.parse(localStorage.getItem("comments")) || [];
-        comments.forEach(comment => screen_comment.addCommentToDisplay(comment));
+    if (!productId || !userId || !commentText) {
+        alert("Please fill in all fields.");
+        return;
     }
-};
 
-/**
- * Object to manage screen-related functionality for comments.
- */
-const screen_comment = {
-    /**
-     * Displays a message (error or success) on the screen.
-     * @param {string} message - The message to display.
-     * @param {string} type - The type of message ('error' or 'success').
-     */
-    showMessage(message, type) {
-        const messageElement = document.getElementById("message");
-        messageElement.textContent = message;
-        messageElement.classList.remove("hidden");
-        messageElement.className = type === "error" ? "error" : "success";
-    },
-
-    /**
-     * Adds a single comment to the display section.
-     * @param {Object} newComment - The comment object to display.
-     */
-    addCommentToDisplay(newComment) {
-        const commentsContainer = document.getElementById("comments");
-
-        const commentElement = document.createElement("div");
-        commentElement.classList.add("comment");
-
-        const userElement = document.createElement("p");
-        userElement.textContent = `${newComment.user}:`;
-        commentElement.appendChild(userElement);
-
-        const textElement = document.createElement("p");
-        textElement.textContent = newComment.text;
-        commentElement.appendChild(textElement);
-
-        const timestampElement = document.createElement("p");
-        timestampElement.classList.add("timestamp");
-        timestampElement.textContent = `Posted on: ${newComment.timestamp}`;
-        commentElement.appendChild(timestampElement);
-
-        commentsContainer.appendChild(commentElement);
-    }
-};
-
-// Load comments when the page is loaded
-window.onload = function() {
-    comment.loadComments();
-};
+    // Send a POST request to the server with the new comment data
+    fetch('/add_comment', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            product_id: productId,
+            user_id: userId,
+            text: commentText
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Comment added successfully!');
+            fetchComments(productId);  // Reload comments
+        } else {
+            alert('Failed to add comment.');
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});

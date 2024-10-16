@@ -7,6 +7,7 @@
 
     Date: 15/10/2024
 """
+
 import mysql.connector
 from database_manager import DatabaseManager
 
@@ -17,21 +18,38 @@ def init_database():
     db_config = {
         "host": "localhost",
         "user": "root",
-        "password": "nova_senha",
+        "password": "Alacazumba123*",
         "database": "my_database"
     }
 
     manager = DatabaseManager(**db_config)
 
     create_table_sql = """
-    CREATE TABLE IF NOT EXISTS VendingMachines (
+    CREATE TABLE IF NOT EXISTS Users (
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
-        owner_id INT NOT NULL,
-        location VARCHAR(255) NOT NULL,
-        status VARCHAR(255) DEFAULT 'active'
+        email VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL
     )
     """
+
+    manager.create_table(create_table_sql)
+
+    manager.insert_row("Users", ["name", "email", "password"], ["Alice", "Alice@gmail.com", "123456"])
+    manager.insert_row("Users", ["name", "email", "password"], ["Bob", "Bob@gmail.com", "123456"])
+    manager.insert_row("Users", ["name", "email", "password"], ["Charlie", "Charlie@gmail.com", "123456"])
+
+    create_table_sql = """
+        CREATE TABLE IF NOT EXISTS VendingMachines (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            owner_id INT NOT NULL,
+            location VARCHAR(255) NOT NULL,
+            status VARCHAR(255) DEFAULT 'active',
+            FOREIGN KEY (owner_id) REFERENCES Users(id) 
+        )
+        """
+
 
     manager.create_table(create_table_sql)
 
@@ -73,7 +91,50 @@ def init_database():
     manager.insert_row("Complaints", ["vending_machine_id", "text"], [2, "Machine not working"])
     manager.insert_row("Complaints", ["vending_machine_id", "text"], [3, "Wrong item dispensed"])
 
+    create_table_sql = """
+        CREATE TABLE IF NOT EXISTS Comments (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            product_id INT NOT NULL,
+            user_id INT NOT NULL,
+            text TEXT NOT NULL,
+            FOREIGN KEY (product_id) REFERENCES Products(id),
+            FOREIGN KEY (user_id) REFERENCES Users(id)
+        )
+    """
+
+    manager.create_table(create_table_sql)
+
+    manager.insert_row("Comments", ["product_id", "user_id", "text"], [1, 1, "Great product!"])
+    manager.insert_row("Comments", ["product_id", "user_id", "text"], [1, 2, "I love it!"])
+    manager.insert_row("Comments", ["product_id", "user_id", "text"], [2, 3, "Not so good."])
+
+
     print("Database initialized with mock data.")
+
+def show_users():
+    """
+    Retrieves all users from the database.
+    """
+    db_config = {
+        "host": "localhost",
+        "user": "root",
+        "password": "Alacazumba123*",
+        "database": "my_database"
+    }
+
+    manager = DatabaseManager(**db_config)
+    cols = manager.get_cols("Users")
+    users = manager.get_all("Users")
+    print("Users:")
+    for col in cols:
+        print(col[0], end=" ")
+    print()
+    for user in users:
+        print(user)
+
+    
+
 
 
 def show_vms():
@@ -83,7 +144,7 @@ def show_vms():
     db_config = {
         "host": "localhost",
         "user": "root",
-        "password": "nova_senha",
+        "password": "Alacazumba123*",
         "database": "my_database"
     }
 
@@ -96,6 +157,48 @@ def show_vms():
     print()
     for vm in vms:
         print(vm)
+
+def show_products():
+    """
+    Retrieves all products from the database.
+    """
+    db_config = {
+        "host": "localhost",
+        "user": "root",
+        "password": "Alacazumba123*",
+        "database": "my_database"
+    }
+
+    manager = DatabaseManager(**db_config)
+    cols = manager.get_cols("Products")
+    products = manager.get_all("Products")
+    print("Products:")
+    for col in cols:
+        print(col[0], end=" ")
+    print()
+    for product in products:
+        print(product)
+
+def show_comments():
+    """
+    Retrieves all comments from the database.
+    """
+    db_config = {
+        "host": "localhost",
+        "user": "root",
+        "password": "Alacazumba123*",
+        "database": "my_database"
+    }   
+
+    manager = DatabaseManager(**db_config)
+    cols = manager.get_cols("Comments")
+    comments = manager.get_all("Comments")
+    print("Comments:")
+    for col in cols:
+        print(col[0], end=" ")
+    print()
+    for comment in comments:
+        print(comment)
     
 
 def drop_database():
@@ -105,14 +208,17 @@ def drop_database():
     db_config = {
         "host": "localhost",
         "user": "root",
-        "password": "nova_senha",
+        "password": "Alacazumba123*",
         "database": "my_database"
     }
 
     manager = DatabaseManager(**db_config)
+    manager.delete_table("Comments")
     manager.delete_table("Complaints")
-    manager.delete_table("Products")
-    manager.delete_table("VendingMachines")
+    manager.delete_table("Products") 
+    manager.delete_table("VendingMachines") 
+    manager.delete_table("Users") 
+
 
     conn = mysql.connector.connect(
         host=db_config["host"],
@@ -132,4 +238,7 @@ def drop_database():
 if __name__ == "__main__":
     init_database()
     show_vms()
+    show_products()
+    show_users()
+    show_comments()
     #drop_database()

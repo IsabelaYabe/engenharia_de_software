@@ -3,82 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Comments</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-        }
-        label, textarea, input {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-        textarea {
-            height: 100px;
-        }
-        .error {
-            color: red;
-            font-size: 14px;
-        }
-        .success {
-            color: green;
-            font-size: 14px;
-        }
-        .hidden {
-            display: none;
-        }
-        .comments-section {
-            margin-top: 30px;
-        }
-        /* Style for the comments container */
-        #comments {
-            border: 1px solid #ddd;
-            padding: 10px;
-            height: 200px; /* Fixed height */
-            overflow-y: auto; /* Enable vertical scrolling */
-            margin-top: 10px;
-        }
-        .comment {
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            padding-top: 10px;
-        }
-        .comment p {
-            margin: 0;
-        }
-        .timestamp {
-            color: gray;
-            font-size: 12px;
-        }
-    </style>
+    <title>Product Comments</title>
 </head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    div {
+        margin-bottom: 10px;
+    }
+
+    label {
+        margin-right: 10px;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    #comments-section {
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 100%;
+        max-width: 600px;
+        height: 200px;
+        overflow-y: scroll;
+        margin-top: 20px;
+    }
+</style>
 <body>
-
-<div class="container">
-    <h1>Leave a Comment</h1>
-    <label for="user">Your Name:</label>
-    <input type="text" id="user" placeholder="Enter your name" required>
-
-    <label for="comment_text">Your Comment:</label>
-    <textarea id="comment_text" placeholder="Write your comment..." required></textarea>
-
-    <button onclick="comment.submitComment()">Submit</button>
-
-    <p id="message" class="hidden"></p>
-
-    <div class="comments-section">
-        <h2>Comments</h2>
-        <!-- Comments container with fixed height and scroll -->
-        <div id="comments"></div>
+    <h1>Product Comments</h1>
+    
+    <div>
+        <label for="product-id">Select Product ID:</label>
+        <input type="number" id="product-id" placeholder="Enter product ID">
     </div>
-</div>
+    
+    <div>
+        <label for="user-id">Select User ID:</label>
+        <input type="number" id="user-id" placeholder="Enter user ID">
+    </div>
 
-<script src="../static/js/comment.js"></script>
+    <div>
+        <label for="comment-text">Enter your comment:</label>
+        <textarea id="comment-text" rows="4" cols="50" placeholder="Write your comment here..."></textarea>
+    </div>
+
+    <button id="submit-comment">Submit Comment</button>
+
+    <div id="comments-section">
+        <!-- Comments will be displayed here -->
+    </div>
+
+    <script src="../static/js/comment.js"></script>
 </body>
 </html>
