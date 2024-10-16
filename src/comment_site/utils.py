@@ -6,7 +6,7 @@ import json
 
 # Function to load banned words from a json file
 def load_banned_words():
-    with open('config/banned_words.json', 'r') as f:
+    with open('banned_words.json', 'r') as f:
         data = json.load(f)
     return data['banned_words']
 
