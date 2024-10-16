@@ -1,72 +1,147 @@
-import datetime
-
-class Complaint:
-    """
-    Complaint class
+import uuid
+import mysql.connector
+import os
+import sys
+from utils import contains_banned_words
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from database_manager import DatabaseManager
     
-    Attributes:
-    - banned_words: list
-        List of words that are not allowed in complaints
-    - user_id: str
-        The id of the user submitting the complaint
-    - timestamp: datetime
-        The date and time when the complaint was submitted
-    - vending_machine_id: str, optional
-        The ID of the vending machine (if the complaint is about a vending machine)
-    - text: str
-        The text of the complaint submitted by the user
 
-    Methods:
-    - __init__: initialize a new Complaint object with user, text, and optional vending machine ID
-    - submit_complaint: submit a complaint after validating the text
-    """
-    
-    banned_words = ["curseword1", "curseword2", "curseword3"]  # Example of prohibited words
+class ComplaintProfile:
+    def __init__(self, host, user, password, database):
+        self.connection = mysql.connector.connect(
+            host=host,
+            user=user,
+            password=password,
+            database=database
+        )
+        self.cursor = self.connection.cursor()
 
-    def __init__(self, user_id, text, vending_machine_id=None):
+    def __create_table(self):
         """
-        Initialize a new Complaint object
-
-        Attributes:
-        - user: str
-            The name or identifier of the user submitting the complaint
-        - text: str
-            The text of the complaint submitted by the user
-        - vending_machine_id: str, optional
-            The ID of the vending machine (if applicable)
+        Creates the complaints table in the MySQL database if it does not already exist.
+        The table stores complaints along with the vending_machine_id they are associated with.
         """
-        self.user_id = user_id
-        self.timestamp = datetime.now()
-        self.vending_machine_id = vending_machine_id
-        self.text = text
-
-    @staticmethod
-    def submit_complaint(text, user_id, vending_machine_id=None):
+        create_table_sql = """
+        CREATE TABLE IF NOT EXISTS Complaints (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            vending_machine_id INT NOT NULL,
+            text TEXT NOT NULL,
+            FOREIGN KEY (vending_machine_id) REFERENCES VendingMachines(id)
+        )
         """
-        Submit a complaint after validating the text
+        self.create_table(create_table_sql)
+
+    def create_complaint(self, vending_machine_id, text):
+        """
+        Creates a new complaint in the database.
 
         Parameters:
-        - text: str
-            The text of the complaint
-        - user: str
-            The name or identifier of the user submitting the complaint
-        - vending_machine_id: str, optional
-            The ID of the vending machine (if applicable)
+            vending_machine_id (int): The ID of the vending machine the complaint is associated with.
+            text (str): The text of the complaint.
 
         Returns:
-        - str: Message indicating the result of the complaint submission
+            complaint_id (str): The ID of the newly created complaint.
         """
-        # Check if the complaint text is empty
-        if not text.strip():
-            return "Complaint has no text"
+        # if the complaint is empty, raise an error
+        if not text:
+            raise ValueError("Complaint cannot be empty.")
+        # if the complaint contains banned words, raise an error
+        if contains_banned_words(text):
+            raise ValueError("Complaint contains banned words.")
+
+        query = "INSERT INTO complaints (vending_machine_id, text, timestamp) VALUES (%s, %s, %s)"
+        self.cursor.execute(query, (vending_machine_id, text, self._get_current_timestamp()))
+        self.connection.commit()
+        return self.cursor.lastrowid
+
+    def get_complaints_by_machine(self, vending_machine_id):
+        """
+        Retrieves all complaints associated with a vending machine from the database.
+
+        Parameters:
+            vending_machine_id (int): The ID of the vending machine to retrieve complaints for.
+
+        Returns:
+            complaints (list): A list of dictionaries containing the details of the complaints.
+        """
+        query = "SELECT * FROM complaints WHERE vending_machine_id = %s"
+        self.cursor.execute(query, (vending_machine_id,))
+        complaints = self.cursor.fetchall()
         
-        # Check if the text contains banned words
-        if any(banned_word in text.lower() for banned_word in Complaint.banned_words):
-            return "Complaint contains inappropriate language"
+        return [
+            {
+                'complaint_id': complaint[0],
+                'vending_machine_id': complaint[1],
+                'text': complaint[2],
+                'timestamp': complaint[3] if isinstance(complaint[3], str) else complaint[3].strftime('%Y-%m-%d %H:%M:%S')
+            }
+            for complaint in complaints
+        ]
 
-        # Create a new complaint instance
-        complaint = Complaint(user=user_id, text=text, vending_machine_id=vending_machine_id)
+    def get_complaint(self, complaint_id):
+        """
+        Retrieves a complaint from the database by its ID.
 
-        # Simulate successful submission
-        return f"Complaint successfully submitted by {complaint.user} on {complaint.timestamp}. " \
-               f"{'Regarding vending machine: ' + vending_machine_id if vending_machine_id else ''}"
+        Parameters:
+            complaint_id (str): The ID of the complaint to retrieve.
+
+        Returns:
+            complaint (dict): A dictionary containing the details of the complaint.
+        """
+        query = "SELECT * FROM complaints WHERE id = %s"
+        self.cursor.execute(query, (complaint_id,))
+        complaint = self.cursor.fetchone()
+        if complaint:
+            return {
+                'complaint_id': complaint[0],
+                'vending_machine_id': complaint[1],
+                'text': complaint[2],
+                'timestamp': complaint[3]
+            }
+        else:
+            return None
+        
+    def delete_complaint(self, complaint_id):
+        """
+        Deletes a complaint from the database by its ID.
+
+        Parameters:
+            complaint_id (str): The ID of the complaint to delete.
+        """
+        query = "DELETE FROM complaints WHERE id = %s"
+        self.cursor.execute(query, (complaint_id,))
+        self.connection.commit()
+
+    
+    def _get_current_timestamp(self):
+        """
+        Gets the current timestamp in the format 'YYYY-MM-DD HH:MM:SS'.
+        
+        Returns:
+            str: The current timestamp.
+        """
+        from datetime import datetime
+        return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+
+if __name__ == "__main__":
+    db_config = {
+        "host": "localhost",
+        "user": "root",
+        "password": "Alacazumba123*",
+        "database": "my_database"
+    }
+    complaint_profile = ComplaintProfile(**db_config)
+    print("ComplaintProfile class created successfully.")
+
+    # Inserting a complaint
+    vending_machine_id = 1
+    text = "TEST COMPLAINT"
+    complaint_id = complaint_profile.create_complaint(vending_machine_id, text)
+    print(f"Complaint created with ID: {complaint_id}")
+
+    # Retrieving complaints by machine
+    complaints = complaint_profile.get_complaints_by_machine(vending_machine_id)
+    print("Complaints for vending_machine_id 1:")

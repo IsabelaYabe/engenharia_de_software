@@ -199,6 +199,27 @@ def show_comments():
     print()
     for comment in comments:
         print(comment)
+
+def show_complaints():
+    """
+    Retrieves all complaints from the database.
+    """
+    db_config = {
+        "host": "localhost",
+        "user": "root",
+        "password": "Alacazumba123*",
+        "database": "my_database"
+    }
+
+    manager = DatabaseManager(**db_config)
+    cols = manager.get_cols("Complaints")
+    complaints = manager.get_all("Complaints")
+    print("Complaints:")
+    for col in cols:
+        print(col[0], end=" ")
+    print()
+    for complaint in complaints:
+        print(complaint)
     
 
 def drop_database():
