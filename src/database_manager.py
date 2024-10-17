@@ -238,3 +238,4 @@ class DatabaseManager:
         conn.close()
         
         return records
+    

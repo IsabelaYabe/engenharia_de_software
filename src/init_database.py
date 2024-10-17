@@ -257,9 +257,10 @@ def drop_database():
 
 
 if __name__ == "__main__":
-    init_database()
+    #init_database()
     show_vms()
     show_products()
     show_users()
     show_comments()
+    show_complaints()
     #drop_database()

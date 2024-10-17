@@ -50,19 +50,26 @@
 <div class="container">
     <h1>Submit a Complaint</h1>
 
+    <!-- Input field for vending machine ID -->
+    <label for="vending_machine_id">Vending Machine ID:</label>
+    <input type="text" id="vending-machine-id" placeholder="Enter vending machine ID" required>
+
     <!-- Input field for user ID -->
     <label for="user_id">User ID:</label>
-    <input type="text" id="user_id" placeholder="Enter your user ID" required>
+    <input type="text" id="user-id" placeholder="Enter your user ID" required>
 
     <!-- Textarea for the complaint -->
     <label for="complaint_text">Complaint Text:</label>
-    <textarea id="complaint_text" placeholder="Write your complaint..." required></textarea>
+    <textarea id="complaint-text" placeholder="Write your complaint..." required></textarea>
 
     <!-- Button to submit the complaint -->
-    <button onclick="complaints_screen_user.submitComplaint()">Submit</button>
+    <button id="submit-complaint">Submit</button>
 
     <!-- Message element to show feedback -->
     <p id="message" class="hidden"></p>
+
+    <!-- Section to display complaints -->
+    <div id="complaints-section"></div>
 </div>
 
 <script src="../static/js/complaints_user.js"></script>
