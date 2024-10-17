@@ -1,25 +1,10 @@
-"""
-    Module for creating the ProductProfile class.
-
-    Authoir: Isabela Yabe
-
-    Last Modified: 15/10/2024
-
-    Dependencies: 
-        - uuid
-        - utils
-        - mysql.connector
-"""
-
 import uuid
 from database_manager import DatabaseManager
-from utils import contains_banned_words
-    
 
 class ProductProfile(DatabaseManager):
     """
     ProductProfile class.
-    
+
     This class acts as an interface for managing product records in a MySQL database.
     It provides methods for creating, updating, monitoring, and deleting products.
 
@@ -29,17 +14,17 @@ class ProductProfile(DatabaseManager):
     - db_config (dict): A dictionary containing the MySQL database configuration.
 
     Methods:
-    - create_product(self, name, description, price): Creates a new product in the database.
-    - get_product(self, product_id): Retrieves a product by its ID.
-    - update_price(self, product_id, price): Update the price for a product by its ID.
-    - update_name(self, product_id, name): Update the name for a product by its ID.
-    - update_description(self, product_id, description): Update the description for a product by its ID.
-    - delete_product(self, product_id): Delete a product from the database.
+    - create_product(self, name, description, price, quantity): Creates a new product in the database.
+    - get_product(self, id): Retrieves a product by its ID.
+    - update_price(self, id, price): Updates the price for a product by its ID.
+    - update_name(self, id, name): Updates the name for a product by its ID.
+    - update_description(self, id, description): Updates the description for a product by its ID.
+    - delete_product(self, id): Deletes a product from the database.
     """
     def __init__(self, host, user, password, database):
         """
         Constructor for the ProductProfile class.
-        
+
         Parameters:
             host (str): The MySQL server host.
             user (str): The MySQL user.
@@ -67,28 +52,29 @@ class ProductProfile(DatabaseManager):
     def create_product(self, name, description, price, quantity):
         """
         Creates a new product in the database.
-        
+
         Parameters:
             name (str): The name of the product.
             description (str): The description of the product.
             price (float): The price of the product.
+            quantity (int): The quantity of the product.
 
         Returns:
-            product_id (str): The ID of the newly created product.
+            id (str): The ID of the newly created product.
         """
         product_id = str(uuid.uuid4())
         self._insert_row(
-            columns=["product_id", "name", "description", "price", "quantity"],
+            columns=["id", "name", "description", "price", "quantity"],
             values=(product_id, name, description, price, quantity)
         )
         return product_id
-    
-    def get_product(self, product_id):
+
+    def get_product(self, id):
         """
         Retrieves a product by its ID, returning all details (id, name, description, price, quantity).
-        
+
         Parameters:
-            product_id (str): The ID of the product.
+            id (str): The ID of the product.
 
         Returns:
             dict: A dictionary with all the product details, or None if not found.
@@ -97,14 +83,14 @@ class ProductProfile(DatabaseManager):
         cursor = conn.cursor()
 
         query = f'SELECT id, name, description, price, quantity FROM {self.table_name} WHERE id = %s'
-        cursor.execute(query, (product_id,))
+        cursor.execute(query, (id,))
         record = cursor.fetchone()
         cursor.close()
         conn.close()
 
         if record:
             return {
-                "product_id": record[0],
+                "id": record[0],
                 "name": record[1],
                 "description": record[2],
                 "price": record[3],
@@ -112,55 +98,53 @@ class ProductProfile(DatabaseManager):
             }
         return None
 
-    def update_price(self, product_id, price):
+    def update_price(self, id, price):
         """
         Update the price for a product by its ID.
 
         Parameters:
-            product_id (str): The ID of the product.
+            id (str): The ID of the product.
             price (float): The new price of the product.
 
         Returns:
             None
         """
-        self._update_row({"price": price}, f"product_id = '{product_id}'")
+        self._update_row({"price": price}, f"id = '{id}'")
 
-
-    def update_name(self, product_id, name):
+    def update_name(self, id, name):
         """
         Update the name for a product by its ID.
 
         Parameters:
-            product_id (str): The ID of the product.
+            id (str): The ID of the product.
             name (str): The new name of the product.
 
         Returns:
             None
         """
-        self._update_row({"name": name}, f"product_id = '{product_id}'")
+        self._update_row({"name": name}, f"id = '{id}'")
 
-
-    def update_description(self, product_id, description):
+    def update_description(self, id, description):
         """
         Update the description for a product by its ID.
 
         Parameters:
-            product_id (str): The ID of the product.
+            id (str): The ID of the product.
             description (str): The new description of the product.
 
         Returns:
             None
         """
-        self._update_row({"description": description}, f"product_id = '{product_id}'")
+        self._update_row({"description": description}, f"id = '{id}'")
 
-    def delete_product(self, product_id):
+    def delete_product(self, id):
         """
         Delete a product from the database.
 
         Parameters:
-            product_id (str): The ID of the product to delete.
+            id (str): The ID of the product to delete.
 
         Returns:
             None
         """
-        self._delete_row(product_id)
+        self._delete_row(id)
