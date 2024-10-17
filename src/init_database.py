@@ -24,54 +24,114 @@ def init_database():
     manager = DatabaseManager(**db_config)
 
     create_table_sql = """
-    CREATE TABLE IF NOT EXISTS VendingMachines (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        owner_id INT NOT NULL,
-        location VARCHAR(255) NOT NULL,
-        status VARCHAR(255) DEFAULT 'active'
-    )
+    CREATE TABLE IF NOT EXISTS Owner
+        (
+        OwnerID INT AUTO_INCREMENT,
+        PRIMARY KEY (OwnerID)
+        );
     """
 
     manager.create_table(create_table_sql)
 
-    manager.insert_row("VendingMachines", ["name", "owner_id", "location"], ["Vending Machine 1", 1, "Building A"])
-    manager.insert_row("VendingMachines", ["name", "owner_id", "location"], ["Vending Machine 2", 2, "Building B"])
-    manager.insert_row("VendingMachines", ["name", "owner_id", "location"], ["Vending Machine 3", 2, "Building A"])
+    manager.insert_row("Owner", ["OwnerID"], [1])
+    manager.insert_row("Owner", ["OwnerID"], [2])
 
     create_table_sql = """
-    CREATE TABLE IF NOT EXISTS Products (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        price FLOAT NOT NULL,
-        quantity INT NOT NULL,
-        vending_machine_id INT NOT NULL,
-        FOREIGN KEY (vending_machine_id) REFERENCES VendingMachines(id)
-    )
+    CREATE TABLE IF NOT EXISTS User
+        (
+        UserID INT AUTO_INCREMENT,
+        PRIMARY KEY (UserID)
+        );
     """
 
     manager.create_table(create_table_sql)
 
-    manager.insert_row("Products", ["name", "price", "quantity", "vending_machine_id"], ["Coke", 2.5, 10, 1])
-    manager.insert_row("Products", ["name", "price", "quantity", "vending_machine_id"], ["Pepsi", 2.5, 10, 1])
-    manager.insert_row("Products", ["name", "price", "quantity", "vending_machine_id"], ["Chips", 1.5, 20, 2])
-    manager.insert_row("Products", ["name", "price", "quantity", "vending_machine_id"], ["Chocolate", 2.0, 15, 2])
+    manager.insert_row("User", ["UserID"], [1])
+    manager.insert_row("User", ["UserID"], [2])
 
     create_table_sql = """
-    CREATE TABLE IF NOT EXISTS Complaints (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        vending_machine_id INT NOT NULL,
-        text TEXT NOT NULL,
-        FOREIGN KEY (vending_machine_id) REFERENCES VendingMachines(id)
-    )
+    CREATE TABLE IF NOT EXISTS VMs
+        (
+        VMID INT AUTO_INCREMENT,
+        Name VARCHAR(30) NOT NULL,
+        Location VARCHAR(50) NOT NULL,
+        OwnerID INT NOT NULL,
+        Status VARCHAR(10) DEFAULT 'active',
+        PRIMARY KEY (VMID),
+        FOREIGN KEY (OwnerID) REFERENCES Owner(OwnerID)
+);
     """
 
     manager.create_table(create_table_sql)
 
-    manager.insert_row("Complaints", ["vending_machine_id", "text"], [1, "Out of stock"])
-    manager.insert_row("Complaints", ["vending_machine_id", "text"], [2, "Machine not working"])
-    manager.insert_row("Complaints", ["vending_machine_id", "text"], [3, "Wrong item dispensed"])
+    manager.insert_row("VMs", ["Name", "Location", "OwnerID"], ["Máquina de café", "14 Andar", 1])
+    manager.insert_row("VMs", ["Name", "Location", "OwnerID"], ["Wizmart", "Saguão", 1])
+    manager.insert_row("VMs", ["Name", "Location", "OwnerID"], ["Cesta de brownies", "4 Andar", 2])
+
+
+    create_table_sql = """
+    CREATE TABLE IF NOT EXISTS Products
+        (
+        ProductID INT AUTO_INCREMENT,
+        Name VARCHAR(30) NOT NULL,
+        Description VARCHAR(100) NOT NULL,
+        Price FLOAT NOT NULL,
+        Quantity INT,
+        VMID INT NOT NULL,
+        PRIMARY KEY (ProductID),
+        FOREIGN KEY (VMID) REFERENCES VMs(VMID)
+        );
+    """
+
+    manager.create_table(create_table_sql)
+
+    manager.insert_row("Products", ["Name", "Description", "Price", "VMID"], ["Café curto", "Café numa quantidade pequena", 0.0, 1])
+    manager.insert_row("Products", ["Name", "Description", "Price", "VMID"], ["Café longo", "Café numa quantidade maior", 0.0, 1])
+    manager.insert_row("Products", ["Name", "Description", "Price", "VMID"], ["Capuccino", "Bebida de café, leite e canela", 2.5, 1])
+    manager.insert_row("Products", ["Name", "Description", "Price", "Quantity", "VMID"], ["Água", "H2O", 4.0, 5, 2])
+    manager.insert_row("Products", ["Name", "Description", "Price", "Quantity", "VMID"], ["Brownie", "Delicioso bolo de chocolate caseiro", 5.0, 12, 3])
+
+    create_table_sql = """
+    CREATE TABLE IF NOT EXISTS Complaints
+        (
+        ComplaintID INT AUTO_INCREMENT,
+        Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        Text VARCHAR(250) NOT NULL,
+        VMID INT,
+        PRIMARY KEY (ComplaintID),
+        FOREIGN KEY (VMID) REFERENCES VMs(VMID)
+        );
+    """
+
+    manager.create_table(create_table_sql)
+
+    manager.insert_row("Complaints", ["Text", "VMID"], ["Tá sem açúcasr.", 1])
+    manager.insert_row("Complaints", ["Text", "VMID"], ["Esse café tá aguado", 1])
+    manager.insert_row("Complaints", ["Text", "VMID"], ["Água cara", 2])
+    manager.insert_row("Complaints", ["Text", "VMID"], ["Não aceitou meu vale refeição", 2])
+
+    create_table_sql = """
+    CREATE TABLE IF NOT EXISTS Comments
+        (
+        ComentID INT AUTO_INCREMENT,
+        Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        Text VARCHAR(250) NOT NULL,
+        ProductID INT NOT NULL,
+        UserID INT NOT NULL,
+        PRIMARY KEY (ComentID),
+        FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
+        FOREIGN KEY (UserID) REFERENCES User(UserID)
+        );
+    """
+
+    manager.create_table(create_table_sql)
+
+    manager.insert_row("Comments", ["Text", "ProductID", "UserID"], ["Não tem como começar o dia sem.", 1, 1])
+    manager.insert_row("Comments", ["Text", "ProductID", "UserID"], ["Estavam deliciosos", 5, 1])
+    manager.insert_row("Comments", ["Text", "ProductID", "UserID"], ["Até que é bom.", 3, 2])
+    manager.insert_row("Comments", ["Text", "ProductID", "UserID"], ["Beba água", 4, 2])
+
+
 
     print("Database initialized with mock data.")
 
@@ -88,14 +148,77 @@ def show_vms():
     }
 
     manager = DatabaseManager(**db_config)
-    cols = manager.get_cols("VendingMachines")
-    vms = manager.get_all("VendingMachines")
+    cols = manager.get_cols("VMs")
+    vms = manager.get_all("VMs")
     print("Vending Machines:")
     for col in cols:
         print(col[0], end=" ")
     print()
     for vm in vms:
         print(vm)
+
+def show_products():
+    """
+    Retrieves all products from the database.
+    """
+    db_config = {
+        "host": "localhost",
+        "user": "root",
+        "password": "nova_senha",
+        "database": "my_database"
+    }
+
+    manager = DatabaseManager(**db_config)
+    cols = manager.get_cols("Products")
+    products = manager.get_all("Products")
+    print("Products:")
+    for col in cols:
+        print(col[0], end=" ")
+    print()
+    for product in products:
+        print(product)
+
+def show_complaints():
+    """
+    Retrieves all complaints from the database.
+    """
+    db_config = {
+        "host": "localhost",
+        "user": "root",
+        "password": "nova_senha",
+        "database": "my_database"
+    }
+
+    manager = DatabaseManager(**db_config)
+    cols = manager.get_cols("Complaints")
+    complaints = manager.get_all("Complaints")
+    print("Complaints:")
+    for col in cols:
+        print(col[0], end=" ")
+    print()
+    for complaint in complaints:
+        print(complaint)
+
+def show_comments():
+    """
+    Retrieves all comments from the database.
+    """
+    db_config = {
+        "host": "localhost",
+        "user": "root",
+        "password": "nova_senha",
+        "database": "my_database"
+    }
+
+    manager = DatabaseManager(**db_config)
+    cols = manager.get_cols("Comments")
+    comments = manager.get_all("Comments")
+    print("Comments:")
+    for col in cols:
+        print(col[0], end=" ")
+    print()
+    for comment in comments:
+        print(comment)
     
 
 def drop_database():
@@ -111,8 +234,11 @@ def drop_database():
 
     manager = DatabaseManager(**db_config)
     manager.delete_table("Complaints")
+    manager.delete_table("Comments")
     manager.delete_table("Products")
-    manager.delete_table("VendingMachines")
+    manager.delete_table("VMs")
+    manager.delete_table("Owner")
+    manager.delete_table("User")
 
     conn = mysql.connector.connect(
         host=db_config["host"],
@@ -130,6 +256,10 @@ def drop_database():
 
 
 if __name__ == "__main__":
+    drop_database()
     init_database()
     show_vms()
-    #drop_database()
+    show_products()
+    show_complaints()
+    show_comments()
+    drop_database()
