@@ -21,7 +21,7 @@ complaint_manager = Complaint(**db_config)  # Instancia a classe Complaint
 # Rota para servir o arquivo index.html
 @app.route('/')
 def index():
-    return render_template('complaints_viewer_manager.html')
+    return render_template('complaints.html')
 
 # Rota para adicionar uma reclamação
 @app.route('/add_complaint', methods=['POST'])
@@ -40,11 +40,6 @@ def add_complaint():
 @app.route('/get_complaints/<int:vending_machine_id>', methods=['GET'])
 def get_complaints(vending_machine_id):
     complaints = complaint_manager.get_complaints_by_vending_machine(vending_machine_id)
-    return jsonify(complaints)
-
-@app.route('/get_all_complaints', methods=['GET'])
-def get_all_complaints():
-    complaints = complaint_manager.get_all_complaints()  # Método que retorna todas as reclamações
     return jsonify(complaints)
 
 # Nova rota para verificar palavras banidas (mantendo a mesma lógica)

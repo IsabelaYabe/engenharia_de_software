@@ -106,6 +106,28 @@ class Complaint:
             }
         else:
             return None
+        
+    def get_all_complaints(self):
+        """
+        Retrieves all complaints from the database.
+
+        Returns:
+            complaints (list): A list of dictionaries containing the details of all complaints.
+        """
+        query = "SELECT * FROM Complaints"
+        self.cursor.execute(query)
+        complaints = self.cursor.fetchall()
+        
+        return [
+            {
+                'complaint_id': complaint[0],
+                'vending_machine_id': complaint[1],
+                'text': complaint[2],
+                'timestamp': complaint[3] if isinstance(complaint[3], str) else complaint[3].strftime('%Y-%m-%d %H:%M:%S')
+            }
+            for complaint in complaints
+        ]
+
 
     def delete_complaint(self, complaint_id):
         """
