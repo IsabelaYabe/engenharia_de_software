@@ -4,7 +4,14 @@
     This module provides a class for managing a single MySQL table in a database.
 
     Author: Isabela Yabe
+
+    Dependencies:
+        - mysql.connector
+        - flask
+        - jsonify
 """
+
+from flask import Flask, jsonify, request
 import uuid
 import mysql.connector
 
@@ -49,6 +56,11 @@ class DatabaseManager:
             "database": database
         }
         self.table_name = table_name
+        self.app = Flask(__name__)
+
+        @self.app.route(f"/api/{self.table_name}/<record_id>", methods=["GET"])
+        def get_record(record_id):
+                return self.get_record_api(record_id)
     
     def _connect(self):
         """
@@ -173,7 +185,7 @@ class DatabaseManager:
         conn = self._connect()
         cursor = conn.cursor()
         
-        query = f'SELECT * FROM {self.table_name} WHERE {id_column} = %s'
+        query = f"SELECT * FROM {self.table_name} WHERE {id_column} = %s"
         cursor.execute(query, (record_id,))
         record = cursor.fetchone()
         cursor.close()
@@ -183,4 +195,19 @@ class DatabaseManager:
             return {f"{id_column}": record[0]} # Adapt for each subclass
         return None
     
+    def get_record_api(self, record_id):
+        """
+        API endpoint to get record details by record_id.
+        """
+        record = self._get_by_id(record_id)
         
+        if record:
+            return jsonify(record), 200  # Return record details as JSON
+        else:
+            return jsonify({"error": "Record not found"}), 404  # Record not found error
+
+    def run(self):
+        """
+        Run the Flask app.
+        """
+        self.app.run(debug=True)
