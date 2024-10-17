@@ -35,14 +35,15 @@ class Complaint:
         CREATE TABLE IF NOT EXISTS Complaints (
             id INT AUTO_INCREMENT PRIMARY KEY,
             timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            vending_machine_id INT NOT NULL,
+            vending_machine_id INT ,
+            user_id CHAR(36),
             text TEXT NOT NULL,
             FOREIGN KEY (vending_machine_id) REFERENCES VendingMachines(id)
         )
         """
         self.create_table(create_table_sql)
 
-    def create_complaint(self, vending_machine_id, text):
+    def create_complaint(self,vending_machine_id,user_id, text):
         """
         Creates a new complaint in the database.
 
@@ -61,12 +62,14 @@ class Complaint:
             raise ValueError("Complaint contains banned words.")
 
         query = """
-        INSERT INTO Complaints (vending_machine_id, text, timestamp)
-        VALUES (%s, %s, %s)
+        INSERT INTO Complaints (timestamp, vending_machine_id, text, user_id)
+        VALUES (%s, %s, %s, %s)
         """
-        self.cursor.execute(query, (vending_machine_id, text, self._get_current_timestamp()))
+        self.cursor.execute(query, (self._get_current_timestamp(), vending_machine_id, text, user_id))
         self.connection.commit()
         return self.cursor.lastrowid
+    
+
 
     def get_complaints_by_vending_machine(self, vending_machine_id):
         """
@@ -86,6 +89,7 @@ class Complaint:
             {
                 'complaint_id': complaint[0],
                 'vending_machine_id': complaint[2],  # Change: Index updated
+                'user_id': complaint[4],  # Change: Index updated
                 'text': complaint[3],                 # Change: Index updated
                 'timestamp': complaint[1].strftime('%Y-%m-%d %H:%M:%S') if isinstance(complaint[1], datetime) else complaint[1]  # Change: Index updated
             }
@@ -109,6 +113,7 @@ class Complaint:
             return {
                 'complaint_id': complaint[0],
                 'vending_machine_id': complaint[2],  # Change: Index updated
+                'user_id': complaint[4],  # Change: Index updated
                 'text': complaint[3],                 # Change: Index updated
                 'timestamp': complaint[1].strftime('%Y-%m-%d %H:%M:%S') if isinstance(complaint[1], datetime) else complaint[1]  # Change: Index updated
             }
@@ -135,8 +140,8 @@ class Complaint:
                 'complaint_id': complaint[0],
                 'timestamp': complaint[1].strftime('%Y-%m-%d %H:%M:%S') if isinstance(complaint[1], datetime) else complaint[1],
                 'vending_machine_id': complaint[2],
-                'text': complaint[3],
                 'user_id': complaint[4],
+                'text': complaint[3],
                 'user_name': complaint[5]
             }
             for complaint in complaints

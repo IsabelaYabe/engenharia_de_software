@@ -1,38 +1,33 @@
-// Fetch complaints for a vending machine and display them on the page
-function fetchComplaints(vendingMachineId) {
-    fetch(`/get_complaints/${vendingMachineId}`)
-        .then(response => response.json())
-        .then(complaints => {
-            const complaintsSection = document.getElementById('complaints-section');
-            // Clear the complaints section
-            complaintsSection.innerHTML = '';
-            
-            if (complaints.length > 0) {
-                complaints.forEach(complaint => {
-                    const complaintDiv = document.createElement('div');
-                    complaintDiv.innerHTML = `
-                        <p><strong>Complaint ID ${complaint.complaint_id}:</strong> ${complaint.text}</p>
-                        <p><em>Submitted on ${complaint.timestamp}</em></p>
-                    `;
-                    complaintsSection.appendChild(complaintDiv);
-                });
-            } else {
-                complaintsSection.innerHTML = '<p>No complaints for this vending machine.</p>';
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-}
+document.getElementById('submit-complaint').addEventListener('click', function () {
+    const vendingMachineId = document.getElementById('vending-machine-id').value;
+    const userId = document.getElementById('user-id').value;  // Adiciona o campo user_id
+    const complaintText = document.getElementById('complaint-text').value;
 
-// Load complaints for the default vending machine when the page loads
-document.addEventListener('DOMContentLoaded', function () {
-    // Get the default vending machine ID from the hidden input field
-    const defaultVendingMachineId = 1;  // Default ID can be set to any machine ID
-    fetchComplaints(defaultVendingMachineId);
+    if (!vendingMachineId || !userId || !complaintText) {
+        alert("Please fill in all fields.");
+        return;
+    }
 
-    // Set the default vending machine ID in the input field
-    document.getElementById('vending-machine-id').value = defaultVendingMachineId;
+    fetch('/add_complaint', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            vending_machine_id: vendingMachineId,
+            user_id: userId,  
+            text: complaintText
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Complaint added successfully!');
+        } else {
+            alert('Failed to add complaint: ' + data.error);
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 });
-
-

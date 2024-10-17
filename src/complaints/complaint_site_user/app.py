@@ -28,13 +28,16 @@ def index():
 def add_complaint():
     data = request.json
     vending_machine_id = data['vending_machine_id']
+    user_id = data['user_id']  
     text = data['text']
 
     try:
-        complaint_id = complaint_manager.create_complaint(vending_machine_id, text)
+        
+        complaint_id = complaint_manager.create_complaint(vending_machine_id, user_id, text)
         return jsonify({"success": True, "complaint_id": complaint_id})
     except ValueError as e:
         return jsonify({"success": False, "error": str(e)})
+
 
 # Rota para buscar reclamações por vending machine
 @app.route('/get_complaints/<int:vending_machine_id>', methods=['GET'])
