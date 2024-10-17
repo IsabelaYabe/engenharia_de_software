@@ -1,7 +1,42 @@
+"""
+Module for StockProfile class.
+
+This module provides a class for managing stock information related to products 
+and their associated vending machines in a MySQL database.
+
+Author: Lavinia Dias
+
+Date: 17/10/20224
+"""
+
 import mysql.connector
 
 class StockProfile:
+    """
+    StockProfile class.
+
+    This class manages the connection to a MySQL database and provides methods 
+    for retrieving stock information about products and their vending machines.
+
+    Attributes:
+    - connection (mysql.connector.connection): A connection object to the MySQL database.
+    - cursor (mysql.connector.cursor): A cursor object for executing SQL queries.
+
+    Methods:
+    - get_stock_info(self): Retrieves stock information for all products and their vending machines.
+    - close(self): Closes the database connection.
+    """
+    
     def __init__(self, host, user, password, database):
+        """
+        Constructor for the StockProfile class.
+        
+        Parameters:
+            host (str): The MySQL server host.
+            user (str): The MySQL user.
+            password (str): The MySQL user's password.
+            database (str): The name of the MySQL database to connect to.
+        """
         self.connection = mysql.connector.connect(
             host=host,
             user=user,
@@ -15,7 +50,8 @@ class StockProfile:
         Retrieves stock information for all products and their vending machines.
 
         Returns:
-            stock_info (list): A list of dictionaries containing stock details.
+            list: A list of dictionaries containing stock details, with each 
+                  dictionary representing a product's stock information.
         """
         query = """
         SELECT 
