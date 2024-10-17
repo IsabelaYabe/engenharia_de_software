@@ -1,11 +1,11 @@
 """
-    Module to initialize the database.
+Module to initialize the database.
 
-    It the tables and inserts mock data.
+It the tables and inserts mock data.
 
-    Author: Rodrigo Kalil
+Author: Rodrigo Kalil
 
-    Date: 15/10/2024
+Date: 15/10/2024
 """
 
 import mysql.connector
@@ -80,16 +80,19 @@ def init_database():
         id INT AUTO_INCREMENT PRIMARY KEY,
         timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         vending_machine_id INT NOT NULL,
+        user_id INT NOT NULL,  -- Adiciona a coluna user_id
         text TEXT NOT NULL,
-        FOREIGN KEY (vending_machine_id) REFERENCES VendingMachines(id)
+        FOREIGN KEY (vending_machine_id) REFERENCES VendingMachines(id),
+        FOREIGN KEY (user_id) REFERENCES Users(id)  -- Adiciona a chave estrangeira para user_id
     )
     """
 
     manager.create_table(create_table_sql)
 
-    manager.insert_row("Complaints", ["vending_machine_id", "text"], [1, "Out of stock"])
-    manager.insert_row("Complaints", ["vending_machine_id", "text"], [2, "Machine not working"])
-    manager.insert_row("Complaints", ["vending_machine_id", "text"], [3, "Wrong item dispensed"])
+    # Insere reclamações associadas a usuários
+    manager.insert_row("Complaints", ["vending_machine_id", "user_id", "text"], [1, 1, "Out of stock"])
+    manager.insert_row("Complaints", ["vending_machine_id", "user_id", "text"], [2, 2, "Machine not working"])
+    manager.insert_row("Complaints", ["vending_machine_id", "user_id", "text"], [3, 3, "Wrong item dispensed"])
 
     create_table_sql = """
         CREATE TABLE IF NOT EXISTS Comments (
@@ -132,10 +135,6 @@ def show_users():
     print()
     for user in users:
         print(user)
-
-    
-
-
 
 def show_vms():
     """
@@ -240,7 +239,6 @@ def drop_database():
     manager.delete_table("VendingMachines") 
     manager.delete_table("Users") 
 
-
     conn = mysql.connector.connect(
         host=db_config["host"],
         user=db_config["user"],
@@ -254,10 +252,8 @@ def drop_database():
     print("Database dropped.")
 
 
-
-
 if __name__ == "__main__":
-    #init_database()
+    init_database()
     show_vms()
     show_products()
     show_users()

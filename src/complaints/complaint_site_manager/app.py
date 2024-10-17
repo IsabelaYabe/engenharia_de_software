@@ -1,29 +1,31 @@
+
 from flask import Flask, request, jsonify, render_template
 import os
 import sys
+
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from complaint_profile import Complaint  # Agora importa a classe Complaint
+from complaint_profile import Complaint  # Now imports the Complaint class
 from utils import contains_banned_words
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
-# Configuração do banco de dados
+# Database configuration
 db_config = {
     "host": "localhost",
     "user": "root",
     "password": "Alacazumba123*",
     "database": "my_database"
 }
-complaint_manager = Complaint(**db_config)  # Instancia a classe Complaint
+complaint_manager = Complaint(**db_config)  # Instantiate the Complaint class
 
-# Rota para servir o arquivo index.html
+# Route to serve the index.html file
 @app.route('/')
 def index():
     return render_template('complaints_viewer_manager.html')
 
-# Rota para adicionar uma reclamação
+# Route to add a complaint
 @app.route('/add_complaint', methods=['POST'])
 def add_complaint():
     data = request.json
@@ -36,18 +38,16 @@ def add_complaint():
     except ValueError as e:
         return jsonify({"success": False, "error": str(e)})
 
-# Rota para buscar reclamações por vending machine
-@app.route('/get_complaints/<int:vending_machine_id>', methods=['GET'])
-def get_complaints(vending_machine_id):
-    complaints = complaint_manager.get_complaints_by_vending_machine(vending_machine_id)
-    return jsonify(complaints)
 
-@app.route('/get_all_complaints', methods=['GET'])
-def get_all_complaints():
-    complaints = complaint_manager.get_all_complaints()  # Método que retorna todas as reclamações
-    return jsonify(complaints)
+@app.route('/get_complaints', methods=['GET'])
+def get_complaints():
+    try:
+        complaints = complaint_manager.get_all_complaints()  # Ensure the method from the class is implemented correctly
+        return jsonify(complaints)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500  # Return an error message
 
-# Nova rota para verificar palavras banidas (mantendo a mesma lógica)
+# New route to check banned words (maintaining the same logic)
 @app.route('/check_banned_words', methods=['POST'])
 def check_banned_words():
     data = request.json

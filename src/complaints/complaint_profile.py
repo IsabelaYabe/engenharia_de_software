@@ -1,6 +1,15 @@
+'''
+    This module contains the Complaint class, which is responsible for managing complaints in the database.
+
+    Requires:
+    - mysql.connector
+
+'''
 import mysql.connector
 import os
 import sys
+from datetime import datetime
+
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from utils import contains_banned_words
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
@@ -44,10 +53,10 @@ class Complaint:
         Returns:
             complaint_id (int): The ID of the newly created complaint.
         """
-        # if the complaint is empty, raise an error
+        # If the complaint is empty, raise an error
         if not text:
             raise ValueError("Complaint cannot be empty.")
-        # if the complaint contains banned words, raise an error
+        # If the complaint contains banned words, raise an error
         if contains_banned_words(text):
             raise ValueError("Complaint contains banned words.")
 
@@ -76,13 +85,12 @@ class Complaint:
         return [
             {
                 'complaint_id': complaint[0],
-                'vending_machine_id': complaint[1],
-                'text': complaint[2],
-                'timestamp': complaint[3] if isinstance(complaint[3], str) else complaint[3].strftime('%Y-%m-%d %H:%M:%S')
+                'vending_machine_id': complaint[2],  # Change: Index updated
+                'text': complaint[3],                 # Change: Index updated
+                'timestamp': complaint[1].strftime('%Y-%m-%d %H:%M:%S') if isinstance(complaint[1], datetime) else complaint[1]  # Change: Index updated
             }
             for complaint in complaints
         ]
-
 
     def get_complaint(self, complaint_id):
         """
@@ -100,34 +108,39 @@ class Complaint:
         if complaint:
             return {
                 'complaint_id': complaint[0],
-                'vending_machine_id': complaint[1],
-                'text': complaint[2],
-                'timestamp': complaint[3]
+                'vending_machine_id': complaint[2],  # Change: Index updated
+                'text': complaint[3],                 # Change: Index updated
+                'timestamp': complaint[1].strftime('%Y-%m-%d %H:%M:%S') if isinstance(complaint[1], datetime) else complaint[1]  # Change: Index updated
             }
         else:
             return None
         
     def get_all_complaints(self):
         """
-        Retrieves all complaints from the database.
+        Retrieves all complaints from the database, along with user information.
 
         Returns:
             complaints (list): A list of dictionaries containing the details of all complaints.
         """
-        query = "SELECT * FROM Complaints"
+        query = """
+        SELECT c.id, c.timestamp, c.vending_machine_id, c.text, u.id AS user_id, u.name AS user_name
+        FROM Complaints c
+        JOIN Users u ON c.user_id = u.id
+        """
         self.cursor.execute(query)
         complaints = self.cursor.fetchall()
-        
+
         return [
             {
                 'complaint_id': complaint[0],
-                'vending_machine_id': complaint[1],
-                'text': complaint[2],
-                'timestamp': complaint[3] if isinstance(complaint[3], str) else complaint[3].strftime('%Y-%m-%d %H:%M:%S')
+                'timestamp': complaint[1].strftime('%Y-%m-%d %H:%M:%S') if isinstance(complaint[1], datetime) else complaint[1],
+                'vending_machine_id': complaint[2],
+                'text': complaint[3],
+                'user_id': complaint[4],
+                'user_name': complaint[5]
             }
             for complaint in complaints
         ]
-
 
     def delete_complaint(self, complaint_id):
         """
@@ -147,7 +160,6 @@ class Complaint:
         Returns:
             str: The current timestamp.
         """
-        from datetime import datetime
         return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 

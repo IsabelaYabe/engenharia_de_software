@@ -1,6 +1,6 @@
-// Fetch all complaints from the database and display them on the page
-function fetchAllComplaints() {
-    fetch('/get_all_complaints')
+// Fetch complaints and display them on the page
+function fetchComplaints() {
+    fetch('/get_complaints')
         .then(response => response.json())
         .then(complaints => {
             const complaintsSection = document.getElementById('complaints-section');
@@ -9,23 +9,27 @@ function fetchAllComplaints() {
             
             if (complaints.length > 0) {
                 complaints.forEach(complaint => {
-                    const complaintDiv = document.createElement('div');
-                    complaintDiv.innerHTML = `
-                        <p><strong>Complaint ID ${complaint.complaint_id}:</strong> ${complaint.text}</p>
-                        <p><em>Submitted on ${complaint.timestamp}</em></p>
+                    console.log(complaint);
+                    const complaintRow = document.createElement('tr');
+                    complaintRow.innerHTML = `
+                        <td>${complaint.complaint_id}</td>
+                        <td>${complaint.user_id}</td>
+                        <td>${complaint.user_name}</td>
+                        <td>${complaint.text}</td>
+                        <td>${complaint.timestamp}</td>
                     `;
-                    complaintsSection.appendChild(complaintDiv);
+                    complaintsSection.appendChild(complaintRow);
                 });
             } else {
-                complaintsSection.innerHTML = '<p>No complaints found.</p>';
+                complaintsSection.innerHTML = '<tr><td colspan="5">No complaints for this vending machine.</td></tr>';
             }
         })
         .catch(error => {
-            console.error('Error fetching complaints:', error);
+            console.error('Error:', error);
         });
 }
 
-// Load all complaints when the page loads
+// Load complaints when the page loads
 document.addEventListener('DOMContentLoaded', function () {
-    fetchAllComplaints();
+    fetchComplaints();
 });
