@@ -15,7 +15,7 @@
 
 import unittest
 import uuid
-from src.product_profile import ProductProfile
+from stock_site.product_profile import ProductProfile
 from src.utils import load_banned_words, contains_banned_words
 
 class TestProductProfile(unittest.TestCase):

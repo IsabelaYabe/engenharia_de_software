@@ -33,7 +33,7 @@ class DatabaseManager:
     - delete_column(self, column_name): Deletes a column from the table.
     """
     
-    def __init__(self, host, user, password, database, table_name):
+    def __init__(self, host, user, password, database, table_name = None):
         """
         Constructor for the DatabaseManager class.
         
@@ -51,6 +51,8 @@ class DatabaseManager:
             "database": database
         }
         self.table_name = table_name
+        self._create_database_if_not_exists(database)
+        self._connect()
     
     def _connect(self):
         """
@@ -60,8 +62,25 @@ class DatabaseManager:
             conn: A MySQL database connection object.
         """
         return mysql.connector.connect(**self._db_config)
+    
+    def _create_database_if_not_exists(self, database):
+        """
+        Creates the database if it does not exist.
 
-    def _create_table(self, create_table_sql):
+        Parameters:
+            database (str): The name of the database to be created.
+        """
+        conn = mysql.connector.connect(
+            host=self._db_config["host"],
+            user=self._db_config["user"],
+            password=self._db_config["password"]
+        )
+        cursor = conn.cursor()
+        cursor.execute(f"CREATE DATABASE IF NOT EXISTS {database};")
+        cursor.close()
+        conn.close()
+
+    def create_table(self, create_table_sql):
         """
         Creates the table in the MySQL database with the provided SQL statement.
 
@@ -107,19 +126,19 @@ class DatabaseManager:
         conn.close()
 
 
-    def delete_table(self):
+    def delete_table(self, table_name):
         """
         Deletes the managed table from the database.
         """
         conn = self._connect()
         cursor = conn.cursor()
-        drop_table_sql = f"DROP TABLE IF EXISTS {self.table_name};"
+        drop_table_sql = f"DROP TABLE IF EXISTS {table_name};"
         cursor.execute(drop_table_sql)
         conn.commit()
         cursor.close()
         conn.close()
 
-    def insert_row(self, columns, values):
+    def insert_row(self, table, columns, values):
         """
         Inserts a new row into the managed table.
         
@@ -131,7 +150,7 @@ class DatabaseManager:
         cursor = conn.cursor()
         columns_str = ", ".join(columns)
         placeholders = ", ".join(["%s"] * len(values))
-        insert_sql = f"INSERT INTO {self.table_name} ({columns_str}) VALUES ({placeholders});"
+        insert_sql = f"INSERT INTO {table} ({columns_str}) VALUES ({placeholders});"
         cursor.execute(insert_sql, values)
         conn.commit()
         cursor.close()
@@ -188,4 +207,34 @@ class DatabaseManager:
             return {f"{id_column}": record[0], "name": record[1], "description": record[2], "price": record[3]}
         return None
     
+    def get_all(self, table):
+        """
+        Retrieves all records from the managed table.
         
+        Returns:
+            list: A list of dictionaries containing all records in the table.
+        """
+        conn = self._connect()
+        cursor = conn.cursor()
+        cursor.execute(f"SELECT * FROM {table};")
+        records = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        
+        return records
+    
+    def get_cols(self, table):
+        """
+        Retrieves all columns from the managed table.
+        
+        Returns:
+            list: A list of column names.
+        """
+        conn = self._connect()
+        cursor = conn.cursor()
+        cursor.execute(f"SHOW COLUMNS FROM {table};")
+        records = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        
+        return records
