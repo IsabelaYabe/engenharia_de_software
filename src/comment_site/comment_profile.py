@@ -75,15 +75,16 @@ class CommentProfile:
         
         # Verifica se o tipo do campo `timestamp` é datetime, e faz a formatação adequadamente
         return [
-            {
-                'comment_id': comment[0],
-                'product_id': comment[1],
-                'user_id': comment[2],
-                'text': comment[3],
-                'timestamp': comment[4] if isinstance(comment[4], str) else comment[4].strftime('%Y-%m-%d %H:%M:%S')
-            }
-            for comment in comments
-        ]
+        {
+            'comment_id': comment[0],  # id
+            'product_id': comment[2],  # product_id
+            'user_id': comment[3],     # user_id
+            'text': comment[4],        # text
+            'timestamp': comment[1]    # timestamp
+        }
+        for comment in comments
+    ]
+
 
 
     def get_comment(self, comment_id):
