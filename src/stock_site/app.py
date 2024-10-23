@@ -1,20 +1,9 @@
-"""
-Module for StockProfile class and Flask application.
-
-This module provides a Flask web application that retrieves stock information
-related to products and their associated vending machines from a MySQL database.
-
-Author: Lavinia Dias
-
-Date: 17/10/2024
-"""
-
 from flask import Flask, jsonify, render_template
-import mysql.connector
+from stock_profile import StockProfile  # Importando a classe StockProfile
 
 app = Flask(__name__)
 
-# Configurations for the database connection
+# Configurações de banco de dados
 db_config = {
     "host": "localhost",
     "user": "root",
@@ -22,95 +11,20 @@ db_config = {
     "database": "my_database"
 }
 
-class StockProfile:
-    """
-    StockProfile class.
-
-    This class manages the connection to a MySQL database and provides methods 
-    for retrieving stock information about products and their vending machines.
-
-    Attributes:
-    - connection (mysql.connector.connection): A connection object to the MySQL database.
-    - cursor (mysql.connector.cursor): A cursor object for executing SQL queries.
-
-    Methods:
-    - get_stock_info(self): Retrieves stock information for all products and their vending machines.
-    - close(self): Closes the database connection.
-    """
-    
-    def __init__(self, host, user, password, database):
-        """
-        Constructor for the StockProfile class.
-        
-        Parameters:
-            host (str): The MySQL server host.
-            user (str): The MySQL user.
-            password (str): The MySQL user's password.
-            database (str): The name of the MySQL database to connect to.
-        """
-        self.connection = mysql.connector.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=database
-        )
-        self.cursor = self.connection.cursor()
-
-    def get_stock_info(self):
-        """
-        Retrieves stock information for all products and their vending machines.
-
-        Returns:
-            list: A list of dictionaries containing stock details, with each 
-                  dictionary representing a product's stock information.
-        """
-        query = """
-        SELECT 
-            p.id AS product_id, 
-            p.name AS product_name, 
-            p.price AS product_price,
-            p.quantity AS product_quantity,
-            p.vending_machine_id AS vending_machine_id,
-            vm.name AS vending_machine_name
-        FROM 
-            Products AS p
-        JOIN 
-            VendingMachines AS vm ON p.vending_machine_id = vm.id
-        """
-        self.cursor.execute(query)
-        stock_info = self.cursor.fetchall()
-        
-        return [
-            {
-                'product_id': row[0],
-                'product_name': row[1],
-                'product_price': row[2],
-                'product_quantity': row[3],
-                'vending_machine_id': row[4],
-                'vending_machine_name': row[5]
-            }
-            for row in stock_info
-        ]
-
-    def close(self):
-        """Closes the database connection."""
-        self.cursor.close()
-        self.connection.close()
-
 @app.route('/')
 def index():
-    """Renders the main stock information page."""
+    """Renderiza a página principal de informações de estoque."""
     return render_template('stock.html')
 
 @app.route('/get_stock_info', methods=['GET'])
 def get_stock_info():
     """
-    API endpoint to retrieve stock information.
+    Endpoint da API para recuperar informações de estoque.
 
-    Returns:
-        jsonify: A JSON response containing stock information for all products.
+    Retorna:
+        jsonify: Resposta JSON contendo informações de estoque de todos os produtos.
     """
-    stock_profile = StockProfile(**db_config)
+    stock_profile = StockProfile(**db_config)  # Usando a classe importada
     stock_info = stock_profile.get_stock_info()
     stock_profile.close()
     return jsonify(stock_info)
