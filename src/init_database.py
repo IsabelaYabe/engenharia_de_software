@@ -75,21 +75,7 @@ def init_database():
     manager.insert_row("Products", ["name", "price", "quantity", "vending_machine_id"], ["Chips", 1.5, 20, 2])
     manager.insert_row("Products", ["name", "price", "quantity", "vending_machine_id"], ["Chocolate", 2.0, 15, 2])
 
-    create_table_sql = """
-    CREATE TABLE IF NOT EXISTS Complaints (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        vending_machine_id INT NOT NULL,
-        text TEXT NOT NULL,
-        FOREIGN KEY (vending_machine_id) REFERENCES VendingMachines(id)
-    )
-    """
 
-    manager.create_table(create_table_sql)
-
-    manager.insert_row("Complaints", ["vending_machine_id", "text"], [1, "Out of stock"])
-    manager.insert_row("Complaints", ["vending_machine_id", "text"], [2, "Machine not working"])
-    manager.insert_row("Complaints", ["vending_machine_id", "text"], [3, "Wrong item dispensed"])
 
     create_table_sql = """
         CREATE TABLE IF NOT EXISTS Comments (
