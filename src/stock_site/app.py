@@ -1,9 +1,20 @@
+""" 
+Module for the Flask application.
+
+This module provides an API endpoint for retrieving stock information about products and their associated vending machines.
+
+Author: Lavinia Dias
+
+Date: 23/10/2024
+"""
+
+
 from flask import Flask, jsonify, render_template
-from stock_profile import StockProfile  # Importando a classe StockProfile
+from stock_profile import StockProfile  
 
 app = Flask(__name__)
 
-# Configurações de banco de dados
+# Database configuration
 db_config = {
     "host": "localhost",
     "user": "root",
@@ -13,16 +24,21 @@ db_config = {
 
 @app.route('/')
 def index():
-    """Renderiza a página principal de informações de estoque."""
+    """
+    Render the home page.
+
+    Returns:
+        render_template: Template for the home page.
+    """
     return render_template('stock.html')
 
 @app.route('/get_stock_info', methods=['GET'])
 def get_stock_info():
     """
-    Endpoint da API para recuperar informações de estoque.
+    Endpoint for retrieving stock information about products and their associated vending machines.
 
-    Retorna:
-        jsonify: Resposta JSON contendo informações de estoque de todos os produtos.
+    Returns:
+        jsonify: JSON response containing stock information.
     """
     stock_profile = StockProfile(**db_config)  # Usando a classe importada
     stock_info = stock_profile.get_stock_info()

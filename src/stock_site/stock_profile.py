@@ -37,13 +37,13 @@ class StockProfile:
             password (str): The MySQL user's password.
             database (str): The name of the MySQL database to connect to.
         """
-        self.connection = mysql.connector.connect(
+        self.__connection = mysql.connector.connect(
             host=host,
             user=user,
             password=password,
             database=database
         )
-        self.cursor = self.connection.cursor()
+        self.__cursor = self.__connection.cursor()
 
     def get_stock_info(self):
         """
@@ -66,8 +66,8 @@ class StockProfile:
         JOIN 
             VendingMachines AS vm ON p.vending_machine_id = vm.id
         """
-        self.cursor.execute(query)
-        stock_info = self.cursor.fetchall()
+        self.__cursor.execute(query)
+        stock_info = self.__cursor.fetchall()
         
         return [
             {
@@ -83,8 +83,8 @@ class StockProfile:
 
     def close(self):
         """Closes the database connection."""
-        self.cursor.close()
-        self.connection.close()
+        self.__cursor.close()
+        self.__connection.close()
 
 
 if __name__ == "__main__":
