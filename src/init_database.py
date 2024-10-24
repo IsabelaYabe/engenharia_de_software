@@ -135,8 +135,6 @@ def show_users():
 
     
 
-
-
 def show_vms():
     """
     Retrieves all vending machines from the database.

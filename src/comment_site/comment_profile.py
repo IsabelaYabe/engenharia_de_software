@@ -48,7 +48,7 @@ class CommentProfile:
             comment_id (str): The ID of the newly created comment.
         """
         # if the comment is empty, raise an error
-        if not text:
+        if not text or not text.strip():
             raise ValueError("Comment cannot be empty.")
         # if the comment contains banned words, raise an error
         if contains_banned_words(text):

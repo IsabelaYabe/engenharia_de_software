@@ -64,10 +64,16 @@ document.getElementById('submit-comment').addEventListener('click', function () 
             alert('Comment added successfully!');
             fetchComments(productId);  // Reload comments
         } else {
-            alert('Failed to add comment.');
+            alert('Failed to add comment: ' + data.error);
         }
     })
     .catch((error) => {
         console.error('Error:', error);
     });
+});
+
+// Update the coment section when the product is changed
+document.getElementById('product-id').addEventListener('change', function () {
+    const productId = document.getElementById('product-id').value;
+    fetchComments(productId);
 });
