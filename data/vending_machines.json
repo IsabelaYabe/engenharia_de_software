@@ -1,0 +1,28 @@
+{
+    "vm1": {
+        "id": "vm1",
+        "name": "Vending Machine 1",
+        "owner_id": "owner1",
+        "location": "Building A, Floor 1",
+        "products": [
+            {
+                "id": "item1",
+                "name": "Soda",
+                "price": 1.50,
+                "quantity": 20
+            },
+            {
+                "id": "item2",
+                "name": "Chips",
+                "price": 1.00,
+                "quantity": 15
+            },
+            {
+                "id": "item3",
+                "name": "Candy",
+                "price": 0.75,
+                "quantity": 30
+            }
+        ]
+    }
+}
