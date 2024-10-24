@@ -76,23 +76,23 @@ def init_database():
     manager.insert_row("Products", ["name", "price", "quantity", "vending_machine_id"], ["Chocolate", 2.0, 15, 2])
 
     create_table_sql = """
-    CREATE TABLE IF NOT EXISTS Complaints (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        vending_machine_id INT NOT NULL,
-        user_id INT NOT NULL,  -- Adiciona a coluna user_id
-        text TEXT NOT NULL,
-        FOREIGN KEY (vending_machine_id) REFERENCES VendingMachines(id),
-        FOREIGN KEY (user_id) REFERENCES Users(id)  -- Adiciona a chave estrangeira para user_id
-    )
+        CREATE TABLE IF NOT EXISTS Complaints (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            vending_machine_id INT,
+            user_id INT NOT NULL,
+            text TEXT NOT NULL,
+            FOREIGN KEY (vending_machine_id) REFERENCES VendingMachines(id),
+            FOREIGN KEY (user_id) REFERENCES Users(id)
+        )
     """
 
     manager.create_table(create_table_sql)
 
-    # Insere reclamações associadas a usuários
-    manager.insert_row("Complaints", ["vending_machine_id", "user_id", "text"], [1, 1, "Out of stock"])
-    manager.insert_row("Complaints", ["vending_machine_id", "user_id", "text"], [2, 2, "Machine not working"])
-    manager.insert_row("Complaints", ["vending_machine_id", "user_id", "text"], [3, 3, "Wrong item dispensed"])
+    manager.insert_row("Complaints", ["vending_machine_id", "user_id", "text"], [1, 1, "The vending machine is broken."])
+    manager.insert_row("Complaints", ["vending_machine_id", "user_id", "text"], [1, 2, "The vending machine is slow."])
+
+
 
     create_table_sql = """
         CREATE TABLE IF NOT EXISTS Comments (
@@ -219,6 +219,7 @@ def show_complaints():
     print()
     for complaint in complaints:
         print(complaint)
+
     
 
 def drop_database():

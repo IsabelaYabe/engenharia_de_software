@@ -1,6 +1,6 @@
 document.getElementById('submit-complaint').addEventListener('click', function () {
     const vendingMachineId = document.getElementById('vending-machine-id').value;
-    const userId = document.getElementById('user-id').value;  // Adiciona o campo user_id
+    const userId = document.getElementById('user-id').value;  
     const complaintText = document.getElementById('complaint-text').value;
 
     if (!vendingMachineId || !userId || !complaintText) {

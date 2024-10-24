@@ -16,7 +16,7 @@ def load_banned_words():
     """
     with open(os.path.join(os.path.dirname(__file__), 'banned_words.json')) as f:
         banned_words = json.load(f)
-    return banned_words
+    return banned_words["banned_words"]
 
 banned_words = load_banned_words()
 
@@ -30,7 +30,8 @@ def contains_banned_words(text):
         bool: True if the text contains banned words, False otherwise.
        
     """
-    for word in text.lower():
+    words = text.lower().split() 
+    for word in words:
         if word in banned_words:
             return True
     return False

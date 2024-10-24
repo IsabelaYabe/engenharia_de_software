@@ -45,14 +45,5 @@ def get_complaints(vending_machine_id):
     complaints = complaint_manager.get_complaints_by_vending_machine(vending_machine_id)
     return jsonify(complaints)
 
-# Nova rota para verificar palavras banidas (mantendo a mesma lógica)
-@app.route('/check_banned_words', methods=['POST'])
-def check_banned_words():
-    data = request.json
-    text = data['text']
-    
-    contains_banned = contains_banned_words(text)
-    return jsonify({"contains_banned_words": contains_banned})
-
 if __name__ == '__main__':
     app.run(debug=True)

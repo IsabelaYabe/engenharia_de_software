@@ -1,6 +1,8 @@
 '''
     This module contains the Complaint class, which is responsible for managing complaints in the database.
 
+    Author: Lavinia Dias
+
     Requires:
     - mysql.connector
 
@@ -9,8 +11,6 @@ import mysql.connector
 import os
 import sys
 from datetime import datetime
-
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from utils import contains_banned_words
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from database_manager import DatabaseManager
@@ -18,13 +18,13 @@ from database_manager import DatabaseManager
 
 class Complaint:
     def __init__(self, host, user, password, database):
-        self.connection = mysql.connector.connect(
+        self.__connection = mysql.connector.connect(
             host=host,
             user=user,
             password=password,
             database=database
         )
-        self.cursor = self.connection.cursor()
+        self.__cursor = self.__connection.cursor()
 
     def __create_table(self):
         """
@@ -55,7 +55,7 @@ class Complaint:
             complaint_id (int): The ID of the newly created complaint.
         """
         # If the complaint is empty, raise an error
-        if not text:
+        if not text or text.strip() == "":
             raise ValueError("Complaint cannot be empty.")
         # If the complaint contains banned words, raise an error
         if contains_banned_words(text):
@@ -65,9 +65,9 @@ class Complaint:
         INSERT INTO Complaints (timestamp, vending_machine_id, text, user_id)
         VALUES (%s, %s, %s, %s)
         """
-        self.cursor.execute(query, (self._get_current_timestamp(), vending_machine_id, text, user_id))
-        self.connection.commit()
-        return self.cursor.lastrowid
+        self.__cursor.execute(query, (self._get_current_timestamp(), vending_machine_id, text, user_id))
+        self.__connection.commit()
+        return self.__cursor.lastrowid
     
 
 
@@ -82,16 +82,16 @@ class Complaint:
             complaints (list): A list of dictionaries containing the details of the complaints.
         """
         query = "SELECT * FROM Complaints WHERE vending_machine_id = %s"
-        self.cursor.execute(query, (vending_machine_id,))
-        complaints = self.cursor.fetchall()
+        self.__cursor.execute(query, (vending_machine_id,))
+        complaints = self.__cursor.fetchall()
         
         return [
             {
                 'complaint_id': complaint[0],
-                'vending_machine_id': complaint[2],  # Change: Index updated
-                'user_id': complaint[4],  # Change: Index updated
-                'text': complaint[3],                 # Change: Index updated
-                'timestamp': complaint[1].strftime('%Y-%m-%d %H:%M:%S') if isinstance(complaint[1], datetime) else complaint[1]  # Change: Index updated
+                'vending_machine_id': complaint[2],  
+                'user_id': complaint[4],  
+                'text': complaint[3],                
+                'timestamp': complaint[1].strftime('%Y-%m-%d %H:%M:%S') if isinstance(complaint[1], datetime) else complaint[1]  
             }
             for complaint in complaints
         ]
@@ -107,15 +107,15 @@ class Complaint:
             complaint (dict): A dictionary containing the details of the complaint.
         """
         query = "SELECT * FROM Complaints WHERE id = %s"
-        self.cursor.execute(query, (complaint_id,))
-        complaint = self.cursor.fetchone()
+        self.__cursor.execute(query, (complaint_id,))
+        complaint = self.__cursor.fetchone()
         if complaint:
             return {
                 'complaint_id': complaint[0],
-                'vending_machine_id': complaint[2],  # Change: Index updated
-                'user_id': complaint[4],  # Change: Index updated
-                'text': complaint[3],                 # Change: Index updated
-                'timestamp': complaint[1].strftime('%Y-%m-%d %H:%M:%S') if isinstance(complaint[1], datetime) else complaint[1]  # Change: Index updated
+                'vending_machine_id': complaint[2], 
+                'user_id': complaint[4],  
+                'text': complaint[3],                
+                'timestamp': complaint[1].strftime('%Y-%m-%d %H:%M:%S') if isinstance(complaint[1], datetime) else complaint[1] 
             }
         else:
             return None
@@ -132,8 +132,8 @@ class Complaint:
         FROM Complaints c
         JOIN Users u ON c.user_id = u.id
         """
-        self.cursor.execute(query)
-        complaints = self.cursor.fetchall()
+        self.__cursor.execute(query)
+        complaints = self.__cursor.fetchall()
 
         return [
             {
@@ -155,8 +155,8 @@ class Complaint:
             complaint_id (int): The ID of the complaint to delete.
         """
         query = "DELETE FROM Complaints WHERE id = %s"
-        self.cursor.execute(query, (complaint_id,))
-        self.connection.commit()
+        self.__cursor.execute(query, (complaint_id,))
+        self.__connection.commit()
 
     def _get_current_timestamp(self):
         """
