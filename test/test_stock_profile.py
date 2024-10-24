@@ -3,7 +3,7 @@ from unittest.mock import patch, MagicMock
 import sys
 import os
 sys.path.append(os.path.abspath('src/stock_site'))
-from stock_profile import StockProfile
+from profiles.stock_profile import StockProfile
 
 class TestStockProfile(unittest.TestCase):
     

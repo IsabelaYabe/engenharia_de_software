@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, render_template
-from stock_profile import StockProfile  
+from profiles.stock_profile import StockProfile
+from profiles.vms_profile import VMProfile
 
 app = Flask(__name__)
 
@@ -34,6 +35,23 @@ def get_stock_info():
     stock_info = stock_profile.get_stock_info()
     stock_profile.close()
     return jsonify(stock_info)
+
+@app.route('/vms')
+def vms():
+    """
+    Render the vending machines page.
+    """
+    return render_template('vms.html')
+
+@app.route('/get_vm_info', methods=['GET'])
+def get_vm_info():
+    """
+    Endpoint for retrieving vending machine information.
+    """
+    vm_profile = VMProfile(**db_config)
+    vm_info = vm_profile.get_vm_info()
+    vm_profile.close()
+    return jsonify(vm_info)
 
 if __name__ == "__main__":
     app.run(debug=True)
