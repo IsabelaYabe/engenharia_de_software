@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>App</title>
+    <meta name="keywords" content="vending_machine, 1">
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function displayParam() {
+            const paramValue = getQueryParam('machine_id');
+            if (paramValue) {
+                document.getElementById('paramDisplay').innerText = paramValue;
+            }
+        }
+    </script>
+</head>
+<body onload="displayParam()">
+    <h1>VM 1</h1>
+    <p>VM 1 info</p>
+
+    <h2>Products</h2>
+    <ul>
+        <li>Item 1
+            <ul>
+                <li>Subitem 1</li>
+                <li>Subitem 2</li>
+            </ul>
+        </li>
+        <li>Item 2
+            <ul>
+                <li>Subitem 1</li>
+                <li>Subitem 2</li>
+            </ul>
+        </li>
+        <li>Item 3
+            <ul>
+                <li>Subitem 1</li>
+                <li>Subitem 2</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Parameter Value</h2>
+    <p id="paramDisplay">No parameter provided</p>
+</body>
+</html>
