@@ -22,12 +22,32 @@
         th {
             background-color: #f2f2f2;
         }
+        .button-container {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>Stock Profile</h1>
+
+    <!-- Home button -->
+    <div class="button-container">
+        <button onclick="window.location.href='/'">Home</button>
+    </div>
 
     <table>
         <thead>

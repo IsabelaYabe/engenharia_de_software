@@ -10,16 +10,10 @@
 import mysql.connector
 from database_manager import DatabaseManager
 
-def init_database():
+def init_database(db_config):
     """
     Initializes the database by creating the necessary tables and inserting mock data.
     """
-    db_config = {
-        "host": "localhost",
-        "user": "root",
-        "password": "nova_senha",
-        "database": "my_database"
-    }
 
     manager = DatabaseManager(**db_config)
 
@@ -136,16 +130,10 @@ def init_database():
     print("Database initialized with mock data.")
 
 
-def show_vms():
+def show_vms(db_config):
     """
     Retrieves all vending machines from the database.
     """
-    db_config = {
-        "host": "localhost",
-        "user": "root",
-        "password": "nova_senha",
-        "database": "my_database"
-    }
 
     manager = DatabaseManager(**db_config)
     cols = manager.get_cols("VMs")
@@ -157,16 +145,10 @@ def show_vms():
     for vm in vms:
         print(vm)
 
-def show_products():
+def show_products(db_config):
     """
     Retrieves all products from the database.
     """
-    db_config = {
-        "host": "localhost",
-        "user": "root",
-        "password": "nova_senha",
-        "database": "my_database"
-    }
 
     manager = DatabaseManager(**db_config)
     cols = manager.get_cols("Products")
@@ -178,16 +160,10 @@ def show_products():
     for product in products:
         print(product)
 
-def show_complaints():
+def show_complaints(db_config):
     """
     Retrieves all complaints from the database.
     """
-    db_config = {
-        "host": "localhost",
-        "user": "root",
-        "password": "nova_senha",
-        "database": "my_database"
-    }
 
     manager = DatabaseManager(**db_config)
     cols = manager.get_cols("Complaints")
@@ -199,16 +175,10 @@ def show_complaints():
     for complaint in complaints:
         print(complaint)
 
-def show_comments():
+def show_comments(db_config):
     """
     Retrieves all comments from the database.
     """
-    db_config = {
-        "host": "localhost",
-        "user": "root",
-        "password": "nova_senha",
-        "database": "my_database"
-    }
 
     manager = DatabaseManager(**db_config)
     cols = manager.get_cols("Comments")
@@ -221,16 +191,10 @@ def show_comments():
         print(comment)
     
 
-def drop_database():
+def drop_database(db_config):
     """
     Drops the database.
     """
-    db_config = {
-        "host": "localhost",
-        "user": "root",
-        "password": "nova_senha",
-        "database": "my_database"
-    }
 
     manager = DatabaseManager(**db_config)
     manager.delete_table("Complaints")
@@ -256,10 +220,10 @@ def drop_database():
 
 
 if __name__ == "__main__":
-    drop_database()
-    init_database()
-    show_vms()
-    show_products()
-    show_complaints()
-    show_comments()
-    drop_database()
+    db_config = {
+        "host": "localhost",
+        "user": "root",
+        "password": "Alacazumba123*",
+        "database": "my_database"
+    }
+    init_database(db_config)

@@ -55,16 +55,16 @@ class StockProfile:
         """
         query = """
         SELECT 
-            p.id AS product_id, 
-            p.name AS product_name, 
-            p.price AS product_price,
-            p.quantity AS product_quantity,
-            p.vending_machine_id AS vending_machine_id,
-            vm.name AS vending_machine_name
+            p.ProductID AS product_id, 
+            p.Name AS product_name, 
+            p.Price AS product_price,
+            p.Quantity AS product_quantity,
+            p.VMID AS vending_machine_id,
+            vm.Name AS vending_machine_name
         FROM 
             Products AS p
         JOIN 
-            VendingMachines AS vm ON p.vending_machine_id = vm.id
+            VMs AS vm ON p.VMID = vm.VMID
         """
         self.__cursor.execute(query)
         stock_info = self.__cursor.fetchall()

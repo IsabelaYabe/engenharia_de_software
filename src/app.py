@@ -1,14 +1,3 @@
-""" 
-Module for the Flask application.
-
-This module provides an API endpoint for retrieving stock information about products and their associated vending machines.
-
-Author: Lavinia Dias
-
-Date: 23/10/2024
-"""
-
-
 from flask import Flask, jsonify, render_template
 from stock_profile import StockProfile  
 
@@ -25,10 +14,14 @@ db_config = {
 @app.route('/')
 def index():
     """
-    Render the home page.
+    Render the home page with buttons to other pages.
+    """
+    return render_template('index.html')
 
-    Returns:
-        render_template: Template for the home page.
+@app.route('/stock')
+def stock():
+    """
+    Render the stock page.
     """
     return render_template('stock.html')
 
@@ -36,11 +29,8 @@ def index():
 def get_stock_info():
     """
     Endpoint for retrieving stock information about products and their associated vending machines.
-
-    Returns:
-        jsonify: JSON response containing stock information.
     """
-    stock_profile = StockProfile(**db_config)  # Usando a classe importada
+    stock_profile = StockProfile(**db_config)
     stock_info = stock_profile.get_stock_info()
     stock_profile.close()
     return jsonify(stock_info)
