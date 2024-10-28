@@ -18,6 +18,22 @@ def init_database(db_config):
     manager = DatabaseManager(**db_config)
 
     create_table_sql = """
+    CREATE TABLE IF NOT EXISTS Users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL
+    )
+    """
+
+    manager.create_table(create_table_sql)
+
+    manager.insert_row("Users", ["name", "email", "password"], ["Alice", "Alice@gmail.com", "123456"])
+    manager.insert_row("Users", ["name", "email", "password"], ["Bob", "Bob@gmail.com", "123456"])
+    manager.insert_row("Users", ["name", "email", "password"], ["Charlie", "Charlie@gmail.com", "123456"])
+
+
+    create_table_sql = """
     CREATE TABLE IF NOT EXISTS Owner
         (
         OwnerID INT AUTO_INCREMENT,
@@ -130,6 +146,21 @@ def init_database(db_config):
     print("Database initialized with mock data.")
 
 
+def show_users(db_config):
+    """
+    Retrieves all users from the database.
+    """
+
+    manager = DatabaseManager(**db_config)
+    cols = manager.get_cols("Users")
+    users = manager.get_all("Users")
+    print("Users:")
+    for col in cols:
+        print(col[0], end=" ")
+    print()
+    for user in users:
+        print(user)
+    
 def show_vms(db_config):
     """
     Retrieves all vending machines from the database.
