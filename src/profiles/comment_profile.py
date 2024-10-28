@@ -78,9 +78,9 @@ class CommentProfile:
         return [
         {
             'CommentID': comment[0],  # id
-            'ProductID': comment[2],  # product_id
-            'UserID': comment[3],     # user_id
-            'Text': comment[4],        # text
+            'ProductID': comment[3],  # product_id
+            'UserID': comment[4],     # user_id
+            'Text': comment[2],        # text
             'Timestamp': comment[1]    # timestamp
         }
         for comment in comments

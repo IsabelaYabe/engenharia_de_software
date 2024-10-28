@@ -11,8 +11,8 @@ function fetchComments(productId) {
                 comments.forEach(comment => {
                     const commentDiv = document.createElement('div');
                     commentDiv.innerHTML = `
-                        <p><strong>User ${comment.user_id}:</strong> ${comment.text}</p>
-                        <p><em>Posted on ${comment.timestamp}</em></p>
+                        <p><strong>User ${comment.UserID}:</strong> ${comment.Text}</p>
+                        <p><em>Posted on ${comment.Timestamp}</em></p>
                     `;
                     commentsSection.appendChild(commentDiv);
                 });
