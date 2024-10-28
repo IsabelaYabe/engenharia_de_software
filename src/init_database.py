@@ -123,12 +123,12 @@ def init_database(db_config):
     create_table_sql = """
     CREATE TABLE IF NOT EXISTS Comments
         (
-        ComentID INT AUTO_INCREMENT,
+        CommentID INT AUTO_INCREMENT,
         Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         Text VARCHAR(250) NOT NULL,
         ProductID INT NOT NULL,
         UserID INT NOT NULL,
-        PRIMARY KEY (ComentID),
+        PRIMARY KEY (CommentID),
         FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
         FOREIGN KEY (UserID) REFERENCES User(UserID)
         );
@@ -257,4 +257,10 @@ if __name__ == "__main__":
         "password": "Alacazumba123*",
         "database": "my_database"
     }
+    drop_database(db_config)
     init_database(db_config)
+    show_users(db_config)
+    show_vms(db_config)
+    show_products(db_config)
+    show_complaints(db_config)
+    show_comments(db_config)

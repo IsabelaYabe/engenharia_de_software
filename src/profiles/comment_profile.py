@@ -24,13 +24,14 @@ class CommentProfile:
         """
         create_table_sql = """
         CREATE TABLE IF NOT EXISTS Comments (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            product_id INT NOT NULL,
-            user_id INT NOT NULL,
-            text TEXT NOT NULL,
-            FOREIGN KEY (product_id) REFERENCES Products(id),
-            FOREIGN KEY (user_id) REFERENCES Users(id)
+            CommentID INT AUTO_INCREMENT PRIMARY KEY,
+            Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            Text TEXT NOT NULL,
+            ProductID INT NOT NULL,
+            UserID INT NOT NULL,
+            PRIMARY KEY (CommentID),
+            FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
+            FOREIGN KEY (UserID) REFERENCES User(UserID)
         )
     """
         self.create_table(create_table_sql)
@@ -54,7 +55,7 @@ class CommentProfile:
         if contains_banned_words(text):
             raise ValueError("Comment contains banned words.")
 
-        query = "INSERT INTO comments (product_id, user_id, text, timestamp) VALUES (%s, %s, %s, %s)"
+        query = "INSERT INTO Comments (ProductID, UserID, Text, Timestamp) VALUES (%s, %s, %s, %s)"
         self.cursor.execute(query, (product_id, user_id, text, self._get_current_timestamp()))
         self.connection.commit()
         return self.cursor.lastrowid
@@ -69,18 +70,18 @@ class CommentProfile:
         Returns:
             comments (list): A list of dictionaries containing the details of the comments.
         """
-        query = "SELECT * FROM comments WHERE product_id = %s"
+        query = "SELECT * FROM Comments WHERE ProductID = %s"
         self.cursor.execute(query, (product_id,))
         comments = self.cursor.fetchall()
         
         # Verifica se o tipo do campo `timestamp` é datetime, e faz a formatação adequadamente
         return [
         {
-            'comment_id': comment[0],  # id
-            'product_id': comment[2],  # product_id
-            'user_id': comment[3],     # user_id
-            'text': comment[4],        # text
-            'timestamp': comment[1]    # timestamp
+            'CommentID': comment[0],  # id
+            'ProductID': comment[2],  # product_id
+            'UserID': comment[3],     # user_id
+            'Text': comment[4],        # text
+            'Timestamp': comment[1]    # timestamp
         }
         for comment in comments
     ]
@@ -97,16 +98,16 @@ class CommentProfile:
         Returns:
             comment (dict): A dictionary containing the details of the comment.
         """
-        query = "SELECT * FROM comments WHERE comment_id = %s"
+        query = "SELECT * FROM Comments WHERE CommentID = %s"
         self.cursor.execute(query, (comment_id,))
         comment = self.cursor.fetchone()
         if comment:
             return {
-                'comment_id': comment[0],
-                'product_id': comment[1],
-                'user_id': comment[2],
-                'text': comment[3],
-                'timestamp': comment[4]
+                'CommentID': comment[0],
+                'ProductID': comment[1],
+                'UserID': comment[2],
+                'Text': comment[3],
+                'Timestamp': comment[4]
             }
         else:
             return None
@@ -118,7 +119,7 @@ class CommentProfile:
         Parameters:
             comment_id (str): The ID of the comment to delete.
         """
-        query = "DELETE FROM comments WHERE comment_id = %s"
+        query = "DELETE FROM Comments WHERE CommentID = %s"
         self.cursor.execute(query, (comment_id,))
         self.connection.commit()
 
@@ -132,6 +133,13 @@ class CommentProfile:
         """
         from datetime import datetime
         return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    
+    def close(self):
+        """
+        Closes the database connection.
+        """
+        self.cursor.close()
+        self.connection.close()
 
 
 if __name__ == "__main__":
