@@ -19,7 +19,7 @@ def init_database():
         "host": "localhost",
         "user": "root",
         "password": "Alacazumba123*",
-        "database": "my_database",
+        "database": "my_database"
     }
 
     manager = DatabaseManager(**db_config)
@@ -74,7 +74,6 @@ def init_database():
     manager.insert_row("Products", ["name", "price", "quantity", "vending_machine_id"], ["Pepsi", 2.5, 10, 1])
     manager.insert_row("Products", ["name", "price", "quantity", "vending_machine_id"], ["Chips", 1.5, 20, 2])
     manager.insert_row("Products", ["name", "price", "quantity", "vending_machine_id"], ["Chocolate", 2.0, 15, 2])
-
 
 
     create_table_sql = """
@@ -222,7 +221,7 @@ def drop_database():
 
 
 if __name__ == "__main__":
-    init_database()
+    #init_database()
     show_vms()
     show_products()
     show_users()
