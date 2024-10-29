@@ -56,6 +56,16 @@ def get_vm_info():
     vm_profile.close()
     return jsonify(vm_info)
 
+@app.route('/get_vm_products/<int:vm_id>', methods=['GET'])
+def get_vm_products(vm_id):
+    """
+    Endpoint for retrieving vending machine products.
+    """
+    vm_profile = VMProfile(**db_config)
+    vm_products = vm_profile.get_vm_products(vm_id)
+    vm_profile.close()
+    return jsonify(vm_products)
+
 @app.route('/comment')
 def comment():
     """

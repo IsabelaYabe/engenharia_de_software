@@ -8,56 +8,45 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
+        margin: 20px;
     }
-
-    h1 {
+    table {
+        width: 100%;
+        border-collapse: collapse;
         margin-bottom: 20px;
     }
-
-    div {
-        margin-bottom: 10px;
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
     }
-
-    label {
-        margin-right: 10px;
+    th {
+        background-color: #f2f2f2;
     }
-
-    textarea {
-        resize: none;
+    .button-container {
+        margin-bottom: 20px;
     }
-
     button {
         padding: 10px 20px;
+        font-size: 16px;
         background-color: #4CAF50;
         color: white;
         border: none;
         cursor: pointer;
+        border-radius: 5px;
     }
-
     button:hover {
         background-color: #45a049;
-    }
-
-    #comments-section {
-        border: 1px solid #ccc;
-        padding: 10px;
-        width: 100%;
-        max-width: 600px;
-        height: 200px;
-        overflow-y: scroll;
-        margin-top: 20px;
     }
 </style>
 <body>
     <h1>Product Comments</h1>
-    
+
+    <!-- Home button -->
+    <div class="button-container">
+        <button onclick="window.location.href='/'">Home</button>
+    </div>
+
     <div>
         <label for="product-id">Select Product ID:</label>
         <input type="number" id="product-id" placeholder="Enter product ID">

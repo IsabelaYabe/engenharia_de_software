@@ -69,6 +69,40 @@ class VMProfile:
             }
             for row in vm_info
         ]
+    
+    def get_vm_products(self, vm_id):
+        """
+        Retrieves the vending machine products from the database.
+
+        Args:
+            vm_id (int): The vending machine ID.
+
+        Returns:
+            list[dict]: A list of dictionaries containing the vending machine products.
+        """
+        query = """
+        SELECT 
+            p.ProductID,
+            p.Name,
+            p.Price,
+            p.Quantity
+        FROM 
+            Products as p
+        WHERE
+            p.VMID = %s
+        """
+        self.__cursor.execute(query, (vm_id,))
+        vm_products = self.__cursor.fetchall()
+
+        return [
+            {
+                "ProductID": row[0],
+                "Name": row[1],
+                "Price": row[2],
+                "Quantity": row[3]
+            }
+            for row in vm_products
+        ]
 
     def close(self):
         """Closes the database connection."""
