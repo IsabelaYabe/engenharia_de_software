@@ -121,21 +121,24 @@ mysql -u root -p
 ```
 Em seguida, insira a senha Alacazumba123* quando solicitado.
 
-## 5. Crie o banco de dados
+## 5. Instalar dependências do projeto
 
-Após acessar o MySQL, execute o comando para criar o banco my_database
-```sql
-CREATE DATABASE my_database;
+```bash
+pip install -r requirements.txt
 ```
+
+## 6. Crie o banco de dados
+
+Após acessar o MySQL, execute o arquivo 'init_database.py', localizado na pasta \src. Rode de fora da pasta \src.
 
 ---
 
-## 6. Recursos Adicionais
+## 7. Recursos Adicionais
 
 - [Documentação Oficial do MySQL](https://dev.mysql.com/doc/)
 - [MySQL Workbench](https://www.mysql.com/products/workbench/)
 
-# 7. Como executar o código
+## 8. Como executar o código
 
 Execute o arquivo 'app.py', localizado na pasta \src. Rode de fora da pasta \src.
 
