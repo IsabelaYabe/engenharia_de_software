@@ -142,7 +142,7 @@ Após acessar o MySQL, execute o arquivo 'init_database.py', localizado na pasta
 
 Execute o arquivo 'app.py', localizado na pasta \src. Rode de fora da pasta \src.
 
-No promnpt, será indicada a inicialização do servidor flask, e constará uma porta.
+No prompt, será indicada a inicialização do servidor flask, e constará uma porta.
 
 Acesse a porta para visualizar uma página navegável que permite ver o estoque, comentários e as vending machines.
 
