@@ -1,18 +1,10 @@
-<!--
-    This HTML file represents a simple product page designed to display the details of a product such as
-    name, description, price, quantity, and product ID. The structure is composed of a product container
-    that displays product information within HTML <span> elements, which will be populated dynamically 
-    using JavaScript (from the 'get_product.js' script).
-
-    Author: Isabela Yabe
--->
-
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Name</title>
+    <title>Product Details</title>
 </head>
 <body>
     <div class="product-container">
@@ -23,6 +15,8 @@
     </div>
     <!-- Mensagem de erro se o produto não for encontrado -->
     <p id="error-message" style="color: red; display: none;">Product not found</p>
+
+    <!-- Inclua o script com type="module" -->
+    <script type="module" src="test_get_product.js"></script>
 </body>
-<script src="get_product.js"></script>
 </html>

@@ -1,5 +1,5 @@
 """
-    Module for DatabaseManager class.
+    Module for DatabaseManager abstractmethod class.
 
     This module provides a class for managing a single MySQL table in a database.
 
@@ -9,14 +9,17 @@
         - mysql.connector
         - flask
         - jsonify
+
+    Last Modified: 28/10/2024
+
 """
 
 from flask import Flask, jsonify, request
-import uuid
+from abc import ABC, abstractmethod
 import mysql.connector
 
 
-class DatabaseManager:
+class DatabaseManager(ABC):
     """
     DatabaseManager class.
     
@@ -55,8 +58,8 @@ class DatabaseManager:
             "password": password,
             "database": database
         }
-        self.table_name = table_name
-        self.app = Flask(__name__)
+        self._table_name = table_name
+        self._app = Flask(__name__)
 
         @self.app.route(f"/api/{self.table_name}/<record_id>", methods=["GET"])
         def get_record(record_id):
@@ -69,9 +72,11 @@ class DatabaseManager:
         Returns:
             conn: A MySQL database connection object.
         """
-        return mysql.connector.connect(**self._db_config)
+        # Aqui estamos nos conectando a base de dados com as configurações passadas no inicializador
+        return mysql.connector.connect(**self._db_config) 
 
-    def _create_table(self, create_table_sql):
+    @abstractmethod
+    def _create_table(self, create_table_sql): # create_table_sql (aqui passamos a query que queremos executar)
         """
         Creates the table in the MySQL database with the provided SQL statement.
 
@@ -84,7 +89,7 @@ class DatabaseManager:
         conn.commit()
         cursor.close()
         conn.close()
-
+ 
     def _modify_column(self, old_column_name, new_column_name):
         """
         Modifies a column name in the managed table.
@@ -95,7 +100,7 @@ class DatabaseManager:
         """
         conn = self._connect()
         cursor = conn.cursor()
-        alter_table_sql = f"ALTER TABLE {self.table_name} CHANGE {old_column_name} {new_column_name};"
+        alter_table_sql = f"ALTER TABLE {self.table_name} RENAME COLUMN {old_column_name} TO {new_column_name};"
         cursor.execute(alter_table_sql)
         conn.commit()
         cursor.close()
@@ -111,11 +116,10 @@ class DatabaseManager:
         conn = self._connect()
         cursor = conn.cursor()
         delete_sql = f"DELETE FROM {self.table_name} WHERE id = %s;"
-        cursor.execute(delete_sql, (row_id,))
+        cursor.execute(delete_sql, (row_id))
         conn.commit()
         cursor.close()
         conn.close()
-
 
     def _delete_table(self):
         """
@@ -147,30 +151,24 @@ class DatabaseManager:
         cursor.close()
         conn.close()
 
-    def _update_row(self, column_values, condition):
-        """
-        Updates specific columns with the provided values based on a condition.
-
-        Parameters:
-            column_values (dict): A dictionary with column names as keys and the updated values as values.
-            condition (str): The condition to select the row(s) to be updated (e.g., "id = %s").
-
-        Returns:
-            None
-        """
-        conn = self._connect()
+    @abstractmethod
+    def _update_row(self, dict_update, id_row):
+        conn = self.__connect()
         cursor = conn.cursor()
 
-        updates = ", ".join([f"{column} = %s" for column in column_values.keys()])
-        values = tuple(column_values.values())
-
-        update_sql = f"UPDATE {self.table_name} SET {updates} WHERE {condition};"
+        arguments = []
+        for value, key in dict_update.items():
+            arguments.append(f"{value} =  '{key}', ")
+        arguments =  str(arguments[:-1])
+        query = f"UPDATE {self.table_name} SET {dict_update.key} WHERE {self._table_name[:-1]}ID = {id_row};"
         
-        cursor.execute(update_sql, values)
+        cursor.execute(query)
         conn.commit()
         cursor.close()
-        conn.close()
+        conn.close()        
+      
 
+    @abstractmethod
     def _get_by_id(self, record_id, id_column="id"):
         """
         Retrieves a record by its ID from the database.
@@ -186,13 +184,13 @@ class DatabaseManager:
         cursor = conn.cursor()
         
         query = f"SELECT * FROM {self.table_name} WHERE {id_column} = %s"
-        cursor.execute(query, (record_id,))
+        cursor.execute(query, (record_id))
         record = cursor.fetchone()
         cursor.close()
         conn.close()
     
         if record:
-            return {f"{id_column}": record[0]} # Adapt for each subclass
+            return {f"{id_column}": record[0]}
         return None
     
     def get_record_api(self, record_id):
@@ -202,10 +200,10 @@ class DatabaseManager:
         record = self._get_by_id(record_id)
         
         if record:
-            return jsonify(record), 200  # Return record details as JSON
+            return jsonify(record), 200 
         else:
-            return jsonify({"error": "Record not found"}), 404  # Record not found error
-
+            return jsonify({"error": "Record not found"}), 404 
+    
     def run(self):
         """
         Run the Flask app.

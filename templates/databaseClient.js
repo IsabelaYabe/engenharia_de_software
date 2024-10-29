@@ -1,7 +1,7 @@
 // databaseClient.js
 
 // Definir a URL base do servidor Flask
-const baseUrl = 'http://localhost:5000'; 
+const baseUrl = 'http://localhost:8000'; 
 
 // Importar a classe DatabaseManagerClient
 const DatabaseManagerClient = require('./DatabaseManagerClient');
