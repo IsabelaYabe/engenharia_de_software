@@ -15,7 +15,10 @@
 
 import unittest
 from unittest.mock import patch, MagicMock
-from src.database_manager import DatabaseManager  
+import sys
+sys.path.append("../src")
+sys.path.append("../src/profiles")
+from database_manager import DatabaseManager  
 
 
 class TestDatabaseManager(unittest.TestCase):

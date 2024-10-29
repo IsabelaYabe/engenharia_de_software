@@ -2,8 +2,8 @@ import unittest
 from unittest.mock import patch, MagicMock
 import sys
 import os
-sys.path.append(os.path.abspath('src/stock_site'))
-from profiles.stock_profile import StockProfile
+sys.path.append(os.path.abspath('src/profiles'))
+from stock_profile import StockProfile
 
 class TestStockProfile(unittest.TestCase):
     
@@ -56,16 +56,16 @@ class TestStockProfile(unittest.TestCase):
         # Ensure the correct SQL query was executed
         self.mock_cursor.execute.assert_called_once_with("""
         SELECT 
-            p.id AS product_id, 
-            p.name AS product_name, 
-            p.price AS product_price,
-            p.quantity AS product_quantity,
-            p.vending_machine_id AS vending_machine_id,
-            vm.name AS vending_machine_name
+            p.ProductID AS product_id, 
+            p.Name AS product_name, 
+            p.Price AS product_price,
+            p.Quantity AS product_quantity,
+            p.VMID AS vending_machine_id,
+            vm.Name AS vending_machine_name
         FROM 
             Products AS p
         JOIN 
-            VendingMachines AS vm ON p.vending_machine_id = vm.id
+            VMs AS vm ON p.VMID = vm.VMID
         """)
     
     def test_close(self):
