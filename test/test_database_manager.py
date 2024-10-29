@@ -15,9 +15,9 @@
 
 import unittest
 from unittest.mock import patch, MagicMock
+import os
 import sys
-sys.path.append("../src")
-sys.path.append("../src/profiles")
+sys.path.append(os.path.join(os.path.dirname(__file__), '../src'))
 from database_manager import DatabaseManager  
 
 
@@ -28,7 +28,13 @@ class TestDatabaseManager(unittest.TestCase):
         This method is called before each test.
         Initializes a DatabaseManager instance for testing.
         """
-        self.db_manager = DatabaseManager("localhost", "root", "password", "test_db", "test_table")
+        self.db_config = {
+            "host": "localhost",
+            "user": "root",
+            "password": "Alacazumba123*",
+            "database": "my_database"
+        }
+        self.db_manager = DatabaseManager(**self.db_config, table_name="test_table")
 
     @patch("mysql.connector.connect")
     def test_connect(self, mock_connect):
@@ -43,8 +49,8 @@ class TestDatabaseManager(unittest.TestCase):
         mock_connect.assert_called_with(
             host="localhost",
             user="root",
-            password="password",
-            database="test_db"
+            password="Alacazumba123*",
+            database="my_database"
         )
 
         self.assertEqual(conn, mock_connection)
@@ -65,7 +71,7 @@ class TestDatabaseManager(unittest.TestCase):
         );
         """
 
-        self.db_manager._create_table(create_table_sql)
+        self.db_manager.create_table(create_table_sql)
 
         mock_cursor.execute.assert_called_with(create_table_sql)
         mock_connection.commit.assert_called_once()
@@ -80,10 +86,11 @@ class TestDatabaseManager(unittest.TestCase):
         mock_connect.return_value = mock_connection
         mock_cursor = mock_connection.cursor.return_value
 
+        table = "test_table"
         columns = ["id", "name"]
         values = ("123e4567-e89b-12d3-a456-426614174000", "Product")
 
-        self.db_manager.insert_row(columns, values)
+        self.db_manager.insert_row(table, columns, values)
 
         expected_sql = "INSERT INTO test_table (id, name) VALUES (%s, %s);"
         mock_cursor.execute.assert_called_with(expected_sql, values)
@@ -135,7 +142,7 @@ class TestDatabaseManager(unittest.TestCase):
         mock_connect.return_value = mock_connection
         mock_cursor = mock_connection.cursor.return_value
 
-        self.db_manager.delete_table()
+        self.db_manager.delete_table("test_table")
 
         expected_sql = "DROP TABLE IF EXISTS test_table;"
         mock_cursor.execute.assert_called_with(expected_sql)
