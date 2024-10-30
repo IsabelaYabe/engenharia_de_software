@@ -1,3 +1,18 @@
+"""
+    Module for ProductProfile class.
+
+    This module provides a class for product table in a database.
+
+    Author: Isabela Yabe
+
+    Dependencies:
+        - uuid
+        - DatabaseManager
+
+    Last Modified: 30/10/2024
+
+"""
+
 import uuid
 from database_manager import DatabaseManager
 
@@ -19,6 +34,7 @@ class ProductProfile(DatabaseManager):
     - update_price(self, id, price): Updates the price for a product by its ID.
     - update_name(self, id, name): Updates the name for a product by its ID.
     - update_description(self, id, description): Updates the description for a product by its ID.
+    - update_quantity(self, id, quantity): Updates the quantity for a product by its ID.
     - delete_product(self, id): Deletes a product from the database.
     """
     def __init__(self, host, user, password, database):
@@ -64,12 +80,11 @@ class ProductProfile(DatabaseManager):
         """
         product_id = str(uuid.uuid4())
         self._insert_row(
-            columns=["id", "name", "description", "price", "quantity"],
-            values=(product_id, name, description, price, quantity)
+            columns={"id": product_id, "name": name, "description": description, "price": price, "quantity":quantity}
         )
         return product_id
 
-    def get_product(self, id):
+    def get_product_by_id(self, id):
         """
         Retrieves a product by its ID, returning all details (id, name, description, price, quantity).
 
@@ -79,37 +94,8 @@ class ProductProfile(DatabaseManager):
         Returns:
             dict: A dictionary with all the product details, or None if not found.
         """
-        conn = self._connect()
-        cursor = conn.cursor()
+        self._get_by_id(id, "id")
 
-        query = f'SELECT id, name, description, price, quantity FROM {self.table_name} WHERE id = %s'
-        cursor.execute(query, (id,))
-        record = cursor.fetchone()
-        cursor.close()
-        conn.close()
-
-        if record:
-            return {
-                "id": record[0],
-                "name": record[1],
-                "description": record[2],
-                "price": record[3],
-                "quantity": record[4]
-            }
-        return None
-
-    def update_price(self, id, price):
-        """
-        Update the price for a product by its ID.
-
-        Parameters:
-            id (str): The ID of the product.
-            price (float): The new price of the product.
-
-        Returns:
-            None
-        """
-        self._update_row({"price": price}, f"id = '{id}'")
 
     def update_name(self, id, name):
         """
@@ -122,7 +108,20 @@ class ProductProfile(DatabaseManager):
         Returns:
             None
         """
-        self._update_row({"name": name}, f"id = '{id}'")
+        self._update_row(id, "id", {"name": name})
+
+    def update_price(self, id, price):
+        """
+        Update the price for a product by its ID.
+
+        Parameters:
+            id (str): The ID of the product.
+            price (float): The new price of the product.
+
+        Returns:
+            None
+        """
+        self._update_row(id, "id", {"price": price})
 
     def update_description(self, id, description):
         """
@@ -135,7 +134,20 @@ class ProductProfile(DatabaseManager):
         Returns:
             None
         """
-        self._update_row({"description": description}, f"id = '{id}'")
+        self._update_row(id, "id", {"description": description})
+
+    def update_quantity(self, id, quantity):
+        """
+        Update the quantity for a product by its ID.
+
+        Parameters:
+            id (str): The ID of the product.
+            quantity (int): The new quantity of the product.
+
+        Returns:
+            None
+        """
+        self._update_row(id, "id", {"quantity": quantity})
 
     def delete_product(self, id):
         """

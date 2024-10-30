@@ -10,7 +10,7 @@
         - flask
         - jsonify
 
-    Last Modified: 28/10/2024
+    Last Modified: 30/10/2024
 
 """
 
@@ -30,7 +30,7 @@ class DatabaseManager(ABC):
     - table_name (str): The name of the table managed by this instance.
     
     Methods:
-    - _connect(self): Establishes a connection to the MySQL database.
+    - __connect(self): Establishes a connection to the MySQL database.
     - _create_table(self, create_table_sql): Creates the managed table with the provided SQL statement.
     - modify_column(self, old_column_name, new_column_name): Modifies a column name.
     - delete_row(self, row_id): Deletes a row from the table.
@@ -63,27 +63,26 @@ class DatabaseManager(ABC):
 
         @self.app.route(f"/api/{self.table_name}/<record_id>", methods=["GET"])
         def get_record(record_id):
-                return self.get_record_api(record_id)
-    
-    def _connect(self):
+                return self.__get_record_api(record_id)
+
+    def __connect(self):
         """
         Establishes a connection to the MySQL database.
 
         Returns:
             conn: A MySQL database connection object.
         """
-        # Aqui estamos nos conectando a base de dados com as configurações passadas no inicializador
         return mysql.connector.connect(**self._db_config) 
 
     @abstractmethod
-    def _create_table(self, create_table_sql): # create_table_sql (aqui passamos a query que queremos executar)
+    def _create_table(self, create_table_sql): 
         """
         Creates the table in the MySQL database with the provided SQL statement.
 
         Parameters:
             create_table_sql (str): The SQL query to create the table.
         """
-        conn = self._connect()
+        conn = self.__connect()
         cursor = conn.cursor()
         cursor.execute(create_table_sql)
         conn.commit()
@@ -98,7 +97,7 @@ class DatabaseManager(ABC):
             old_column_name (str): The current name of the column.
             new_column_name (str): The new name of the column.
         """
-        conn = self._connect()
+        conn = self.__connect()
         cursor = conn.cursor()
         alter_table_sql = f"ALTER TABLE {self.table_name} RENAME COLUMN {old_column_name} TO {new_column_name};"
         cursor.execute(alter_table_sql)
@@ -106,17 +105,17 @@ class DatabaseManager(ABC):
         cursor.close()
         conn.close()
 
-    def _delete_row(self, row_id):
+    def _delete_row(self, record_id):
         """
-        Deletes a row from the managed table based on row_id.
+        Deletes a row from the managed table based on recrod_id.
 
         Parameters:
-            row_id (str): The row_id to match for deleting rows.
+            record_id (str): The record_id to match for deleting rows.
         """
-        conn = self._connect()
+        conn = self.__connect()
         cursor = conn.cursor()
         delete_sql = f"DELETE FROM {self.table_name} WHERE id = %s;"
-        cursor.execute(delete_sql, (row_id))
+        cursor.execute(delete_sql, (record_id))
         conn.commit()
         cursor.close()
         conn.close()
@@ -125,7 +124,7 @@ class DatabaseManager(ABC):
         """
         Deletes the managed table from the database.
         """
-        conn = self._connect()
+        conn = self.__connect()
         cursor = conn.cursor()
         drop_table_sql = f"DROP TABLE IF EXISTS {self.table_name};"
         cursor.execute(drop_table_sql)
@@ -133,18 +132,24 @@ class DatabaseManager(ABC):
         cursor.close()
         conn.close()
 
-    def _insert_row(self, columns, values):
+    def _insert_row(self, **kwargs):
         """
         Inserts a new row into the managed table.
         
         Parameters:
-            columns (list): A list of column names to insert values into.
-            values (tuple): A tuple of values corresponding to the columns.
+            **kwargs (dict): A dict of column names and values.
         """
-        conn = self._connect()
+        columns = []
+        values = []
+        placeholders = []
+        for key, value in kwargs.items():
+            columns.append(key)
+            values.append(value)
+            placeholders.append("%s")
+        conn = self.__connect()
         cursor = conn.cursor()
         columns_str = ", ".join(columns)
-        placeholders = ", ".join(["%s"] * len(values))
+        placeholders = ", ".join(placeholders)
         insert_sql = f"INSERT INTO {self.table_name} ({columns_str}) VALUES ({placeholders});"
         cursor.execute(insert_sql, values)
         conn.commit()
@@ -152,24 +157,34 @@ class DatabaseManager(ABC):
         conn.close()
 
     @abstractmethod
-    def _update_row(self, dict_update, id_row):
+    def _update_row(self, record_id, column_id, **kwargs):
+        """
+        Update row by its id.
+
+        Args:
+            record_id (str): The record_id to match for update.
+            column_id (str): The name of id's column.
+            kwargs (dict): Column-value pairs to update.  
+        """
         conn = self.__connect()
         cursor = conn.cursor()
 
         arguments = []
-        for value, key in dict_update.items():
-            arguments.append(f"{value} =  '{key}', ")
-        arguments =  str(arguments[:-1])
-        query = f"UPDATE {self.table_name} SET {dict_update.key} WHERE {self._table_name[:-1]}ID = {id_row};"
-        
-        cursor.execute(query)
+        values = []
+        for key, value in kwargs.items():
+            arguments.append(f"{key} =  %s")
+            values.append(value)
+        arguments =  ", ".join(arguments)
+        values.append(record_id)
+        query = f"UPDATE {self.table_name} SET {arguments} WHERE {column_id} = %s;"
+        cursor.execute(query, values)
         conn.commit()
         cursor.close()
         conn.close()        
       
 
     @abstractmethod
-    def _get_by_id(self, record_id, id_column="id"):
+    def _get_by_id(self, record_id, column_id ="id"):
         """
         Retrieves a record by its ID from the database.
     
@@ -180,24 +195,24 @@ class DatabaseManager(ABC):
         Returns:
             dict: A dictionary with the record details, or None if not found.
         """
-        conn = self._connect()
+        conn = self.__connect()
         cursor = conn.cursor()
         
-        query = f"SELECT * FROM {self.table_name} WHERE {id_column} = %s"
+        query = f"SELECT * FROM {self.table_name} WHERE {column_id} = %s"
         cursor.execute(query, (record_id))
         record = cursor.fetchone()
         cursor.close()
         conn.close()
     
         if record:
-            return {f"{id_column}": record[0]}
+            return {f"{column_id}": record[0]}
         return None
     
-    def get_record_api(self, record_id):
+    def __get_record_api(self, record_id, column_id):
         """
         API endpoint to get record details by record_id.
         """
-        record = self._get_by_id(record_id)
+        record = self._get_by_id(record_id, column_id)
         
         if record:
             return jsonify(record), 200 
