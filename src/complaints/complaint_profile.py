@@ -179,7 +179,7 @@ if __name__ == "__main__":
     print("Complaint class created successfully.")
 
     # Inserting complaints
-    complaint_manager.create_complaint(1, "TEST COMPLAINT")
+    complaint_id = complaint_manager.create_complaint(1, 1, 'Bad product!')
 
     # Retrieving complaints by vending machine
     complaints = complaint_manager.get_complaints_by_vending_machine(1)
