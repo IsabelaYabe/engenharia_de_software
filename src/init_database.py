@@ -19,18 +19,18 @@ def init_database(db_config):
 
     create_table_sql = """
     CREATE TABLE IF NOT EXISTS Users (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        email VARCHAR(255) NOT NULL,
-        password VARCHAR(255) NOT NULL
+        UserID INT AUTO_INCREMENT PRIMARY KEY,
+        UserName VARCHAR(255) NOT NULL,
+        UserEmail VARCHAR(255) NOT NULL,
+        UserPassword VARCHAR(255) NOT NULL
     )
     """
 
     manager.create_table(create_table_sql)
 
-    manager.insert_row("Users", ["name", "email", "password"], ["Alice", "Alice@gmail.com", "123456"])
-    manager.insert_row("Users", ["name", "email", "password"], ["Bob", "Bob@gmail.com", "123456"])
-    manager.insert_row("Users", ["name", "email", "password"], ["Charlie", "Charlie@gmail.com", "123456"])
+    manager.insert_row("Users", ["UserName", "UserEmail", "UserPassword"], ["Alice", "Alice@gmail.com", "123456"])
+    manager.insert_row("Users", ["UserName", "UserEmail", "UserPassword"], ["Bob", "Bob@gmail.com", "123456"])
+    manager.insert_row("Users", ["UserName", "UserEmail", "UserPassword"], ["Charlie", "Charlie@gmail.com", "123456"])
 
 
     create_table_sql = """
@@ -45,19 +45,6 @@ def init_database(db_config):
 
     manager.insert_row("Owner", ["OwnerID"], [1])
     manager.insert_row("Owner", ["OwnerID"], [2])
-
-    create_table_sql = """
-    CREATE TABLE IF NOT EXISTS User
-        (
-        UserID INT AUTO_INCREMENT,
-        PRIMARY KEY (UserID)
-        );
-    """
-
-    manager.create_table(create_table_sql)
-
-    manager.insert_row("User", ["UserID"], [1])
-    manager.insert_row("User", ["UserID"], [2])
 
     create_table_sql = """
     CREATE TABLE IF NOT EXISTS VMs
@@ -106,19 +93,21 @@ def init_database(db_config):
         (
         ComplaintID INT AUTO_INCREMENT,
         Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        Text VARCHAR(250) NOT NULL,
         VMID INT,
+        UserID INT,
+        Text VARCHAR(250) NOT NULL,
         PRIMARY KEY (ComplaintID),
-        FOREIGN KEY (VMID) REFERENCES VMs(VMID)
+        FOREIGN KEY (VMID) REFERENCES VMs(VMID),
+        FOREIGN KEY (UserID) REFERENCES Users(UserID)
         );
     """
 
     manager.create_table(create_table_sql)
 
-    manager.insert_row("Complaints", ["Text", "VMID"], ["Tá sem açúcasr.", 1])
-    manager.insert_row("Complaints", ["Text", "VMID"], ["Esse café tá aguado", 1])
-    manager.insert_row("Complaints", ["Text", "VMID"], ["Água cara", 2])
-    manager.insert_row("Complaints", ["Text", "VMID"], ["Não aceitou meu vale refeição", 2])
+    manager.insert_row("Complaints", ["VMID", "UserID", "Text"], [1, 1, "A máquina de café está com defeito."])
+    manager.insert_row("Complaints", ["VMID", "UserID", "Text"], [2, 1, "Quero mais opções de café."])
+    manager.insert_row("Complaints", ["VMID", "UserID", "Text"], [3, 2, "O brownie estava podre."])
+    manager.insert_row("Complaints", ["UserID", "Text"], [2, " O app trava todo o tempo."])
 
     create_table_sql = """
     CREATE TABLE IF NOT EXISTS Comments
@@ -130,7 +119,7 @@ def init_database(db_config):
         UserID INT NOT NULL,
         PRIMARY KEY (CommentID),
         FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
-        FOREIGN KEY (UserID) REFERENCES User(UserID)
+        FOREIGN KEY (UserID) REFERENCES Users(UserID)
         );
     """
 
