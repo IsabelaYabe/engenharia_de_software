@@ -2,7 +2,8 @@ import unittest
 from unittest.mock import patch, MagicMock
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../src/comment_site'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../src/profiles'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../src'))
 from comment_profile import CommentProfile
 from utils import contains_banned_words
 
@@ -39,8 +40,8 @@ class TestCommentProfile(unittest.TestCase):
 
         # Verifica se o comentário foi criado corretamente
         self.mock_cursor.execute.assert_called_once_with(
-            "INSERT INTO comments (product_id, user_id, text, timestamp) VALUES (%s, %s, %s, %s)",
-            (1, 1, "Great product!", "2024-10-23 10:00:00")
+            "INSERT INTO Comments (ProductID, UserID, Text, Timestamp) VALUES (%s, %s, %s, %s)",
+            (1, 1, 'Great product!', '2024-10-23 10:00:00')
         )
         self.mock_conn.commit.assert_called_once()
         self.assertEqual(comment_id, 123)
@@ -52,7 +53,7 @@ class TestCommentProfile(unittest.TestCase):
             self.comment_profile.create_comment(1, 1, "")
         self.assertEqual(str(context.exception), "Comment cannot be empty.")
 
-    @patch('utils.contains_banned_words', return_value=True)
+    @patch('comment_profile.contains_banned_words', return_value=True)
     def test_create_comment_with_banned_words(self, mock_contains_banned_words):
         # Testa a criação de um comentário com palavras proibidas (deve gerar um erro)
         
@@ -64,18 +65,18 @@ class TestCommentProfile(unittest.TestCase):
     def test_get_comments_by_product(self):
         # Testa a obtenção de comentários por ID do produto
         self.mock_cursor.fetchall.return_value = [
-            (1, "2024-10-23 10:00:00", 1, 1, "Great product!"),
-            (2, "2024-10-23 11:00:00", 1, 2, "Nice product!")
+            (1, "2024-10-23 10:00:00", "Great product!", 1, 1),
+            (2, "2024-10-23 11:00:00", "Nice product!", 1, 2)
         ]
         
         comments = self.comment_profile.get_comments_by_product(1)
 
-        self.mock_cursor.execute.assert_called_once_with("SELECT * FROM comments WHERE product_id = %s", (1,))
+        self.mock_cursor.execute.assert_called_once_with("SELECT * FROM Comments WHERE ProductID = %s", (1,))
         self.assertEqual(len(comments), 2)
-        self.assertEqual(comments[0]['comment_id'], 1)
-        self.assertEqual(comments[0]['text'], "Great product!")
-        self.assertEqual(comments[1]['comment_id'], 2)
-        self.assertEqual(comments[1]['text'], "Nice product!")
+        self.assertEqual(comments[0]['CommentID'], 1)
+        self.assertEqual(comments[0]['Text'], "Great product!")
+        self.assertEqual(comments[1]['CommentID'], 2)
+        self.assertEqual(comments[1]['Text'], "Nice product!")
 
 if __name__ == '__main__':
     unittest.main()

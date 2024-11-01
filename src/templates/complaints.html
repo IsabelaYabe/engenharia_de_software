@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Complaint</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    div {
+        margin-bottom: 10px;
+    }
+
+    label {
+        margin-right: 10px;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    #complaints-section {
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 100%;
+        max-width: 600px;
+        height: 200px;
+        overflow-y: scroll;
+        margin-top: 20px;
+    }
+</style>
+<body>
+    <h1>Submit a Complaint</h1>
+
+    
+    <!-- Home button -->
+    <div class="button-container">
+        <button onclick="window.location.href='/'">Home</button>
+    </div>
+
+
+    <!-- Dropdown for vending machine ID -->
+    <div>
+        <label for="vending-machine-id">Select Vending Machine ID:</label>
+        <input type="number" id="vending-machine-id" placeholder="Enter vending machine ID">
+    </div>
+
+    <!-- Dropdown for user ID -->
+    <div>
+        <label for="user-id">Select User ID:</label>
+        <input type="number" id="user-id" placeholder="Enter user ID">
+    </div>
+
+    <!-- Textarea for the complaint -->
+    <div>
+        <label for="complaint-text">Enter your complaint:</label>
+        <textarea id="complaint-text" rows="4" cols="50" placeholder="Write your complaint here..."></textarea>
+    </div>
+
+    <!-- Button to submit the complaint -->
+    <button id="submit-complaint">Submit Complaint</button>
+
+    <script src="../static/js/complaints_user.js"></script>
+</body>
+</html>

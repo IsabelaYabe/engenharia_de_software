@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VM Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .button-container {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Vending Machine Profiles</h1>
+
+    <!-- Home button -->
+    <div class="button-container">
+        <button onclick="window.location.href='/'">Home</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Vending Machine ID</th>
+                <th>Vending Machine Name</th>
+                <th>Location</th>
+                <th>Owner</th>
+                <th>Status</th>
+                <th>Products</th>
+            </tr>
+        </thead>
+        <tbody id="vm-table-body"></tbody>
+            <!-- VM data will be inserted here -->
+        </tbody>
+    </table>
+</div>
+
+<script src="../static/js/script_vms.js"></script>
+
+</body>
+</html>

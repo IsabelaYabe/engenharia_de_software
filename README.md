@@ -6,9 +6,9 @@ Este projeto faz parte da criação de um aplicativo de compras em Vending Machi
 
 Durante a Sprint, foram implementados e entregues os seguintes requisitos funcionais (RF) e não funcionais (NR):
 
-- **RF33 - Reportar Problemas**: Os usuários podem reportar problemas com as vending machines, e o gestor pode visualizar essas mensagens para resolver os problemas.
 - **RF7 - Comentar sobre Produto**: Foi implementada a funcionalidade para os usuários escreverem comentários sobre produtos.
 - **RF10 - Visualizar Estoque**: Gestores podem visualizar o estoque de produtos nas vending machines, auxiliando na tomada de decisões.
+- **RF14 - Perfil da Vending Machine:**: Os usuários podem visualizar as vending machines, indicados os produtos delas.
 
 Outros requisitos foram parcialmente implementados, como o perfil da vending machine (RF14), que ainda depende da finalização da conexão ao banco de dados.
 
@@ -119,12 +119,30 @@ Você pode usar clientes MySQL como o **MySQL Workbench** ou **phpMyAdmin** para
 ```bash
 mysql -u root -p
 ```
+Em seguida, insira a senha Alacazumba123* quando solicitado.
+
+## 5. Instalar dependências do projeto
+
+```bash
+pip install -r requirements.txt
+```
+
+## 6. Crie o banco de dados
+
+Após acessar o MySQL, execute o arquivo 'init_database.py', localizado na pasta \src. Rode de fora da pasta \src.
 
 ---
 
-## 5. Recursos Adicionais
+## 7. Recursos Adicionais
 
 - [Documentação Oficial do MySQL](https://dev.mysql.com/doc/)
 - [MySQL Workbench](https://www.mysql.com/products/workbench/)
 
-# Como executar o código
+## 8. Como executar o código
+
+Execute o arquivo 'app.py', localizado na pasta \src. Rode de fora da pasta \src.
+
+No prompt, será indicada a inicialização do servidor flask, e constará uma porta.
+
+Acesse a porta para visualizar uma página navegável que permite ver o estoque, comentários e as vending machines.
+
