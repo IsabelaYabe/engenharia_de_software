@@ -113,7 +113,7 @@ class TestComplaint(unittest.TestCase):
         ]
         complaints = self.complaint.get_complaints_by_vending_machine(1)
         
-        self.mock_cursor.execute.assert_called_once_with("SELECT * FROM Complaints WHERE vending_machine_id = %s", (1,))
+        self.mock_cursor.execute.assert_called_once_with("SELECT * FROM Complaints WHERE VMID = %s", (1,))
         self.assertEqual(len(complaints), 1)
         self.assertEqual(complaints[0]['complaint_id'], 1)
     
@@ -130,7 +130,7 @@ class TestComplaint(unittest.TestCase):
         # Test to delete a complaint by ID
         self.complaint.delete_complaint(1)
         
-        self.mock_cursor.execute.assert_called_once_with("DELETE FROM Complaints WHERE id = %s", (1,))
+        self.mock_cursor.execute.assert_called_once_with("DELETE FROM Complaints WHERE ComplaintID = %s", 1)
         self.mock_connection.commit.assert_called_once()
 
     def tearDown(self):
