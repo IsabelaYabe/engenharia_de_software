@@ -10,7 +10,7 @@ Durante a Sprint, foram implementados e entregues os seguintes requisitos funcio
 - **RF10 - Visualizar Estoque**: Gestores podem visualizar o estoque de produtos nas vending machines, auxiliando na tomada de decisões.
 - **RF14 - Perfil da Vending Machine**: Os usuários podem visualizar as vending machines, indicados os produtos delas.
 - **RF33 - Reportar Problemas**: Usuários podem reportar problemas direcionados a cending machines ou ao sistema. Gestores podem vsualizar o que foi reportado.
-
+- **RFNA - Visualizar Profuto**: Usuários podem visualizar informações do produto. 
 Outros requisitos foram parcialmente implementados, mas não constam na main do projeto.
 
 # Organização dos Arquivos
