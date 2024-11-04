@@ -8,9 +8,10 @@ Durante a Sprint, foram implementados e entregues os seguintes requisitos funcio
 
 - **RF7 - Comentar sobre Produto**: Foi implementada a funcionalidade para os usuários escreverem comentários sobre produtos.
 - **RF10 - Visualizar Estoque**: Gestores podem visualizar o estoque de produtos nas vending machines, auxiliando na tomada de decisões.
-- **RF14 - Perfil da Vending Machine:**: Os usuários podem visualizar as vending machines, indicados os produtos delas.
+- **RF14 - Perfil da Vending Machine**: Os usuários podem visualizar as vending machines, indicados os produtos delas.
+- **RF33 - Reportar Problemas**: Usuários podem reportar problemas direcionados a cending machines ou ao sistema. Gestores podem vsualizar o que foi reportado.
 
-Outros requisitos foram parcialmente implementados, como o perfil da vending machine (RF14), que ainda depende da finalização da conexão ao banco de dados.
+Outros requisitos foram parcialmente implementados, mas não constam na main do projeto.
 
 # Organização dos Arquivos
 
@@ -129,20 +130,46 @@ pip install -r requirements.txt
 
 ## 6. Crie o banco de dados
 
-Após acessar o MySQL, execute o arquivo 'init_database.py', localizado na pasta \src. Rode de fora da pasta \src.
+```bash
+python3 src/init_database.py
+```
 
----
 
-## 7. Recursos Adicionais
 
-- [Documentação Oficial do MySQL](https://dev.mysql.com/doc/)
-- [MySQL Workbench](https://www.mysql.com/products/workbench/)
+## 7. Como executar o código
 
-## 8. Como executar o código
-
-Execute o arquivo 'app.py', localizado na pasta \src. Rode de fora da pasta \src.
+```bash
+python3 src/app.py
+```
 
 No prompt, será indicada a inicialização do servidor flask, e constará uma porta.
 
-Acesse a porta para visualizar uma página navegável que permite ver o estoque, comentários e as vending machines.
+Acesse a porta para visualizar uma página navegável que permite ver o estoque, comentários, reclamações e as vending machines.
 
+## 8. Testes
+
+```bash
+python3 test/test_comment_profile.py
+python3 test/test_complaints.py
+python3 test/test_comment_profile.py
+python3 test/test_stock_profile.py
+```
+
+
+## 9. Disposição dos arquivos
+
+Na pasta test temos os arquivos de teste.
+Na pasta src temos arquivos python para inicializar a base de dados padrão e rodar a aplicação.
+Na subpasta src/templates temos o html base para cada página da aplicação.
+Na subpasta src/profiles temos os arquivos python para as classes de acesso à base de dados.
+Na subpasta src/static/js temos os arquivos js que permitem a interação do usuário com as páginas.
+Na pasta schemas temos os diagramas usados na modelagem.
+Na pasta reports temos os relatórios de cada etapa do trabalho.
+
+
+---
+
+## 9. Recursos Adicionais
+
+- [Documentação Oficial do MySQL](https://dev.mysql.com/doc/)
+- [MySQL Workbench](https://www.mysql.com/products/workbench/)
