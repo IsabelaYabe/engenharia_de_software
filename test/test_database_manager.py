@@ -15,7 +15,6 @@
         - Flask
         - mysql.connector
 """
-from custom_logger import setup_logger
 import uuid
 import unittest
 from unittest.mock import patch, MagicMock
@@ -24,6 +23,7 @@ import mysql.connector
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
+from custom_logger import setup_logger
 from database_manager import DatabaseManager
 logger = setup_logger()
 

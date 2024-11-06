@@ -1,94 +1,94 @@
-2024-11-06 11:22:23,869 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,869 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,870 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,871 | ERROR | database_manager:_add_column - Failed to insert column into `test_table`: Duplicate column name. (errno=1060)
-2024-11-06 11:22:23,872 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,872 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,872 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,873 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,873 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,874 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,875 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,875 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,876 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,876 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,876 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,877 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+2024-11-06 11:24:09,985 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:09,985 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:09,986 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:09,986 | ERROR | database_manager:_add_column - Failed to insert column into `test_table`: Duplicate column name. (errno=1060)
+2024-11-06 11:24:09,987 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:09,987 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:09,987 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:09,989 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:09,989 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:09,989 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:09,990 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:09,990 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:09,991 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:09,991 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:09,992 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:09,992 | INFO | database_manager:_create_table_ - Creating table with SQL: 
         CREATE TABLE IF NOT EXISTS test_table (
             id INT AUTO_INCREMENT PRIMARY KEY,
             name VARCHAR(255)
         );
         
-2024-11-06 11:22:23,877 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,878 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,878 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,878 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,879 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,879 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,880 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,880 | ERROR | database_manager:_delete_column - Failed to deleted column into `test_table`: Column `inexistent_column` not found. (errno=1054)
-2024-11-06 11:22:23,881 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,881 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,882 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,882 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,883 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,883 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,883 | ERROR | database_manager:_delete_row - Failed to delete row into `test_table`: Unknown column `inexistent_column_id`. (errno=1054)
-2024-11-06 11:22:23,884 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,884 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,885 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,886 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,886 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,887 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,888 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,888 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,888 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,889 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,889 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,890 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,890 | ERROR | database_manager:_execute_sql - Duplicate column name: Error executing query (errno=1060)
-2024-11-06 11:22:23,891 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,891 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,891 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,892 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,892 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,893 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,894 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,894 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,894 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,894 | ERROR | database_manager:_get_by_id - Failed to get instance by id into `test_table`: Column not found. (errno=1054)
-2024-11-06 11:22:23,897 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,898 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,899 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,900 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,900 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,902 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,902 | ERROR | database_manager:_insert_row - Failed to insert row into `test_table`: Incorrect value type. (errno=1366)
-2024-11-06 11:22:23,903 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,903 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,904 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,905 | ERROR | database_manager:_insert_row - Failed to insert row into `test_table`: Missing value. (errno=1048)
-2024-11-06 11:22:23,906 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,906 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,907 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,908 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,908 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,908 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,908 | ERROR | database_manager:_modify_column - Failed to modify column `old_name` to `existing_column_name`: Duplicate column name. (errno=1060)
-2024-11-06 11:22:23,909 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,909 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,910 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,910 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,911 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,913 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,913 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,929 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,929 | ERROR | database_manager:_update_row - Failed to update row to `test_table`: Incorrect value type. (errno=1366)
-2024-11-06 11:22:23,929 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,930 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,930 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,930 | ERROR | database_manager:_update_row - Failed to update row to `test_table`: Column not found. (errno=1054)
-2024-11-06 11:22:23,931 | INFO | test_database_manager:setUp - SetUp module to test
-2024-11-06 11:22:23,931 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-06 11:22:23,931 | INFO | database_manager:__connect - Connecting to the database
-2024-11-06 11:22:23,931 | ERROR | database_manager:_update_row - Failed to update row to `test_table`: Missing value. (errno=1048)
+2024-11-06 11:24:09,992 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:09,993 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:09,993 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:09,993 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:09,994 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:09,994 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:09,994 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:09,995 | ERROR | database_manager:_delete_column - Failed to deleted column into `test_table`: Column `inexistent_column` not found. (errno=1054)
+2024-11-06 11:24:09,995 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:09,995 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:09,996 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:09,997 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:09,997 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:09,997 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:09,998 | ERROR | database_manager:_delete_row - Failed to delete row into `test_table`: Unknown column `inexistent_column_id`. (errno=1054)
+2024-11-06 11:24:09,999 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:09,999 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:09,999 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,001 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,001 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,002 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,003 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,003 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,003 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,004 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,004 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,005 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,005 | ERROR | database_manager:_execute_sql - Duplicate column name: Error executing query (errno=1060)
+2024-11-06 11:24:10,006 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,006 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,006 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,007 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,007 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,007 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,008 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,008 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,008 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,008 | ERROR | database_manager:_get_by_id - Failed to get instance by id into `test_table`: Column not found. (errno=1054)
+2024-11-06 11:24:10,010 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,010 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,010 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,010 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,010 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,012 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,012 | ERROR | database_manager:_insert_row - Failed to insert row into `test_table`: Incorrect value type. (errno=1366)
+2024-11-06 11:24:10,012 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,012 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,013 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,013 | ERROR | database_manager:_insert_row - Failed to insert row into `test_table`: Missing value. (errno=1048)
+2024-11-06 11:24:10,014 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,014 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,014 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,015 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,015 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,016 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,016 | ERROR | database_manager:_modify_column - Failed to modify column `old_name` to `existing_column_name`: Duplicate column name. (errno=1060)
+2024-11-06 11:24:10,017 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,017 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,018 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,018 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,019 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,022 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,022 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,033 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,033 | ERROR | database_manager:_update_row - Failed to update row to `test_table`: Incorrect value type. (errno=1366)
+2024-11-06 11:24:10,034 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,034 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,035 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,035 | ERROR | database_manager:_update_row - Failed to update row to `test_table`: Column not found. (errno=1054)
+2024-11-06 11:24:10,035 | INFO | test_database_manager:setUp - SetUp module to test
+2024-11-06 11:24:10,035 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-06 11:24:10,036 | INFO | database_manager:__connect - Connecting to the database
+2024-11-06 11:24:10,036 | ERROR | database_manager:_update_row - Failed to update row to `test_table`: Missing value. (errno=1048)
