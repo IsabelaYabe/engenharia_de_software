@@ -1,18 +1,18 @@
-2024-11-07 06:48:27,941 | INFO | test_flask_api:setUp - SetUp module to test
-2024-11-07 06:48:27,941 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-07 06:48:27,953 | INFO | test_flask_api:setUp - SetUp module to test
-2024-11-07 06:48:27,953 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-07 06:48:27,956 | INFO | test_flask_api:setUp - SetUp module to test
-2024-11-07 06:48:27,956 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-07 06:48:27,958 | INFO | test_flask_api:setUp - SetUp module to test
-2024-11-07 06:48:27,958 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-07 06:48:27,962 | INFO | test_flask_api:setUp - SetUp module to test
-2024-11-07 06:48:27,962 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-07 06:48:27,964 | INFO | test_flask_api:setUp - SetUp module to test
-2024-11-07 06:48:27,964 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-07 06:48:27,966 | INFO | test_flask_api:setUp - SetUp module to test
-2024-11-07 06:48:27,966 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-07 06:48:27,968 | INFO | test_flask_api:setUp - SetUp module to test
-2024-11-07 06:48:27,968 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-07 06:48:27,970 | INFO | test_flask_api:setUp - SetUp module to test
-2024-11-07 06:48:27,970 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-07 06:55:21,854 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-07 06:55:21,854 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-07 06:55:21,868 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-07 06:55:21,869 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-07 06:55:21,872 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-07 06:55:21,872 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-07 06:55:21,874 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-07 06:55:21,874 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-07 06:55:21,878 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-07 06:55:21,878 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-07 06:55:21,880 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-07 06:55:21,880 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-07 06:55:21,884 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-07 06:55:21,884 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-07 06:55:21,886 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-07 06:55:21,887 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-07 06:55:21,890 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-07 06:55:21,890 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table

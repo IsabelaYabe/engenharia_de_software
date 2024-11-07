@@ -1,3 +1,25 @@
+"""
+Module for unit testing the FlaskAPI class.
+
+This module provides unit tests for the FlaskAPI class, which connects a Flask application 
+to a database table through RESTful API endpoints. The tests simulate HTTP requests to verify
+that each API endpoint functions correctly, handles data accurately, and manages errors as expected.
+
+Author: Isabela Yabe
+
+Last Modified: 06/11/2024
+
+Dependencies:
+    - unittest
+    - unittest.mock
+    - os
+    - sys
+    - custom_logger
+    - flask_api
+    - database_manager
+    - test_db_manager_concrete
+"""
+
 import unittest
 from unittest.mock import patch, MagicMock
 import os
