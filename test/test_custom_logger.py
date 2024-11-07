@@ -15,6 +15,9 @@
 import os
 import logging
 import unittest
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
 from custom_logger import CustomLogger
 
 class TestCustomLogger(unittest.TestCase):

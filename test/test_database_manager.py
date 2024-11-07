@@ -25,17 +25,9 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
 from custom_logger import setup_logger
 from database_manager import DatabaseManager
+from test_db_manager_concrete import TestDatabaseManagerConcrete
+
 logger = setup_logger()
-
-class TestDatabaseManagerConcrete(DatabaseManager):
-    def _create_table(self):
-        pass
-    
-    def insert_row(self, **args):
-        pass
-
-    def get_by_id(self, record_id):
-        pass
 
 class TestDatabaseManager(unittest.TestCase):
     def setUp(self):
@@ -49,7 +41,9 @@ class TestDatabaseManager(unittest.TestCase):
         )
         
         self.mock_db_manager._create_table = MagicMock()
-        self.mock_db_manager.insert_row = MagicMock()
+        self.mock_db_manager.insert_row = MagicMock()            
+        self.mock_db_manager.update_row = MagicMock()
+        self.mock_db_manager.delete_row = MagicMock()
         self.mock_db_manager.get_by_id = MagicMock()
 
     @patch("database_manager.mysql.connector.connect") 
