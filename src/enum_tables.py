@@ -1,9 +1,13 @@
 from enum import Enum 
-from product_profile import ProductProfile
 
 class Tables(Enum): 
-    Produto = 1
-    VMProfile = 2
-    UserProfile = 3
-    OwnerProfile = 4
-    ComplainProfile = 5
+    PRODUCTPROFILE = 1
+    VMPROFILE = 2
+    USERPROFILE = 3
+    OWNERPROFILE = 4
+    COMPLAINTPROFILE = 5
+    COMMENTPROFILE = 6
+    PRODUCT_VM = 12
+    VM_OWNER = 24
+    COMPLAINT_VM = 54
+    COMMENT_PRODUCT_USER = 613

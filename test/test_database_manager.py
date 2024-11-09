@@ -25,7 +25,7 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
 from custom_logger import setup_logger
 from database_manager import DatabaseManager
-from test_db_manager_concrete import TestDatabaseManagerConcrete
+from concrete_db_manager import TestDatabaseManagerConcrete
 
 logger = setup_logger()
 

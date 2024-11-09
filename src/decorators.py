@@ -3,11 +3,35 @@
 
     Author: Isabela Yabe
 
-    Last Modified: 28/10/2024
+    Last Modified: 07/11/2024
 
 """
 import mysql.connector
 from mysql.connector import Error
+
+from functools import wraps
+from flask import jsonify, request
+#import json
+#import os
+#json_path = os.path.join(os.path.dirname(__file__), '..', 'data\json', 'banned_words.json')
+#with open(json_path, 'r', encoding='utf-8') as file:
+#    banned_words = set(json.load(file)["banned_words"])
+
+def request_validations(strategies, *request_methods):
+    def decorator(funcao):
+        @wraps(funcao)
+        def wrapped(*args, **kwargs):
+            if request.method in request_methods:
+                data = request.get_json()
+                if data:
+                    for strategy in strategies:
+                        error = strategy.validate(data)
+                        if error: 
+                            return jsonify({"error": error}), 400
+            return funcao(*args, **kwargs)
+        return wrapped
+    return decorator
+                     
 
 # Decorator for singleton classes
 def singleton(class_):
