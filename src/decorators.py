@@ -83,3 +83,17 @@ def singleton(class_):
         return instances[class_]
     
     return get_class      
+
+def immutable_fields(fields):
+    def decorador(update_method):
+        @wraps(update_method)
+        def wrapper(self, record_id, **kwargs):
+            current_record = self.get_by_id(record_id)
+
+            for field in fields:
+                if field in kwargs and kwargs[field] != current_record.get(field):
+                    raise ValueError(f"The '{field}' field is immutable and cannot be updated.")
+            
+            return update_method(self, record_id, **kwargs)
+        return wrapper
+    return decorador

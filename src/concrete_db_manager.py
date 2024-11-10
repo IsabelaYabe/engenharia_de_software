@@ -2,6 +2,7 @@ import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
 from database_manager import DatabaseManager
+from decorators import immutable_fields
 
 class TestDatabaseManagerConcrete(DatabaseManager):
     def _create_table(self):

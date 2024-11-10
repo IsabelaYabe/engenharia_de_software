@@ -42,7 +42,7 @@ class TestProductProfile(unittest.TestCase):
         - test_delete_row: Tests the deletion of a product by ID.
         - test_get_by_id: Tests retrieving a product by its ID and checks if the returned data is correct.
     """
-    @patch("mysql.connector.connect")  # Mockando a conexão ao MySQL
+    @patch("mysql.connector.connect") 
     def setUp(self, mock_connect):
         """
         Sets up a ProductProfile instance for testing by mocking the MySQL connection.
@@ -81,13 +81,13 @@ class TestProductProfile(unittest.TestCase):
         mock_uuid.return_value = uuid.UUID("12345678-1234-5678-1234-567812345678")
 
         result = self.product_profile.insert_row("Test Product", "Description", 1.99, 10)
-        mock_insert_row.assert_called_once_with({
-            "id": "12345678-1234-5678-1234-567812345678",
-            "name": "Test Product",
-            "description": "Description",
-            "price": 1.99,
-            "quantity": 10
-        })
+        mock_insert_row.assert_called_once_with(
+            id="12345678-1234-5678-1234-567812345678",
+            name="Test Product",
+            description="Description",
+            price=1.99,
+            quantity=10
+        )
         self.assertEqual(result, "12345678-1234-5678-1234-567812345678")
  
     @patch("product_profile.ProductProfile.get_by_id")
