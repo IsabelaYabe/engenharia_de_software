@@ -7,7 +7,7 @@ This module provides decorators to enhance functionality in the project. It incl
 
 Author: Isabela Yabe
 Last Modified: 09/11/2024
-Status: In Development, put logs
+Status: Complete, put logs
 
 Dependencies:
     - mysql.connector (optional for database connection)
