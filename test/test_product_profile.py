@@ -101,28 +101,10 @@ class TestProductProfile(unittest.TestCase):
             mock_get_by_id: Mock object to retrieve product details.
         """
         product_id = "12345678-1234-5678-1234-567812345678"
-        mock_get_by_id.return_value = {
-            "id": product_id,
-            "name": "new name",
-            "description": "description",
-            "price": 2.99,
-            "quantity": 10
-        }
 
         self.product_profile.update_row(product_id, name="new name", price=2.99)
 
         mock_update_row.assert_called_once_with(product_id, "id", name="new name", price=2.99)
-        
-        result = self.product_profile.get_by_id(product_id)
-        expected_result = {
-            "id": product_id, 
-            "name": "new name", 
-            "description": "description", 
-            "price": 2.99, 
-            "quantity": 10
-            }
-        
-        self.assertEqual(result, expected_result)
 
     @patch("product_profile.ProductProfile._delete_row")
     def test_delete_row(self, mock_delete_row):

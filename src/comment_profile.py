@@ -4,7 +4,7 @@ from database_manager import DatabaseManager
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(),'src')))
-from decorator import immutable_fields
+from decorators import immutable_fields
 
 class CommentProfile(DatabaseManager):
     def __init__(self, host, user, password, database):
@@ -17,15 +17,15 @@ class CommentProfile(DatabaseManager):
         CREATE TABLE IF NOT EXISTS comments (
             id VARCHAR(36) PRIMARY KEY,
             text VARCHAR(255) NOT NULL,
-            TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         );
         """
         self._create_table_(create_table_sql)
 
-    def insert_row(self, text, timestamp):
+    def insert_row(self, text):
         comment_id = str(uuid.uuid4())
         self._insert_row(
-            {"id": comment_id, "text": text, "timestamp": timestamp}
+            id=comment_id, text=text
             )
         return comment_id
     
