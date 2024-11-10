@@ -1,7 +1,10 @@
 """
 Module for CustomLogger Class.
 
-This module provides a configurable and flexible logging solution using Python's `logging` module. The `CustomLogger` class allows for the creation of a logger instance with customized file and console handlers, applying specific formatting and filtering to log messages. A `LogFilter` is also provided to exclude log messages that start with sensitive keywords, such as "password".
+This module provides a configurable and flexible logging solution using Python's `logging` module. 
+The `CustomLogger` class allows for the creation of a logger instance with customized file and console handlers, 
+applying specific formatting and filtering to log messages. A `LogFilter` is also provided to exclude log messages 
+that start with sensitive keywords, such as "password".
 
 Author: Isabela Yabe
 Last Modified: 09/11/2024
@@ -70,7 +73,7 @@ class CustomLogger:
 
         Helper Function:
             setup_logger(): Returns an instance of CustomLogger's logger for convenient access to a pre-configured logger.
-        """
+    """
     def __init__(self, log_file="app.log", level=logging.DEBUG, handlers=None, filters=None):
         """
         Initializes the CustomLogger instance with specified file path, log level, handlers, and filters.
@@ -90,13 +93,16 @@ class CustomLogger:
 
     def _create_file_handler(self):
         """
-        Creates a file handler for logging with a specific formatter and level.
+        Creates a file handler for logging with a specific formatter and level. 
+
+        The file handler is configured to append to the existing log file if it exists, ensuring that previous logs
+        are preserved.
 
         Returns:
             FileHandler: A configured file handler for logging to a file.
         """
         file_log_formatter = Formatter("%(asctime)s | %(levelname)s | %(module)s:%(funcName)s - %(message)s")
-        file_handler = FileHandler(self.log_file, mode="w", encoding="utf-8")
+        file_handler = FileHandler(self.log_file, mode="a", encoding="utf-8")
 
         file_handler.setLevel(logging.INFO)
         file_handler.setFormatter(file_log_formatter)
