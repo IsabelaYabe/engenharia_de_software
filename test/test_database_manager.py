@@ -2,8 +2,8 @@
     Module for unit testing the DatabaseManager class.
 
     Author: Isabela Yabe 
-
     Last Modified: 06/11/2024
+    Status: Complete
 
     Dependencies:
         - setup_logger
