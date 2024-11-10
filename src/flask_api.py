@@ -25,6 +25,11 @@ Usage Example:
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
+from decorators import request_validations
+
 class FlaskAPI:
     """
     FlaskAPI class.
@@ -71,11 +76,13 @@ class FlaskAPI:
             return self._get_record_api(record_id)
 
         @self._app.route(f"/api/{self._db_table._table_name}", methods=["POST"])
+        @request_validations("POST")
         def _create_record():
             data = request.json
             return self._create_record_api(*data)
 
         @self._app.route(f"/api/{self._db_table._table_name}/<record_id>", methods=["PUT"])
+        @request_validations("PUT")
         def _update_record(record_id):
             data = request.json
             return self._update_record_api(record_id, **data)

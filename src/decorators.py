@@ -1,28 +1,57 @@
 """
-    Module for creating decorators for the project.
+Module for creating decorators for the project.
 
-    Author: Isabela Yabe
+This module provides decorators to enhance functionality in the project. It includes:
+- `request_validations`: A decorator to apply multiple validation strategies to API request data based on the HTTP method.
+- `singleton`: A decorator to implement the singleton pattern for classes, ensuring only one instance of the class is created.
 
-    Last Modified: 07/11/2024
+Author: Isabela Yabe
+Last Modified: 09/11/2024
+Status: In Development, put logs
 
+Dependencies:
+    - mysql.connector (optional for database connection)
+    - functools.wraps
+    - flask.jsonify
+    - flask.request
+
+Functions:
+    - request_validations(strategies, *request_methods): Applies validation strategies to requests for specified HTTP methods.
+    - singleton(class_): Implements the singleton pattern for a class.
 """
+
 import mysql.connector
 from mysql.connector import Error
-
 from functools import wraps
 from flask import jsonify, request
-#import json
-#import os
-#json_path = os.path.join(os.path.dirname(__file__), '..', 'data\json', 'banned_words.json')
-#with open(json_path, 'r', encoding='utf-8') as file:
-#    banned_words = set(json.load(file)["banned_words"])
 
-def request_validations(strategies, *request_methods):
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
+from banned_words_strategy import BannedWordsStrategy
+from sql_injection_strategy import SQLInjectionStrategy
+
+banned_words_strategy = BannedWordsStrategy()
+sql_injection_strategy = SQLInjectionStrategy()
+
+def request_validations(strategies=[banned_words_strategy, sql_injection_strategy], *request_methods):
+    """
+    Decorator to apply validation strategies to API request data based on HTTP methods.
+
+    This decorator checks the HTTP method of incoming requests and applies specified validation strategies to the request data if the method matches one of the allowed methods (e.g., POST, PUT). If any validation strategy returns an error, the decorator interrupts the request, returning an error response.
+
+    Args:
+        strategies (list): A list of validation strategy instances implementing a `validate` method.
+        *request_methods (str): Variable number of HTTP methods to restrict validation (e.g., "POST", "PUT").
+
+    Returns:
+        function: The decorated function that performs validation before proceeding.
+    """
     def decorator(funcao):
         @wraps(funcao)
         def wrapped(*args, **kwargs):
+            data = request.get_json()
             if request.method in request_methods:
-                data = request.get_json()
                 if data:
                     for strategy in strategies:
                         error = strategy.validate(data)
@@ -32,17 +61,17 @@ def request_validations(strategies, *request_methods):
         return wrapped
     return decorator
                      
-
-# Decorator for singleton classes
 def singleton(class_):
     """
     Singleton decorator for classes.
 
+    Ensures only one instance of the decorated class is created. Subsequent calls to create an instance of the class will return the same instance.
+
     Args:
-        class_ (_type_): _description_
+        class_ (type): The class to be decorated as a singleton.
 
     Returns:
-        _type_: _description_
+        function: A function that returns the singleton instance of the class.
     """
     instances = {}
 
@@ -51,48 +80,4 @@ def singleton(class_):
             instances[class_] = class_(*args, **kwargs)
         return instances[class_]
     
-    return get_class
-
-## Decorator for check database existence
-#def check_database(func): 
-#    """
-#    Decorator to check if the database exists before executing a function.
-#
-#    Args:
-#        func (_type_): _description_
-#
-#    Returns:
-#        _type_: _description_
-#    """
-#    def database_exists(self, host, user, password, database):
-#        """
-#        Checks if a database exists.
-#
-#        Args:
-#            host (_type_): _description_
-#            user (_type_): _description_
-#            password (_type_): _description_
-#            database (_type_): _description_
-#
-#        Returns:
-#            _type_: _description_
-#        """ 
-#        try:
-#            connection = mysql.connector.connect(
-#                host=host,
-#                user=user,
-#                password=password
-#            )
-#            cursor = connection.cursor()
-#            cursor.execute(f"SHOW DATABASES LIKE {database}")
-#            result = cursor.fetchone()
-#            return result is not None
-#        except Error as e:
-#            print(f"Error connection to MySQL: {e}")
-#            return False
-#        finally:
-#            if "connection" in locals() and connection.is_connected():
-#                cursor.close()
-#                connection.close()
-#        
-#    def wrapper(self, host, user, password, database, *args, **kwargs):        
+    return get_class      

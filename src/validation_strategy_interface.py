@@ -5,7 +5,7 @@ This module provides a base class for creating custom validation strategies. The
 
 Author: Isabela Yabe
 Last Modified: 09/11/2024
-Status: Testing
+Status: Put logs
 
 Dependencies:
     - ABC

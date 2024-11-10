@@ -5,7 +5,7 @@ This module defines the `BannedWordsStrategy` class, which is a concrete impleme
 
 Author: Isabela Yabe 
 Last Modified: 09/11/2024
-Status: In Testing, put logs
+Status: Put logs
 
 Dependencies:
     - json
@@ -74,9 +74,11 @@ class BannedWordsStrategy(ValidationStrategy):
         for value in data.values():
             banned_words_found = []
             if isinstance(value, str):
-                words = value.lower().split
+                words = value.lower().split()
                 for word in words:
                     if word in self.banned_words:
                         banned_words_found.append(word)
+        
+        if len(banned_words_found) != 0:
             return f"Request contains banned words: ({", ".join(banned_words_found)})"
         return None
