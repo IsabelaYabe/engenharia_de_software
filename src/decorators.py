@@ -4,9 +4,11 @@ Module for creating decorators for the project.
 This module provides decorators to enhance functionality in the project. It includes:
 - `request_validations`: A decorator to apply multiple validation strategies to API request data based on the HTTP method.
 - `singleton`: A decorator to implement the singleton pattern for classes, ensuring only one instance of the class is created.
+- `immutable_fields`: A decorator, which enforces immutability on specified fields within
+a database table by raising an exception if there is an attempt to update those fields.
 
 Author: Isabela Yabe
-Last Modified: 09/11/2024
+Last Modified: 10/11/2024
 Status: Complete, put logs
 
 Dependencies:
@@ -85,6 +87,21 @@ def singleton(class_):
     return get_class      
 
 def immutable_fields(fields):
+    """
+    Decorator to enforce immutability on specified fields in a class method.
+
+    This decorator restricts updates to the fields specified in the `fields` argument. If an update attempt
+    includes any of these fields, a `ValueError` is raised.
+
+    Args:
+        fields (list): A list of field names (strings) that should be immutable and cannot be updated.
+
+    Returns:
+        function: The decorated function that enforces immutability for specified fields.
+
+    Raises:
+        ValueError: If there is an attempt to update any of the immutable fields.
+    """
     def decorador(update_method):
         @wraps(update_method)
         def wrapper(self, record_id, **kwargs):
