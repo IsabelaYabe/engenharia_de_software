@@ -14,6 +14,8 @@ Dependencies:
     - functools.wraps
     - flask.jsonify
     - flask.request
+    - BannedWordsStrategy
+    - SQLInjectionStrategy
 
 Functions:
     - request_validations(strategies, *request_methods): Applies validation strategies to requests for specified HTTP methods.

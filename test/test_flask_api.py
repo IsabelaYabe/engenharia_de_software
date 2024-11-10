@@ -6,8 +6,8 @@ to a database table through RESTful API endpoints. The tests simulate HTTP reque
 that each API endpoint functions correctly, handles data accurately, and manages errors as expected.
 
 Author: Isabela Yabe
-
 Last Modified: 06/11/2024
+Status: Complete
 
 Dependencies:
     - unittest
