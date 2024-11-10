@@ -3,7 +3,7 @@ Module for FlaskAPI Class.
 
 This module provides the `FlaskAPI` class, which creates a RESTful API for basic CRUD (Create, Read, Update, Delete) operations on a specified database table. The class uses Flask to set up endpoints for accessing, creating, updating, and deleting records in the database.
 
-Author: Isabeça Yabe
+Author: Isabela Yabe
 Last Modified: 06/11/2024
 Status: Put logs
 
@@ -15,11 +15,6 @@ Dependencies:
 
 Classes:
     - FlaskAPI: Class for setting up and running a RESTful API for a database table.
-
-Usage Example:
-    db_table = YourDatabaseTable()
-    api = FlaskAPI(db_table)
-    api.run(debug=True)
 """
 
 from flask import Flask, jsonify, request

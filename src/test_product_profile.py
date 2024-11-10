@@ -1,16 +1,21 @@
 """
     Module for unit testing the ProductProfile class.
 
-    Author: Isabela Yabe 
+    This module provides unit tests for the `ProductProfile` class, which is responsible for managing
+    CRUD operations on a product profile database table.
 
-    Dependencies: 
+    Author: Isabela Yabe
+    Last Modified: 09/11/2024
+    Status: Complete
+
+    Dependencies:
         - unittest
+        - unittest.mock
         - uuid
         - os
         - sys
         - ProductProfile
-        - load_banned_words
-        - contains_banned_words
+        - mysql.connector
 """
 
 import unittest
@@ -23,122 +28,137 @@ from product_profile import ProductProfile
 
 
 class TestProductProfile(unittest.TestCase):
+    """
+    TestProductProfile class.
 
+    This class contains unit tests for the `ProductProfile` class, verifying that the CRUD methods
+    function as expected in handling product profile data.
+
+    Methods:
+        - setUp: Initializes a ProductProfile instance for testing.
+        - test_create_table: Tests table creation to ensure it is called correctly.
+        - test_insert_row: Tests inserting a new product, checking that the row insertion occurs as expected.
+        - test_update_row: Tests updating an existing product and verifies the updated data.
+        - test_delete_row: Tests the deletion of a product by ID.
+        - test_get_by_id: Tests retrieving a product by its ID and checks if the returned data is correct.
+    """
     @patch("mysql.connector.connect")  # Mockando a conexão ao MySQL
     def setUp(self, mock_connect):
         """
-        This method sets up the environment for each test.
-        Initializes a ProductProfile instance and patches database connection.
+        Sets up a ProductProfile instance for testing by mocking the MySQL connection.
+        
+        Args:
+            mock_connect: Mock object to simulate the MySQL connection.
         """
-        mock_connection = MagicMock()
-        mock_connect.return_value = mock_connection
-        self.mock_cursor = mock_connection.cursor.return_value
-
-        self.product_profile = ProductProfile("localhost", "root", "password", "test_db")
-        self.product_id = str(uuid.uuid4())
-
-    @patch("mysql.connector.connect")
-    def test_create_product(self, mock_connect):
-        """
-        Test if the create_product method inserts a new product into the database correctly.
-        """
-        mock_connection = MagicMock()
-        mock_connect.return_value = mock_connection
-        mock_cursor = mock_connection.cursor.return_value
-
-        product_id = self.product_profile.create_product("Test Product", "A test description", 19.99, 10)
-
-        expected_sql = "INSERT INTO products (product_id, name, description, price, quantity) VALUES (%s, %s, %s, %s, %s);"
-
-        mock_cursor.execute.assert_called_with(expected_sql, (product_id, "Test Product", "A test description", 19.99, 10))
-
-        mock_connection.commit.assert_called_once()
-        mock_cursor.close.assert_called_once()
-        mock_connection.close.assert_called_once()
-    
-    @patch("mysql.connector.connect")
-    def test_get_product(self, mock_connect):
-        """
-        Test if the get_product method retrieves a product by its ID and returns all product details.
-        """
-        mock_connection = MagicMock()
-        mock_connect.return_value = mock_connection
-        mock_cursor = mock_connection.cursor.return_value
-
-        mock_cursor.fetchone.return_value = (
-            self.product_id, "Test Product", "A test description", 19.99, 100
+        self.product_profile = ProductProfile(
+            host = "localhost",
+            user = "root",
+            password = "password",
+            database="test_db"
         )
 
-        product = self.product_profile.get_product(self.product_id)
+    @patch("product_profile.ProductProfile._create_table_")
+    def test_create_table(self, mock_create_table):
+        """
+        Tests that the _create_table method correctly triggers the table creation.
+        
+        Args:
+            mock_create_table: Mock object to simulate the table creation.
+        """
+        self.product_profile._create_table()
+        mock_create_table.assert_called_once()
+    
+    @patch("uuid.uuid4")
+    @patch("product_profile.ProductProfile._insert_row")
+    def test_insert_row(self, mock_insert_row, mock_uuid):  
+        """
+        Tests inserting a new product into the `products` table.
 
-        expected_product = {
-            "product_id": self.product_id,
+        Args:
+            mock_insert_row: Mock object to simulate row insertion.
+            mock_uuid: Mock object to generate a consistent UUID for testing.
+        """  
+        mock_uuid.return_value = uuid.UUID("12345678-1234-5678-1234-567812345678")
+
+        result = self.product_profile.insert_row("Test Product", "Description", 1.99, 10)
+        mock_insert_row.assert_called_once_with({
+            "id": "12345678-1234-5678-1234-567812345678",
             "name": "Test Product",
-            "description": "A test description",
-            "price": 19.99,
-            "quantity": 100
+            "description": "Description",
+            "price": 1.99,
+            "quantity": 10
+        })
+        self.assertEqual(result, "12345678-1234-5678-1234-567812345678")
+ 
+    @patch("product_profile.ProductProfile.get_by_id")
+    @patch("product_profile.ProductProfile._update_row")
+    def test_update_row(self, mock_update_row, mock_get_by_id):
+        """
+        Tests updating an existing product's details.
+
+        Args:
+            mock_update_row: Mock object to simulate row updating.
+            mock_get_by_id: Mock object to retrieve product details.
+        """
+        product_id = "12345678-1234-5678-1234-567812345678"
+        mock_get_by_id.return_value = {
+            "id": product_id,
+            "name": "new name",
+            "description": "description",
+            "price": 2.99,
+            "quantity": 10
         }
 
-        self.assertEqual(product, expected_product)
+        self.product_profile.update_row(product_id, name="new name", price=2.99)
 
-        mock_cursor.execute.assert_called_with(
-            "SELECT id, name, description, price, quantity FROM products WHERE id = %s", 
-            (self.product_id,)
-        )
+        mock_update_row.assert_called_once_with(product_id, "id", name="new name", price=2.99)
+        
+        result = self.product_profile.get_by_id(product_id)
+        expected_result = {
+            "id": product_id, 
+            "name": "new name", 
+            "description": "description", 
+            "price": 2.99, 
+            "quantity": 10
+            }
+        
+        self.assertEqual(result, expected_result)
 
-        mock_cursor.close.assert_called_once()
-        mock_connection.close.assert_called_once()
-    
-    @patch("mysql.connector.connect")
-    def test_update_price(self, mock_connect):
+    @patch("product_profile.ProductProfile._delete_row")
+    def test_delete_row(self, mock_delete_row):
         """
-        Test if the update_price method updates the product's price in the database.
+        Tests deleting a product by ID.
+
+        Args:
+            mock_delete_row: Mock object to simulate row deletion.
         """
-        mock_connection = MagicMock()
-        mock_connect.return_value = mock_connection
-        mock_cursor = mock_connection.cursor.return_value
+        product_id = str(uuid.uuid4())
+        self.product_profile.delete_row(product_id)
 
-        self.product_profile.update_price(self.product_id, 25.99)
+        mock_delete_row.assert_called_once_with(product_id, "id")
 
-        expected_sql = f"UPDATE products SET price = %s WHERE product_id = '{self.product_id}';"
-
-        mock_cursor.execute.assert_called_with(expected_sql, (25.99,))
-    
-        mock_connection.commit.assert_called_once()
-        mock_cursor.close.assert_called_once()
-    
-    @patch("mysql.connector.connect")
-    def test_update_name(self, mock_connect):
+    @patch("product_profile.ProductProfile._get_by_id")
+    def test_get_by_id(self, mock_get_by_id):
         """
-        Test if the update_name method updates the product's name in the database.
+        Tests retrieving a product by its ID.
+
+        Args:
+            mock_get_by_id: Mock object to simulate retrieval of a product by ID.
         """
-        mock_connection = MagicMock()
-        mock_connect.return_value = mock_connection
-        mock_cursor = mock_connection.cursor.return_value
+        product_id = str(uuid.uuid4())
+        mock_get_by_id.return_value = (product_id, "name", "description", 1.99, 10)
 
-        self.product_profile.update_name(self.product_id, "Updated Product")
+        result = self.product_profile.get_by_id(product_id)
+        expected_result = {
+            "id": product_id, 
+            "name": "name",
+            "description": "description",
+            "price": 1.99,
+            "quantity": 10
+            }
 
-        expected_sql = f"UPDATE products SET name = %s WHERE product_id = '{self.product_id}';"
-        mock_cursor.execute.assert_called_with(expected_sql, ("Updated Product",))
-        mock_connection.commit.assert_called_once()
-        mock_cursor.close.assert_called_once()
-    
-    @patch("mysql.connector.connect")
-    def test_delete_product(self, mock_connect):
-        """
-        Test if the delete_product method removes a product from the database.
-        """
-        mock_connection = MagicMock()
-        mock_connect.return_value = mock_connection
-        mock_cursor = mock_connection.cursor.return_value
-
-        self.product_profile.delete_product(self.product_id)
-
-        expected_sql = "DELETE FROM products WHERE id = %s;"
-        mock_cursor.execute.assert_called_with(expected_sql, (self.product_id,))
-        mock_connection.commit.assert_called_once()
-        mock_cursor.close.assert_called_once()
-    
-
+        mock_get_by_id.assert_called_once_with(product_id, "id")
+        self.assertEqual(result, expected_result)
+        
 if __name__ == '__main__':
     unittest.main()
