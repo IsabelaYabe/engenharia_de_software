@@ -24,7 +24,7 @@ import uuid
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
-from owner_profile import OwnerProfile
+from profiles.owner_profile import OwnerProfile
 
 
 class TestOwnerProfile(unittest.TestCase):
@@ -52,12 +52,12 @@ class TestOwnerProfile(unittest.TestCase):
         """
         self.owner_profile = OwnerProfile(
             host="localhost",
-            owner="root",
+            user="root",
             password="password",
             database="test_db"
         )
 
-    @patch("owner_profile.OwnerProfile._create_table_")
+    @patch("profiles.owner_profile.OwnerProfile._create_table_")
     def test_create_table(self, mock_create_table):
         """
         Tests that the _create_table method correctly triggers the table creation.
@@ -69,7 +69,7 @@ class TestOwnerProfile(unittest.TestCase):
         mock_create_table.assert_called_once()
     
     @patch("uuid.uuid4")
-    @patch("owner_profile.OwnerProfile._insert_row")
+    @patch("profiles.owner_profile.OwnerProfile._insert_row")
     def test_insert_row(self, mock_insert_row, mock_uuid):  
         """
         Tests inserting a new owner into the `owners` table.
@@ -103,8 +103,8 @@ class TestOwnerProfile(unittest.TestCase):
         )
         self.assertEqual(result, "12345678-1234-5678-1234-567812345678")
 
-    @patch("owner_profile.OwnerProfile.get_by_id")
-    @patch("owner_profile.OwnerProfile._update_row")
+    @patch("profiles.owner_profile.OwnerProfile.get_by_id")
+    @patch("profiles.owner_profile.OwnerProfile._update_row")
     def test_update_row(self, mock_update_row, mock_get_by_id):
         """
         Tests updating an existing owner's details.
@@ -119,7 +119,7 @@ class TestOwnerProfile(unittest.TestCase):
 
         mock_update_row.assert_called_once_with(owner_id, "id", ownername="new_ownername", email="new_email@example.com")
         
-    @patch("owner_profile.OwnerProfile._delete_row")
+    @patch("profiles.owner_profile.OwnerProfile._delete_row")
     def test_delete_row(self, mock_delete_row):
         """
         Tests deleting a owner by ID.
@@ -132,7 +132,7 @@ class TestOwnerProfile(unittest.TestCase):
 
         mock_delete_row.assert_called_once_with(owner_id, "id")
 
-    @patch("owner_profile.OwnerProfile._get_by_id")
+    @patch("profiles.owner_profile.OwnerProfile._get_by_id")
     def test_get_by_id(self, mock_get_by_id):
         """
         Tests retrieving a owner by their ID.

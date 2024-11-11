@@ -1,9 +1,7 @@
 import DatabaseManagerClient from './databaseClient.js';
 
-// Inicializar o client com a URL base da API
 const client = new DatabaseManagerClient('http://localhost:5000');
 
-// Função para carregar o produto na página
 async function loadProduct(productId) {
     const productDetails = await client.getRecordById('product', productId);
 
@@ -17,7 +15,6 @@ async function loadProduct(productId) {
     }
 }
 
-// Pegar o ID do produto da URL e carregar os detalhes
 const productId = new URLSearchParams(window.location.search).get('productId');
 if (productId) {
     loadProduct(productId);

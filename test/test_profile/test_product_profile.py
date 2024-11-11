@@ -24,7 +24,7 @@ import uuid
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
-from product_profile import ProductProfile
+from profiles.product_profile import ProductProfile
 
 
 class TestProductProfile(unittest.TestCase):
@@ -57,7 +57,7 @@ class TestProductProfile(unittest.TestCase):
             database="test_db"
         )
 
-    @patch("product_profile.ProductProfile._create_table_")
+    @patch("profiles.product_profile.ProductProfile._create_table_")
     def test_create_table(self, mock_create_table):
         """
         Tests that the _create_table method correctly triggers the table creation.
@@ -69,7 +69,7 @@ class TestProductProfile(unittest.TestCase):
         mock_create_table.assert_called_once()
     
     @patch("uuid.uuid4")
-    @patch("product_profile.ProductProfile._insert_row")
+    @patch("profiles.product_profile.ProductProfile._insert_row")
     def test_insert_row(self, mock_insert_row, mock_uuid):  
         """
         Tests inserting a new product into the `products` table.
@@ -90,8 +90,8 @@ class TestProductProfile(unittest.TestCase):
         )
         self.assertEqual(result, "12345678-1234-5678-1234-567812345678")
  
-    @patch("product_profile.ProductProfile.get_by_id")
-    @patch("product_profile.ProductProfile._update_row")
+    @patch("profiles.product_profile.ProductProfile.get_by_id")
+    @patch("profiles.product_profile.ProductProfile._update_row")
     def test_update_row(self, mock_update_row, mock_get_by_id):
         """
         Tests updating an existing product's details.
@@ -106,7 +106,7 @@ class TestProductProfile(unittest.TestCase):
 
         mock_update_row.assert_called_once_with(product_id, "id", name="new name", price=2.99)
 
-    @patch("product_profile.ProductProfile._delete_row")
+    @patch("profiles.product_profile.ProductProfile._delete_row")
     def test_delete_row(self, mock_delete_row):
         """
         Tests deleting a product by ID.
@@ -119,7 +119,7 @@ class TestProductProfile(unittest.TestCase):
 
         mock_delete_row.assert_called_once_with(product_id, "id")
 
-    @patch("product_profile.ProductProfile._get_by_id")
+    @patch("profiles.product_profile.ProductProfile._get_by_id")
     def test_get_by_id(self, mock_get_by_id):
         """
         Tests retrieving a product by its ID.

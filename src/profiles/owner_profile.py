@@ -37,7 +37,7 @@ class OwnerProfile(DatabaseManager):
         - delete_row(record_id): Deletes a owner by its ID.
         - get_by_id(id): Retrieves a owner record by ID, returning it as a dictionary.
     """
-    def __init__(self, host, owner, password, database):
+    def __init__(self, host, user, password, database):
         """
         Initializes the OwnerProfile instance and creates the "owners" table if it does not exist.
 
@@ -47,7 +47,7 @@ class OwnerProfile(DatabaseManager):
             password (str): The password for the specified owner.
             database (str): The name of the database to connect to.
         """
-        super().__init__(host, owner, password, database, "owners")
+        super().__init__(host, user, password, database, "owners")
         self.columns = ["id", "ownername", "email", "password", "first name", "last name", "birthdate", "phone number", "address"]
         self._create_table()
 

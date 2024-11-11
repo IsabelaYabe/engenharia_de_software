@@ -24,7 +24,7 @@ import uuid
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
-from complaint_profile import ComplaintProfile
+from profiles.complaint_profile import ComplaintProfile
 
 
 class TestComplaintProfile(unittest.TestCase):
@@ -57,7 +57,7 @@ class TestComplaintProfile(unittest.TestCase):
             database="test_db"
         )
 
-    @patch("complaint_profile.ComplaintProfile._create_table_")
+    @patch("profiles.complaint_profile.ComplaintProfile._create_table_")
     def test_create_table(self, mock_create_table):
         """
         Tests that the _create_table method correctly triggers the table creation.
@@ -69,7 +69,7 @@ class TestComplaintProfile(unittest.TestCase):
         mock_create_table.assert_called_once()
     
     @patch("uuid.uuid4")
-    @patch("complaint_profile.ComplaintProfile._insert_row")
+    @patch("profiles.complaint_profile.ComplaintProfile._insert_row")
     def test_insert_row(self, mock_insert_row, mock_uuid):  
         """
         Tests inserting a new complaint into the `complaints` table.
@@ -87,8 +87,8 @@ class TestComplaintProfile(unittest.TestCase):
         )
         self.assertEqual(result, "12345678-1234-5678-1234-567812345678")
 
-    @patch("complaint_profile.ComplaintProfile.get_by_id")
-    @patch("complaint_profile.ComplaintProfile._update_row")
+    @patch("profiles.complaint_profile.ComplaintProfile.get_by_id")
+    @patch("profiles.complaint_profile.ComplaintProfile._update_row")
     def test_update_row(self, mock_update_row, mock_get_by_id):
         """
         Tests updating an existing complaint's details.
@@ -103,7 +103,7 @@ class TestComplaintProfile(unittest.TestCase):
 
         mock_update_row.assert_called_once_with(complaint_id, "id", text="New Complaint")
 
-    @patch("complaint_profile.ComplaintProfile._delete_row")
+    @patch("profiles.complaint_profile.ComplaintProfile._delete_row")
     def test_delete_row(self, mock_delete_row):
         """
         Tests deleting a complaint by ID.
@@ -116,7 +116,7 @@ class TestComplaintProfile(unittest.TestCase):
 
         mock_delete_row.assert_called_once_with(complaint_id, "id")
 
-    @patch("complaint_profile.ComplaintProfile._get_by_id")
+    @patch("profiles.complaint_profile.ComplaintProfile._get_by_id")
     def test_get_by_id(self, mock_get_by_id):
         """
         Tests retrieving a complaint by its ID.

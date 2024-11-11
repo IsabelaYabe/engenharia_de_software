@@ -24,7 +24,7 @@ import uuid
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
-from comment_profile import CommentProfile
+from profiles.comment_profile import CommentProfile
 
 
 class TestCommentProfile(unittest.TestCase):
@@ -57,7 +57,7 @@ class TestCommentProfile(unittest.TestCase):
             database="test_db"
         )
 
-    @patch("comment_profile.CommentProfile._create_table_")
+    @patch("profiles.comment_profile.CommentProfile._create_table_")
     def test_create_table(self, mock_create_table):
         """
         Tests that the _create_table method correctly triggers the table creation.
@@ -69,7 +69,7 @@ class TestCommentProfile(unittest.TestCase):
         mock_create_table.assert_called_once()
     
     @patch("uuid.uuid4")
-    @patch("comment_profile.CommentProfile._insert_row")
+    @patch("profiles.comment_profile.CommentProfile._insert_row")
     def test_insert_row(self, mock_insert_row, mock_uuid):  
         """
         Tests inserting a new comment into the `comments` table.
@@ -87,8 +87,8 @@ class TestCommentProfile(unittest.TestCase):
         )
         self.assertEqual(result, "12345678-1234-5678-1234-567812345678")
 
-    @patch("comment_profile.CommentProfile.get_by_id")
-    @patch("comment_profile.CommentProfile._update_row")
+    @patch("profiles.comment_profile.CommentProfile.get_by_id")
+    @patch("profiles.comment_profile.CommentProfile._update_row")
     def test_update_row(self, mock_update_row, mock_get_by_id):
         """
         Tests updating an existing comment's details.
@@ -103,7 +103,7 @@ class TestCommentProfile(unittest.TestCase):
 
         mock_update_row.assert_called_once_with(comment_id, "id", text="New Comment")
 
-    @patch("comment_profile.CommentProfile._delete_row")
+    @patch("profiles.comment_profile.CommentProfile._delete_row")
     def test_delete_row(self, mock_delete_row):
         """
         Tests deleting a comment by ID.
@@ -116,7 +116,7 @@ class TestCommentProfile(unittest.TestCase):
 
         mock_delete_row.assert_called_once_with(comment_id, "id")
 
-    @patch("comment_profile.CommentProfile._get_by_id")
+    @patch("profiles.comment_profile.CommentProfile._get_by_id")
     def test_get_by_id(self, mock_get_by_id):
         """
         Tests retrieving a comment by its ID.

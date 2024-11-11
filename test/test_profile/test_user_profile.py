@@ -24,7 +24,7 @@ import uuid
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
-from user_profile import UserProfile
+from profiles.user_profile import UserProfile
 
 
 class TestUserProfile(unittest.TestCase):
@@ -57,7 +57,7 @@ class TestUserProfile(unittest.TestCase):
             database="test_db"
         )
 
-    @patch("user_profile.UserProfile._create_table_")
+    @patch("profiles.user_profile.UserProfile._create_table_")
     def test_create_table(self, mock_create_table):
         """
         Tests that the _create_table method correctly triggers the table creation.
@@ -69,7 +69,7 @@ class TestUserProfile(unittest.TestCase):
         mock_create_table.assert_called_once()
     
     @patch("uuid.uuid4")
-    @patch("user_profile.UserProfile._insert_row")
+    @patch("profiles.user_profile.UserProfile._insert_row")
     def test_insert_row(self, mock_insert_row, mock_uuid):  
         """
         Tests inserting a new user into the `users` table.
@@ -103,8 +103,8 @@ class TestUserProfile(unittest.TestCase):
         )
         self.assertEqual(result, "12345678-1234-5678-1234-567812345678")
 
-    @patch("user_profile.UserProfile.get_by_id")
-    @patch("user_profile.UserProfile._update_row")
+    @patch("profiles.user_profile.UserProfile.get_by_id")
+    @patch("profiles.user_profile.UserProfile._update_row")
     def test_update_row(self, mock_update_row, mock_get_by_id):
         """
         Tests updating an existing user's details.
@@ -119,7 +119,7 @@ class TestUserProfile(unittest.TestCase):
 
         mock_update_row.assert_called_once_with(user_id, "id", username="new_username", email="new_email@example.com")
         
-    @patch("user_profile.UserProfile._delete_row")
+    @patch("profiles.user_profile.UserProfile._delete_row")
     def test_delete_row(self, mock_delete_row):
         """
         Tests deleting a user by ID.
@@ -132,7 +132,7 @@ class TestUserProfile(unittest.TestCase):
 
         mock_delete_row.assert_called_once_with(user_id, "id")
 
-    @patch("user_profile.UserProfile._get_by_id")
+    @patch("profiles.user_profile.UserProfile._get_by_id")
     def test_get_by_id(self, mock_get_by_id):
         """
         Tests retrieving a user by their ID.

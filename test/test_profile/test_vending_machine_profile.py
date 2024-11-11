@@ -24,7 +24,7 @@ import uuid
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
-from vending_machine_profile import VMProfile
+from profiles.vending_machine_profile import VMProfile
 
 
 class TestVMProfile(unittest.TestCase):
@@ -57,7 +57,7 @@ class TestVMProfile(unittest.TestCase):
             database="test_db"
         )
 
-    @patch("vending_machine_profile.VMProfile._create_table_")
+    @patch("profiles.vending_machine_profile.VMProfile._create_table_")
     def test_create_table(self, mock_create_table):
         """
         Tests that the _create_table method correctly triggers the table creation.
@@ -69,7 +69,7 @@ class TestVMProfile(unittest.TestCase):
         mock_create_table.assert_called_once()
     
     @patch("uuid.uuid4")
-    @patch("vending_machine_profile.VMProfile._insert_row")
+    @patch("profiles.vending_machine_profile.VMProfile._insert_row")
     def test_insert_row(self, mock_insert_row, mock_uuid):  
         """
         Tests inserting a new vending machine into the `vending machines` table.
@@ -89,8 +89,8 @@ class TestVMProfile(unittest.TestCase):
         )
         self.assertEqual(result, "12345678-1234-5678-1234-567812345678")
 
-    @patch("vending_machine_profile.VMProfile.get_by_id")
-    @patch("vending_machine_profile.VMProfile._update_row")
+    @patch("profiles.vending_machine_profile.VMProfile.get_by_id")
+    @patch("profiles.vending_machine_profile.VMProfile._update_row")
     def test_update_row(self, mock_update_row, mock_get_by_id):
         """
         Tests updating an existing vending machine's details.
@@ -105,7 +105,7 @@ class TestVMProfile(unittest.TestCase):
 
         mock_update_row.assert_called_once_with(vending_machine_id, "id", status="In operation")
 
-    @patch("vending_machine_profile.VMProfile._delete_row")
+    @patch("profiles.vending_machine_profile.VMProfile._delete_row")
     def test_delete_row(self, mock_delete_row):
         """
         Tests deleting a vending machine by ID.
@@ -118,7 +118,7 @@ class TestVMProfile(unittest.TestCase):
 
         mock_delete_row.assert_called_once_with(vending_machine_id, "id")
 
-    @patch("vending_machine_profile.VMProfile._get_by_id")
+    @patch("profiles.vending_machine_profile.VMProfile._get_by_id")
     def test_get_by_id(self, mock_get_by_id):
         """
         Tests retrieving a vending machine by its ID.
