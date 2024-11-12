@@ -87,7 +87,7 @@ def singleton(class_):
     
     return get_class      
 
-def immutable_fields(fields):
+def immutable_fields(atribute_name):
     """
     Decorator to enforce immutability on specified fields in a class method.
 
@@ -106,6 +106,7 @@ def immutable_fields(fields):
     def decorador(update_method):
         @wraps(update_method)
         def wrapper(self, record_id, **kwargs):
+            fields = getattr(self, atribute_name, [])
             current_record = self.get_by_id(record_id)
 
             for field in fields:

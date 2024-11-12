@@ -1,22 +1,11 @@
-"""
-    Module for DatabaseManager abstractmethod class.
-
-    This module provides a class for managing a single MySQL table in a database.
-
-    Author: Isabela Yabe
-    Last Modified: 06/11/2024
-    Status: Complete, put logs
-
-    Dependencies:
-        - setup_logger
-        - ABC
-        - abstractmethod
-        - mysql.connector
-"""
 from dataclasses import dataclass, field
 from custom_logger import setup_logger
 import mysql.connector
 import uuid
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(),'src')))
+from decorators import immutable_fields
 
 logger = setup_logger()
 @dataclass
@@ -30,60 +19,23 @@ class ConfigClass:
     column_id: str="id"
 
 class DatabaseManager():
-    """
-        DatabaseManager class.
-
-        This abstract class provides basic database operations and manages a single table in a MySQL database.
-
-        Attributes:
-        - db_config (dict): A dictionary containing the MySQL database configuration.
-        - table_name (str): The name of the table managed by this instance.
-
-        Methods:
-        - __connect(): Establishes a connection to the MySQL database.
-        - _create_table_(create_table_sql): Creates the managed table with the provided SQL statement.
-        - _modify_column(old_column_name, new_column_name): Modifies a column name.
-        - _delete_row(row_id, column_id): Deletes a row from the table based on a column condition.
-        - _delete_table(): Deletes the entire table.
-        - _insert_row(**kwargs): Inserts a new row into the table with specified column-value pairs.
-        - _update_row(record_id, column_id, **kwargs): Updates specific columns based on a record condition.
-        - _get_by_id(record_id, column_id="id"): Retrieves a record by its ID from the table.
-        - _delete_column(column_name): Deletes a column from the table.
-        - _add_column(column_name, type, not_null=True): Adds a new column to the table.
-        - _rollback(conn): Roll back a uncommitted transaction on the corrent connection.
-    """
     
-    def __init__(self, config, columns_foreign_keys=None, immutable_columns=None):
-        """
-        Constructor for the DatabaseManager class.
-        
-        Args:
-            host (str): The MySQL server host.
-            user (str): The MySQL user.
-            password (str): The MySQL user"s password.
-            database (str): The name of the MySQL database.
-            table_name (str): The name of the table to be managed by this instance.
-        """
-        logger.info("Initializing DatabaseManager for table: %s", table_name)
+    def __init__(self, config, columns_foreign_keys_table=None, immutable_columns=None):
+
+        logger.info("Initializing DatabaseManager for table: %s", config.table_name)
         self._db_config = {
-            "host": config[host],
-            "user": config[user],
-            "password": config[password],
-            "database": config[database]
+            "host": config.host,
+            "user": config.user,
+            "password": config.password,
+            "database": config.database
         }
-        self.table_name = config[table_name]
-        self.columns = config[columns]
-        self.column_id = config[column_id]
-        self.columns_foreing_keys = columns_foreign_keys
-        self.immutable_columns = ["id", "timestamp", lambda x: x for x in immutable_columns]
+        self.table_name = config.table_name
+        self.columns = config.columns
+        self.column_id = config.column_id
+        self.columns_foreing_keys_table = columns_foreign_keys_table
+        self.immutable_columns = [self.column_id, "timestamp"] + (immutable_columns or [])
         
     def __connect(self):
-        """
-        Establishes a connection to the MySQL database.
-
-        Returns:
-            conn: A MySQL database connection object.
-        """
         logger.info("Connecting to the database")
         try:
             conn = mysql.connector.connect(**self._db_config)
@@ -94,13 +46,8 @@ class DatabaseManager():
         return conn 
  
     def _modify_column(self, old_column_name, new_column_name):
-        """
-        Modifies a column name in the managed table.
-        
-        Args:
-            old_column_name (str): The current name of the column.
-            new_column_name (str): The new name of the column.
-        """
+        if old_column_name == self.column_id:
+            raise ValueError(f"You can't modify an id column!")
         conn = self.__connect()
         cursor = conn.cursor()
         alter_table_sql = f"ALTER TABLE `{self._table_name}` RENAME COLUMN `{old_column_name}` TO `{new_column_name}`;"
@@ -108,6 +55,8 @@ class DatabaseManager():
         try: 
             cursor.execute(alter_table_sql)
             conn.commit()
+            indice = self.columns.index(old_column_name)
+            self.columns[indice] = "new_column_name"
         except mysql.connector.Error as e: 
             logger.error(f"Failed to modify column `{old_column_name}` to `{new_column_name}`: {e.msg} (errno={e.errno})")
             self._rollback(conn)
@@ -121,13 +70,6 @@ class DatabaseManager():
             conn.close()
 
     def _add_column(self, column_name, type, not_null=True):
-        """
-        Add a column in the managed table.
-
-        Args:
-            column_name (str): The name of the new column.
-            type (str): The type of the new column.
-        """
         if not_null:
             null = " NOT NULL"
         else:
@@ -153,12 +95,6 @@ class DatabaseManager():
             conn.close()
 
     def _delete_column(self, column_name):
-        """
-        Delete a column in the managed table.
-
-        Args:
-            column_name (str): The name of the new column.
-        """
         conn = self.__connect()
         cursor = conn.cursor()
         alter_table_sql = f"ALTER TABLE `{self._table_name}` DROP COLUMN `{column_name}`;"
@@ -177,13 +113,6 @@ class DatabaseManager():
             conn.close()
 
     def _delete_row(self, record_id):
-        """
-        Deletes a row from the managed table based on record_id.
-        This method delete all rows with the conditional `column_id = record_id`.
-
-        Args:
-            record_id (str): The record_id to match for deleting rows.
-        """
         conn = self.__connect()
         cursor = conn.cursor()
         delete_sql = f"DELETE FROM `{self._table_name}` WHERE `{self.column_id}` = %s;"
@@ -205,9 +134,6 @@ class DatabaseManager():
             conn.close()
 
     def _delete_table(self):
-        """
-        Deletes the managed table from the database.
-        """
         conn = self.__connect()
         cursor = conn.cursor()
         drop_table_sql = f"DROP TABLE IF EXISTS `{self._table_name}`;"
@@ -217,12 +143,6 @@ class DatabaseManager():
         conn.close()
 
     def _insert_row(self, **kwargs):
-        """
-        Inserts a new row into the managed table.
-        
-        Args:
-            **kwargs (dict): A dict of column names and values.
-        """
         id = str(uuid.uuid4())
         column_id = f"`{self.column_id}`"
         columns = [column_id]
@@ -254,16 +174,8 @@ class DatabaseManager():
             cursor.close()
             conn.close()
 
-    @immutable_fields(self.immutable_columns)
+    @immutable_fields("immutable_columns")
     def _update_row(self, record_id, **kwargs):
-        """
-        Update row by its id.
-
-        Args:
-            record_id (str): The record_id to match for update.
-            column_id (str): The name of id`s column.
-            kwargs (dict): Column-value pairs to update.  
-        """
         conn = self.__connect()
         cursor = conn.cursor()
 
@@ -294,16 +206,6 @@ class DatabaseManager():
             conn.close()        
       
     def _get_by_id(self, record_id):
-        """
-        Retrieves a record by its ID from the database.
-    
-        Args:
-            record_id (str): The ID of the record to be fetched.
-            id_column (str): The name of the ID column in the table (default is "id").
-    
-        Returns:
-            dict: A dictionary with the record details, or None if not found.
-        """
         conn = self.__connect()
         cursor = conn.cursor()
         
@@ -328,9 +230,6 @@ class DatabaseManager():
         return None
     
     def _rollback(self, conn):
-        """
-        This method roll back an uncommitted transaction on the corrent connection.
-        """
         try:
             conn.rollback()
             print("Transaction rolled back.")
@@ -339,19 +238,6 @@ class DatabaseManager():
             print(f"Error rolling back transaction: {e}")
 
     def _execute_sql(self, query, params=None, fetch_one=False, error_message=""):
-        """
-        Executes a SQL command and handles exceptions.
-
-        Args:
-            query (str): The SQL query to execute.
-            params (tuple): The parameters for the SQL query (default is None).
-            fetch_one (bool): Whether to fetch a single result (default is False).
-            error_message (str): Custom error message for logging (default is "").
-
-        Returns:
-            The result of the query if fetch_one is True, or None otherwise.
-        """
-
         conn = self.__connect()
         cursor = conn.cursor()
 
