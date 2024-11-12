@@ -29,7 +29,7 @@ class DatabaseManager():
             "password": config.password,
             "database": config.database
         }
-        self.table_name = config.table_name
+        self._table_name = config.table_name
         self.columns = config.columns
         self.column_id = config.column_id
         self.columns_foreing_keys_table = columns_foreign_keys_table
@@ -48,15 +48,15 @@ class DatabaseManager():
     def _modify_column(self, old_column_name, new_column_name):
         if old_column_name == self.column_id:
             raise ValueError(f"You can't modify an id column!")
-        conn = self.__connect()
-        cursor = conn.cursor()
+
         alter_table_sql = f"ALTER TABLE `{self._table_name}` RENAME COLUMN `{old_column_name}` TO `{new_column_name}`;"
 
-        try: 
-            cursor.execute(alter_table_sql)
-            conn.commit()
+        try:
+            with self.__connect() as conn, conn.cursor() as cursor: 
+                cursor.execute(alter_table_sql)
+                conn.commit()
             indice = self.columns.index(old_column_name)
-            self.columns[indice] = "new_column_name"
+            self.columns[indice] = new_column_name
         except mysql.connector.Error as e: 
             logger.error(f"Failed to modify column `{old_column_name}` to `{new_column_name}`: {e.msg} (errno={e.errno})")
             self._rollback(conn)
@@ -65,23 +65,20 @@ class DatabaseManager():
             
             else:
                 raise
-        finally:
-            cursor.close()
-            conn.close()
 
     def _add_column(self, column_name, type, not_null=True):
         if not_null:
             null = " NOT NULL"
         else:
             null = ""
-        conn = self.__connect()
-        cursor = conn.cursor()
+
 
         alter_table_sql = f"ALTER TABLE `{self._table_name}` ADD `{column_name}` {type.upper()}{null};"
 
         try: 
-            cursor.execute(alter_table_sql)
-            conn.commit()
+            with self.__connect() as conn, conn.cursor() as cursor:    
+                cursor.execute(alter_table_sql)
+                conn.commit()
         except mysql.connector.Error as e: 
             logger.error(f"Failed to insert column into `{self._table_name}`: {e.msg} (errno={e.errno})")
             self._rollback(conn)
@@ -90,17 +87,13 @@ class DatabaseManager():
             
             else:
                 raise
-        finally:
-            cursor.close()
-            conn.close()
 
     def _delete_column(self, column_name):
-        conn = self.__connect()
-        cursor = conn.cursor()
         alter_table_sql = f"ALTER TABLE `{self._table_name}` DROP COLUMN `{column_name}`;"
-        try: 
-            cursor.execute(alter_table_sql)
-            conn.commit()
+        try:
+            with self.__connect() as conn, conn.cursor() as cursor: 
+                cursor.execute(alter_table_sql)
+                conn.commit()
         except mysql.connector.Error as e:
             logger.error(f"Failed to deleted column into `{self._table_name}`: {e.msg} (errno={e.errno})")
             self._rollback(conn)
@@ -108,18 +101,14 @@ class DatabaseManager():
                 raise ValueError(f"Column `{column_name}` not found: {e.msg}")
             else: 
                 raise
-        finally:
-            cursor.close()
-            conn.close()
 
     def _delete_row(self, record_id):
-        conn = self.__connect()
-        cursor = conn.cursor()
         delete_sql = f"DELETE FROM `{self._table_name}` WHERE `{self.column_id}` = %s;"
 
         try:
-            cursor.execute(delete_sql, (record_id,))
-            conn.commit()
+            with self.__connect() as conn, conn.cursor() as cursor:
+                cursor.execute(delete_sql, (record_id,))
+                conn.commit()
         except mysql.connector.Error as e:
             logger.error(f"Failed to delete row into `{self._table_name}`: {e.msg} (errno={e.errno})")
             self._rollback(conn) 
@@ -134,17 +123,14 @@ class DatabaseManager():
             conn.close()
 
     def _delete_table(self):
-        conn = self.__connect()
-        cursor = conn.cursor()
         drop_table_sql = f"DROP TABLE IF EXISTS `{self._table_name}`;"
-        cursor.execute(drop_table_sql)
-        conn.commit()
-        cursor.close()
-        conn.close()
+        with self.__connect() as conn, conn.cursor() as cursor:
+            cursor.execute(drop_table_sql)
+            conn.commit()
 
     def _insert_row(self, **kwargs):
         id = str(uuid.uuid4())
-        column_id = f"`{self.column_id}`"
+        column_id = self.column_id
         columns = [column_id]
         values = [id]
         placeholders = []
@@ -152,15 +138,14 @@ class DatabaseManager():
             columns.append(f"`{key}`")
             values.append(value)
             placeholders.append("%s")
-        conn = self.__connect()
-        cursor = conn.cursor()
         columns_str = ", ".join(columns)
         placeholders = ", ".join(placeholders)
         insert_sql = f"INSERT INTO `{self._table_name}` ({columns_str}) VALUES ({placeholders});"
         
         try:
-            cursor.execute(insert_sql, tuple(values))
-            conn.commit()
+            with self.__connect() as conn, conn.cursor() as cursor:
+                cursor.execute(insert_sql, tuple(values))
+                conn.commit()
         except mysql.connector.Error as e: 
             logger.error(f"Failed to insert row into `{self._table_name}`: {e.msg} (errno={e.errno})")
             self._rollback(conn)
@@ -170,15 +155,9 @@ class DatabaseManager():
                 raise ValueError(f"Missing required value for column: {e.msg}")
             else:
                 raise
-        finally:
-            cursor.close()
-            conn.close()
 
     @immutable_fields("immutable_columns")
     def _update_row(self, record_id, **kwargs):
-        conn = self.__connect()
-        cursor = conn.cursor()
-
         arguments = []
         values = []
         for key, value in kwargs.items():
@@ -188,8 +167,9 @@ class DatabaseManager():
         values.append(record_id)
         query = f"UPDATE `{self._table_name}` SET {arguments} WHERE `{self.column_id}` = %s;"
         try:
-            cursor.execute(query, tuple(values))
-            conn.commit()
+            with self.__connect() as conn, conn.cursor() as cursor:
+                cursor.execute(query, tuple(values))
+                conn.commit()
         except mysql.connector.Error as e:
             logger.error(f"Failed to update row to `{self._table_name}`: {e.msg} (errno={e.errno})")
             self._rollback(conn)
@@ -200,20 +180,15 @@ class DatabaseManager():
             elif e.errno == 1366:
                 raise ValueError(f"Incorrect value type for column: {e.msg}")
             else:
-                raise
-        finally:
-            cursor.close()
-            conn.close()        
+                raise       
       
     def _get_by_id(self, record_id):
-        conn = self.__connect()
-        cursor = conn.cursor()
-        
         query = f"SELECT * FROM `{self._table_name}` WHERE `{self.column_id}` = %s;"
 
         try: 
-            cursor.execute(query, (record_id,))
-            record = cursor.fetchone()
+            with self.__connect() as conn, conn.cursor() as cursor:
+                cursor.execute(query, (record_id,))
+                return cursor.fetchone()
         except mysql.connector.Error as e: 
             logger.error(f"Failed to get instance by id into `{self._table_name}`: {e.msg} (errno={e.errno})")
             self._rollback(conn)
@@ -221,39 +196,36 @@ class DatabaseManager():
                 raise ValueError(f"Column `{self.column_id}` not found: {e.msg}")
             else: 
                 raise
-        finally:     
-            cursor.close()
-            conn.close()
     
-        if record:
-            return record
-        return None
-    
-    def _rollback(self, conn):
-        try:
-            conn.rollback()
-            print("Transaction rolled back.")
+    def _search_record(self, **kwargs):
+        columns = []
+        values = []
+        for key, value in kwargs.items():
+            columns.append(f"`{key}` = %s")
+            values.append(value)
+
+        columns_query = " AND ".join(columns)
+        query = f"SELECT * FROM `{self._table_name}` WHERE {columns_query};"
+
+        try: 
+            with self.__connect() as conn, conn.cursor() as cursor:
+                cursor.execute(query, tuple(values))
+                return cursor.fetchall()
         except mysql.connector.Error as e: 
-            logger.error(f"Failed to rollback into `{self._table_name}`: {e.msg} (errno={e.errno})")
-            print(f"Error rolling back transaction: {e}")
+            logger.error(f"Failed to search records in `{self._table_name}`: {e.msg} (errno={e.errno})")
+            self._rollback(conn)
+            if e.errno == 1054: 
+                raise ValueError(f"Column not found: {e.msg}")
+            else: 
+                raise
 
     def _execute_sql(self, query, params=None, fetch_one=False, error_message=""):
-        conn = self.__connect()
-        cursor = conn.cursor()
-
         try:
-            cursor.execute(query, params)
-            conn.commit()
+            with self.__connect() as conn, conn.cursor() as cursor:
+                cursor.execute(query, params)
+                conn.commit()
             if fetch_one:
-                result = cursor.fetchone()
-                cursor.close()
-                conn.close()
-                return result
-            cursor.close()
-            conn.close()
+                return cursor.fetchone()
         except mysql.connector.Error as e:
             logger.error(f"{error_message}: {e.msg} (errno={e.errno})")
-            self._rollback(conn)
-            cursor.close()
-            conn.close()
             raise ValueError(f"{error_message}: {e.msg} (errno={e.errno})")
