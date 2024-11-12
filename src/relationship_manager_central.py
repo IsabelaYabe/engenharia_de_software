@@ -10,6 +10,7 @@
         - decorators
         - tables
 """
+from dataclasses import dataclass
 from relationships.create_vending_machine import CreateVM
 from relationships.product_complaint import ProductComplaint
 from relationships.product_review import ProductReview
@@ -19,6 +20,7 @@ from relationships.vending_machine_review import VMReview
 from decorators import singleton
 
 @singleton
+@dataclass
 class RelationshipManagerCentral:
     """
     DatabaseManagerCentral class.

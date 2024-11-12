@@ -10,7 +10,7 @@
         - decorators
         - tables
 """
-
+from dataclasses import dataclass
 from profiles.product_profile import ProductProfile
 from profiles.comment_profile import CommentProfile
 from profiles.user_profile import UserProfile
@@ -20,6 +20,7 @@ from profiles.owner_profile import OwnerProfile
 from decorators import singleton
 
 @singleton
+@dataclass
 class DatabaseManagerCentral:
     """
     DatabaseManagerCentral class.

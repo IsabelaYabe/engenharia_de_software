@@ -5,3 +5,6 @@ print(len(dict_))
 
 a = [0,1,2,3,4,5]
 print(a[:-1])
+
+# Elabore a Classe Pessoa, com os atributos nome, sobrenome e idade. 
+# Elabore os métodos str, repr e eq.
