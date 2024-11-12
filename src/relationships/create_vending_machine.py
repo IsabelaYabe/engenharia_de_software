@@ -13,16 +13,21 @@ class CreateVM(DatabaseManager):
 
         super().__init__(host, user, password, database, "create vending machine")
         self.columns = ["id", "owner id", "vending machine id", "timestamp"]
-        self._create_table()
+        self.foreign_keys = ["owners", "vending machines"]
 
+    def get_column_id(self): 
+        return "id"
+    
     def _create_table(self):
 
         create_table_sql = """
-        CREATE TABLE IF NOT EXISTS ´create vending machine´ (
+        CREATE TABLE IF NOT EXISTS `create vending machine` (
             id VARCHAR(36) PRIMARY KEY,
-            FOREIGN KEY (´owner id´) VARCHAR(36) UNIQUE NOT NULL,
-            FOREIGN KEY (´vending machine id´) VARCHAR(36) UNIQUE NOT NULL,
-            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            `owner id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (`owner id`) REFERENCES owners(id),
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id),
         );
         """
         self._create_table_(create_table_sql)
@@ -42,9 +47,9 @@ class CreateVM(DatabaseManager):
         
         return self._delete_row(record_id, "id")
     
-    def get_by_id(self, id):
+    def get_by_id(self, record_id):
         
-        record = self._get_by_id(id, "id")
+        record = self._get_by_id(record_id, "id")
 
         if record is None:
             return None

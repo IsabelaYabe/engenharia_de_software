@@ -5,7 +5,7 @@ This module defines the `OwnerProfile` class, a specialized implementation of th
 The `OwnerProfile` class manages owners in a database, allowing for the creation, retrieval, updating, and deletion of owner records. 
 
 Author: Isabela Yabe
-Last Modified: 10/11/2024
+Last Modified: 11/11/2024
 Status: Complete, put logs
 
 Dependencies:
@@ -49,8 +49,10 @@ class OwnerProfile(DatabaseManager):
         """
         super().__init__(host, user, password, database, "owners")
         self.columns = ["id", "ownername", "email", "password", "first name", "last name", "birthdate", "phone number", "address"]
-        self._create_table()
 
+    def get_column_id(self): 
+        return "id"
+    
     def _create_table(self):
         """
         Creates the "owners" table in the database with the following structure:
@@ -119,7 +121,7 @@ class OwnerProfile(DatabaseManager):
         """
         return self._delete_row(record_id, "id")
     
-    def get_by_id(self, id):
+    def get_by_id(self, record_id):
         """
         Retrieves a owner by its ID and returns it as a dictionary.
 
@@ -131,7 +133,7 @@ class OwnerProfile(DatabaseManager):
         Returns:
             dict or None: A dictionary containing the owner's data if found, or None if not found.
         """
-        record = self._get_by_id(id, "id")
+        record = self._get_by_id(record_id, "id")
 
         if record is None:
             return None

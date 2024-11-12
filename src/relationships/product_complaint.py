@@ -13,17 +13,23 @@ class ProductComplaint(DatabaseManager):
 
         super().__init__(host, user, password, database, "product complaints")
         self.columns = ["id", "complaint id", "product id", "user id", "timestamp"]
-        self._create_table()
+        self.foreign_keys = ["complaints", "products", "users"]
 
+    def get_column_id(self): 
+        return "id"
+    
     def _create_table(self):
 
         create_table_sql = """
-        CREATE TABLE IF NOT EXISTS ´product complaints´ (
+        CREATE TABLE IF NOT EXISTS `product complaints` (
             id VARCHAR(36) PRIMARY KEY,
-            FOREIGN KEY (´complaint id´) VARCHAR(36) UNIQUE NOT NULL,
-            FOREIGN KEY (´product id´) VARCHAR(36) UNIQUE NOT NULL,
-            FOREIGN KEY (´user id´) VARCHAR(36) UNIQUE NOT NULL,
-            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            `complaint id` VARCHAR(36) NOT NULL,
+            `product id` VARCHAR(36) NOT NULL,
+            `user id` VARCHAR(36) NOT NULL,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (`complaint id`) REFERENCES complaints(id),
+            FOREIGN KEY (`product id`) REFERENCES products(id),
+            FOREIGN KEY (`user id`) REFERENCES users(id)
         );
         """
         self._create_table_(create_table_sql)
@@ -43,9 +49,9 @@ class ProductComplaint(DatabaseManager):
         
         return self._delete_row(record_id, "id")
     
-    def get_by_id(self, id):
+    def get_by_id(self, record_id):
         
-        record = self._get_by_id(id, "id")
+        record = self._get_by_id(record_id, "id")
 
         if record is None:
             return None

@@ -5,7 +5,7 @@ This module defines the `VMProfile` class, a specialized implementation of the `
 The `VMProfile` class manages vending machines in a database, allowing for the creation, retrieval, updating, and deletion of vending machine records. 
 
 Author: Isabela Yabe
-Last Modified: 10/11/2024
+Last Modified: 11/11/2024
 Status: To testing, put logs
 
 Dependencies:
@@ -49,8 +49,10 @@ class VMProfile(DatabaseManager):
         """
         super().__init__(host, user, password, database, "vending machines")
         self.columns = ["id", "name", "location", "status"]
-        self._create_table()
 
+    def get_column_id(self): 
+        return "id"
+    
     def _create_table(self):
         """
         Creates the "vending machines" table in the database with the following structure:
@@ -114,7 +116,7 @@ class VMProfile(DatabaseManager):
         """
         return self._delete_row(record_id, "id")
     
-    def get_by_id(self, id):
+    def get_by_id(self, record_id):
         """
         Retrieves a vending machine by its ID and returns it as a dictionary.
 
@@ -125,8 +127,8 @@ class VMProfile(DatabaseManager):
 
         Returns:
             dict or None: A dictionary containing the vending machine's data if found, or None if not found.
-        """
-        record = self._get_by_id(id, "id")
+        """     
+        record = self._get_by_id(record_id, "id")
 
         if record is None:
             return None

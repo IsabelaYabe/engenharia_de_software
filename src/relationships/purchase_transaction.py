@@ -13,19 +13,25 @@ class PurchaseTransaction(DatabaseManager):
 
         super().__init__(host, user, password, database, "purchase transactions")
         self.columns = ["id", "user id", "product id", "vending machine id", "timestamp", "quantity", "amount paid per unit"]
-        self._create_table()
+        self.foreign_keys = ["users", "products", "vending machines"]
 
+    def get_column_id(self): 
+        return "id"
+    
     def _create_table(self):
 
         create_table_sql = """
-        CREATE TABLE IF NOT EXISTS ´purchase transactions´ (
+        CREATE TABLE IF NOT EXISTS `purchase transactions` (
             id VARCHAR(36) PRIMARY KEY,
-            FOREIGN KEY (´user id´) VARCHAR(36) UNIQUE NOT NULL,
-            FOREIGN KEY (´product id´) VARCHAR(36) UNIQUE NOT NULL,
-            FOREIGN KEY (´vending machine id´) VARCHAR(36) UNIQUE NOT NULL,
+            `user id` VARCHAR(36) UNIQUE NOT NULL,
+            `product id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
             timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             quantity INT NOT NULL,
-            'amount paid per unit' DECIMAL(10, 2) NOT NULL
+            'amount paid per unit' DECIMAL(10, 2) NOT NULL,
+            FOREIGN KEY (`user id`) REFERENCES users(id),
+            FOREIGN KEY (`product id`) REFERENCES products(id),
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id)
         );
         """
         self._create_table_(create_table_sql)
@@ -38,16 +44,15 @@ class PurchaseTransaction(DatabaseManager):
     
     @immutable_fields(['id', 'timestamp'])
     def update_row(self, record_id, **kwargs):
-        
         return self._update_row(record_id, "id", **kwargs)
     
     def delete_row(self, record_id):
         
         return self._delete_row(record_id, "id")
     
-    def get_by_id(self, id):
+    def get_by_id(self, record_id):
         
-        record = self._get_by_id(id, "id")
+        record = self._get_by_id(record_id, "id")
 
         if record is None:
             return None

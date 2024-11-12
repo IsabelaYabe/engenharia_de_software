@@ -5,7 +5,7 @@ This module defines the `UserProfile` class, a specialized implementation of the
 The `UserProfile` class manages users in a database, allowing for the creation, retrieval, updating, and deletion of user records. 
 
 Author: Isabela Yabe
-Last Modified: 10/11/2024
+Last Modified: 11/11/2024
 Status: Complete, put logs
 
 Dependencies:
@@ -49,8 +49,10 @@ class UserProfile(DatabaseManager):
         """
         super().__init__(host, user, password, database, "users")
         self.columns = ["id", "username", "email", "password", "first name", "last name", "birthdate", "phone number", "address"]
-        self._create_table()
 
+    def get_column_id(self): 
+        return "id"
+    
     def _create_table(self):
         """
         Creates the "users" table in the database with the following structure:
@@ -119,7 +121,7 @@ class UserProfile(DatabaseManager):
         """
         return self._delete_row(record_id, "id")
     
-    def get_by_id(self, id):
+    def get_by_id(self, record_id):
         """
         Retrieves a user by its ID and returns it as a dictionary.
 
@@ -130,8 +132,8 @@ class UserProfile(DatabaseManager):
 
         Returns:
             dict or None: A dictionary containing the user's data if found, or None if not found.
-        """
-        record = self._get_by_id(id, "id")
+        """     
+        record = self._get_by_id(record_id, "id")
 
         if record is None:
             return None

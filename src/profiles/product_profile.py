@@ -4,7 +4,7 @@ Module for ProductProfile Class.
 This module defines the `ProductProfile` class, a subclass of `DatabaseManager`, designed to handle CRUD operations on a product profile database table. The `ProductProfile` class manages the `products` table, where each product has a unique ID, name, description, price, and quantity.
 
 Author: Isabela Yabe
-Last Modified: 10/11/2024
+Last Modified: 11/11/2024
 Status: Complete, put logs
 
 Dependencies:
@@ -55,8 +55,10 @@ class ProductProfile(DatabaseManager):
         """
         super().__init__(host, user, password, database, "products")
         self.columns = ["id", "name", "description", "price", "quantity"]
-        self._create_table()
 
+    def get_column_id(self): 
+        return "id"
+    
     def _create_table(self):
         """
         Creates the `products` table with columns for ID, name, description, price, and quantity. If the table already 
@@ -110,7 +112,7 @@ class ProductProfile(DatabaseManager):
         """
         return self._delete_row(record_id, "id")
     
-    def get_by_id(self, id):
+    def get_by_id(self, record_id):
         """
         Retrieves a product by its ID, returning all details (id, name, description, price, quantity).
 
@@ -119,8 +121,8 @@ class ProductProfile(DatabaseManager):
 
         Returns:
             dict: A dictionary with the product details, or None if the product is not found.
-        """
-        record = self._get_by_id(id, "id")
+        """       
+        record = self._get_by_id(record_id, "id")
 
         if record is None:
             return None

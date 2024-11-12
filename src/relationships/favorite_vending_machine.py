@@ -1,41 +1,39 @@
 import uuid
+from database_manager import DatabaseManager
+
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(),'src')))
-from database_manager import DatabaseManager
 from decorators import immutable_fields
 
-class ProductReview(DatabaseManager):
+class FavoriteVM(DatabaseManager):
 
     def __init__(self, host, user, password, database):
 
-        super().__init__(host, user, password, database, "product review")
-        self.columns = ["id", "comment id", "product id", "user id", "timestamp"]
-        self.foreign_keys = ["comments", "products", "users"]
-        
+        super().__init__(host, user, password, database, "favorite vending machine")
+        self.columns = ["id", "user id", "vending machine id", "timestamp"]
+        self.foreign_keys = ["users", "vending machines"]
+    
     def get_column_id(self): 
         return "id"
     
     def _create_table(self):
 
-        create_table_sql = """
-        CREATE TABLE IF NOT EXISTS `product review` (
+        favorite_table_sql = """
+        CREATE TABLE IF NOT EXISTS `favorite vending machine` (
             id VARCHAR(36) PRIMARY KEY,
-            `comment id` VARCHAR(36) NOT NULL,
-            `product id` VARCHAR(36) NOT NULL,
-            `user id` VARCHAR(36) NOT NULL,
-            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY (`comment id`) REFERENCES comments(id),
-            FOREIGN KEY (`product id`) REFERENCES products(id),
-            FOREIGN KEY (`user id`) REFERENCES users(id)
+            `user id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            FOREIGN KEY (`user id`) REFERENCES users(id),
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id),
         );
         """
-        self._create_table_(create_table_sql)
+        self._create_table_(favorite_table_sql)
 
-    def insert_row(self, comment_id, product_id, user_id):
+    def insert_row(self, user_id, vending_machine_id):
         transaction_id = str(uuid.uuid4())
         self._insert_row(
-            id=transaction_id, comment_id=comment_id, product_id=product_id, user_id=user_id)
+            id=transaction_id, user_id=user_id, vending_machine_id=vending_machine_id)
         return transaction_id
     
     @immutable_fields(['id'])

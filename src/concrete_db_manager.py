@@ -5,17 +5,14 @@ from database_manager import DatabaseManager
 from decorators import immutable_fields
 
 class TestDatabaseManagerConcrete(DatabaseManager):
-    def _create_table(self):
-        pass
-    
-    def insert_row(self, *args):
-        pass
-    
-    def update_row(self, record_id, **kwargs):
-        pass
+    def get_column_id(self): ...
 
-    def delete_row(self, record_id):
-        pass
+    def _create_table(self): ...
+    
+    def insert_row(self, *args): ...
+    
+    def update_row(self, record_id, **kwargs): ...
 
-    def get_by_id(self, record_id):
-        pass
+    def delete_row(self, record_id): ...
+
+    def get_by_id(self, record_id): ...

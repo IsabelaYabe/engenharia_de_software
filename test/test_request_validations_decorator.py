@@ -26,8 +26,8 @@ import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
 from decorators import request_validations
-from banned_words_strategy import BannedWordsStrategy
-from sql_injection_strategy import SQLInjectionStrategy
+from validation_strategy.banned_words_strategy import BannedWordsStrategy
+from validation_strategy.sql_injection_strategy import SQLInjectionStrategy
 
 class TestRequestValidationsDecorator(unittest.TestCase):
     def setUp(self):

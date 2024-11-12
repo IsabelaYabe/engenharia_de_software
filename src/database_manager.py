@@ -62,7 +62,11 @@ class DatabaseManager(ABC):
             "database": database
         }
         self._table_name = table_name
-        
+        self._column_id = self.get_column_id()
+
+    @abstractmethod
+    def get_column_id(self): ...
+
     @abstractmethod
     def _create_table(self): ...
     

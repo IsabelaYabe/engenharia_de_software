@@ -6,7 +6,7 @@ The `ComplaintProfile` class manages complaints in a database, allowing for the 
 The class enforces immutability on specified fields through the use of a decorator, ensuring data integrity for `id` and `timestamp` fields.
 
 Author: Isabela Yabe
-Last Modified: 10/11/2024
+Last Modified: 11/11/2024
 Status: Complete, put logs
 
 Dependencies:
@@ -51,8 +51,10 @@ class ComplaintProfile(DatabaseManager):
         """
         super().__init__(host, user, password, database, "complaints")
         self.columns = ["id", "text", "timestamp"]
-        self._create_table()
-
+    
+    def get_column_id(self): 
+        return "id"
+    
     def _create_table(self):
         """
         Creates the "complaints" table in the database with the following structure:
@@ -115,7 +117,7 @@ class ComplaintProfile(DatabaseManager):
         """
         return self._delete_row(record_id, "id")
     
-    def get_by_id(self, id):
+    def get_by_id(self, record_id):
         """
         Retrieves a complaint by its ID and returns it as a dictionary.
 
@@ -126,8 +128,8 @@ class ComplaintProfile(DatabaseManager):
 
         Returns:
             dict or None: A dictionary containing the complaint's data if found, or None if not found.
-        """
-        record = self._get_by_id(id, "id")
+        """       
+        record = self._get_by_id(record_id, "id")
 
         if record is None:
             return None

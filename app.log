@@ -1,0 +1,355 @@
+2024-11-11 12:15:49,934 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: add product
+2024-11-11 12:15:49,935 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `add product` (
+            id VARCHAR(36) PRIMARY KEY,
+            `owner id` VARCHAR(36) UNIQUE NOT NULL,
+            `product id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            quantity INT NOT NULL,
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id), 
+            FOREIGN KEY (`product id`) REFENCES products(id)
+            FOREIGN KEY (`owner id`) REFENCES owners(id)
+        );
+        
+2024-11-11 12:15:49,935 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 12:15:49,936 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: add product
+2024-11-11 12:15:49,936 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `add product` (
+            id VARCHAR(36) PRIMARY KEY,
+            `owner id` VARCHAR(36) UNIQUE NOT NULL,
+            `product id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            quantity INT NOT NULL,
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id), 
+            FOREIGN KEY (`product id`) REFENCES products(id)
+            FOREIGN KEY (`owner id`) REFENCES owners(id)
+        );
+        
+2024-11-11 12:15:49,936 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 12:15:49,938 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: add product
+2024-11-11 12:15:49,938 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `add product` (
+            id VARCHAR(36) PRIMARY KEY,
+            `owner id` VARCHAR(36) UNIQUE NOT NULL,
+            `product id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            quantity INT NOT NULL,
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id), 
+            FOREIGN KEY (`product id`) REFENCES products(id)
+            FOREIGN KEY (`owner id`) REFENCES owners(id)
+        );
+        
+2024-11-11 12:15:49,938 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 12:15:49,939 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: add product
+2024-11-11 12:15:49,939 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `add product` (
+            id VARCHAR(36) PRIMARY KEY,
+            `owner id` VARCHAR(36) UNIQUE NOT NULL,
+            `product id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            quantity INT NOT NULL,
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id), 
+            FOREIGN KEY (`product id`) REFENCES products(id)
+            FOREIGN KEY (`owner id`) REFENCES owners(id)
+        );
+        
+2024-11-11 12:15:49,939 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 12:15:49,942 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: add product
+2024-11-11 12:15:49,942 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `add product` (
+            id VARCHAR(36) PRIMARY KEY,
+            `owner id` VARCHAR(36) UNIQUE NOT NULL,
+            `product id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            quantity INT NOT NULL,
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id), 
+            FOREIGN KEY (`product id`) REFENCES products(id)
+            FOREIGN KEY (`owner id`) REFENCES owners(id)
+        );
+        
+2024-11-11 12:15:49,942 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 12:26:34,262 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: add product
+2024-11-11 12:26:34,263 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `add product` (
+            id VARCHAR(36) PRIMARY KEY,
+            `owner id` VARCHAR(36) UNIQUE NOT NULL,
+            `product id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            quantity INT NOT NULL,
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id), 
+            FOREIGN KEY (`product id`) REFENCES products(id)
+            FOREIGN KEY (`owner id`) REFENCES owners(id)
+        );
+        
+2024-11-11 12:26:34,263 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 12:26:34,266 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: add product
+2024-11-11 12:26:34,266 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `add product` (
+            id VARCHAR(36) PRIMARY KEY,
+            `owner id` VARCHAR(36) UNIQUE NOT NULL,
+            `product id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            quantity INT NOT NULL,
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id), 
+            FOREIGN KEY (`product id`) REFENCES products(id)
+            FOREIGN KEY (`owner id`) REFENCES owners(id)
+        );
+        
+2024-11-11 12:26:34,266 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 12:26:34,268 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: add product
+2024-11-11 12:26:34,268 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `add product` (
+            id VARCHAR(36) PRIMARY KEY,
+            `owner id` VARCHAR(36) UNIQUE NOT NULL,
+            `product id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            quantity INT NOT NULL,
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id), 
+            FOREIGN KEY (`product id`) REFENCES products(id)
+            FOREIGN KEY (`owner id`) REFENCES owners(id)
+        );
+        
+2024-11-11 12:26:34,268 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 12:26:34,271 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: add product
+2024-11-11 12:26:34,271 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `add product` (
+            id VARCHAR(36) PRIMARY KEY,
+            `owner id` VARCHAR(36) UNIQUE NOT NULL,
+            `product id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            quantity INT NOT NULL,
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id), 
+            FOREIGN KEY (`product id`) REFENCES products(id)
+            FOREIGN KEY (`owner id`) REFENCES owners(id)
+        );
+        
+2024-11-11 12:26:34,271 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 12:26:34,275 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: add product
+2024-11-11 12:26:34,275 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `add product` (
+            id VARCHAR(36) PRIMARY KEY,
+            `owner id` VARCHAR(36) UNIQUE NOT NULL,
+            `product id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            quantity INT NOT NULL,
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id), 
+            FOREIGN KEY (`product id`) REFENCES products(id)
+            FOREIGN KEY (`owner id`) REFENCES owners(id)
+        );
+        
+2024-11-11 12:26:34,275 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 14:15:29,099 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:15:29,101 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:15:29,102 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:15:29,102 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:15:29,103 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:15:49,659 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:15:49,661 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:15:49,662 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:15:49,662 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:15:49,663 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:17:34,498 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:17:34,500 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:17:34,501 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:17:34,502 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:17:34,503 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:19:23,883 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:19:23,885 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:19:23,886 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:19:23,887 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:19:23,887 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:19:48,315 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:19:48,315 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `favorite vending machine` (
+            id VARCHAR(36) PRIMARY KEY,
+            `user id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            FOREIGN KEY (`user id`) REFERENCES users(id),
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id),
+        );
+        
+2024-11-11 14:19:48,315 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 14:19:48,316 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:19:48,316 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `favorite vending machine` (
+            id VARCHAR(36) PRIMARY KEY,
+            `user id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            FOREIGN KEY (`user id`) REFERENCES users(id),
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id),
+        );
+        
+2024-11-11 14:19:48,316 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 14:19:48,317 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:19:48,317 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `favorite vending machine` (
+            id VARCHAR(36) PRIMARY KEY,
+            `user id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            FOREIGN KEY (`user id`) REFERENCES users(id),
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id),
+        );
+        
+2024-11-11 14:19:48,317 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 14:19:48,319 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:19:48,319 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `favorite vending machine` (
+            id VARCHAR(36) PRIMARY KEY,
+            `user id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            FOREIGN KEY (`user id`) REFERENCES users(id),
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id),
+        );
+        
+2024-11-11 14:19:48,319 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 14:19:48,320 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:19:48,320 | INFO | database_manager:_create_table_ - Creating table with SQL: 
+        CREATE TABLE IF NOT EXISTS `favorite vending machine` (
+            id VARCHAR(36) PRIMARY KEY,
+            `user id` VARCHAR(36) UNIQUE NOT NULL,
+            `vending machine id` VARCHAR(36) UNIQUE NOT NULL,
+            FOREIGN KEY (`user id`) REFERENCES users(id),
+            FOREIGN KEY (`vending machine id`) REFERENCES `vending machines`(id),
+        );
+        
+2024-11-11 14:19:48,320 | INFO | database_manager:__connect - Connecting to the database
+2024-11-11 14:20:11,943 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:20:11,944 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:20:11,944 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:20:11,945 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 14:20:11,946 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite vending machine
+2024-11-11 15:32:36,211 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-11 15:32:36,213 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-11 15:32:36,214 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-11 15:32:36,214 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-11 15:32:36,215 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-11 15:43:34,230 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-11 15:43:34,230 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-11 15:43:34,238 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-11 15:43:34,238 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-11 15:43:34,241 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-11 15:43:34,241 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-11 15:43:34,243 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-11 15:43:34,243 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-11 15:43:34,246 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-11 15:43:34,246 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-11 15:43:34,250 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-11 15:43:34,250 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-11 15:43:34,254 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-11 15:43:34,254 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-11 15:43:34,258 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-11 15:43:34,258 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-11 15:43:34,262 | INFO | test_flask_api:setUp - SetUp module to test
+2024-11-11 15:43:34,262 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-11 20:41:12,813 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products
+2024-11-11 20:41:12,815 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-11 20:41:12,816 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users
+2024-11-11 20:41:12,816 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: complaints
+2024-11-11 20:41:12,816 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machines
+2024-11-11 20:41:12,816 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners
+2024-11-11 20:41:55,769 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products
+2024-11-11 20:41:55,769 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-11 20:41:55,770 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users
+2024-11-11 20:41:55,770 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: complaints
+2024-11-11 20:41:55,770 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machines
+2024-11-11 20:41:55,770 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners
+2024-11-11 20:47:42,195 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products
+2024-11-11 20:47:42,195 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-11 20:47:42,195 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users
+2024-11-11 20:47:42,195 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: complaints
+2024-11-11 20:47:42,195 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machines
+2024-11-11 20:47:42,195 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners
+2024-11-11 21:00:59,900 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products
+2024-11-11 21:00:59,900 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-11 21:00:59,900 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users
+2024-11-11 21:00:59,900 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: complaints
+2024-11-11 21:00:59,900 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machines
+2024-11-11 21:00:59,900 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners
+2024-11-11 21:04:34,263 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products
+2024-11-11 21:04:34,264 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-11 21:04:34,264 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users
+2024-11-11 21:04:34,264 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: complaints
+2024-11-11 21:04:34,264 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machines
+2024-11-11 21:04:34,264 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners
+2024-11-11 21:06:52,649 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products
+2024-11-11 21:06:52,649 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-11 21:06:52,649 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users
+2024-11-11 21:06:52,649 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: complaints
+2024-11-11 21:06:52,649 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machines
+2024-11-11 21:06:52,650 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners
+2024-11-11 21:06:52,650 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: create vending machine
+2024-11-11 21:06:52,650 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product complaints
+2024-11-11 21:06:52,650 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product review
+2024-11-11 21:06:52,650 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase transactions
+2024-11-11 21:06:52,650 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machine complaints
+2024-11-11 21:06:52,650 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machine review
+2024-11-11 21:08:10,411 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products
+2024-11-11 21:08:10,412 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-11 21:08:10,412 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users
+2024-11-11 21:08:10,412 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: complaints
+2024-11-11 21:08:10,412 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machines
+2024-11-11 21:08:10,412 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners
+2024-11-11 21:08:10,412 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: create vending machine
+2024-11-11 21:08:10,412 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product complaints
+2024-11-11 21:08:10,412 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product review
+2024-11-11 21:08:10,412 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase transactions
+2024-11-11 21:08:10,412 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machine complaints
+2024-11-11 21:08:10,412 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machine review
+2024-11-11 21:08:32,017 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products
+2024-11-11 21:08:32,017 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-11 21:08:32,017 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users
+2024-11-11 21:08:32,017 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: complaints
+2024-11-11 21:08:32,017 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machines
+2024-11-11 21:08:32,017 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners
+2024-11-11 21:08:32,017 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: create vending machine
+2024-11-11 21:08:32,017 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product complaints
+2024-11-11 21:08:32,017 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product review
+2024-11-11 21:08:32,017 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase transactions
+2024-11-11 21:08:32,017 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machine complaints
+2024-11-11 21:08:32,017 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machine review
+2024-11-11 21:39:33,410 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products
+2024-11-11 21:39:33,410 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-11 21:39:33,410 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users
+2024-11-11 21:39:33,410 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: complaints
+2024-11-11 21:39:33,410 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machines
+2024-11-11 21:39:33,410 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners
+2024-11-11 21:39:33,410 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: create vending machine
+2024-11-11 21:39:33,410 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product complaints
+2024-11-11 21:39:33,410 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product review
+2024-11-11 21:39:33,410 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase transactions
+2024-11-11 21:39:33,410 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machine complaints
+2024-11-11 21:39:33,411 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machine review
+2024-11-12 00:31:06,011 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products
+2024-11-12 00:31:06,012 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-12 00:31:06,012 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users
+2024-11-12 00:31:06,012 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: complaints
+2024-11-12 00:31:06,012 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machines
+2024-11-12 00:31:06,012 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners
+2024-11-12 00:31:06,012 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: create vending machine
+2024-11-12 00:31:06,012 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product complaints
+2024-11-12 00:31:06,012 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product review
+2024-11-12 00:31:06,012 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase transactions
+2024-11-12 00:31:06,012 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machine complaints
+2024-11-12 00:31:06,012 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machine review
+2024-11-12 00:32:18,229 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products
+2024-11-12 00:32:18,229 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: comments
+2024-11-12 00:32:18,230 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users
+2024-11-12 00:32:18,230 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: complaints
+2024-11-12 00:32:18,230 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machines
+2024-11-12 00:32:18,230 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners
+2024-11-12 00:32:18,230 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: create vending machine
+2024-11-12 00:32:18,230 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product complaints
+2024-11-12 00:32:18,230 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product review
+2024-11-12 00:32:18,230 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase transactions
+2024-11-12 00:32:18,230 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machine complaints
+2024-11-12 00:32:18,230 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending machine review

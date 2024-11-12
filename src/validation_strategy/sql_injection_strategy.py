@@ -15,7 +15,7 @@ Classes:
     - SQLInjectionStrategy: Concrete validation strategy to detect potential SQL injection in input data.
 """
 import re
-from validation_strategy_interface import ValidationStrategy
+from validation_strategy.validation_strategy_interface import ValidationStrategy
 
 class SQLInjectionStrategy(ValidationStrategy):
     """

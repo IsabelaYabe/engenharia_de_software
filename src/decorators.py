@@ -32,8 +32,9 @@ from flask import jsonify, request
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
-from banned_words_strategy import BannedWordsStrategy
-from sql_injection_strategy import SQLInjectionStrategy
+from validation_strategy.banned_words_strategy import BannedWordsStrategy
+from validation_strategy.sql_injection_strategy import SQLInjectionStrategy
+
 
 banned_words_strategy = BannedWordsStrategy()
 sql_injection_strategy = SQLInjectionStrategy()
@@ -114,3 +115,32 @@ def immutable_fields(fields):
             return update_method(self, record_id, **kwargs)
         return wrapper
     return decorador
+
+def foreign_key_validation(foreign_keys):
+    def decorador(funcao):
+        sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+        from main_file import relationship_manager_central
+        @wraps(funcao)
+        def wrapper(self, *args, **kwargs):    
+            for table_name in foreign_keys:
+                table_name_id = table_name[:-1].replace(" ","_")+"_id"
+                record_id = kwargs.get(table_name_id)
+                table = relationship_manager_central.dict_relationships[table_name]
+                if record_id and not table.get_by_id(record_id):
+                    return f"{table.get_column_id()} {record_id} does not exist."
+            return funcao(self, record_id, **kwargs)
+        return wrapper
+    return decorador 
+
+'''
+def transaction_validations(strategies):
+    def decorator(funcao):
+        @wraps(funcao)
+        def wrapped(self, *args, **kwargs):
+            for strategy in strategies:
+                error = strategy.transaction_validation(self, *args, **kwargs)
+                if error:
+                    return jsonify({"error": error}), 400
+            return funcao(self, *args, **kwargs)
+        return wrapped
+    return decorator'''

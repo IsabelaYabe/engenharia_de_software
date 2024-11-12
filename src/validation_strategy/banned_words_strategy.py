@@ -20,7 +20,7 @@ import json
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
-from validation_strategy_interface import ValidationStrategy 
+from validation_strategy.validation_strategy_interface import ValidationStrategy 
 
 
 class BannedWordsStrategy(ValidationStrategy):
@@ -48,7 +48,7 @@ class BannedWordsStrategy(ValidationStrategy):
         
         The banned words are stored in a JSON file located at "../data/json/banned_words.json".
         """
-        json_path = os.path.join(os.path.dirname(__file__), "..", "data", "json", "banned_words.json")
+        json_path = os.path.join(os.path.dirname(__file__), "..", "..", "data", "json", "banned_words.json")
         with open(json_path, "r", encoding="utf-8") as file:
             self.banned_words = set(json.load(file)["banned_words"])
     
