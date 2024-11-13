@@ -11,7 +11,7 @@
         - tables
 """
 from database_manager_refactoring import DatabaseManager, ConfigClass
-from decorators import singleton
+from decorators_method import singleton
 
 @singleton
 class DatabaseManagerCentral:

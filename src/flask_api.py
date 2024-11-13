@@ -23,7 +23,7 @@ from flask_cors import CORS
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
-from decorators import request_validations
+from decorators_method import request_validations
 
 class FlaskAPI:
     """
