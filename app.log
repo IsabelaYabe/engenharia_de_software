@@ -398,3 +398,99 @@
 2024-11-13 21:41:38,857 | ERROR | database_manager_refactoring:__connect - Unsuccessful connection: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
 2024-11-13 21:41:38,857 | ERROR | database_manager_refactoring:_insert_row - Failed to insert row into `test_table`: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
 2024-11-13 21:41:38,862 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-13 21:51:31,545 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-13 21:51:31,545 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-13 21:51:35,675 | ERROR | database_manager_refactoring:__connect - Unsuccessful connection: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
+2024-11-13 21:51:35,676 | ERROR | database_manager_refactoring:_insert_row - Failed to insert row into `test_table`: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
+2024-11-13 21:51:35,689 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-13 21:53:41,387 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-13 21:53:41,387 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-13 21:53:45,501 | ERROR | database_manager_refactoring:__connect - Unsuccessful connection: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
+2024-11-13 21:53:45,502 | ERROR | database_manager_refactoring:_delete_row - Failed to delete row into `test_table`: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
+2024-11-13 21:53:45,511 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-13 21:53:45,511 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-13 21:53:49,575 | ERROR | database_manager_refactoring:__connect - Unsuccessful connection: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
+2024-11-13 21:53:49,576 | ERROR | database_manager_refactoring:_get_by_id - Failed to get instance by id into `test_table`: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
+2024-11-13 21:53:49,582 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-13 21:53:49,582 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-13 21:53:53,664 | ERROR | database_manager_refactoring:__connect - Unsuccessful connection: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
+2024-11-13 21:53:53,664 | ERROR | database_manager_refactoring:_insert_row - Failed to insert row into `test_table`: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
+2024-11-13 21:53:53,670 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-13 21:53:53,670 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-13 21:53:57,736 | ERROR | database_manager_refactoring:__connect - Unsuccessful connection: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
+2024-11-13 21:53:57,737 | ERROR | database_manager_refactoring:_search_record - Failed to search records in `test_table`: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
+2024-11-13 21:53:57,742 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-13 21:53:57,742 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-13 21:54:01,820 | ERROR | database_manager_refactoring:__connect - Unsuccessful connection: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
+2024-11-13 21:54:01,821 | ERROR | database_manager_refactoring:_get_by_id - Failed to get instance by id into `test_table`: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
+2024-11-13 23:08:37,378 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-13 23:15:34,898 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-13 23:15:52,163 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-13 23:15:52,163 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-13 23:15:56,291 | ERROR | database_manager_refactoring:__connect - Unsuccessful connection: Can't connect to MySQL server on 'localhost:3306' (10061) (errno=2003)
+2024-11-13 23:17:54,324 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-13 23:17:54,325 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-13 23:33:27,449 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-13 23:33:27,450 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-13 23:33:27,450 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-13 23:33:27,451 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:07:49,204 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:07:49,204 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:07:49,205 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:07:49,205 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:17:50,891 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:17:50,891 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:17:50,892 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:17:50,892 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:19:54,354 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:19:54,355 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:19:54,355 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:19:54,356 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:21:28,137 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:21:28,138 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:21:28,138 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:21:28,138 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:22:20,984 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:22:20,985 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:22:20,985 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:22:20,986 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:23:34,965 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:23:34,966 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:23:34,966 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:23:34,967 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:25:12,569 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:25:12,570 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:25:12,570 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:25:12,571 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:26:00,063 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:26:00,063 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:26:00,064 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:26:00,064 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:27:28,924 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:27:28,926 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:27:28,926 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:27:28,927 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:43:37,980 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:43:37,981 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:43:37,981 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:43:37,981 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:45:41,173 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:45:41,174 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:45:41,174 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:45:41,175 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:46:22,334 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:46:22,334 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:46:22,335 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:46:22,335 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:46:59,574 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:46:59,575 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:46:59,575 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:46:59,576 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:48:21,399 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:48:21,400 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:48:21,400 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:48:21,401 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:50:08,041 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:50:08,041 | INFO | database_manager_refactoring:__connect - Connecting to the database
+2024-11-14 00:50:08,042 | INFO | database_manager_refactoring:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-14 00:50:08,043 | INFO | database_manager_refactoring:__connect - Connecting to the database

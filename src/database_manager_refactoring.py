@@ -57,15 +57,34 @@ class DatabaseManager():
             logger.error("Unsuccessful connection: %s (errno=%d)", e.msg, e.errno)
             raise
         return conn 
- 
+        
+    def _create_table_(self, create_table_sql): 
+        """
+        Creates the table in the MySQL database with the provided SQL statement.
+
+        Args:
+            create_table_sql (str): The SQL query to create the table.
+        """
+        logger.info("Creating table with SQL: %s", create_table_sql)
+        conn = self.__connect()
+        cursor = conn.cursor()
+        cursor.execute(create_table_sql)
+        conn.commit()
+        cursor.close()
+        conn.close()
+
     def _modify_column(self, old_column_name, new_column_name):
         if old_column_name == self.column_id:
             raise ValueError(f"You can't modify an id column!")
         alter_table_sql = f"ALTER TABLE `{self._table_name}` RENAME COLUMN `{old_column_name}` TO `{new_column_name}`;"
         try:
-            with self.__connect() as conn, conn.cursor() as cursor: 
+            with self.__connect() as conn, conn.cursor() as cursor:
+                logger.debug(f"conn chamado: {conn} as {type(conn)}") 
+                logger.debug(f"cursor chamado: {cursor} as {type(cursor)}")
+                logger.debug(alter_table_sql)
                 cursor.execute(alter_table_sql)
-                conn.commit()
+                logger.debug("query executada")
+                logger.debug(alter_table_sql)
             indice = self.columns.index(old_column_name)
             self.columns[indice] = new_column_name
         except mysql.connector.Error as e: 
