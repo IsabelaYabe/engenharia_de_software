@@ -107,8 +107,6 @@ class TestDatabaseManager(unittest.TestCase):
         mock_cursor.execute.assert_called_once_with(expected_sql)
         
         mock_connection.commit.assert_called_once()
-        mock_cursor.close.assert_called_once()
-        mock_connection.close.assert_called_once()
        
     @patch("database_manager.mysql.connector.connect")
     def test_modify_column_duplicate(self, mock_connect):

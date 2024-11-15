@@ -2,6 +2,8 @@ from dataclasses import dataclass, field
 from custom_logger import setup_logger
 import mysql.connector
 import uuid
+import re
+
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(),'src')))
@@ -49,50 +51,27 @@ class DatabaseManager():
         self.immutable_columns = [self.column_id, "timestamp"] + (immutable_columns or [])
         
     def __connect(self):
-        logger.info("Connecting to the database")
         try:
             conn = mysql.connector.connect(**self._db_config)
             logger.debug("Successful connection")
         except mysql.connector.Error as e:
             logger.error("Unsuccessful connection: %s (errno=%d)", e.msg, e.errno)
             raise
+        logger.info("Connected into database")
         return conn 
-        
-    def _create_table_(self, create_table_sql): 
-        """
-        Creates the table in the MySQL database with the provided SQL statement.
-
-        Args:
-            create_table_sql (str): The SQL query to create the table.
-        """
-        logger.info("Creating table with SQL: %s", create_table_sql)
-        conn = self.__connect()
-        cursor = conn.cursor()
-        cursor.execute(create_table_sql)
-        conn.commit()
-        cursor.close()
-        conn.close()
 
     def _modify_column(self, old_column_name, new_column_name):
         if old_column_name == self.column_id:
-            raise ValueError(f"You can't modify an id column!")
+            logger.error("An attempt was made to change the name of the id column")
+            raise ValueError("You can't modify an id column!")
+        
         alter_table_sql = f"ALTER TABLE `{self._table_name}` RENAME COLUMN `{old_column_name}` TO `{new_column_name}`;"
-        try:
-            with self.__connect() as conn, conn.cursor() as cursor:
-                logger.debug(f"conn chamado: {conn} as {type(conn)}") 
-                logger.debug(f"cursor chamado: {cursor} as {type(cursor)}")
-                logger.debug(alter_table_sql)
-                cursor.execute(alter_table_sql)
-                logger.debug("query executada")
-                logger.debug(alter_table_sql)
-            indice = self.columns.index(old_column_name)
-            self.columns[indice] = new_column_name
-        except mysql.connector.Error as e: 
-            logger.error(f"Failed to modify column `{old_column_name}` to `{new_column_name}`: {e.msg} (errno={e.errno})")
-            if e.errno == 1060:
-                raise ValueError(f"Existing column name (`{new_column_name}`): {e.msg}")
-            else:
-                raise
+
+        with self.__connect() as conn, conn.cursor() as cursor:
+            cursor.execute(alter_table_sql)
+        indice = self.columns.index(old_column_name)
+        self.columns[indice] = new_column_name
+        logger.info(f"Column {old_column_name} from {self._table_name} was changed to {new_column_name}")
 
     def _add_column(self, column_name, type, not_null=True):
         if not_null:
@@ -101,54 +80,54 @@ class DatabaseManager():
             null = ""
 
         alter_table_sql = f"ALTER TABLE `{self._table_name}` ADD `{column_name}` {type.upper()}{null};"
-        try: 
-            with self.__connect() as conn, conn.cursor() as cursor:    
-                cursor.execute(alter_table_sql)
-                conn.commit()
-        except mysql.connector.Error as e: 
-            logger.error(f"Failed to insert column into `{self._table_name}`: {e.msg} (errno={e.errno})")
-            if e.errno == 1060:
-                raise ValueError(f"Existing column name (`{column_name}`): {e.msg}")
-            
-            else:
-                raise
+     
+        with self.__connect() as conn, conn.cursor() as cursor:    
+            cursor.execute(alter_table_sql)
+        self.columns.append(column_name) 
+        logger.info(f"Column {column_name} was added to {self._table_name} as {type} and not_null {not_null}")       
+
 
     def _delete_column(self, column_name):
         alter_table_sql = f"ALTER TABLE `{self._table_name}` DROP COLUMN `{column_name}`;"
-        try:
-            with self.__connect() as conn, conn.cursor() as cursor: 
-                cursor.execute(alter_table_sql)
-                conn.commit()
-        except mysql.connector.Error as e:
-            logger.error(f"Failed to deleted column into `{self._table_name}`: {e.msg} (errno={e.errno})")
-            if e.errno == 1054:
-                raise ValueError(f"Column `{column_name}` not found: {e.msg}")
-            else: 
-                raise
+        
+        with self.__connect() as conn, conn.cursor() as cursor: 
+            cursor.execute(alter_table_sql)
+        self.columns.remove(column_name)
+        logger.info(f"Column {column_name} was deleted from {self._table_name}")
 
-    def _delete_row(self, record_id):
-        delete_sql = f"DELETE FROM `{self._table_name}` WHERE `{self.column_id}` = %s;"
-        try:
-            with self.__connect() as conn, conn.cursor() as cursor:
-                cursor.execute(delete_sql, (record_id,))
-                conn.commit()
-        except mysql.connector.Error as e:
-            logger.error(f"Failed to delete row into `{self._table_name}`: {e.msg} (errno={e.errno})")
-            if e.errno == 1054:
-                raise ValueError(f"Column `{self.column_id}` not found: {e.msg}")
-            else:
-                raise
-        finally:
+    def _delete_rows(self, record, column):
+        delete_sql = f"DELETE FROM `{self._table_name}` WHERE `{column}` = %s;"
+
+        with self.__connect() as conn, conn.cursor() as cursor:
+            cursor.execute(delete_sql, (record,))
             if cursor.rowcount == 0:
-                print("No rows are deleted; the key was not found.")
-            cursor.close()
-            conn.close()
+                logger.info(f"No rows are deleted; the value {record} in {column} was not found")
+
+        logger.info(f"All rows with value {record} in {column} was delete from {self._table_name}")
+
+    def _create_table(self, sql_batabase):
+        regex = r"CREATE TABLE\s`?+([a-zA-Z0-9_]+)`?\s*\("
+        match = re.search(regex, sql_batabase, re.IGNORECASE)
+        table_name = match.group(1)
+        print(table_name)
+        with self.__connect() as conn, conn.cursor() as cursor:
+            cursor.execute("""
+                    SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES
+                    WHERE TABLE_SCHEMA = %s
+                    AND TABLE_NAME =  %s;
+                    """, 
+                    (self._table_name,table_name))
+            if cursor.fetchone()[0] == 1:
+                raise ValueError("This table exist")
+            else:
+                cursor.execute(sql_batabase)
+        
+        logger.info("Table created")
 
     def _delete_table(self):
         drop_table_sql = f"DROP TABLE IF EXISTS `{self._table_name}`;"
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(drop_table_sql)
-            conn.commit()
 
     def _insert_row(self, **kwargs):
         id = str(uuid.uuid4())
@@ -163,18 +142,9 @@ class DatabaseManager():
         columns_str = ", ".join(columns)
         placeholders = ", ".join(placeholders)
         insert_sql = f"INSERT INTO `{self._table_name}` ({columns_str}) VALUES ({placeholders});"
-        try:
-            with self.__connect() as conn, conn.cursor() as cursor:
-                cursor.execute(insert_sql, tuple(values))
-                conn.commit()
-        except mysql.connector.Error as e: 
-            logger.error(f"Failed to insert row into `{self._table_name}`: {e.msg} (errno={e.errno})")
-            if e.errno == 1366:
-                raise ValueError(f"Incorrect value type for column: {e.msg}")    
-            elif e.errno == 1048:
-                raise ValueError(f"Missing required value for column: {e.msg}")
-            else:
-                raise
+        
+        with self.__connect() as conn, conn.cursor() as cursor:
+            cursor.execute(insert_sql, tuple(values))
 
     @immutable_fields("immutable_columns")
     def _update_row(self, record_id, **kwargs):
@@ -186,34 +156,18 @@ class DatabaseManager():
         arguments =  ", ".join(arguments)
         values.append(record_id)
         query = f"UPDATE `{self._table_name}` SET {arguments} WHERE `{self.column_id}` = %s;"
-        try:
-            with self.__connect() as conn, conn.cursor() as cursor:
-                cursor.execute(query, tuple(values))
-                conn.commit()
-        except mysql.connector.Error as e:
-            logger.error(f"Failed to update row to `{self._table_name}`: {e.msg} (errno={e.errno})")
-            if e.errno == 1054:
-                raise ValueError(f"Column `{self.column_id}` not found: {e.msg}")
-            elif e.errno == 1048:
-                raise ValueError(f"Missing required value for column: {e.msg}")
-            elif e.errno == 1366:
-                raise ValueError(f"Incorrect value type for column: {e.msg}")
-            else:
-                raise       
+        
+        with self.__connect() as conn, conn.cursor() as cursor:
+            cursor.execute(query, tuple(values))
+            conn.commit()       
       
     def _get_by_id(self, record_id):
         query = f"SELECT * FROM `{self._table_name}` WHERE `{self.column_id}` = %s;"
-        try: 
-            with self.__connect() as conn, conn.cursor() as cursor:
-                cursor.execute(query, (record_id,))
-                return cursor.fetchone()
-        except mysql.connector.Error as e: 
-            logger.error(f"Failed to get instance by id into `{self._table_name}`: {e.msg} (errno={e.errno})")
-            if e.errno == 1054: 
-                raise ValueError(f"Column `{self.column_id}` not found: {e.msg}")
-            else: 
-                raise
-    
+        
+        with self.__connect() as conn, conn.cursor() as cursor:
+            cursor.execute(query, (record_id,))
+            return cursor.fetchone()
+        
     def _search_record(self, **kwargs):
         columns = []
         values = []
@@ -222,26 +176,17 @@ class DatabaseManager():
             values.append(value)
         columns_query = " AND ".join(columns)
         query = f"SELECT * FROM `{self._table_name}` WHERE {columns_query};"
-        try: 
-            with self.__connect() as conn, conn.cursor() as cursor:
+         
+        with self.__connect() as conn, conn.cursor() as cursor:
                 cursor.execute(query, tuple(values))
                 return cursor.fetchall()
-        except mysql.connector.Error as e: 
-            logger.error(f"Failed to search records in `{self._table_name}`: {e.msg} (errno={e.errno})")
-            if e.errno == 1054: 
-                raise ValueError(f"Column not found: {e.msg}")
-            else: 
-                raise
-
+        
     def _execute_sql(self, query, params=None, fetch_one=False, error_message=""):
-        try:
-            with self.__connect() as conn, conn.cursor() as cursor:
-                cursor.execute(query, params)
-                conn.commit()
-            if fetch_one:
-                return cursor.fetchone()
-            else:
-                return cursor.fetchall()
-        except mysql.connector.Error as e:
-            logger.error(f"{error_message}: {e.msg} (errno={e.errno})")
-            raise ValueError(f"{error_message}: {e.msg} (errno={e.errno})")
+        
+        with self.__connect() as conn, conn.cursor() as cursor:
+            cursor.execute(query, params)
+            conn.commit()
+        if fetch_one:
+            return cursor.fetchone()
+        else:
+            return cursor.fetchall()
