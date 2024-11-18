@@ -106,17 +106,18 @@ class DatabaseManager():
         logger.info(f"All rows with value {record} in {column} was delete from {self._table_name}")
 
     def _create_table(self, sql_batabase):
+        logger.debug("Create table teste")
         regex = r"CREATE TABLE\s`?+([a-zA-Z0-9_]+)`?\s*\("
         match = re.search(regex, sql_batabase, re.IGNORECASE)
         table_name = match.group(1)
-        print(table_name)
+
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute("""
                     SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES
                     WHERE TABLE_SCHEMA = %s
                     AND TABLE_NAME =  %s;
-                    """, 
-                    (self._table_name,table_name))
+                    """,
+                    ("test_db","test_table"))
             if cursor.fetchone()[0] == 1:
                 raise ValueError("This table exist")
             else:
@@ -128,6 +129,7 @@ class DatabaseManager():
         drop_table_sql = f"DROP TABLE IF EXISTS `{self._table_name}`;"
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(drop_table_sql)
+            logger.info(f"Table {self._table_name} deleted")
 
     def _insert_row(self, **kwargs):
         id = str(uuid.uuid4())
@@ -145,28 +147,34 @@ class DatabaseManager():
         
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(insert_sql, tuple(values))
+            logger.info(f"Row inserted in table {self._table_name}")
 
     @immutable_fields("immutable_columns")
     def _update_row(self, record_id, **kwargs):
+        columns = []
         arguments = []
         values = []
         for key, value in kwargs.items():
+            columns.append(key)
             arguments.append(f"`{key}` = %s")
             values.append(value)
+        columns = ", ".join(columns)
         arguments =  ", ".join(arguments)
         values.append(record_id)
+
         query = f"UPDATE `{self._table_name}` SET {arguments} WHERE `{self.column_id}` = %s;"
-        
+
         with self.__connect() as conn, conn.cursor() as cursor:
-            cursor.execute(query, tuple(values))
-            conn.commit()       
+            cursor.execute(query, tuple(values))      
+            logger.info(f"Row {record_id} updated columns: {columns}")
       
     def _get_by_id(self, record_id):
         query = f"SELECT * FROM `{self._table_name}` WHERE `{self.column_id}` = %s;"
         
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(query, (record_id,))
-            return cursor.fetchone()
+            logger.info(f"Got instance with id: {record_id}")
+            return cursor.fetchall()
         
     def _search_record(self, **kwargs):
         columns = []
@@ -179,14 +187,14 @@ class DatabaseManager():
          
         with self.__connect() as conn, conn.cursor() as cursor:
                 cursor.execute(query, tuple(values))
-                return cursor.fetchall()
+                return_ = cursor.fetchall()
+                logger.info(f"Records founds: {return_}")
+                return return_
         
-    def _execute_sql(self, query, params=None, fetch_one=False, error_message=""):
-        
+    def _execute_sql(self, query, params=None, fetch_one=False, fetch_all=False, error_message=""):
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(query, params)
-            conn.commit()
-        if fetch_one:
-            return cursor.fetchone()
-        else:
-            return cursor.fetchall()
+            if fetch_all:
+                return cursor.fetchall()
+            elif fetch_one:
+                return cursor.fetchone()
