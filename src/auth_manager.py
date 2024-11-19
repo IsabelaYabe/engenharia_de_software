@@ -1,3 +1,6 @@
+"""
+    Preciso documentar, fazer testes e por loggers
+"""
 from hashlib import sha256
 
 class AuthManager:

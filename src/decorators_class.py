@@ -12,6 +12,7 @@ def pubsub(cls):
         if event_type_sub:
             def update(self, **data):
                 print (f"Something happened! {event_type_sub}: {data}")
+                #Implementar
             self.update = update.__get__(self)
     cls.__init__ = new_init 
     return cls

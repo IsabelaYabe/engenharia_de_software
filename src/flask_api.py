@@ -11,19 +11,25 @@ Dependencies:
     - flask.Flask
     - flask.jsonify
     - flask.request
-    - flask_cors.CORS (optional for handling CORS, if needed)
-
-Classes:
-    - FlaskAPI: Class for setting up and running a RESTful API for a database table.
+    - copy
+    - os
+    - sys
+    - decorators_method
+    - custom_logger
+    - utils
 """
 
 from flask import Flask, jsonify, request
-from flask_cors import CORS
+from copy import deepcopy
 
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
 from decorators_method import request_validations
+from custom_logger import setup_logger
+from utils.utils import tuple_to_dict
+
+logger = setup_logger()
 
 class FlaskAPI:
     """
@@ -34,8 +40,8 @@ class FlaskAPI:
     the client and database.
 
     Attributes:
-        - _db_table: An instance of a database table class providing CRUD operations.
-        - _app (Flask): The Flask app instance for setting up and running the API.
+        - __db_table: An instance of a database table class providing CRUD operations.
+        - __app (Flask): The Flask app instance for setting up and running the API.
 
     Methods:
         - _setup_routes(): Sets up all API routes for CRUD operations.
@@ -58,31 +64,31 @@ class FlaskAPI:
         Args:
             db_table: An instance of a database table class providing methods for CRUD operations.
         """
-        self._db_table = db_table
-        self._app = Flask(__name__)
+        self.__db_table = db_table
+        self.__app = Flask(__name__)
         self._setup_routes()
 
     def _setup_routes(self):
         """
         Sets up all API routes for CRUD operations.
         """
-        @self._app.route(f"/api/{self._db_table._table_name}/<record_id>", methods=["GET"])
+        @self.app.route(f"/api/{self.__db_table.table_name}/<record_id>", methods=["GET"])
         def _get_record(record_id):
             return self._get_record_api(record_id)
 
-        @self._app.route(f"/api/{self._db_table._table_name}", methods=["POST"])
+        @self.app.route(f"/api/{self.__db_table.table_name}", methods=["POST"])
         @request_validations("POST")
         def _create_record():
             data = request.json
             return self._create_record_api(*data)
 
-        @self._app.route(f"/api/{self._db_table._table_name}/<record_id>", methods=["PUT"])
+        @self.app.route(f"/api/{self.__db_table.table_name}/<record_id>", methods=["PUT"])
         @request_validations("PUT")
         def _update_record(record_id):
             data = request.json
             return self._update_record_api(record_id, **data)
 
-        @self._app.route(f"/api/{self._db_table._table_name}/<record_id>", methods=["DELETE"])
+        @self.app.route(f"/api/{self.__db_table.table_name}/<record_id>", methods=["DELETE"])
         def _delete_record(record_id):
             return self._delete_record_api(record_id)
         
@@ -97,10 +103,14 @@ class FlaskAPI:
             JSON response: The record data in JSON format, or an error message if not found.
             HTTP status code: 200 if found, 404 if not found.
         """
-        record = self._db_table.get_by_id(record_id) 
+        record = self.__db_table.get_by_id(record_id) 
+        
         if record:
+            record = tuple_to_dict(record, self.__db_table.columns)
+            logger.info(f"Record {record_id} found")
             return jsonify(record), 200
         else:
+            logger.error(f"Record {record_id} not found")
             return jsonify({"error": "Record not found"}), 404
         
     def _create_record_api(self, *data):
@@ -115,9 +125,14 @@ class FlaskAPI:
             HTTP status code: 201 if created, 400 if an error occurs.
         """
         try:
-            self._db_table.insert_row(*data)
+            data = tuple(data)
+            columns = deepcopy(self.__db_table.columns)
+            dict_data = tuple_to_dict(data, columns.remove(self.__db_table.column_id))
+            id = self.__db_table.insert_row(dict_data)
+            logger.info(f"Record created with id {id}")
             return jsonify({"message": "Record created"}), 201
         except Exception as e:
+            logger.error("Record failed to be created")
             return jsonify({"error": str(e)}), 400
         
     def _update_record_api(self, record_id, **kwargs):
@@ -133,7 +148,7 @@ class FlaskAPI:
             HTTP status code: 200 if updated, 400 if an error occurs.
         """
         try:
-            self._db_table.update_row(record_id, **kwargs)
+            self.__db_table.update_row(record_id, **kwargs)
             return jsonify({"message": "Record update"}), 200       
         except Exception as e: 
             return jsonify({"error": str(e)}), 400
@@ -150,7 +165,7 @@ class FlaskAPI:
             HTTP status code: 200 if deleted, 400 if an error occurs.
         """
         try:
-            self._db_table.delete_row(record_id)
+            self.__db_table.delete_row(record_id)
             return jsonify({"message": "Record deletes"}), 200
         except Exception as e:
             return jsonify({"error": str(e)}), 400
@@ -162,4 +177,20 @@ class FlaskAPI:
         Args:
             debug (bool): Whether to enable Flask's debug mode. Default is False.
         """
-        self._app.run(debug=debug)
+        self.app.run(debug=debug)
+
+    @property
+    def db_table(self):
+        return self.__db_table
+             
+    @property
+    def app(self):
+        return self.__app
+
+    @db_table.setter
+    def db_table(self, new_table):
+        self.__db_table = new_table    
+    
+    @app.setter
+    def app(self, flask):
+        self.__app = flask

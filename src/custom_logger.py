@@ -22,9 +22,8 @@ Functions:
     - setup_logger(): Returns an instance of `CustomLogger` for convenient access to a pre-configured logger.
 """
 
-
 import logging
-from logging import Logger, Filter
+from logging import Filter
 from logging import FileHandler, StreamHandler, Formatter
 from decorators_method import singleton
 
@@ -116,7 +115,8 @@ class CustomLogger:
         Returns:
             StreamHandler: A configured console handler for displaying logs in the console.
         """
-        console_log_formatter = Formatter("%(asctime)s | %(levelname)s | %(module)s:%(funcName)s:line%(lineno)d - %(message)s")
+        console_log_formatter = Formatter(
+            "%(asctime)s | %(levelname)s | %(module)s:%(funcName)s:line%(lineno)d - %(message)s")
         console_handler = StreamHandler()
         
         console_handler.setLevel(self.level)
@@ -161,7 +161,7 @@ class CustomLogger:
         """
         return self.logger
     
-def setup_logger() -> Logger:
+def setup_logger():
     """
     Helper function to retrieve a pre-configured logger instance.
 
@@ -172,3 +172,11 @@ def setup_logger() -> Logger:
         Logger: An instance of the logger with pre-configured handlers and filters.
     """
     return CustomLogger().get_logger()
+
+if __name__ == "__main__":
+    logger = setup_logger()
+    logger.debug("This is a debug message")
+    logger.info("This is an info message")
+    logger.warning("This is a warning message")
+    logger.error("This is an error message")
+    logger.critical("This is a critical message")

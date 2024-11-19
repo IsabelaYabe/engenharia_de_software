@@ -1,0 +1,3 @@
+2024-11-19 08:01:18,491 | INFO | test_custom_logger:test_logging_to_file_and_console - Informational message.
+2024-11-19 08:01:18,491 | ERROR | test_custom_logger:test_logging_to_file_and_console - Error message.
+2024-11-19 08:01:18,496 | INFO | test_custom_logger:test_password_filter - Not password message.

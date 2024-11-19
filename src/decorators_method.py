@@ -107,7 +107,7 @@ def immutable_fields(atribute_name):
         @wraps(update_method)
         def wrapper(self, record_id, **kwargs):
             fields = getattr(self, atribute_name, [])
-            current_record = self._get_by_id(record_id)
+            current_record = self.get_by_id(record_id)
 
             for field in fields:
                 if field in kwargs and kwargs[field] != current_record.get(field):
