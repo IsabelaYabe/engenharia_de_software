@@ -120,7 +120,7 @@ def immutable_fields(atribute_name):
 def foreign_key_validation(foreign_keys):
     def decorador(funcao):
         sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-        from main_file import relationship_manager_central
+        from database_manager_central import DatabaseManagerCentral
         @wraps(funcao)
         def wrapper(self, *args, **kwargs):    
             for table_name in foreign_keys:

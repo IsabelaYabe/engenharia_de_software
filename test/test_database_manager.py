@@ -109,20 +109,22 @@ class TestDatabaseManager(unittest.TestCase):
         mock_cursor.execute.assert_called_once_with(expected_sql)
         self.assertEqual(["id", "col1", "col3"], self.db_manager.columns)
         logger.info("Test delete column: OK!!! ---------------------------> TEST 6 OK!!!")
-
+    @patch("database_manager.DatabaseManager.search_record")
     @patch("database_manager.mysql.connector.connect")
-    def test_delete_rows(self, mock_connect):
+    def test_delete_rows(self, mock_connect, mock_search_record):
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)
         mock_connection = mock_connection.__enter__()
         mock_cursor = mock_connection.cursor().__enter__.return_value
         mock_cursor.rowcount.return_value = 1
+    
+        mock_search_record.return_value = [("id_1", "record", "value_21", "value_31"), ("id_2", "record", "value_22", "value_32")]
         
         expected_sql = "DELETE FROM `test_table` WHERE `col1` = %s;"
         self.db_manager.delete_rows("record", "col1")
 
-        mock_cursor.execute.assert_called_once_with(expected_sql, ("record",))
+        mock_cursor.execute.assert_any_call(expected_sql, ("record",))
         logger.info("Test delete rows: OK!!! ---------------------------> TEST 7 OK!!!")
     
     @patch("database_manager.mysql.connector.connect")
@@ -137,7 +139,7 @@ class TestDatabaseManager(unittest.TestCase):
         expected_sql = "DELETE FROM `test_table` WHERE `col1` = %s;"
         self.db_manager.delete_rows("record", "col1")
 
-        mock_cursor.execute.assert_called_once_with(expected_sql, ("record",))
+        mock_cursor.execute.assert_any_call(expected_sql, ("record",))
         logger.info("Test delete rows not found: OK!!! ---------------------------> TEST 8 OK!!!")
     
     def test_regex_to_get_table_name(self):

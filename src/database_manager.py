@@ -30,6 +30,7 @@ sys.path.append(os.path.abspath(os.path.join(os.getcwd(),'src')))
 from decorators_method import immutable_fields
 from decorators_class import pubsub
 from event_manager.event_manager import EventManager
+from utils.utils import tuple_rows_to_dict
 
 logger = setup_logger()
 @dataclass
@@ -116,7 +117,7 @@ class DatabaseManager():
         self.__event_manager = config_pub.event_manager if config_pub else None
         self.__events_type_pub = config_pub.events_type_pub if config_pub else None
         self.__events_type_sub = config_sub.events_type_sub if config_sub else None
-        self.__immutable_columns = [self.__column_id, "timestamp"] + + self.__foreign_keys + (immutable_columns or [])
+        self.__immutable_columns = [self.__column_id, "timestamp"]  + (self.__foreign_keys or []) + (immutable_columns or [])
         
     def __connect(self):
         """
@@ -207,13 +208,16 @@ class DatabaseManager():
             column (str): The column to match against.
         """
         delete_sql = f"DELETE FROM `{self.__table_name}` WHERE `{column}` = %s;"
-
+        list_tuples_row = self.search_record(column=record)
+        logger.debug(f"{list_tuples_row}")
+        tuple_rows_dict = tuple_rows_to_dict(list_tuples_row, self.columns)   
+        logger.debug(f"{tuple_rows_dict}") 
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(delete_sql, (record,))
             if cursor.rowcount == 0:
                 logger.info(f"No rows are deleted; the value {record} in {column} was not found")
 
-        logger.info(f"All rows with value {record} in {column} was delete from {self.__table_name}")
+        logger.info(f"All rows with value {record} in {column} was delete from {self.__table_name}: {tuple_rows_dict}")        
 
     def create_table(self, sql_batabase):
         """
@@ -239,10 +243,9 @@ class DatabaseManager():
                     ("test_db","test_table"))
             if cursor.fetchone()[0] == 1:
                 raise ValueError("This table exist")
+                logger.info(f"Table created {table_name}")
             else:
                 cursor.execute(sql_batabase)
-        
-        logger.info("Table created")
 
     def delete_table(self):
         """
@@ -306,6 +309,7 @@ class DatabaseManager():
         Notes:
             - The `immutable_fields` decorator ensures that certain fields cannot be updated.
         """
+        old_row = self.get_by_id(record_id)
         columns = []
         arguments = []
         values = []
@@ -320,8 +324,9 @@ class DatabaseManager():
         query = f"UPDATE `{self.__table_name}` SET {arguments} WHERE `{self.__column_id}` = %s;"
 
         with self.__connect() as conn, conn.cursor() as cursor:
-            cursor.execute(query, tuple(values))      
-            logger.info(f"Row {record_id} updated columns: {columns}")
+            cursor.execute(query, tuple(values))
+            new_row = self.get_by_id(record_id)      
+            logger.info(f"Row {record_id} id from table {self.table_name} updated columns: {columns} (from {old_row} (old row) to {new_row} (new row))")
       
     def get_by_id(self, record_id):
         """

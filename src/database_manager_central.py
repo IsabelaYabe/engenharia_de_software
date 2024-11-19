@@ -156,8 +156,6 @@ class DatabaseManagerCentral:
             self.__add_product.delete_table()
             self.__add_product = DatabaseManager(new_add_products_config, new_add_products_config_pub, new_products_config_sub, new_immutable_columns, new_foreign_keys)
 
-
-
         self.create_vending_machine_config = Config(self.host, self.user, self.password, self.database, "create_vending_machine", ["id", "owner_id", "vending_machine_id", "timestamp"], column_id="id")
         self.create_vending_machine_config_pub = ConfigPub()
         self.create_vending_machine_config_sub = ConfigSub()
@@ -179,12 +177,30 @@ class DatabaseManagerCentral:
         self.product_complaint_config = Config(self.host, self.user, self.password, self.database, "product_complaint", ["id", "complaint_id", "product_id", "user_id", "timestamp"], column_id="id")
         self.products_complaing_config_pub = ConfigPub()
         self.products_complaing_config_sub = ConfigSub()
-        self.product_complaing = DatabaseManager(self.product_complaint_config)
+        self.__product_complaint = DatabaseManager(self.__product_complaint_config, self.__product_complaint_config_pub,self.__product_complaint_config_sub, immutable_columns=None,foreign_keys=["complaint_id", "product_id", "user_id"]
+        )
+        @property
+        def product_complaint(self):
+            return self.__product_complaint
+    
+        @product_complaint.setter
+        def product_complaint(self, new_config, new_config_pub, new_config_sub, new_immutable_columns=None, new_foreign_keys=None):
+            self.__product_complaint.delete_table()
+            self.__product_complaint = DatabaseManager(new_config, new_config_pub, new_config_sub, new_immutable_columns,new_foreign_keys)
 
-        self.product_review_config = Config(self.host, self.user, self.password, self.database, "product_review", ["id", "comment_id", "product_id", "user_id", "timestamp"], column_id="id")
+        self.product_comment_config = Config(self.host, self.user, self.password, self.database, "product_comment", ["id", "comment_id", "product_id", "user_id", "timestamp"], column_id="id")
         self.products_review_config_pub = ConfigPub()
         self.products_review_config_sub = ConfigSub()
-        self.product_review = DatabaseManager(self.product_review_config)
+        self.__product_comment = DatabaseManager(self.__product_comment_config,self.__product_comment_config_pub,self.__product_comment_config_sub,immutable_columns=None,foreign_keys=["comment_id", "product_id", "user_id"])
+
+        @property
+        def product_comment(self):
+            return self.__product_comment
+
+        @product_comment.setter
+        def product_comment(self, new_config, new_config_pub, new_config_sub, new_immutable_columns=None, new_foreign_keys=None):
+            self.__product_comment.delete_table()
+            self.__product_comment = DatabaseManager(new_config,new_config_pub,new_config_sub,new_immutable_columns,new_foreign_keys)
 
         self.purchase_transaction_config = Config(self.host, self.user, self.password, self.database, "purchase_transaction", ["id", "user_id", "product_id", "vending_machine_id", "timestamp", "quantity", "amount_paid_per_unit"], column_id="id")
         self.purchase_transaction_config_pub = ConfigPub()
@@ -196,9 +212,9 @@ class DatabaseManagerCentral:
         self.vending_machine_complaint_config_sub = ConfigSub()
         self.vending_machine_complaint = DatabaseManager(self.vending_machine_complaint_config)
 
-        self.vending_machine_review_config = Config(self.host, self.user, self.password, self.database, "vending_machine_review", ["id", "comment_id", "vending_machine id", "user_id", "timestamp"], column_id="id")
-        self.vending_machine_review_config_pub = ConfigPub()
-        self.vending_machine_review_config_sub = ConfigSub()
-        self.vending_machine_review = DatabaseManager(self.vending_machine_review_config)
+        self.vending_machine__comment_config = Config(self.host, self.user, self.password, self.database, "vending_machine__comment", ["id", "comment_id", "vending_machine id", "user_id", "timestamp"], column_id="id")
+        self.vending_machine__comment_config_pub = ConfigPub()
+        self.vending_machine__comment_config_sub = ConfigSub()
+        self.vending_machine__comment = DatabaseManager(self.vending_machine__comment_config)
 
            
