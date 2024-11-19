@@ -71,3 +71,71 @@
 2024-11-19 13:21:38,137 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
 2024-11-19 13:21:38,137 | INFO | database_manager:update_row - Row 12345678-1234-5678-1234-567812345678 from table test_table updated columns: col0, col_1, col3 (from <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__()' id='2436517801392'> (old row) to <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__()' id='2436517801392'> (new row))
 2024-11-19 13:21:38,137 | INFO | test_database_manager:test_update_row - Test update row: OK!!! ---------------------------> TEST 14 OK!!!
+2024-11-19 13:52:38,054 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,058 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,059 | INFO | database_manager:add_column - Column new_col was added to test_table as INT and not_null False
+2024-11-19 13:52:38,059 | INFO | test_database_manager:test_add_column_not_null_false - Test add column column not null false: OK!!! ---------------------------> TEST 5 OK!!!
+2024-11-19 13:52:38,061 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,062 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,065 | INFO | database_manager:add_column - Column new_col was added to test_table as INT and not_null True
+2024-11-19 13:52:38,065 | INFO | test_database_manager:test_add_column_not_null_true - Test add column column not null true: OK!!! ---------------------------> TEST 4 OK!!!
+2024-11-19 13:52:38,066 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,068 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,068 | INFO | test_database_manager:test_connect - Test connect: OK!!! ---------------------------> TEST 1 OK!!!
+2024-11-19 13:52:38,069 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,074 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,079 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,081 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,082 | INFO | database_manager:delete_column - Column col2 was deleted from test_table
+2024-11-19 13:52:38,082 | INFO | test_database_manager:test_delete_column - Test delete column: OK!!! ---------------------------> TEST 6 OK!!!
+2024-11-19 13:52:38,083 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,089 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,090 | INFO | database_manager:delete_rows - All rows with value record in col1 was delete from test_table: [{'id': 'id_1', 'col1': 'record', 'col2': 'value_21', 'col3': 'value_31'}, {'id': 'id_2', 'col1': 'record', 'col2': 'value_22', 'col3': 'value_32'}]
+2024-11-19 13:52:38,091 | INFO | test_database_manager:test_delete_rows - Test delete rows: OK!!! ---------------------------> TEST 7 OK!!!
+2024-11-19 13:52:38,091 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,093 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,110 | INFO | database_manager:search_record - Records founds: <MagicMock name='connect().__enter__().cursor().__enter__().fetchall()' id='2083716770464'>
+2024-11-19 13:52:38,112 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,113 | INFO | database_manager:delete_rows - All rows with value record in col1 was delete from test_table: []
+2024-11-19 13:52:38,114 | INFO | test_database_manager:test_delete_rows_not_found - Test delete rows not found: OK!!! ---------------------------> TEST 8 OK!!!
+2024-11-19 13:52:38,114 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,116 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,117 | INFO | database_manager:delete_table - Table test_table deleted
+2024-11-19 13:52:38,118 | INFO | test_database_manager:test_delete_table - Test delete table: OK!!! ---------------------------> TEST 12 OK!!!
+2024-11-19 13:52:38,120 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,122 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,123 | INFO | test_database_manager:test_execute_sql - Test execute sql: OK!!! ---------------------------> TEST 18 OK!!!
+2024-11-19 13:52:38,123 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,127 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,129 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-11-19 13:52:38,130 | INFO | test_database_manager:test_get_by_id - Test get by id: OK!!! ---------------------------> TEST 15 OK!!!
+2024-11-19 13:52:38,130 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,134 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,137 | WARNING | database_manager:get_by_id - No instance found with id: 12345678-1234-5678-1234-567812345678
+2024-11-19 13:52:38,137 | INFO | test_database_manager:test_get_by_id_not_found - Test get by id not: OK!!! ---------------------------> TEST 16 OK!!!
+2024-11-19 13:52:38,137 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,139 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,141 | INFO | database_manager:insert_row - Row ({'col0': 'value_0', 'col_1': 'value_1', 'col3': 'value_3'}) inserted in table test_table with id 12345678-1234-5678-1234-567812345678
+2024-11-19 13:52:38,141 | INFO | test_database_manager:test_insert_row - Test delete table: OK!!! ---------------------------> TEST 13 OK!!!
+2024-11-19 13:52:38,142 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,142 | ERROR | database_manager:modify_column - An attempt was made to change the name of the id column
+2024-11-19 13:52:38,142 | INFO | test_database_manager:test_modify_column_modify_column_id_error - Test modify column column id error: OK!!! ---------------------------> TEST 3 OK!!!
+2024-11-19 13:52:38,144 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,146 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,147 | INFO | database_manager:modify_column - Column col1 from test_table was changed to col0
+2024-11-19 13:52:38,148 | INFO | test_database_manager:test_modify_column_success - Test modify column sucess: OK!!! ---------------------------> TEST 2 OK!!!
+2024-11-19 13:52:38,148 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,149 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,152 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,154 | INFO | database_manager:search_record - Records founds: [('12345678-1234-5678-1234-567812344582', 'value_1', 'value_2', 'value_30'), ('85445678-1963-5458-7829-716812340354', 'value_1', 'value_2', 'value_31')]
+2024-11-19 13:52:38,155 | INFO | test_database_manager:test_search_record - Test search record: OK!!! ---------------------------> TEST 17 OK!!!
+2024-11-19 13:52:38,155 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-19 13:52:38,158 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,158 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-11-19 13:52:38,161 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,161 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-11-19 13:52:38,161 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,162 | INFO | database_manager:__connect - Connected into database
+2024-11-19 13:52:38,162 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-11-19 13:52:38,164 | INFO | database_manager:update_row - Row 12345678-1234-5678-1234-567812345678 id from table test_table updated columns: col0, col_1, col3 (from <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__()' id='2083716810352'> (old row) to <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__()' id='2083716810352'> (new row))
+2024-11-19 13:52:38,164 | INFO | test_database_manager:test_update_row - Test update row: OK!!! ---------------------------> TEST 14 OK!!!

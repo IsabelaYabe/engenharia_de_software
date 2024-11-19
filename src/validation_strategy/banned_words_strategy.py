@@ -80,5 +80,5 @@ class BannedWordsStrategy(ValidationStrategy):
                         banned_words_found.append(word)
         
         if len(banned_words_found) != 0:
-            return f"Request contains banned words: ({", ".join(banned_words_found)})"
+            return f"Request contains banned words: ({', '.join(banned_words_found)})"
         return None
