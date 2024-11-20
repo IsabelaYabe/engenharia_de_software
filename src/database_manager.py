@@ -33,6 +33,7 @@ from decorators_class import pubsub
 from event_manager.event_manager import EventManager
 from utils.utils import tuple_rows_to_dict
 
+
 logger = setup_logger()
 @dataclass
 class Config:
@@ -115,11 +116,11 @@ class DatabaseManager():
         self.__columns = config.columns
         self.__column_id = config.column_id
         self.__foreign_keys = foreign_keys
-        self.__foreign_keys_columns =  list(deepcopy(self.__foreign_keys).keys())
+        self.__foreign_keys_columns =  list(deepcopy(self.__foreign_keys).keys()) if self.__foreign_keys else None
         self.__event_manager = config_pub.event_manager if config_pub else None
         self.__events_type_pub = config_pub.events_type_pub if config_pub else None
         self.__events_type_sub = config_sub.events_type_sub if config_sub else None
-        self.__immutable_columns = [self.__column_id, "timestamp"]  + (self.__foreign_keys.keys() or []) + (immutable_columns or [])
+        self.__immutable_columns = [self.__column_id, "timestamp"]  + (self.__foreign_keys or []) + (immutable_columns or [])
         
     def __connect(self):
         """
