@@ -4,8 +4,8 @@ Module for FlaskAPI Class.
 This module provides the `FlaskAPI` class, which creates a RESTful API for basic CRUD (Create, Read, Update, Delete) operations on a specified database table. The class uses Flask to set up endpoints for accessing, creating, updating, and deleting records in the database.
 
 Author: Isabela Yabe
-Last Modified: 06/11/2024
-Status: Put logs
+Last Modified: 20/11/2024
+Status: Complete
 
 Dependencies:
     - flask.Flask
@@ -27,7 +27,7 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
 from decorators_method import request_validations
 from custom_logger import setup_logger
-from utils.utils import tuple_to_dict
+from utils.utils import tuple_to_dict, tuple_rows_to_dict
 
 logger = setup_logger()
 
@@ -75,6 +75,11 @@ class FlaskAPI:
         @self.app.route(f"/api/{self.__db_table.table_name}/<record_id>", methods=["GET"])
         def _get_record(record_id):
             return self._get_record_api(record_id)
+        
+        @self.app.route(f"/api/{self.__db_table.table_name}/search", methods=["GET"]) 
+        # Exemple of URL: /api/products/search?name=Widget&price=20
+        def _search_record():
+            return self._search_record_api()
 
         @self.app.route(f"/api/{self.__db_table.table_name}", methods=["POST"])
         @request_validations("POST")
@@ -112,6 +117,28 @@ class FlaskAPI:
         else:
             logger.error(f"Record {record_id} not found")
             return jsonify({"error": "Record not found"}), 404
+    
+    def _search_record_api(self, **kwargs):
+        """
+        Handles GET requests to search records based on query parameters.
+
+        Returns:
+            JSON response: A list of matching records or an error message if no records are found.
+            HTTP status code: 200 if found, 404 if not found.
+        """
+        try:
+            query_params = request.args.to_dict()
+            records = self.__db_table.search_record(**query_params) 
+            if records:
+                result = tuple_rows_to_dict(records, self.__db_table.columns)
+                logger.info(f"Records found with query: {query_params}")
+                return jsonify(result), 200
+            else:
+                logger.warning(f"No records found with query: {query_params}")
+                return jsonify({"error": "No records found"}), 404
+        except Exception as e:
+            logger.error(f"Error during search: {e}")
+            return jsonify({"error": str(e)}), 400
         
     def _create_record_api(self, *data):
         """
@@ -149,8 +176,10 @@ class FlaskAPI:
         """
         try:
             self.__db_table.update_row(record_id, **kwargs)
+            logger.info(f"Record {record_id} updated with {kwargs}")
             return jsonify({"message": "Record update"}), 200       
         except Exception as e: 
+            logger.error(f"Record {record_id} failed to be updated")
             return jsonify({"error": str(e)}), 400
         
     def _delete_record_api(self, record_id):
@@ -166,8 +195,10 @@ class FlaskAPI:
         """
         try:
             self.__db_table.delete_row(record_id)
+            logger.info(f"Record {record_id} deleted")
             return jsonify({"message": "Record deletes"}), 200
         except Exception as e:
+            logger.error(f"Record {record_id} failed to be deleted")
             return jsonify({"error": str(e)}), 400
 
     def run(self, debug=False):
@@ -177,6 +208,7 @@ class FlaskAPI:
         Args:
             debug (bool): Whether to enable Flask's debug mode. Default is False.
         """
+        logger.info("Starting Flask API server")
         self.app.run(debug=debug)
 
     @property
@@ -189,8 +221,10 @@ class FlaskAPI:
 
     @db_table.setter
     def db_table(self, new_table):
+        logger.info(f"Database table set to {new_table.table_name}")
         self.__db_table = new_table    
     
     @app.setter
     def app(self, flask):
+        logger.info("Flask app set")
         self.__app = flask

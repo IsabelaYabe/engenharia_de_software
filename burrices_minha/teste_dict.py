@@ -4,7 +4,7 @@ def aaaa(cls):
     def new_init(self, *args, **kwargs):
         original_init(self, *args, **kwargs)
         def new_method(self):
-            return f"Olha estou aqui {self. name}"
+            return f"Olha estou aqui {self.name}"
         self.new_method = new_method.__get__(self)
     cls.__init__ = new_init
     return cls

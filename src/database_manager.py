@@ -6,7 +6,7 @@ table creation, column modification, and event-driven communication using publis
 
 Author: Isabela Yabe
 Last Modified: 19/11/2024
-Status: Complete, maybe adjust the logs
+Status: Complete
 
 Dependencies:
     - mysql.connector
@@ -23,6 +23,7 @@ from custom_logger import setup_logger
 import mysql.connector
 import uuid
 import re
+from copy import deepcopy
 
 import os
 import sys
@@ -114,10 +115,11 @@ class DatabaseManager():
         self.__columns = config.columns
         self.__column_id = config.column_id
         self.__foreign_keys = foreign_keys
+        self.__foreign_keys_columns =  list(deepcopy(self.__foreign_keys).keys())
         self.__event_manager = config_pub.event_manager if config_pub else None
         self.__events_type_pub = config_pub.events_type_pub if config_pub else None
         self.__events_type_sub = config_sub.events_type_sub if config_sub else None
-        self.__immutable_columns = [self.__column_id, "timestamp"]  + (self.__foreign_keys or []) + (immutable_columns or [])
+        self.__immutable_columns = [self.__column_id, "timestamp"]  + (self.__foreign_keys.keys() or []) + (immutable_columns or [])
         
     def __connect(self):
         """
@@ -242,8 +244,8 @@ class DatabaseManager():
                     """,
                     ("test_db","test_table"))
             if cursor.fetchone()[0] == 1:
-                raise ValueError("This table exist")
                 logger.info(f"Table created {table_name}")
+                raise ValueError("This table exist")
             else:
                 cursor.execute(sql_batabase)
 
@@ -422,6 +424,10 @@ class DatabaseManager():
     @property
     def foreign_keys(self): 
         return self.__foreign_keys 
+    
+    @property
+    def foreign_keys_columns(self): 
+        return self.__foreign_keys_columns
 
     @property
     def event_manager(self):
@@ -441,36 +447,50 @@ class DatabaseManager():
 
     @db_config.setter
     def db_config(self, new_config):
+        logger.info(f"Database configuration updated: {new_config}")
         self.__db_config = new_config
 
     @table_name.setter
     def table_name(self, new_table_name):
+        logger.info(f"Table name updated: {new_table_name}")
         self.__table_name = new_table_name
 
     @columns.setter
     def columns(self, new_columns):
+        logger.info(f"Columns updated: {new_columns}")
         self.__columns = new_columns
 
     @column_id.setter
     def column_id(self, new_column_id):
+        logger.info(f"Primary key column updated: {new_column_id}")
         self.__column_id = new_column_id
     
     @foreign_keys.setter
     def foreign_keys(self, new_foreign_keys): 
+        logger.info(f"Foreign keys updated: {new_foreign_keys}")
         self.__foreign_keys = new_foreign_keys 
+
+    @foreign_keys_columns.setter
+    def foreign_keys_columns(self, new_foreign_keys_columns): 
+        logger.info(f"Foreign keys columns updated: {new_foreign_keys_columns}")
+        self.__foreign_keys_columns = new_foreign_keys_columns
 
     @event_manager.setter
     def event_manager(self, new_event_manager):
+        logger.info(f"Event manager updated: {new_event_manager}")
         self.__event_manager = new_event_manager
 
     @events_type_pub.setter
     def events_type_pub(self, new_events_type_pub):
+        logger.info(f"Events type published updated: {new_events_type_pub}")
         self.__events_type_pub = new_events_type_pub
 
     @events_type_sub.setter
     def events_type_sub(self, new_events_type_sub):
+        logger.info(f"Events type subscribed updated: {new_events_type_sub}")
         self.__events_type_sub = new_events_type_sub
 
     @immutable_columns.setter
     def immutable_columns(self, new_immutable_columns):
+        logger.info(f"Immutable columns updated: {new_immutable_columns}")
         self.__immutable_columns = new_immutable_columns

@@ -1,3 +1,25 @@
+
+"""
+Module for Testing DatabaseManager Class.
+
+This module provides a suite of unit tests for the `DatabaseManager` class using the `unittest` framework.
+It tests various operations such as table management, CRUD operations, and custom functionalities like
+SQL execution and column modifications.
+
+Author: Isabela Yabe
+Last Modified: 19/11/2024
+Status: Complete
+
+Dependencies:
+    - unittest
+    - unittest.mock
+    - mysql.connector
+    - re
+    - uuid
+    - custom_logger.setup_logger
+    - database_manager.DatabaseManager
+"""
+
 import unittest
 from unittest.mock import MagicMock, patch
 import re
@@ -11,8 +33,17 @@ from custom_logger import setup_logger
 logger = setup_logger()
 
 class TestDatabaseManager(unittest.TestCase):
+    """
+    TestDatabaseManager class.
+
+    This class provides unit tests for the `DatabaseManager` class, focusing on its ability to manage MySQL database
+    tables, perform CRUD operations, and handle various edge cases and error conditions.
+    """
     
     def setUp(self):
+        """
+        Set up the test environment before each test case.
+        """
         config = Config(
             host="localhost",
             user="root",
@@ -27,6 +58,9 @@ class TestDatabaseManager(unittest.TestCase):
 
     @patch("database_manager.mysql.connector.connect")
     def test_connect(self, mock_connect):
+        """
+        Test the connection to the MySQL database.
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
 
@@ -44,6 +78,9 @@ class TestDatabaseManager(unittest.TestCase):
     
     @patch("database_manager.mysql.connector.connect")
     def test_modify_column_success(self, mock_connect):
+        """
+        Test the modification of a column in the database table.
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)
@@ -58,6 +95,9 @@ class TestDatabaseManager(unittest.TestCase):
         logger.info("Test modify column sucess: OK!!! ---------------------------> TEST 2 OK!!!")
 
     def test_modify_column_modify_column_id_error(self):
+        """
+        Test that modifying the id column raises a ValueError.
+        """
         with self.assertRaises(ValueError) as context:
             self.db_manager.modify_column("id", "new_column_id")
         
@@ -67,6 +107,9 @@ class TestDatabaseManager(unittest.TestCase):
 
     @patch("database_manager.mysql.connector.connect")
     def test_add_column_not_null_true(self, mock_connect):
+        """
+        Test adding a new column to the database table with the NOT NULL constraint
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)
@@ -82,6 +125,9 @@ class TestDatabaseManager(unittest.TestCase):
 
     @patch("database_manager.mysql.connector.connect")
     def test_add_column_not_null_false(self, mock_connect):
+        """
+        Test adding a new column to the database table without the NOT NULL constraint
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)
@@ -97,6 +143,9 @@ class TestDatabaseManager(unittest.TestCase):
 
     @patch("database_manager.mysql.connector.connect")
     def test_delete_column(self, mock_connect):
+        """
+        Test deleting a column from the database table.
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)
@@ -109,9 +158,13 @@ class TestDatabaseManager(unittest.TestCase):
         mock_cursor.execute.assert_called_once_with(expected_sql)
         self.assertEqual(["id", "col1", "col3"], self.db_manager.columns)
         logger.info("Test delete column: OK!!! ---------------------------> TEST 6 OK!!!")
+        
     @patch("database_manager.DatabaseManager.search_record")
     @patch("database_manager.mysql.connector.connect")
     def test_delete_rows(self, mock_connect, mock_search_record):
+        """
+        Test deleting rows from the database table.
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)
@@ -129,6 +182,9 @@ class TestDatabaseManager(unittest.TestCase):
     
     @patch("database_manager.mysql.connector.connect")
     def test_delete_rows_not_found(self, mock_connect):
+        """
+        Test deleting rows from the database table when no rows are found.
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)
@@ -143,6 +199,9 @@ class TestDatabaseManager(unittest.TestCase):
         logger.info("Test delete rows not found: OK!!! ---------------------------> TEST 8 OK!!!")
     
     def test_regex_to_get_table_name(self):
+        """
+        Test the regex pattern to extract the table name from a CREATE TABLE SQL query.
+        """
         sql_query_1 = """
         CREATE TABLE `test_table` (
             id VARCHAR(36) PRIMARY KEY,
@@ -167,6 +226,9 @@ class TestDatabaseManager(unittest.TestCase):
     
     @patch("database_manager.mysql.connector.connect")
     def test_create_non_exist_table(self, mock_connect):
+        """
+        Test creating a new table in the database when the table does not exist.
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)
@@ -197,6 +259,9 @@ class TestDatabaseManager(unittest.TestCase):
 
     @patch("database_manager.mysql.connector.connect")
     def test_create_exist_table(self, mock_connect):
+        """
+        Test creating a new table in the database when the table already exists.
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)
@@ -229,6 +294,9 @@ class TestDatabaseManager(unittest.TestCase):
 
     @patch("database_manager.mysql.connector.connect")
     def test_delete_table(self, mock_connect):
+        """
+        Test deleting a table from the database.
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)
@@ -243,6 +311,9 @@ class TestDatabaseManager(unittest.TestCase):
     @patch("uuid.uuid4")
     @patch("database_manager.mysql.connector.connect")
     def test_insert_row(self, mock_connect, mock_uuid):
+        """
+        Test inserting a new row into the database table.
+        """
         id = "12345678-1234-5678-1234-567812345678"
         mock_uuid.return_value = uuid.UUID(id)
 
@@ -273,6 +344,9 @@ class TestDatabaseManager(unittest.TestCase):
     
     @patch("database_manager.mysql.connector.connect")
     def test_update_row(self, mock_connect):
+        """
+        Test updating a row in the database table.
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)
@@ -301,6 +375,9 @@ class TestDatabaseManager(unittest.TestCase):
     
     @patch("database_manager.mysql.connector.connect")
     def test_get_by_id(self, mock_connect):
+        """
+        Test retrieving a row from the database table by ID.
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)
@@ -323,6 +400,9 @@ class TestDatabaseManager(unittest.TestCase):
 
     @patch("database_manager.mysql.connector.connect")
     def test_get_by_id_not_found(self, mock_connect):
+        """
+        Test retrieving a row from the database table by ID when the row is not found.
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)
@@ -344,6 +424,9 @@ class TestDatabaseManager(unittest.TestCase):
 
     @patch("database_manager.mysql.connector.connect")
     def test_search_record(self, mock_connect):
+        """
+        Test searching for rows in the database table based on specific column values.
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)
@@ -375,6 +458,9 @@ class TestDatabaseManager(unittest.TestCase):
 
     @patch("database_manager.mysql.connector.connect")
     def test_execute_sql(self, mock_connect):
+        """
+        Test executing a custom SQL query on the database.
+        """
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
         # Change de enviroment (with)

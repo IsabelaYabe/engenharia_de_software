@@ -1,40 +1,44 @@
 """
-Module for creating decorators for the project.
+Module for Project Decorators.
 
-This module provides decorators to enhance functionality in the project. It includes:
-- `request_validations`: A decorator to apply multiple validation strategies to API request data based on the HTTP method.
-- `singleton`: A decorator to implement the singleton pattern for classes, ensuring only one instance of the class is created.
-- `immutable_fields`: A decorator, which enforces immutability on specified fields within
-a database table by raising an exception if there is an attempt to update those fields.
+This module provides a set of decorators designed to enhance functionality in the project.
+The decorators include features for request validation, enforcing immutability on database fields,
+and more, ensuring robust input handling and safe data operations.
 
 Author: Isabela Yabe
-Last Modified: 10/11/2024
-Status: Complete, put logs
+Last Modified: 19/11/2024
+Status: Incomplete; 
+    request_validations completed (tests OK); 
+    immutable_fields completed (tests OK).
 
 Dependencies:
-    - mysql.connector (optional for database connection)
+    - mysql.connector
     - functools.wraps
     - flask.jsonify
     - flask.request
-    - BannedWordsStrategy
-    - SQLInjectionStrategy
+    - utils.utils (tuple_to_dict)
+    - validation_endpoints_strategy.banned_words_strategy.BannedWordsStrategy
+    - validation_endpoints_strategy.sql_injection_strategy.SQLInjectionStrategy
+    - custom_logger.setup_logger
 
-Functions:
-    - request_validations(strategies, *request_methods): Applies validation strategies to requests for specified HTTP methods.
-    - singleton(class_): Implements the singleton pattern for a class.
+Decorators:
+    - request_validations: Validates request data using specified validation strategies.
+    - immutable_fields: Prevents updates to specified immutable fields in a database table.
 """
-
 import mysql.connector
 from mysql.connector import Error
 from functools import wraps
 from flask import jsonify, request
+from utils.utils import tuple_to_dict
 
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
-from validation_strategy.banned_words_strategy import BannedWordsStrategy
-from validation_strategy.sql_injection_strategy import SQLInjectionStrategy
+from validation_endpoints_strategy.banned_words_strategy import BannedWordsStrategy
+from validation_endpoints_strategy.sql_injection_strategy import SQLInjectionStrategy
+from custom_logger import setup_logger
 
+logger = setup_logger()
 
 banned_words_strategy = BannedWordsStrategy()
 sql_injection_strategy = SQLInjectionStrategy()
@@ -61,33 +65,15 @@ def request_validations(strategies=[banned_words_strategy, sql_injection_strateg
                     for strategy in strategies:
                         error = strategy.validate(data)
                         if error: 
+                            logger.error(f"Validation error: {error}, strategy applied: {strategy}")
                             return jsonify({"error": error}), 400
+                        logger.info(f"Request passed validation, strategy applied: {strategy}")    
+                    logger.info("Request passed validation")
             return funcao(*args, **kwargs)
         return wrapped
     return decorator
-                     
-def singleton(class_):
-    """
-    Singleton decorator for classes.
 
-    Ensures only one instance of the decorated class is created. Subsequent calls to create an instance of the class will return the same instance.
-
-    Args:
-        class_ (type): The class to be decorated as a singleton.
-
-    Returns:
-        function: A function that returns the singleton instance of the class.
-    """
-    instances = {}
-
-    def get_class(*args, **kwargs):
-        if class_ not in instances:
-            instances[class_] = class_(*args, **kwargs)
-        return instances[class_]
-    
-    return get_class      
-
-def immutable_fields(atribute_name):
+def immutable_fields(attribute_name):
     """
     Decorator to enforce immutability on specified fields in a class method.
 
@@ -103,20 +89,31 @@ def immutable_fields(atribute_name):
     Raises:
         ValueError: If there is an attempt to update any of the immutable fields.
     """
-    def decorador(update_method):
+    def decorator(update_method):
         @wraps(update_method)
         def wrapper(self, record_id, **kwargs):
-            fields = getattr(self, atribute_name, [])
+            immutable_fields = getattr(self, attribute_name, [])
+    
             current_record = self.get_by_id(record_id)
+            if current_record is None:
+                logger.error(f"Record with ID {record_id} not found")
+                raise ValueError(f"Record with ID {record_id} not found")
+            logger.info(f"Record with ID {record_id} found")
 
-            for field in fields:
-                if field in kwargs and kwargs[field] != current_record.get(field):
-                    raise ValueError(f"The '{field}' field is immutable and cannot be updated.")
+            current_record_dict = tuple_to_dict(current_record, self.columns)
             
-            return update_method(self, record_id, **kwargs)
-        return wrapper
-    return decorador
+            for field in immutable_fields:
+                if field in kwargs and kwargs[field] != current_record_dict.get(field):
+                    logger.error(f"Attempt to update immutable field {field}")
+                    raise ValueError(f"The {field} field is immutable and cannot be updated")
+            logger.info("Update allowed fields")
 
+            return update_method(self, record_id, **kwargs)
+
+        return wrapper
+    return decorator
+
+'''
 def foreign_key_validation(foreign_keys):
     def decorador(funcao):
         sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -133,7 +130,7 @@ def foreign_key_validation(foreign_keys):
         return wrapper
     return decorador 
 
-'''
+
 def transaction_validations(strategies):
     def decorator(funcao):
         @wraps(funcao)

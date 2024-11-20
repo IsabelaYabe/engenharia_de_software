@@ -3,19 +3,28 @@ Module for SQLInjectionStrategy Class.
 
 This module provides the `SQLInjectionStrategy` class, a concrete implementation of the `ValidationStrategy` interface. The class is designed to validate input data by checking for patterns that may indicate SQL injection attempts, such as SQL keywords and suspicious operators.
 
-Author: [Your Name]
-Last Modified: [Date]
-Status: In Testing, put logs
+Author: Isabela Yabe
+Last Modified: 20/11/2024
+Status: Complete
 
 Dependencies:
     - re
     - validation_strategy_interface.ValidationStrategy
+    - custom_logger.setup_logger
 
 Classes:
     - SQLInjectionStrategy: Concrete validation strategy to detect potential SQL injection in input data.
 """
+
 import re
-from validation_strategy.validation_strategy_interface import ValidationStrategy
+import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "src")))
+from validation_endpoints_strategy.validation_strategy_interface import ValidationStrategy
+from custom_logger import setup_logger
+
+logger = setup_logger()
 
 class SQLInjectionStrategy(ValidationStrategy):
     """
@@ -46,10 +55,11 @@ class SQLInjectionStrategy(ValidationStrategy):
         (e.g., using OR/AND operators with conditional expressions).
         """
         self.sql_patterns = [
-            r"(?i)\b(SELECT|INSERT|UPDATE|DELETE|DROP|ALTER|CREATE|EXEC)\b",
-            r"(--|\bOR\b|\bAND\b)\s*\d+=\d+",
+            r"(?i)\b(SELECT|INSERT|UPDATE|DELETE|DROP|ALTER|CREATE|EXEC)\b",  # Matches SQL commands
+            r"(--|\bOR\b|\bAND\b)\s*\d+=\d+",  # Matches comments or boolean-based injections
         ]
-    
+        logger.info("SQL injection patterns initialized.")
+
     def validate(self, data):
         """
         Validates the input data to check for potential SQL injection patterns.
@@ -69,9 +79,20 @@ class SQLInjectionStrategy(ValidationStrategy):
             if result:
                 print(result)  # Output if SQL injection patterns are found
         """
-        for value in data.values():
-            if isinstance(value, str):
-                for pattern in self.sql_patterns:
-                    if re.search(pattern, value):
-                        return "Request contains potentially dangerous SQL keywords." 
+        if not isinstance(data, dict):
+            logger.error("Input data must be a dictionary")
+            raise ValueError("Input data must be a dictionary")
+
+        for key, value in data.items():
+            if not isinstance(value, str):
+                logger.error(f"Non-string value found for key {key}. All values must be strings")
+                raise ValueError(f"Value for key {key} must be a string")
+
+            for pattern in self.sql_patterns:
+                if re.search(pattern, value):
+                    message = f"Request contains potentially dangerous SQL keywords in {key}"
+                    logger.warning(message)
+                    return message
+
+        logger.info("Request does not contain SQL injection patterns")
         return None

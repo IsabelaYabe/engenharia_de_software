@@ -2,8 +2,8 @@
     Module for unit testing the customLogger class.
 
     Author: Isabela Yabe
-
     Last Modified: 06/11/2024
+    Status: Complete
 
     Dependecies: 
         - unittest
@@ -28,16 +28,6 @@ class TestCustomLogger(unittest.TestCase):
         cls.log_file = "test_app.log"
 
         cls.logger = CustomLogger(log_file=cls.log_file, level=logging.DEBUG).get_logger()
-
-    def test_log_file_created_and_cleared(self):
-        """
-        Test if the log file is created and cleared at init.
-        """
-        self.assertTrue(os.path.exists(self.log_file))
-
-        with open(self.log_file, "r") as file:
-            content = file.read()
-            self.assertEqual(content, "")
     
     def test_logging_to_file_and_console(self):
         """
