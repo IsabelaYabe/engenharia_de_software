@@ -6,7 +6,7 @@ The tests validate the publish/subscribe functionality, ensuring that events are
 
 Author: Isabela Yabe
 Last Modified: 19/11/2024
-Status: cabuloso
+Status: cabuloso, não ta pronto
 
 Dependencies:
     - unittest
