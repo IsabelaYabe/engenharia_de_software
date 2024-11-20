@@ -196,6 +196,35 @@ class TestFlaskAPI(unittest.TestCase):
         self.api.run(debug=True)
 
         mock_run.assert_called_once_with(debug=True)
+    logger.info("Test run: OK!!! ---------------------------> TEST 9 OK!!!")
+    
+    def test_search_record_api_no_results(self):
+        """
+        Tests the GET endpoint for searching records when no results are found.
+        """
+        query_params = {"col1": "nonexistent_value"}
+        self.mock_db_table.search_record.return_value = []
+
+        response = self.client.get(f"/api/{self.mock_db_table.table_name}/search", query_string=query_params)
+
+        self.mock_db_table.search_record.assert_called_once_with(**query_params)
+        self.assertEqual(response.status_code, 404)
+        self.assertEqual(response.json, {"error": "No records found"})
+        logger.info("Test search record api no results: OK!!! ---------------------------> TEST 10 OK!!!")
+
+    def test_search_record_api_exception(self):
+        """
+        Tests the GET endpoint for searching records when an exception occurs.
+        """
+        query_params = {"col1": "value_1"}
+        self.mock_db_table.search_record.side_effect = Exception("Search failed")
+
+        response = self.client.get(f"/api/{self.mock_db_table.table_name}/search", query_string=query_params)
+
+        self.mock_db_table.search_record.assert_called_once_with(**query_params)
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.json, {"error": "Search failed"})
+        logger.info("Test search record api exception: OK!!! ---------------------------> TEST 11 OK!!!")
 
 if __name__ == "__main__":
     unittest.main()

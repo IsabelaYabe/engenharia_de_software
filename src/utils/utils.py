@@ -9,10 +9,22 @@ Author: Isabela Yabe
 Last Modified: 19/11/2024
 Status: Complete
 
+Dependencies:
+    - os
+    - sys
+    - custom_logger
+
 Functions:
     - tuple_rows_to_dict(list_of_tuples, columns): Converts a list of tuples into a list of dictionaries.
     - tuple_to_dict(tuple, columns): Converts a single tuple into a dictionary.
 """
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "src")))
+from custom_logger import setup_logger
+
+logger = setup_logger()
+
 def tuple_rows_to_dict(list_of_tuples, columns):
     """
     Converts a list of tuples (rows from a database table) into a list of dictionaries.
@@ -35,6 +47,7 @@ def tuple_rows_to_dict(list_of_tuples, columns):
         for i in range(n_cols):
             current_dict[columns[i]] = tuple_[i]
         list_.append(current_dict)
+    logger.info(f"List of dictionaries: {list_}")
     return list_
 
 def tuple_to_dict(tuple, columns):
@@ -52,10 +65,8 @@ def tuple_to_dict(tuple, columns):
         dict: A dictionary representing the row in the format {column: value}.
     """
     n_cols = len(columns)
-    list_ = []
-    for tuple_ in tuple: 
-        current_dict = {}
-        for i in range(n_cols):
-            current_dict[columns[i]] = tuple_[i]
-        list_.append(current_dict)
-    return list_
+    _dict = {}
+    for i in range(n_cols):
+        _dict[columns[i]] = tuple[i]
+    logger.info(f"Dictionary: {_dict}")
+    return _dict

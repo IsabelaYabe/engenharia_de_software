@@ -25,7 +25,7 @@ Functions:
 import logging
 from logging import Filter
 from logging import FileHandler, StreamHandler, Formatter
-from decorators_method import singleton
+from singleton_decorator import singleton
 
 class LogFilter(Filter):
     """

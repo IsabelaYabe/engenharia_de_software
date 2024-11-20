@@ -12,8 +12,9 @@
         - custom_logger
 """
 from database_manager import DatabaseManager, Config, ConfigPub, ConfigSub
-from decorators_method import singleton
+from singleton_decorator import singleton
 from custom_logger import setup_logger
+
 logger = setup_logger()
 
 @singleton
