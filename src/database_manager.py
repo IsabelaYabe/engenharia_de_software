@@ -5,7 +5,7 @@ This module provides a `DatabaseManager` class for managing database tables, inc
 modification, row operations (insert, update, delete), and integration with an event-driven architecture via pub-sub mechanisms.
 
 Author: Isabela Yabe
-Last Modified: 19/11/2024
+Last Modified: 05/12/2024
 Status: Complete
 
 Dependencies:
