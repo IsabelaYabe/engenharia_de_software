@@ -1,8 +1,50 @@
+
+"""
+Module for PubSub Decorator.
+
+This module provides a decorator function `pubsub` that dynamically adds publisher and subscriber functionalities 
+to classes for event-driven architectures. Classes decorated with `pubsub` can publish and/or subscribe to specific 
+event types using designated event managers. The decorator also integrates logging capabilities to provide insights 
+into the publishing and subscribing mechanisms.
+
+Author: Isabela Yabe
+Last Modified: 05/12/2024
+Status: Complete
+
+Dependencies:
+    - custom_logger
+    - sub_strategy.default_sub_update_strategy
+
+Functions:
+    - pubsub(cls): A decorator to add publisher and subscriber functionalities to a class.
+"""
+
 from sub_strategy.default_sub_update_strategy import DefaultSubUpdateStrategy
 from custom_logger import setup_logger
 logger = setup_logger()
 
 def pubsub(cls):
+    """
+    PubSub Decorator.
+
+    This decorator augments a class with functionalities for publishing and subscribing to events in an event-driven 
+    architecture. It dynamically adds methods for publishing (`__publish_event`) and subscribing (`update`) to events, 
+    and initializes event subscriptions during the object's instantiation.
+
+    Attributes (Required in Decorated Class):
+    - event_manager_pub: The event manager instance for publishing events.
+    - event_manager_sub: The event manager instance for subscribing to events.
+    - events_type_pub: List or set of event types that the instance can publish.
+    - events_type_sub: List or set of event types that the instance can subscribe to.
+
+    Parameters:
+    cls : class
+        The class to be decorated.
+
+    Returns:
+    class
+        The decorated class with added functionalities for event publishing and subscription.
+    """
     original_init = cls.__init__
 
     def new_init(self, *args, **kwargs):
@@ -59,12 +101,6 @@ def pubsub(cls):
                         logger.info(f"Subscribed to event {event_type}")
                 except Exception as e:
                      logger.error(f"Failed to subscribe to event {events_type_sub}: {e}")
-    logger.debug("Após adicionar novo init")
-    if hasattr(cls, "_DatabaseManager__publish_event"):
-        logger.debug("Método criado com sucesso")
-    else:
-        logger.debug("Método não criado com sucesso")
-    logger.debug("Após teste de add métodos")
     
     cls.__init__ = new_init 
     return cls

@@ -1119,3 +1119,37 @@
 2024-12-05 18:44:03,792 | INFO | test_utils:test_tuple_rows_to_dict - Test tuple rows to dict: OK!!! ---------------------------> TEST 1 OK!!!
 2024-12-05 18:44:03,792 | INFO | utils:tuple_to_dict - Dictionary: {'id': 4, 'name': 'Diana', 'age': 40, 'occupation': 'Architect'}
 2024-12-05 18:44:03,792 | INFO | test_utils:test_tuple_to_dict - Test tuple to dict: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-05 19:11:02,693 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 19:11:02,693 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 19:11:02,710 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 19:11:02,710 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 19:11:02,710 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 19:11:02,710 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 19:11:02,711 | INFO | decorators_class:update - Received event event_update with data: {'id': '123', 'name': 'updated_name', 'value': 84}
+2024-12-05 19:11:02,711 | INFO | test_pubsub_decorator:test_handle_subscribed_event - Test handle subscribed event: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-05 19:11:02,711 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 19:11:02,712 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 19:11:02,712 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 19:11:02,712 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 19:11:02,713 | INFO | test_pubsub_decorator:test_handle_unsubscribed_event - Test handle unsubscribed event: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-05 19:11:02,714 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 19:11:02,714 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 19:11:02,714 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 19:11:02,714 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 19:11:02,714 | INFO | test_pubsub_decorator:test_publish_event_invalid_type - Test publish event invalid type: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-05 19:11:02,715 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 19:11:02,715 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 19:11:02,715 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 19:11:02,715 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 19:11:02,716 | INFO | decorators_class:publish_event - Event published: event_create with data: {'id': '123', 'name': 'test', 'value': 42}
+2024-12-05 19:11:02,716 | INFO | test_pubsub_decorator:test_publish_event_success - Test publish event success: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-05 19:11:02,716 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 19:11:02,716 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 19:11:02,716 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 19:11:02,717 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 19:11:02,717 | INFO | test_pubsub_decorator:test_subscribe_to_events - Test subscribe to events: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-05 19:11:02,717 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 19:11:02,718 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 19:11:02,718 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 19:11:02,718 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 19:11:02,718 | INFO | test_pubsub_decorator:test_subscribe_to_invalid_event - Test subscribe to invalid event: OK!!! ---------------------------> TEST 6 OK!!!
