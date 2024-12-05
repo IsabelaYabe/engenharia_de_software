@@ -1,3 +1,33 @@
+"""
+Module for DatabaseManager Class.
+
+This module provides a `DatabaseManager` class for managing database tables, including functionality for table creation,
+modification, row operations (insert, update, delete), and integration with an event-driven architecture via pub-sub mechanisms.
+
+Author: Isabela Yabe
+Last Modified: 19/11/2024
+Status: Complete
+
+Dependencies:
+    - mysql.connector
+    - custom_logger
+    - decorators_method (immutable_fields)
+    - decorators_class (pubsub)
+    - event_manager (EventManager)
+    - utils (tuple_rows_to_dict)
+
+Classes:
+    - Config: Configuration for database table management.
+    - ConfigPub: Configuration for publishing events.
+    - ConfigSub: Configuration for subscribing to events.
+    - DatabaseManager: Main class for managing database tables, including pub-sub functionality.
+
+Decorators:
+    - pubsub: Adds pub-sub functionality for event management.
+    - immutable_fields: Ensures specified columns remain immutable during row updates.
+
+"""
+
 from dataclasses import dataclass, field
 from custom_logger import setup_logger
 import mysql.connector
@@ -17,7 +47,18 @@ from utils.utils import tuple_rows_to_dict
 logger = setup_logger()
 @dataclass
 class Config:
+    """
+    Config class for table configuration.
 
+    Attributes:
+        host (str): Database host.
+        user (str): Database user.
+        password (str): Database password.
+        database (str): Database name.
+        table_name (str): Table name to manage.
+        columns (list[str]): List of table column names.
+        column_id (str): Primary key column. Default is "id".
+    """
     host: str
     user: str
     password: str 
@@ -28,18 +69,64 @@ class Config:
 
 @dataclass
 class ConfigPub:
+    """
+    ConfigPub class for event publishing.
 
+    Attributes:
+        event_manager (EventManager): Event manager instance.
+        events_type_pub (list[str]): List of event types to publish.
+    """
     event_manager: EventManager
     events_type_pub: list[str] = field(default_factory=list)
 
 @dataclass
 class ConfigSub:
+    """
+    ConfigSub class for event subscribing.
 
+    Attributes:
+        event_manager (EventManager): Event manager instance.
+        events_type_sub (list[str]): List of event types to subscribe to.
+    """
     event_manager: EventManager
     events_type_sub: list[str] = field(default_factory=list)
 
 @pubsub
 class DatabaseManager():
+    """
+    DatabaseManager class for table management and pub-sub integration.
+
+    This class provides functionality for managing database tables, including table creation, modification,
+    row insertion, updates, deletions, and searching. It integrates with an event-driven architecture
+    via pub-sub mechanisms to publish and subscribe to events.
+
+    Attributes:
+        db_config (dict): Database connection configuration.
+        table_name (str): Name of the database table.
+        columns (list[str]): List of table columns.
+        column_id (str): Primary key column.
+        foreign_keys (dict): Dictionary of foreign keys and their references.
+        foreign_keys_columns (list[str]): List of foreign key columns.
+        event_manager_pub (EventManager): Event manager for publishing events.
+        event_manager_sub (EventManager): Event manager for subscribing to events.
+        events_type_pub (list[str]): List of event types to publish.
+        events_type_sub (list[str]): List of event types to subscribe to.
+        immutable_columns (list[str]): List of columns that cannot be updated.
+
+    Methods:
+        __connect: Establishes a database connection.
+        modify_column: Renames a column in the table.
+        add_column: Adds a new column to the table.
+        delete_column: Deletes a column from the table.
+        delete_rows: Deletes rows based on a column value.
+        create_table: Creates a new table in the database.
+        delete_table: Deletes the table.
+        insert_row: Inserts a new row into the table.
+        update_row: Updates specific columns in a row.
+        get_by_id: Fetches a row by its primary key.
+        search_record: Searches for rows matching specific criteria.
+        execute_sql: Executes a raw SQL query.
+    """
 
     def __init__(self, config, config_pub=None, config_sub=None, immutable_columns=None, foreign_keys=None):
 
