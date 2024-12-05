@@ -1,20 +1,3 @@
-"""
-Module for Testing Pub/Sub Decorator.
-
-This module provides unit tests for the `pubsub` decorator applied to the `DatabaseManager` class. 
-The tests validate the publish/subscribe functionality, ensuring that events are correctly published and handled by subscribers.
-
-Author: Isabela Yabe
-Last Modified: 19/11/2024
-Status: cabuloso
-
-Dependencies:
-    - unittest
-    - unittest.mock
-    - database_manager.DatabaseManager
-    - event_manager.EventManager
-"""
-
 import unittest
 from unittest.mock import MagicMock, patch
 import os
@@ -39,7 +22,7 @@ class TestPubSubDecorator(unittest.TestCase):
         """
         self.mock_event_manager = MagicMock(spec=EventManager)
         self.mock_event_manager.notify = MagicMock()
-        self.mock_event_manager.subscribe = MagicMock()
+        self.mock_event_manager.subscribers = MagicMock()
 
         config = Config(
             host="localhost",
@@ -56,6 +39,7 @@ class TestPubSubDecorator(unittest.TestCase):
         )
 
         config_sub = ConfigSub(
+            event_manager=self.mock_event_manager,
             events_type_sub=["event_update"]
         )
 
@@ -64,7 +48,7 @@ class TestPubSubDecorator(unittest.TestCase):
     def test_publish_event_success(self):
         """
         Tests the successful publishing of an event.
-        Ensures that the `notify` method of the event manager is called with correct arguments.
+        Ensures that the notify method of the event manager is called with correct arguments.
         """
         event_type = "event_create"
         data = {"id": "123", "name": "test", "value": 42}
@@ -143,7 +127,7 @@ class TestPubSubDecorator(unittest.TestCase):
                     columns=["id", "name", "value"]
                 ),
                 config_pub=ConfigPub(event_manager=self.mock_event_manager, events_type_pub=["event_create"]),
-                config_sub=ConfigSub(events_type_sub=["event_invalid"])
+                config_sub=ConfigSub(event_manager=self.mock_event_manager, events_type_sub=["event_invalid"])
             )
         
         self.assertIn("Failed to subscribe to event ['event_invalid']", log.output[0])
