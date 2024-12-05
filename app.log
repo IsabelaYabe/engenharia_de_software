@@ -583,164 +583,573 @@
 2024-11-20 04:32:06,629 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
 2024-11-20 04:32:06,629 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
 2024-11-20 04:32:06,630 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,485 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
-2024-11-20 14:19:21,486 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
-2024-11-20 14:19:21,519 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,520 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,521 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,521 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,521 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,522 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,522 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,523 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,524 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,524 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,525 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,525 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,525 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,525 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,527 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,527 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,527 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:21,528 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,795 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
-2024-11-20 14:19:59,795 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
-2024-11-20 14:19:59,806 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,807 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,807 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,807 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,808 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,808 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,808 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,809 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,809 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,810 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,810 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,811 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,811 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,811 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,811 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,812 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,812 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:19:59,812 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,238 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
-2024-11-20 14:20:06,238 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
-2024-11-20 14:20:06,248 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,249 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,249 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,249 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,250 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,250 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,250 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,250 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,251 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,251 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,251 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,252 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,252 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,252 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,253 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,253 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,253 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:06,253 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,611 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
-2024-11-20 14:20:52,611 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
-2024-11-20 14:20:52,621 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,622 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,623 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,623 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,624 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,624 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,624 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,625 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,625 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,625 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,625 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,626 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,626 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,626 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,627 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,627 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,628 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:20:52,628 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,074 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
-2024-11-20 14:21:36,074 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
-2024-11-20 14:21:36,086 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,087 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,087 | INFO | database_manager:add_column - Column new_col was added to test_table as INT and not_null False
-2024-11-20 14:21:36,088 | INFO | test_database_manager:test_add_column_not_null_false - Test add column column not null false: OK!!! ---------------------------> TEST 5 OK!!!
-2024-11-20 14:21:36,088 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,089 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,089 | INFO | database_manager:add_column - Column new_col was added to test_table as INT and not_null True
-2024-11-20 14:21:36,089 | INFO | test_database_manager:test_add_column_not_null_true - Test add column column not null true: OK!!! ---------------------------> TEST 4 OK!!!
-2024-11-20 14:21:36,089 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,090 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,090 | INFO | test_database_manager:test_connect - Test connect: OK!!! ---------------------------> TEST 1 OK!!!
-2024-11-20 14:21:36,090 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,091 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,092 | INFO | database_manager:create_table - Table created test_table
-2024-11-20 14:21:36,092 | INFO | test_database_manager:test_create_exist_table - Test create exist table: OK!!! ---------------------------> TEST 11 OK!!!
-2024-11-20 14:21:36,092 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,093 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,093 | INFO | test_database_manager:test_create_non_exist_table - Test create non exist table: OK!!! ---------------------------> TEST 10 OK!!!
-2024-11-20 14:21:36,093 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,094 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,095 | INFO | database_manager:delete_column - Column col2 was deleted from test_table
-2024-11-20 14:21:36,095 | INFO | test_database_manager:test_delete_column - Test delete column: OK!!! ---------------------------> TEST 6 OK!!!
-2024-11-20 14:21:36,095 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,096 | INFO | utils:tuple_rows_to_dict - List of dictionaries: [{'id': 'id_1', 'col1': 'record', 'col2': 'value_21', 'col3': 'value_31'}, {'id': 'id_2', 'col1': 'record', 'col2': 'value_22', 'col3': 'value_32'}]
-2024-11-20 14:21:36,096 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,096 | INFO | database_manager:delete_rows - All rows with value record in col1 was delete from test_table: [{'id': 'id_1', 'col1': 'record', 'col2': 'value_21', 'col3': 'value_31'}, {'id': 'id_2', 'col1': 'record', 'col2': 'value_22', 'col3': 'value_32'}]
-2024-11-20 14:21:36,096 | INFO | test_database_manager:test_delete_rows - Test delete rows: OK!!! ---------------------------> TEST 7 OK!!!
-2024-11-20 14:21:36,096 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,097 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,099 | INFO | database_manager:search_record - Records founds: <MagicMock name='connect().__enter__().cursor().__enter__().fetchall()' id='1766264122416'>
-2024-11-20 14:21:36,099 | INFO | utils:tuple_rows_to_dict - List of dictionaries: []
-2024-11-20 14:21:36,100 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,100 | INFO | database_manager:delete_rows - All rows with value record in col1 was delete from test_table: []
-2024-11-20 14:21:36,100 | INFO | test_database_manager:test_delete_rows_not_found - Test delete rows not found: OK!!! ---------------------------> TEST 8 OK!!!
-2024-11-20 14:21:36,100 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,102 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,102 | INFO | database_manager:delete_table - Table test_table deleted
-2024-11-20 14:21:36,102 | INFO | test_database_manager:test_delete_table - Test delete table: OK!!! ---------------------------> TEST 12 OK!!!
-2024-11-20 14:21:36,102 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,103 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,104 | INFO | test_database_manager:test_execute_sql - Test execute sql: OK!!! ---------------------------> TEST 18 OK!!!
-2024-11-20 14:21:36,104 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,106 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,106 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
-2024-11-20 14:21:36,106 | INFO | test_database_manager:test_get_by_id - Test get by id: OK!!! ---------------------------> TEST 15 OK!!!
-2024-11-20 14:21:36,106 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,107 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,107 | WARNING | database_manager:get_by_id - No instance found with id: 12345678-1234-5678-1234-567812345678
-2024-11-20 14:21:36,107 | INFO | test_database_manager:test_get_by_id_not_found - Test get by id not: OK!!! ---------------------------> TEST 16 OK!!!
-2024-11-20 14:21:36,107 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,110 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,111 | INFO | database_manager:insert_row - Row ({'col0': 'value_0', 'col_1': 'value_1', 'col3': 'value_3'}) inserted in table test_table with id 12345678-1234-5678-1234-567812345678
-2024-11-20 14:21:36,112 | INFO | test_database_manager:test_insert_row - Test delete table: OK!!! ---------------------------> TEST 13 OK!!!
-2024-11-20 14:21:36,112 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,112 | ERROR | database_manager:modify_column - An attempt was made to change the name of the id column
-2024-11-20 14:21:36,112 | INFO | test_database_manager:test_modify_column_modify_column_id_error - Test modify column column id error: OK!!! ---------------------------> TEST 3 OK!!!
-2024-11-20 14:21:36,112 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,114 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,115 | INFO | database_manager:modify_column - Column col1 from test_table was changed to col0
-2024-11-20 14:21:36,115 | INFO | test_database_manager:test_modify_column_success - Test modify column sucess: OK!!! ---------------------------> TEST 2 OK!!!
-2024-11-20 14:21:36,115 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,115 | INFO | test_database_manager:test_regex_to_get_table_name - Test regex to get table name: OK!!! ---------------------------> TEST 9 OK!!!
-2024-11-20 14:21:36,116 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,117 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,118 | INFO | database_manager:search_record - Records founds: [('12345678-1234-5678-1234-567812344582', 'value_1', 'value_2', 'value_30'), ('85445678-1963-5458-7829-716812340354', 'value_1', 'value_2', 'value_31')]
-2024-11-20 14:21:36,118 | INFO | test_database_manager:test_search_record - Test search record: OK!!! ---------------------------> TEST 17 OK!!!
-2024-11-20 14:21:36,118 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
-2024-11-20 14:21:36,120 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,122 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
-2024-11-20 14:21:36,122 | INFO | decorators_method:wrapper - Record with ID 12345678-1234-5678-1234-567812345678 found
-2024-11-20 14:21:36,123 | INFO | utils:tuple_to_dict - Dictionary: {'id': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='1766264485744'>, 'col1': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='1766264485744'>, 'col2': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='1766264485744'>, 'col3': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='1766264485744'>}
-2024-11-20 14:21:36,123 | INFO | decorators_method:wrapper - Update allowed fields
-2024-11-20 14:21:36,123 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,123 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
-2024-11-20 14:21:36,124 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,124 | INFO | database_manager:__connect - Connected into database
-2024-11-20 14:21:36,124 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
-2024-11-20 14:21:36,125 | INFO | database_manager:update_row - Row 12345678-1234-5678-1234-567812345678 id from table test_table updated columns: col0, col_1, col3 (from <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__()' id='1766263580496'> (old row) to <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__()' id='1766263580496'> (new row))
-2024-11-20 14:21:36,125 | INFO | test_database_manager:test_update_row - Test update row: OK!!! ---------------------------> TEST 14 OK!!!
+2024-11-20 14:22:32,743 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-11-20 14:22:32,743 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-11-20 14:22:32,758 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,760 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,761 | INFO | database_manager:add_column - Column new_col was added to test_table as INT and not_null False
+2024-11-20 14:22:32,761 | INFO | test_database_manager:test_add_column_not_null_false - Test add column column not null false: OK!!! ---------------------------> TEST 5 OK!!!
+2024-11-20 14:22:32,761 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,761 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,762 | INFO | database_manager:add_column - Column new_col was added to test_table as INT and not_null True
+2024-11-20 14:22:32,762 | INFO | test_database_manager:test_add_column_not_null_true - Test add column column not null true: OK!!! ---------------------------> TEST 4 OK!!!
+2024-11-20 14:22:32,762 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,762 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,762 | INFO | test_database_manager:test_connect - Test connect: OK!!! ---------------------------> TEST 1 OK!!!
+2024-11-20 14:22:32,763 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,764 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,765 | INFO | database_manager:create_table - Table created test_table
+2024-11-20 14:22:32,765 | INFO | test_database_manager:test_create_exist_table - Test create exist table: OK!!! ---------------------------> TEST 11 OK!!!
+2024-11-20 14:22:32,765 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,766 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,766 | INFO | test_database_manager:test_create_non_exist_table - Test create non exist table: OK!!! ---------------------------> TEST 10 OK!!!
+2024-11-20 14:22:32,766 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,767 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,768 | INFO | database_manager:delete_column - Column col2 was deleted from test_table
+2024-11-20 14:22:32,768 | INFO | test_database_manager:test_delete_column - Test delete column: OK!!! ---------------------------> TEST 6 OK!!!
+2024-11-20 14:22:32,768 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,768 | INFO | utils:tuple_rows_to_dict - List of dictionaries: [{'id': 'id_1', 'col1': 'record', 'col2': 'value_21', 'col3': 'value_31'}, {'id': 'id_2', 'col1': 'record', 'col2': 'value_22', 'col3': 'value_32'}]
+2024-11-20 14:22:32,768 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,769 | INFO | database_manager:delete_rows - All rows with value record in col1 was delete from test_table: [{'id': 'id_1', 'col1': 'record', 'col2': 'value_21', 'col3': 'value_31'}, {'id': 'id_2', 'col1': 'record', 'col2': 'value_22', 'col3': 'value_32'}]
+2024-11-20 14:22:32,769 | INFO | test_database_manager:test_delete_rows - Test delete rows: OK!!! ---------------------------> TEST 7 OK!!!
+2024-11-20 14:22:32,769 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,770 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,770 | INFO | database_manager:search_record - Records founds: <MagicMock name='connect().__enter__().cursor().__enter__().fetchall()' id='2635598048784'>
+2024-11-20 14:22:32,771 | INFO | utils:tuple_rows_to_dict - List of dictionaries: []
+2024-11-20 14:22:32,771 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,771 | INFO | database_manager:delete_rows - All rows with value record in col1 was delete from test_table: []
+2024-11-20 14:22:32,771 | INFO | test_database_manager:test_delete_rows_not_found - Test delete rows not found: OK!!! ---------------------------> TEST 8 OK!!!
+2024-11-20 14:22:32,771 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,772 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,772 | INFO | database_manager:delete_table - Table test_table deleted
+2024-11-20 14:22:32,772 | INFO | test_database_manager:test_delete_table - Test delete table: OK!!! ---------------------------> TEST 12 OK!!!
+2024-11-20 14:22:32,772 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,773 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,774 | INFO | test_database_manager:test_execute_sql - Test execute sql: OK!!! ---------------------------> TEST 18 OK!!!
+2024-11-20 14:22:32,774 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,775 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,776 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-11-20 14:22:32,776 | INFO | test_database_manager:test_get_by_id - Test get by id: OK!!! ---------------------------> TEST 15 OK!!!
+2024-11-20 14:22:32,776 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,776 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,777 | WARNING | database_manager:get_by_id - No instance found with id: 12345678-1234-5678-1234-567812345678
+2024-11-20 14:22:32,777 | INFO | test_database_manager:test_get_by_id_not_found - Test get by id not: OK!!! ---------------------------> TEST 16 OK!!!
+2024-11-20 14:22:32,777 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,778 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,778 | INFO | database_manager:insert_row - Row ({'col0': 'value_0', 'col_1': 'value_1', 'col3': 'value_3'}) inserted in table test_table with id 12345678-1234-5678-1234-567812345678
+2024-11-20 14:22:32,778 | INFO | test_database_manager:test_insert_row - Test delete table: OK!!! ---------------------------> TEST 13 OK!!!
+2024-11-20 14:22:32,778 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,778 | ERROR | database_manager:modify_column - An attempt was made to change the name of the id column
+2024-11-20 14:22:32,778 | INFO | test_database_manager:test_modify_column_modify_column_id_error - Test modify column column id error: OK!!! ---------------------------> TEST 3 OK!!!
+2024-11-20 14:22:32,778 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,779 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,779 | INFO | database_manager:modify_column - Column col1 from test_table was changed to col0
+2024-11-20 14:22:32,779 | INFO | test_database_manager:test_modify_column_success - Test modify column sucess: OK!!! ---------------------------> TEST 2 OK!!!
+2024-11-20 14:22:32,779 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,780 | INFO | test_database_manager:test_regex_to_get_table_name - Test regex to get table name: OK!!! ---------------------------> TEST 9 OK!!!
+2024-11-20 14:22:32,780 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,780 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,781 | INFO | database_manager:search_record - Records founds: [('12345678-1234-5678-1234-567812344582', 'value_1', 'value_2', 'value_30'), ('85445678-1963-5458-7829-716812340354', 'value_1', 'value_2', 'value_31')]
+2024-11-20 14:22:32,781 | INFO | test_database_manager:test_search_record - Test search record: OK!!! ---------------------------> TEST 17 OK!!!
+2024-11-20 14:22:32,781 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-11-20 14:22:32,782 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,782 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-11-20 14:22:32,783 | INFO | decorators_method:wrapper - Record with ID 12345678-1234-5678-1234-567812345678 found
+2024-11-20 14:22:32,783 | INFO | utils:tuple_to_dict - Dictionary: {'id': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='2635598232512'>, 'col1': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='2635598232512'>, 'col2': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='2635598232512'>, 'col3': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='2635598232512'>}
+2024-11-20 14:22:32,783 | INFO | decorators_method:wrapper - Update allowed fields
+2024-11-20 14:22:32,783 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,783 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-11-20 14:22:32,784 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,784 | INFO | database_manager:__connect - Connected into database
+2024-11-20 14:22:32,784 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-11-20 14:22:32,784 | INFO | database_manager:update_row - Row 12345678-1234-5678-1234-567812345678 id from table test_table updated columns: col0, col_1, col3 (from <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__()' id='2635598228912'> (old row) to <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__()' id='2635598228912'> (new row))
+2024-11-20 14:22:32,785 | INFO | test_database_manager:test_update_row - Test update row: OK!!! ---------------------------> TEST 14 OK!!!
+2024-12-05 18:15:36,078 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:15:36,078 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:15:36,094 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:15:36,096 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:15:36,098 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:15:36,099 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:15:36,101 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:15:36,101 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:20:50,619 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:20:50,619 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:21:05,569 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:21:05,569 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:24:06,704 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:24:06,704 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:24:26,514 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:24:26,514 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:26:42,320 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:26:42,320 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:27:59,439 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:27:59,439 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:28:27,346 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:28:27,346 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:29:14,635 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:29:14,635 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:30:22,558 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:30:22,558 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:30:30,125 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:30:30,126 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:32:26,137 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:32:26,137 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:34:11,504 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:34:11,504 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:35:46,115 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:35:46,115 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:36:20,401 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:36:20,402 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:37:03,716 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:37:03,716 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:37:03,743 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:03,744 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:37:03,744 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:37:03,744 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:37:03,745 | INFO | decorators_class:update - Received event event_update with data: {'id': '123', 'name': 'updated_name', 'value': 84}
+2024-12-05 18:37:03,745 | INFO | test_pubsub_decorator:test_handle_subscribed_event - Test handle subscribed event: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-05 18:37:03,745 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:03,745 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:37:03,746 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:37:03,746 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:37:03,747 | INFO | test_pubsub_decorator:test_handle_unsubscribed_event - Test handle unsubscribed event: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-05 18:37:03,748 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:03,748 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:37:03,749 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:37:03,749 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:37:03,749 | INFO | test_pubsub_decorator:test_publish_event_invalid_type - Test publish event invalid type: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-05 18:37:03,750 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:03,750 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:37:03,750 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:37:03,750 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:37:03,750 | INFO | decorators_class:publish_event - Event published: event_create with data: {'id': '123', 'name': 'test', 'value': 42}
+2024-12-05 18:37:03,750 | INFO | test_pubsub_decorator:test_publish_event_success - Test publish event success: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-05 18:37:03,751 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:03,751 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:37:03,751 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:37:03,751 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:37:03,751 | INFO | test_pubsub_decorator:test_subscribe_to_events - Test subscribe to events: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-05 18:37:03,752 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:03,752 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:37:03,752 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:37:03,753 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:37:03,753 | INFO | test_pubsub_decorator:test_subscribe_to_invalid_event - Test subscribe to invalid event: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-05 18:37:18,219 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:37:18,219 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:37:18,231 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,232 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,232 | INFO | database_manager:add_column - Column new_col was added to test_table as INT and not_null False
+2024-12-05 18:37:18,233 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,234 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,234 | INFO | database_manager:add_column - Column new_col was added to test_table as INT and not_null True
+2024-12-05 18:37:18,235 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,235 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,236 | INFO | test_database_manager:test_connect - Test connect: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-05 18:37:18,236 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,238 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,240 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,241 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,241 | INFO | database_manager:delete_column - Column col2 was deleted from test_table
+2024-12-05 18:37:18,242 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,243 | INFO | utils:tuple_rows_to_dict - List of dictionaries: [{'id': 'id_1', 'col1': 'record', 'col2': 'value_21', 'col3': 'value_31'}, {'id': 'id_2', 'col1': 'record', 'col2': 'value_22', 'col3': 'value_32'}]
+2024-12-05 18:37:18,243 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,243 | INFO | database_manager:delete_rows - All rows with value record in col1 was delete from test_table: [{'id': 'id_1', 'col1': 'record', 'col2': 'value_21', 'col3': 'value_31'}, {'id': 'id_2', 'col1': 'record', 'col2': 'value_22', 'col3': 'value_32'}]
+2024-12-05 18:37:18,243 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,244 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,245 | INFO | database_manager:search_record - Records founds: <MagicMock name='connect().__enter__().cursor().__enter__().fetchall()' id='2083605444896'>
+2024-12-05 18:37:18,245 | INFO | utils:tuple_rows_to_dict - List of dictionaries: []
+2024-12-05 18:37:18,245 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,246 | INFO | database_manager:delete_rows - All rows with value record in col1 was delete from test_table: []
+2024-12-05 18:37:18,246 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,247 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,247 | INFO | database_manager:delete_table - Table test_table deleted
+2024-12-05 18:37:18,247 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,248 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,249 | INFO | test_database_manager:test_execute_sql - Test execute sql: OK!!! ---------------------------> TEST 18 OK!!!
+2024-12-05 18:37:18,249 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,249 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,250 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:37:18,251 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,251 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,252 | WARNING | database_manager:get_by_id - No instance found with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:37:18,252 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,253 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,254 | INFO | database_manager:insert_row - Row ({'col0': 'value_0', 'col_1': 'value_1', 'col3': 'value_3'}) inserted in table test_table with id 12345678-1234-5678-1234-567812345678
+2024-12-05 18:37:18,254 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,254 | ERROR | database_manager:modify_column - An attempt was made to change the name of the id column
+2024-12-05 18:37:18,254 | INFO | test_database_manager:test_modify_column_modify_column_id_error - Test modify column column id error: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-05 18:37:18,254 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,255 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,256 | INFO | database_manager:modify_column - Column col1 from test_table was changed to col0
+2024-12-05 18:37:18,256 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,256 | INFO | test_database_manager:test_regex_to_get_table_name - Test regex to get table name: OK!!! ---------------------------> TEST 9 OK!!!
+2024-12-05 18:37:18,256 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,257 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,258 | INFO | database_manager:search_record - Records founds: [('12345678-1234-5678-1234-567812344582', 'value_1', 'value_2', 'value_30'), ('85445678-1963-5458-7829-716812340354', 'value_1', 'value_2', 'value_31')]
+2024-12-05 18:37:18,258 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:37:18,259 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,259 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:37:18,260 | INFO | decorators_method:wrapper - Record with ID 12345678-1234-5678-1234-567812345678 found
+2024-12-05 18:37:18,260 | INFO | utils:tuple_to_dict - Dictionary: {'id': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='2083605894960'>, 'col1': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='2083605894960'>, 'col2': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='2083605894960'>, 'col3': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='2083605894960'>}
+2024-12-05 18:37:18,260 | INFO | decorators_method:wrapper - Update allowed fields
+2024-12-05 18:37:18,260 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,260 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:37:18,260 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,260 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:37:18,260 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:37:18,261 | INFO | database_manager:update_row - Row 12345678-1234-5678-1234-567812345678 id from table test_table updated columns: col0, col_1, col3 (from <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__()' id='2083605299760'> (old row) to <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__()' id='2083605299760'> (new row))
+2024-12-05 18:40:01,030 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:40:01,031 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:40:01,043 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,044 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,045 | INFO | database_manager:add_column - Column new_col was added to test_table as INT and not_null False
+2024-12-05 18:40:01,046 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,047 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,047 | INFO | database_manager:add_column - Column new_col was added to test_table as INT and not_null True
+2024-12-05 18:40:01,048 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,048 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,048 | INFO | test_database_manager:test_connect - Test connect: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-05 18:40:01,049 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,051 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,053 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,054 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,054 | INFO | database_manager:delete_column - Column col2 was deleted from test_table
+2024-12-05 18:40:01,054 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,055 | INFO | utils:tuple_rows_to_dict - List of dictionaries: [{'id': 'id_1', 'col1': 'record', 'col2': 'value_21', 'col3': 'value_31'}, {'id': 'id_2', 'col1': 'record', 'col2': 'value_22', 'col3': 'value_32'}]
+2024-12-05 18:40:01,055 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,056 | INFO | database_manager:delete_rows - All rows with value record in col1 was delete from test_table: [{'id': 'id_1', 'col1': 'record', 'col2': 'value_21', 'col3': 'value_31'}, {'id': 'id_2', 'col1': 'record', 'col2': 'value_22', 'col3': 'value_32'}]
+2024-12-05 18:40:01,056 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,057 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,058 | INFO | database_manager:search_record - Records founds: <MagicMock name='connect().__enter__().cursor().__enter__().fetchall()' id='2660053749920'>
+2024-12-05 18:40:01,058 | INFO | utils:tuple_rows_to_dict - List of dictionaries: []
+2024-12-05 18:40:01,058 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,058 | INFO | database_manager:delete_rows - All rows with value record in col1 was delete from test_table: []
+2024-12-05 18:40:01,058 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,059 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,060 | INFO | database_manager:delete_table - Table test_table deleted
+2024-12-05 18:40:01,060 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,061 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,061 | INFO | test_database_manager:test_execute_sql - Test execute sql: OK!!! ---------------------------> TEST 18 OK!!!
+2024-12-05 18:40:01,061 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,062 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,063 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:40:01,064 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,065 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,065 | WARNING | database_manager:get_by_id - No instance found with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:40:01,065 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,066 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,066 | INFO | database_manager:insert_row - Row ({'col0': 'value_0', 'col_1': 'value_1', 'col3': 'value_3'}) inserted in table test_table with id 12345678-1234-5678-1234-567812345678
+2024-12-05 18:40:01,067 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,067 | ERROR | database_manager:modify_column - An attempt was made to change the name of the id column
+2024-12-05 18:40:01,067 | INFO | test_database_manager:test_modify_column_modify_column_id_error - Test modify column column id error: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-05 18:40:01,067 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,068 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,068 | INFO | database_manager:modify_column - Column col1 from test_table was changed to col0
+2024-12-05 18:40:01,068 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,069 | INFO | test_database_manager:test_regex_to_get_table_name - Test regex to get table name: OK!!! ---------------------------> TEST 9 OK!!!
+2024-12-05 18:40:01,069 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,070 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,070 | INFO | database_manager:search_record - Records founds: [('12345678-1234-5678-1234-567812344582', 'value_1', 'value_2', 'value_30'), ('85445678-1963-5458-7829-716812340354', 'value_1', 'value_2', 'value_31')]
+2024-12-05 18:40:01,070 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:40:01,071 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,072 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:40:01,072 | INFO | decorators_method:wrapper - Record with ID 12345678-1234-5678-1234-567812345678 found
+2024-12-05 18:40:01,072 | INFO | utils:tuple_to_dict - Dictionary: {'id': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='2660076370448'>, 'col1': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='2660076370448'>, 'col2': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='2660076370448'>, 'col3': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='2660076370448'>}
+2024-12-05 18:40:01,072 | INFO | decorators_method:wrapper - Update allowed fields
+2024-12-05 18:40:01,072 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,072 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:40:01,072 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,073 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:40:01,073 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:40:01,073 | INFO | database_manager:update_row - Row 12345678-1234-5678-1234-567812345678 id from table test_table updated columns: col0, col_1, col3 (from <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__()' id='2660076370352'> (old row) to <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__()' id='2660076370352'> (new row))
+2024-12-05 18:42:52,124 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:42:52,124 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:42:52,136 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,138 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,138 | INFO | database_manager:add_column - Column new_col was added to test_table as INT and not_null False
+2024-12-05 18:42:52,138 | INFO | test_database_manager:test_add_column_not_null_false - Test add column column not null false: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-05 18:42:52,138 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,139 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,139 | INFO | database_manager:add_column - Column new_col was added to test_table as INT and not_null True
+2024-12-05 18:42:52,140 | INFO | test_database_manager:test_add_column_not_null_true - Test add column column not null true: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-05 18:42:52,140 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,140 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,140 | INFO | test_database_manager:test_connect - Test connect: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-05 18:42:52,140 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,141 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,143 | INFO | database_manager:create_table - Table created test_table
+2024-12-05 18:42:52,143 | INFO | test_database_manager:test_create_exist_table - Test create exist table: OK!!! ---------------------------> TEST 11 OK!!!
+2024-12-05 18:42:52,143 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,144 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,144 | INFO | test_database_manager:test_create_non_exist_table - Test create non exist table: OK!!! ---------------------------> TEST 10 OK!!!
+2024-12-05 18:42:52,144 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,145 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,145 | INFO | database_manager:delete_column - Column col2 was deleted from test_table
+2024-12-05 18:42:52,145 | INFO | test_database_manager:test_delete_column - Test delete column: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-05 18:42:52,146 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,146 | INFO | utils:tuple_rows_to_dict - List of dictionaries: [{'id': 'id_1', 'col1': 'record', 'col2': 'value_21', 'col3': 'value_31'}, {'id': 'id_2', 'col1': 'record', 'col2': 'value_22', 'col3': 'value_32'}]
+2024-12-05 18:42:52,147 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,147 | INFO | database_manager:delete_rows - All rows with value record in col1 was delete from test_table: [{'id': 'id_1', 'col1': 'record', 'col2': 'value_21', 'col3': 'value_31'}, {'id': 'id_2', 'col1': 'record', 'col2': 'value_22', 'col3': 'value_32'}]
+2024-12-05 18:42:52,147 | INFO | test_database_manager:test_delete_rows - Test delete rows: OK!!! ---------------------------> TEST 7 OK!!!
+2024-12-05 18:42:52,147 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,148 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,149 | INFO | database_manager:search_record - Records founds: <MagicMock name='connect().__enter__().cursor().__enter__().fetchall()' id='1974044069232'>
+2024-12-05 18:42:52,149 | INFO | utils:tuple_rows_to_dict - List of dictionaries: []
+2024-12-05 18:42:52,149 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,149 | INFO | database_manager:delete_rows - All rows with value record in col1 was delete from test_table: []
+2024-12-05 18:42:52,149 | INFO | test_database_manager:test_delete_rows_not_found - Test delete rows not found: OK!!! ---------------------------> TEST 8 OK!!!
+2024-12-05 18:42:52,150 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,150 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,151 | INFO | database_manager:delete_table - Table test_table deleted
+2024-12-05 18:42:52,151 | INFO | test_database_manager:test_delete_table - Test delete table: OK!!! ---------------------------> TEST 12 OK!!!
+2024-12-05 18:42:52,151 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,152 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,153 | INFO | test_database_manager:test_execute_sql - Test execute sql: OK!!! ---------------------------> TEST 18 OK!!!
+2024-12-05 18:42:52,153 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,154 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,155 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:42:52,155 | INFO | test_database_manager:test_get_by_id - Test get by id: OK!!! ---------------------------> TEST 15 OK!!!
+2024-12-05 18:42:52,155 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,156 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,157 | WARNING | database_manager:get_by_id - No instance found with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:42:52,157 | INFO | test_database_manager:test_get_by_id_not_found - Test get by id not: OK!!! ---------------------------> TEST 16 OK!!!
+2024-12-05 18:42:52,157 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,158 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,158 | INFO | database_manager:insert_row - Row ({'col0': 'value_0', 'col_1': 'value_1', 'col3': 'value_3'}) inserted in table test_table with id 12345678-1234-5678-1234-567812345678
+2024-12-05 18:42:52,159 | INFO | test_database_manager:test_insert_row - Test delete table: OK!!! ---------------------------> TEST 13 OK!!!
+2024-12-05 18:42:52,159 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,159 | ERROR | database_manager:modify_column - An attempt was made to change the name of the id column
+2024-12-05 18:42:52,159 | INFO | test_database_manager:test_modify_column_modify_column_id_error - Test modify column column id error: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-05 18:42:52,159 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,160 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,160 | INFO | database_manager:modify_column - Column col1 from test_table was changed to col0
+2024-12-05 18:42:52,161 | INFO | test_database_manager:test_modify_column_success - Test modify column sucess: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-05 18:42:52,161 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,161 | INFO | test_database_manager:test_regex_to_get_table_name - Test regex to get table name: OK!!! ---------------------------> TEST 9 OK!!!
+2024-12-05 18:42:52,161 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,162 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,162 | INFO | database_manager:search_record - Records founds: [('12345678-1234-5678-1234-567812344582', 'value_1', 'value_2', 'value_30'), ('85445678-1963-5458-7829-716812340354', 'value_1', 'value_2', 'value_31')]
+2024-12-05 18:42:52,163 | INFO | test_database_manager:test_search_record - Test search record: OK!!! ---------------------------> TEST 17 OK!!!
+2024-12-05 18:42:52,163 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:42:52,164 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,164 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:42:52,164 | INFO | decorators_method:wrapper - Record with ID 12345678-1234-5678-1234-567812345678 found
+2024-12-05 18:42:52,165 | INFO | utils:tuple_to_dict - Dictionary: {'id': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='1974045390560'>, 'col1': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='1974045390560'>, 'col2': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='1974045390560'>, 'col3': <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__().__getitem__()' id='1974045390560'>}
+2024-12-05 18:42:52,165 | INFO | decorators_method:wrapper - Update allowed fields
+2024-12-05 18:42:52,165 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,165 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:42:52,166 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,166 | INFO | database_manager:__connect - Connected into database
+2024-12-05 18:42:52,166 | INFO | database_manager:get_by_id - Got instance with id: 12345678-1234-5678-1234-567812345678
+2024-12-05 18:42:52,168 | INFO | database_manager:update_row - Row 12345678-1234-5678-1234-567812345678 id from table test_table updated columns: col0, col_1, col3 (from <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__()' id='1973990803360'> (old row) to <MagicMock name='connect().__enter__().cursor().__enter__().fetchall().__getitem__()' id='1973990803360'> (new row))
+2024-12-05 18:42:52,169 | INFO | test_database_manager:test_update_row - Test update row: OK!!! ---------------------------> TEST 14 OK!!!
+2024-12-05 18:43:15,199 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:43:15,199 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:43:15,223 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:43:15,224 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:43:15,224 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:43:15,224 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:43:15,225 | INFO | decorators_class:update - Received event event_update with data: {'id': '123', 'name': 'updated_name', 'value': 84}
+2024-12-05 18:43:15,225 | INFO | test_pubsub_decorator:test_handle_subscribed_event - Test handle subscribed event: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-05 18:43:15,225 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:43:15,226 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:43:15,226 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:43:15,226 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:43:15,228 | INFO | test_pubsub_decorator:test_handle_unsubscribed_event - Test handle unsubscribed event: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-05 18:43:15,229 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:43:15,230 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:43:15,230 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:43:15,230 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:43:15,231 | INFO | test_pubsub_decorator:test_publish_event_invalid_type - Test publish event invalid type: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-05 18:43:15,231 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:43:15,231 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:43:15,231 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:43:15,232 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:43:15,232 | INFO | decorators_class:publish_event - Event published: event_create with data: {'id': '123', 'name': 'test', 'value': 42}
+2024-12-05 18:43:15,232 | INFO | test_pubsub_decorator:test_publish_event_success - Test publish event success: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-05 18:43:15,233 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:43:15,234 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:43:15,234 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:43:15,236 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:43:15,236 | INFO | test_pubsub_decorator:test_subscribe_to_events - Test subscribe to events: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-05 18:43:15,237 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:43:15,238 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:43:15,238 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:43:15,239 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:43:15,239 | INFO | test_pubsub_decorator:test_subscribe_to_invalid_event - Test subscribe to invalid event: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-05 18:43:30,623 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:43:30,623 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:43:30,634 | INFO | test_flask_api:TestFlaskAPI - Test run: OK!!! ---------------------------> TEST 9 OK!!!
+2024-12-05 18:43:30,635 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:30,655 | INFO | flask_api:_create_record_api - Record created with id id
+2024-12-05 18:43:30,656 | INFO | test_flask_api:test_create_record_api - Test create record api: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-05 18:43:30,656 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:30,659 | ERROR | flask_api:_create_record_api - Record failed to be created
+2024-12-05 18:43:30,659 | INFO | test_flask_api:test_create_record_api_exception - Test create record api exception: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-05 18:43:30,659 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:30,661 | INFO | flask_api:_delete_record_api - Record id deleted
+2024-12-05 18:43:30,661 | INFO | test_flask_api:test_delete_record_api - Test delete record api: OK!!! ---------------------------> TEST 7 OK!!!
+2024-12-05 18:43:30,661 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:30,663 | ERROR | flask_api:_delete_record_api - Record id failed to be deleted
+2024-12-05 18:43:30,664 | INFO | test_flask_api:test_delete_record_api_exception - Test delete record api exception: OK!!! ---------------------------> TEST 8 OK!!!
+2024-12-05 18:43:30,664 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:30,666 | INFO | flask_api:_get_record_api - Record 1 found
+2024-12-05 18:43:30,666 | INFO | test_flask_api:test_get_record_api - Test get api by id: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-05 18:43:30,667 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:30,672 | ERROR | flask_api:_get_record_api - Record 1 not found
+2024-12-05 18:43:30,672 | INFO | test_flask_api:test_get_record_api_not_found - Test get api by id not found: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-05 18:43:30,672 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:30,676 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:30,679 | ERROR | flask_api:_search_record_api - Error during search: Search failed
+2024-12-05 18:43:30,680 | INFO | test_flask_api:test_search_record_api_exception - Test search record api exception: OK!!! ---------------------------> TEST 11 OK!!!
+2024-12-05 18:43:30,680 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:30,685 | WARNING | flask_api:_search_record_api - No records found with query: {'col1': 'nonexistent_value'}
+2024-12-05 18:43:30,686 | INFO | test_flask_api:test_search_record_api_no_results - Test search record api no results: OK!!! ---------------------------> TEST 10 OK!!!
+2024-12-05 18:43:30,686 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:30,689 | INFO | flask_api:_update_record_api - Record id updated with {'col2': 'value_2'}
+2024-12-05 18:43:30,689 | INFO | test_flask_api:test_update_record_api - Test update record api: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-05 18:43:30,689 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:30,691 | ERROR | flask_api:_update_record_api - Record id failed to be updated
+2024-12-05 18:43:30,691 | INFO | test_flask_api:test_update_record_api_exception - Test update record api exception: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-05 18:43:37,615 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:43:37,615 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:43:37,627 | INFO | test_flask_api:TestFlaskAPI - Test run: OK!!! ---------------------------> TEST 9 OK!!!
+2024-12-05 18:43:37,628 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:37,637 | INFO | flask_api:_create_record_api - Record created with id id
+2024-12-05 18:43:37,637 | INFO | test_flask_api:test_create_record_api - Test create record api: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-05 18:43:37,637 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:37,639 | ERROR | flask_api:_create_record_api - Record failed to be created
+2024-12-05 18:43:37,640 | INFO | test_flask_api:test_create_record_api_exception - Test create record api exception: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-05 18:43:37,640 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:37,642 | INFO | flask_api:_delete_record_api - Record id deleted
+2024-12-05 18:43:37,643 | INFO | test_flask_api:test_delete_record_api - Test delete record api: OK!!! ---------------------------> TEST 7 OK!!!
+2024-12-05 18:43:37,643 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:37,645 | ERROR | flask_api:_delete_record_api - Record id failed to be deleted
+2024-12-05 18:43:37,645 | INFO | test_flask_api:test_delete_record_api_exception - Test delete record api exception: OK!!! ---------------------------> TEST 8 OK!!!
+2024-12-05 18:43:37,645 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:37,647 | INFO | flask_api:_get_record_api - Record 1 found
+2024-12-05 18:43:37,648 | INFO | test_flask_api:test_get_record_api - Test get api by id: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-05 18:43:37,648 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:37,651 | ERROR | flask_api:_get_record_api - Record 1 not found
+2024-12-05 18:43:37,651 | INFO | test_flask_api:test_get_record_api_not_found - Test get api by id not found: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-05 18:43:37,651 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:37,653 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:37,655 | ERROR | flask_api:_search_record_api - Error during search: Search failed
+2024-12-05 18:43:37,655 | INFO | test_flask_api:test_search_record_api_exception - Test search record api exception: OK!!! ---------------------------> TEST 11 OK!!!
+2024-12-05 18:43:37,655 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:37,657 | WARNING | flask_api:_search_record_api - No records found with query: {'col1': 'nonexistent_value'}
+2024-12-05 18:43:37,658 | INFO | test_flask_api:test_search_record_api_no_results - Test search record api no results: OK!!! ---------------------------> TEST 10 OK!!!
+2024-12-05 18:43:37,658 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:37,660 | INFO | flask_api:_update_record_api - Record id updated with {'col2': 'value_2'}
+2024-12-05 18:43:37,660 | INFO | test_flask_api:test_update_record_api - Test update record api: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-05 18:43:37,661 | INFO | test_flask_api:setUp - SetUp module to test
+2024-12-05 18:43:37,663 | ERROR | flask_api:_update_record_api - Record id failed to be updated
+2024-12-05 18:43:37,663 | INFO | test_flask_api:test_update_record_api_exception - Test update record api exception: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-05 18:43:42,573 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:43:42,573 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:43:42,575 | ERROR | decorators_method:wrapper - Record with ID 999 not found
+2024-12-05 18:43:42,575 | INFO | test_immutable_fields:test_record_not_found - Test record not found: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-05 18:43:42,576 | INFO | decorators_method:wrapper - Record with ID 1 found
+2024-12-05 18:43:42,576 | INFO | utils:tuple_to_dict - Dictionary: {'id': '1', 'col1': 'value_1', 'col2': 'value_2', 'col3': 'value_3'}
+2024-12-05 18:43:42,576 | INFO | decorators_method:wrapper - Update allowed fields
+2024-12-05 18:43:42,576 | INFO | test_immutable_fields:update_record - Record 1 updated with {'col1': 'new_value_1'}
+2024-12-05 18:43:42,576 | INFO | test_immutable_fields:test_update_allowed_fields - Test update allowed fields: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-05 18:43:42,577 | INFO | decorators_method:wrapper - Record with ID 1 found
+2024-12-05 18:43:42,577 | INFO | utils:tuple_to_dict - Dictionary: {'id': '1', 'col1': 'value_1', 'col2': 'value_2', 'col3': 'value_3'}
+2024-12-05 18:43:42,577 | ERROR | decorators_method:wrapper - Attempt to update immutable field id
+2024-12-05 18:43:42,577 | INFO | test_immutable_fields:test_update_immutable_field - Test update immutable field: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-05 18:43:52,920 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:43:52,920 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:43:52,932 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:43:52,933 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:43:52,933 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:43:52,933 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:43:52,934 | INFO | decorators_class:update - Received event event_update with data: {'id': '123', 'name': 'updated_name', 'value': 84}
+2024-12-05 18:43:52,934 | INFO | test_pubsub_decorator:test_handle_subscribed_event - Test handle subscribed event: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-05 18:43:52,934 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:43:52,935 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:43:52,935 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:43:52,935 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:43:52,936 | INFO | test_pubsub_decorator:test_handle_unsubscribed_event - Test handle unsubscribed event: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-05 18:43:52,937 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:43:52,937 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:43:52,937 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:43:52,937 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:43:52,937 | INFO | test_pubsub_decorator:test_publish_event_invalid_type - Test publish event invalid type: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-05 18:43:52,938 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:43:52,938 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:43:52,938 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:43:52,938 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:43:52,938 | INFO | decorators_class:publish_event - Event published: event_create with data: {'id': '123', 'name': 'test', 'value': 42}
+2024-12-05 18:43:52,939 | INFO | test_pubsub_decorator:test_publish_event_success - Test publish event success: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-05 18:43:52,939 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:43:52,939 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:43:52,939 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:43:52,940 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:43:52,940 | INFO | test_pubsub_decorator:test_subscribe_to_events - Test subscribe to events: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-05 18:43:52,940 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 18:43:52,941 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 18:43:52,941 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 18:43:52,941 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 18:43:52,941 | INFO | test_pubsub_decorator:test_subscribe_to_invalid_event - Test subscribe to invalid event: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-05 18:43:59,241 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:43:59,241 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:43:59,243 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:43:59,243 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:43:59,251 | ERROR | decorators_method:wrapped - Validation error: Request contains banned words., strategy applied: <validation_endpoints_strategy.banned_words_strategy.BannedWordsStrategy object at 0x0000012519ADBB00>
+2024-12-05 18:43:59,251 | INFO | test_request_validations_decorator:test_request_with_banned_words - Test request with banned words: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-05 18:43:59,252 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:43:59,253 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:43:59,253 | INFO | banned_words_strategy:validate - Request does not contain banned words.
+2024-12-05 18:43:59,254 | INFO | decorators_method:wrapped - Request passed validation, strategy applied: <validation_endpoints_strategy.banned_words_strategy.BannedWordsStrategy object at 0x0000012519110500>
+2024-12-05 18:43:59,254 | ERROR | decorators_method:wrapped - Validation error: Request contains potentially dangerous SQL keywords., strategy applied: <validation_endpoints_strategy.sql_injection_strategy.SQLInjectionStrategy object at 0x0000012519F9A030>
+2024-12-05 18:43:59,254 | INFO | test_request_validations_decorator:test_request_with_sql_injection - Test request with sql injection: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-05 18:43:59,255 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 18:43:59,255 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 18:43:59,256 | INFO | decorators_method:wrapped - Request passed validation, strategy applied: <validation_endpoints_strategy.banned_words_strategy.BannedWordsStrategy object at 0x0000012519F99B50>
+2024-12-05 18:43:59,256 | INFO | decorators_method:wrapped - Request passed validation, strategy applied: <validation_endpoints_strategy.sql_injection_strategy.SQLInjectionStrategy object at 0x0000012519F99940>
+2024-12-05 18:43:59,256 | INFO | decorators_method:wrapped - Request passed validation
+2024-12-05 18:43:59,256 | INFO | test_request_validations_decorator:test_request_with_valid_data - Test request with valid data: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-05 18:44:03,792 | INFO | utils:tuple_rows_to_dict - List of dictionaries: []
+2024-12-05 18:44:03,792 | INFO | test_utils:test_empty_list_input - Test tuple rows to dict with empty list: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-05 18:44:03,792 | INFO | utils:tuple_to_dict - Dictionary: {}
+2024-12-05 18:44:03,792 | INFO | test_utils:test_empty_tuple_input - Test tuple to dict with empty tuple: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-05 18:44:03,792 | INFO | test_utils:test_mismatched_columns_length - Test mismatched columns length: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-05 18:44:03,792 | INFO | utils:tuple_rows_to_dict - List of dictionaries: [{'id': 1, 'name': 'Alice', 'age': 25, 'occupation': 'Engineer'}, {'id': 2, 'name': 'Bob', 'age': 30, 'occupation': 'Designer'}, {'id': 3, 'name': 'Charlie', 'age': 35, 'occupation': 'Manager'}]
+2024-12-05 18:44:03,792 | INFO | test_utils:test_tuple_rows_to_dict - Test tuple rows to dict: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-05 18:44:03,792 | INFO | utils:tuple_to_dict - Dictionary: {'id': 4, 'name': 'Diana', 'age': 40, 'occupation': 'Architect'}
+2024-12-05 18:44:03,792 | INFO | test_utils:test_tuple_to_dict - Test tuple to dict: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-05 19:11:02,693 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-05 19:11:02,693 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-05 19:11:02,710 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 19:11:02,710 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 19:11:02,710 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 19:11:02,710 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 19:11:02,711 | INFO | decorators_class:update - Received event event_update with data: {'id': '123', 'name': 'updated_name', 'value': 84}
+2024-12-05 19:11:02,711 | INFO | test_pubsub_decorator:test_handle_subscribed_event - Test handle subscribed event: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-05 19:11:02,711 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 19:11:02,712 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 19:11:02,712 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 19:11:02,712 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 19:11:02,713 | INFO | test_pubsub_decorator:test_handle_unsubscribed_event - Test handle unsubscribed event: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-05 19:11:02,714 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 19:11:02,714 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 19:11:02,714 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 19:11:02,714 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 19:11:02,714 | INFO | test_pubsub_decorator:test_publish_event_invalid_type - Test publish event invalid type: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-05 19:11:02,715 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 19:11:02,715 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 19:11:02,715 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 19:11:02,715 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 19:11:02,716 | INFO | decorators_class:publish_event - Event published: event_create with data: {'id': '123', 'name': 'test', 'value': 42}
+2024-12-05 19:11:02,716 | INFO | test_pubsub_decorator:test_publish_event_success - Test publish event success: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-05 19:11:02,716 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 19:11:02,716 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 19:11:02,716 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 19:11:02,717 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 19:11:02,717 | INFO | test_pubsub_decorator:test_subscribe_to_events - Test subscribe to events: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-05 19:11:02,717 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: test_table
+2024-12-05 19:11:02,718 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['event_create', 'event_delete']
+2024-12-05 19:11:02,718 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['event_update']
+2024-12-05 19:11:02,718 | INFO | decorators_class:new_init - Subscribed to event event_update
+2024-12-05 19:11:02,718 | INFO | test_pubsub_decorator:test_subscribe_to_invalid_event - Test subscribe to invalid event: OK!!! ---------------------------> TEST 6 OK!!!
