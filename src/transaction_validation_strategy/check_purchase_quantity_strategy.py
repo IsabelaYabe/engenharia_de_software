@@ -1,3 +1,7 @@
+"""
+Rever isso
+"""
+
 from transaction_validation_strategy.transaction_validation_strategy_interface import TransactionValidationStrategy
 
 import sys

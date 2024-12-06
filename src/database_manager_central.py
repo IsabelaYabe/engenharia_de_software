@@ -39,85 +39,61 @@ class DatabaseManagerCentral:
         self.__password = password
         self.__database = database
 
-        self.__products_config = Config(self.host, self.user, self.password, self.database, "products_profile", ["id", "name", "description", "price", "quantity"], "id")
+        self.__products_config = Config(self.host, self.user, self.password, self.database, "products_profile", ["id", "name", "description", "price", "quantity", "vending_machine_id", "timestamp"], "id")
         self.__products_config_pub = ConfigPub()
         self.__products_config_sub = ConfigSub()
-        self.__products_profile = DatabaseManager(self.__products_config, self.__products_config_pub, self.__products_config_sub, immutable_columns=None, foreign_keys=None)
-
-        self.__comments_config = Config(self.host, self.user, self.password, self.database, "comments_profile", ["id", "text", "timestamp"], "id")
-        self.__comments_config_pub = ConfigPub()
-        self.__comments_config_sub = ConfigSub()
-        self.__comments_profile = DatabaseManager(self.__comments_config, self.__comments_config_pub, self.__comments_config_sub, immutable_columns=None, foreign_keys=None)
+        self.__products_profile = DatabaseManager(self.__products_config, self.__products_config_pub, self.__products_config_sub, immutable_columns=["timestamp"], foreign_keys={"veding_machine_id": "vending_machines_profile"})
         
-        self.__users_config = Config(self.host, self.user, self.password, self.database, "users_profile", ["id", "username", "email", "password", "first_name", "last_name", "birthdate", "phone number", "address"], "id")
+        self.__users_config = Config(self.host, self.user, self.password, self.database, "users_profile", ["id", "username", "email", "password", "first_name", "last_name", "birthdate", "phone number", "address", "budget"], "id")
         self.__users_config_pub = ConfigPub()
         self.__users_config_sub = ConfigSub()
         self.__users_profile = DatabaseManager(self.__users_config, self.__users_config_pub, self.__users_config_sub, immutable_columns=["birthdate", "first_name", "last_name"])
         
-        self.__complaints_config = Config(self.host, self.user, self.password, self.database, "complaints_profile", ["id", "text", "timestamp"], "id")
-        self.__complaints_config_pub = ConfigPub()
-        self.__complaints_config_sub = ConfigSub()
-        self.__complaints_profile = DatabaseManager(self.__complaints_config, self.__complaints_config_pub, self.__complaints_config_sub, immutable_columns=None, foreign_keys=None)
-        
-        self.__vending_machines_config = Config(self.host, self.user, self.password, self.database, "vending_machines_profile", ["id", "name", "location", "status"], "id")
+        self.__vending_machines_config = Config(self.host, self.user, self.password, self.database, "vending_machines_profile", ["id", "name", "location", "status", "timestamp", "owner_id"], "id")
         self.__vending_machine_config_pub = ConfigPub()
         self.__vending_machine_config_sub = ConfigSub()
-        self.__vending_machines_profile = DatabaseManager(self.__vending_machines_config, self.__vending_machine_config_pub, self.__vending_machine_config_sub, immutable_columns=None, foreign_keys=None)
+        self.__vending_machines_profile = DatabaseManager(self.__vending_machines_config, self.__vending_machine_config_pub, self.__vending_machine_config_sub, immutable_columns=["timestamp"], foreign_keys={"owner_id": "owners_profile"})
 
-        self.__owners_config = Config(self.host, self.user, self.password, self.database, "owners_profile", ["id", "ownername", "email", "password", "first name", "last name", "birthdate", "phone_number", "address"], "id")
+        self.__owners_config = Config(self.host, self.user, self.password, self.database, "owners_profile", ["id", "ownername", "email", "password", "first name", "last name", "birthdate", "phone_number", "address", "budget"], "id")
         self.__owners_config_pub = ConfigPub()
         self.__owners_config_sub = ConfigSub()
         self.__owners_profile = DatabaseManager(self.__owners_config, self.__owners_config_pub, self.__owners_config_sub, immutable_columns=["birthdate", "first_name", "last_name"])
     
-        self.__add_products_config = Config(self.host, self.user, self.password, self.database, "add_products", ["id", "owner_id", "product_id", "vending_machine_id", "quantity", "timestamp"], "id")
-        self.__add_products_config_pub = ConfigPub()
-        self.__add_products_config_sub = ConfigSub()
-        self.__add_products = DatabaseManager(self.__add_products_config, self.__add_products_config_pub, self.__add_products_config_sub, immutable_columns=None, foreign_keys = ["owner_id", "product_id", "vending_machine_id"])
-
-        self.__create_vending_machine_config = Config(self.host, self.user, self.password, self.database, "create_vending_machine", ["id", "owner_id", "vending_machine_id", "timestamp"], column_id="id")
-        self.__create_vending_machine_config_pub = ConfigPub()
-        self.__create_vending_machine_config_sub = ConfigSub()
-        self.__create_vending_machine = DatabaseManager(self.__create_vending_machine_config, self.__create_vending_machine_config_pub, self.__create_vending_machine_config_sub, immutable_columns=None, foreign_keys=["owner_id", "vending_machine_id"])
-    
-        self.__product_complaint_config = Config(self.host, self.user, self.password, self.database, "product_complaint", ["id", "complaint_id", "product_id", "user_id", "timestamp"], column_id="id")
+        self.__product_complaint_config = Config(self.host, self.user, self.password, self.database, "product_complaint", ["id", "text", "product_id", "user_id", "timestamp"], column_id="id")
         self.__product_complaint_config_pub = ConfigPub()
         self.__product_complaint_config_sub = ConfigSub()
-        self.__product_complaint = DatabaseManager(self.__product_complaint_config, self.__product_complaint_config_pub, self.__product_complaint_config_sub, immutable_columns=None, foreign_keys=["complaint_id", "product_id", "user_id"])
+        self.__product_complaint = DatabaseManager(self.__product_complaint_config, self.__product_complaint_config_pub, self.__product_complaint_config_sub, immutable_columns=None, foreign_keys={"product_id": "products_profile", "user_id": "users_profile"})
 
-        self.__product_comment_config = Config(self.host, self.user, self.password, self.database, "product_comment", ["id", "comment_id", "product_id", "user_id", "timestamp"], column_id="id")
+        self.__product_comment_config = Config(self.host, self.user, self.password, self.database, "product_comment", ["id", "text", "product_id", "user_id", "timestamp"], column_id="id")
         self.__product_comment_config_pub = ConfigPub()
         self.__product_comment_config_sub = ConfigSub()
-        self.__product_comment = DatabaseManager(self.__product_comment_config, self.__product_comment_config_pub, self.__product_comment_config_sub, immutable_columns=None, foreign_keys=["comment_id", "product_id", "user_id"])
+        self.__product_comment = DatabaseManager(self.__product_comment_config, self.__product_comment_config_pub, self.__product_comment_config_sub, immutable_columns=None, foreign_keys={"product_id": "products_profile", "user_id": "users_profile"})
 
         self.__purchase_transaction_config = Config(self.host, self.user, self.password, self.database, "purchase_transaction", ["id", "user_id", "product_id", "vending_machine_id", "timestamp", "quantity", "amount_paid_per_unit"], column_id="id")
         self.__purchase_transaction_config_pub = ConfigPub()
         self.__purchase_transaction_config_sub = ConfigSub()
-        self.__purchase_transaction = DatabaseManager(self.__purchase_transaction_config, self.__purchase_transaction_config_pub, self.__purchase_transaction_config_sub, immutable_columns=None, foreign_keys=["user_id", "product_id", "vending_machine_id"])
+        self.__purchase_transaction = DatabaseManager(self.__purchase_transaction_config, self.__purchase_transaction_config_pub, self.__purchase_transaction_config_sub, immutable_columns=None, foreign_keys={"user_id": "users_profile", "product_id": "products_profile", "vending_machine_id": "vending_machines_profile"})
         
-        self.__vending_machine_complaint_config = Config(self.host, self.user, self.password, self.database, "vending_machine_complaint", ["id", "complaint_id", "vending_machine_id", "user id", "timestamp"], column_id="id")
+        self.__vending_machine_complaint_config = Config(self.host, self.user, self.password, self.database, "vending_machine_complaint", ["id", "text", "vending_machine_id", "user id", "timestamp"], column_id="id")
         self.__vending_machine_complaint_config_pub = ConfigPub()
         self.__vending_machine_complaint_config_sub = ConfigSub()
-        self.__vending_machine_complaint = DatabaseManager( self.__vending_machine_complaint_config, self.__vending_machine_complaint_config_pub, self.__vending_machine_complaint_config_sub, immutable_columns=None, foreign_keys=["complaint_id", "vending_machine_id", "user id"])
+        self.__vending_machine_complaint = DatabaseManager( self.__vending_machine_complaint_config, self.__vending_machine_complaint_config_pub, self.__vending_machine_complaint_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile", "user_id": "users_profile"})
 
         #Ouve: tabela de quem ouve
         #Pub: atualiza
-        self.__vending_machine_comment_config = Config(self.host, self.user, self.password, self.database, "vending_machine_comment", ["id", "comment_id", "vending_machine id", "user_id", "timestamp"], column_id="id")
+        self.__vending_machine_comment_config = Config(self.host, self.user, self.password, self.database, "vending_machine_comment", ["id", "text", "vending_machine id", "user_id", "timestamp"], column_id="id")
         self.__vending_machine_comment_config_pub = ConfigPub()
         self.__vending_machine_comment_config_sub = ConfigSub()
-        self.__vending_machine_comment = DatabaseManager( self.__vending_machine_comment_config, self.__vending_machine_comment_config_pub, self.__vending_machine_comment_config_sub, immutable_columns=None, foreign_keys=["comment_id", "vending_machine id", "user_id"])
+        self.__vending_machine_comment = DatabaseManager( self.__vending_machine_comment_config, self.__vending_machine_comment_config_pub, self.__vending_machine_comment_config_sub, immutable_columns=None, foreign_keys={"vending_machine id": "vending_machines_profile", "user_id": "users_profile"})
 
         self.__dict_instance_tables = {
             "products_profile": self.__products_profile,
-            "comments_profile": self.__comments_profile,
             "users_profile": self.__users_profile,
-            "complaints_profile": self.__complaints_profile,
             "vending_machines_profile": self.__vending_machines_profile,
             "owners_profile": self.__owners_profile
         }
         
         self.__dict_relationship_tables = {            
-            "add_products": self.__add_products,
-            "create_vending_machine": self.__create_vending_machine,
             "product_complaint": self.__product_complaint,
             "product_comment": self.__product_comment,
             "purchase_transaction": self.__purchase_transaction,

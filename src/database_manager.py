@@ -1,21 +1,31 @@
 """
-Module: DatabaseManager
+Module for DatabaseManager Class.
 
-This module provides a `DatabaseManager` class for managing MySQL database tables with support for CRUD operations,
-table creation, column modification, and event-driven communication using publish-subscribe mechanisms.
+This module provides a `DatabaseManager` class for managing database tables, including functionality for table creation,
+modification, row operations (insert, update, delete), and integration with an event-driven architecture via pub-sub mechanisms.
 
 Author: Isabela Yabe
-Last Modified: 19/11/2024
+Last Modified: 05/12/2024
 Status: Complete
 
 Dependencies:
     - mysql.connector
-    - uuid
-    - re
-    - decorators_method
-    - decorators_class
-    - event_manager.event_manager
-    - custom_logger.setup_logger
+    - custom_logger
+    - decorators_method (immutable_fields)
+    - decorators_class (pubsub)
+    - event_manager (EventManager)
+    - utils (tuple_rows_to_dict)
+
+Classes:
+    - Config: Configuration for database table management.
+    - ConfigPub: Configuration for publishing events.
+    - ConfigSub: Configuration for subscribing to events.
+    - DatabaseManager: Main class for managing database tables, including pub-sub functionality.
+
+Decorators:
+    - pubsub: Adds pub-sub functionality for event management.
+    - immutable_fields: Ensures specified columns remain immutable during row updates.
+
 """
 
 from dataclasses import dataclass, field
@@ -38,16 +48,16 @@ logger = setup_logger()
 @dataclass
 class Config:
     """
-    Configuration class for database connection and table setup.
+    Config class for table configuration.
 
     Attributes:
-        host (str): The database server hostname.
-        user (str): The username for the database.
-        password (str): The password for the database.
-        database (str): The name of the database.
-        table_name (str): The name of the table.
-        columns (list[str]): A list of column names in the table.
-        column_id (str): The primary key column name. Default is "id".
+        host (str): Database host.
+        user (str): Database user.
+        password (str): Database password.
+        database (str): Database name.
+        table_name (str): Table name to manage.
+        columns (list[str]): List of table column names.
+        column_id (str): Primary key column. Default is "id".
     """
     host: str
     user: str
@@ -60,11 +70,11 @@ class Config:
 @dataclass
 class ConfigPub:
     """
-    Configuration class for publishing events.
+    ConfigPub class for event publishing.
 
     Attributes:
-        event_manager (EventManager): The event manager instance for handling events.
-        event_type (list[str]): A list of type of event to publish.
+        event_manager (EventManager): Event manager instance.
+        events_type_pub (list[str]): List of event types to publish.
     """
     event_manager: EventManager
     events_type_pub: list[str] = field(default_factory=list)
@@ -72,39 +82,54 @@ class ConfigPub:
 @dataclass
 class ConfigSub:
     """
-    Configuration class for subscribing to events.
+    ConfigSub class for event subscribing.
 
     Attributes:
-        event_type (list[str]): A list of event types to subscribe to.
+        event_manager (EventManager): Event manager instance.
+        events_type_sub (list[str]): List of event types to subscribe to.
     """
+    event_manager: EventManager
     events_type_sub: list[str] = field(default_factory=list)
 
 @pubsub
 class DatabaseManager():
     """
-    A class for managing MySQL database tables with CRUD operations, column management, and event-driven features.
+    DatabaseManager class for table management and pub-sub integration.
 
-    This class allows operations such as adding, deleting, or modifying rows and columns, as well as creating
-    or dropping tables. It also supports event-driven interactions using publish-subscribe mechanisms.
+    This class provides functionality for managing database tables, including table creation, modification,
+    row insertion, updates, deletions, and searching. It integrates with an event-driven architecture
+    via pub-sub mechanisms to publish and subscribe to events.
 
     Attributes:
-        config (Config): The database configuration.
-        config_pub (ConfigPub): The publish configuration.
-        config_sub (ConfigSub): The subscribe configuration.
-        immutable_columns (list[str]): A list of columns that cannot be modified.
-        foreign_keys (list[str]): A list of foreign key's columns.
-    """
-    def __init__(self, config, config_pub=None, config_sub=None, immutable_columns=None, foreign_keys=None):
-        """
-        Initializes the DatabaseManager instance.
+        db_config (dict): Database connection configuration.
+        table_name (str): Name of the database table.
+        columns (list[str]): List of table columns.
+        column_id (str): Primary key column.
+        foreign_keys (dict): Dictionary of foreign keys and their references.
+        foreign_keys_columns (list[str]): List of foreign key columns.
+        event_manager_pub (EventManager): Event manager for publishing events.
+        event_manager_sub (EventManager): Event manager for subscribing to events.
+        events_type_pub (list[str]): List of event types to publish.
+        events_type_sub (list[str]): List of event types to subscribe to.
+        immutable_columns (list[str]): List of columns that cannot be updated.
 
-        Args:
-            config (Config): The database configuration.
-            config_pub (ConfigPub, optional): The publish configuration. Default is None.
-            config_sub (ConfigSub, optional): The subscribe configuration. Default is None.
-            immutable_columns (list[str], optional): A list of immutable columns. Default is None.
-            foreign_keys (list[str], optional): A list of foreign_keys columns. Default is None.
-        """
+    Methods:
+        __connect: Establishes a database connection.
+        modify_column: Renames a column in the table.
+        add_column: Adds a new column to the table.
+        delete_column: Deletes a column from the table.
+        delete_rows: Deletes rows based on a column value.
+        create_table: Creates a new table in the database.
+        delete_table: Deletes the table.
+        insert_row: Inserts a new row into the table.
+        update_row: Updates specific columns in a row.
+        get_by_id: Fetches a row by its primary key.
+        search_record: Searches for rows matching specific criteria.
+        execute_sql: Executes a raw SQL query.
+    """
+
+    def __init__(self, config, config_pub=None, config_sub=None, immutable_columns=None, foreign_keys=None):
+
         logger.info("Initializing DatabaseManager for table: %s", config.table_name)
         self.__db_config = {
             "host": config.host,
@@ -117,7 +142,8 @@ class DatabaseManager():
         self.__column_id = config.column_id
         self.__foreign_keys = foreign_keys
         self.__foreign_keys_columns =  list(deepcopy(self.__foreign_keys).keys()) if self.__foreign_keys else None
-        self.__event_manager = config_pub.event_manager if config_pub else None
+        self.__event_manager_pub = config_pub.event_manager if config_pub else None
+        self.__event_manager_sub = config_sub.event_manager if config_sub else None
         self.__events_type_pub = config_pub.events_type_pub if config_pub else None
         self.__events_type_sub = config_sub.events_type_sub if config_sub else None
         self.__immutable_columns = [self.__column_id, "timestamp"]  + (self.__foreign_keys or []) + (immutable_columns or [])
@@ -431,8 +457,12 @@ class DatabaseManager():
         return self.__foreign_keys_columns
 
     @property
-    def event_manager(self):
-        return self.__event_manager
+    def event_manager_pub(self):
+        return self.__event_manager_pub
+
+    @property
+    def event_manager_sub(self):
+        return self.__event_manager_sub
 
     @property
     def events_type_pub(self):
@@ -476,10 +506,15 @@ class DatabaseManager():
         logger.info(f"Foreign keys columns updated: {new_foreign_keys_columns}")
         self.__foreign_keys_columns = new_foreign_keys_columns
 
-    @event_manager.setter
-    def event_manager(self, new_event_manager):
-        logger.info(f"Event manager updated: {new_event_manager}")
-        self.__event_manager = new_event_manager
+    @event_manager_pub.setter
+    def event_manager_pub(self, new_event_manager_pub):
+        logger.info(f"Event manager updated: {new_event_manager_pub}")
+        self.__event_manager_pub = new_event_manager_pub
+    
+    @event_manager_sub.setter
+    def event_manager_sub(self, new_event_manager_sub):
+        logger.info(f"Event manager updated: {new_event_manager_sub}")
+        self.__event_manager_sub = new_event_manager_sub
 
     @events_type_pub.setter
     def events_type_pub(self, new_events_type_pub):
@@ -494,4 +529,4 @@ class DatabaseManager():
     @immutable_columns.setter
     def immutable_columns(self, new_immutable_columns):
         logger.info(f"Immutable columns updated: {new_immutable_columns}")
-        self.__immutable_columns = new_immutable_columns
+        self.__immutable_columns = new_immutable_columns 
