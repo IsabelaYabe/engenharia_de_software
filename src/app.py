@@ -40,6 +40,14 @@ def get_stock_info():
     stock_profile.close()
     return jsonify(stock_info)
 
+@app.route('/get_report', methods=['GET'])
+def get_report():
+    """
+    Endpoint for retrieving a report about sales and ratings.
+    """
+    
+    return
+
 @app.route('/vms')
 def vms():
     """
