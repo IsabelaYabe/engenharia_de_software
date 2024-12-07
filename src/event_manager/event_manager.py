@@ -6,7 +6,8 @@ from custom_logger import setup_logger
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
-from pub_strategy.default_pub_notify_strategy import PubNotifyStrategy, DefaultPubNotifyStrategy
+from pub_strategy.pub_notify_strategy import PubNotifyStrategy, DefaultPubNotifyStrategy
+from sub_strategy.sub_update_strategy import SubUpdateStrategy, DefaultSubUpdateStrategy, PurchaseProductSubUpdateStrategy
 
 logger = setup_logger()
 
@@ -14,6 +15,7 @@ class EventManager():
     def __init__(self):
         self.__subscribers = {} # Key event, value list of subscribers
         self.__notify_strategies = {}  # Key: event_type, Value: NotifyStrategy
+        self.__update_strategies = {}  # Key: event_type, Value: UpdateStrategy
     
     def subscribe(self, event_type, subscriber):
         if event_type not in self.__subscribers:
@@ -37,10 +39,10 @@ class EventManager():
             logger.warning(f"Event type {event_type} has no subscribers.")
     
     def notify(self, event_type, data, *args, **kwargs):
-        if event_type not in self.subscribers:
-            logger.warning(f"No subscribers for event {event_type}")
+        if not self.subscribers.get(event_type, []):
+            logger.warning(f"No subscribers to notify for event {event_type}.")
             return
-
+        
         strategy = self.notify_strategies.get(event_type, DefaultPubNotifyStrategy())
         try:
             strategy.notify(event_type, data, self.subscribers[event_type], *args, **kwargs)
@@ -56,6 +58,10 @@ class EventManager():
     def notify_strategies(self):
         return self.__notify_strategies
 
+    @property
+    def update_strategies(self):
+        return self.__update_strategies
+
     @notify_strategies.setter        
     def notify_strategies(self, event_type, strategy):
         """
@@ -67,3 +73,12 @@ class EventManager():
         
         self.__notify_strategies[event_type] = strategy
         logger.info(f"Custom notification strategy set for event {event_type}")
+    
+    @update_strategies.setter        
+    def update_strategies(self, event_type, strategy):
+        if not isinstance(strategy, SubUpdateStrategy):
+            logger.error(f"Invalid strategy provided for event {event_type}")
+            return
+        
+        self.__update_strategies[event_type] = strategy
+        logger.info(f"Custom updateing strategy set for event {event_type}")

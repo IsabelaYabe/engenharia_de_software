@@ -18,8 +18,8 @@ Dependencies:
 Functions:
     - pubsub(cls): A decorator to add publisher and subscriber functionalities to a class.
 """
-
-from sub_strategy.default_sub_update_strategy import DefaultSubUpdateStrategy
+from functools import wraps
+from sub_strategy.sub_update_strategy import DefaultSubUpdateStrategy
 from custom_logger import setup_logger
 logger = setup_logger()
 
@@ -47,6 +47,7 @@ def pubsub(cls):
     """
     original_init = cls.__init__
 
+    @wraps(original_init)
     def new_init(self, *args, **kwargs):
 
         original_init(self, *args, **kwargs)
@@ -71,17 +72,17 @@ def pubsub(cls):
                              logger.error(f"Failed to publish event {event_type}: {e}")
                     else:
                          logger.warning(f"Event {event_type} is not in the configured publish list: {events_type_pub}")
-                logger.debug("Após definição de publish event")
+                logger.debug(f"publish_event: {publish_event}")
                 private_method_name = f"_{cls.__name__}__publish_event"
                 setattr(self, private_method_name, publish_event.__get__(self))
-                logger.debug(f"publish_event criado: {getattr(self, private_method_name)}")
+                logger.debug(f"__publish_event created: {getattr(self, private_method_name)}")
         
         if event_manager_sub != None:    
             if events_type_sub != None:
                 logger.info(f"The data was instantiated as a subscriber of events: {events_type_sub}")
                 
                 def update(self, event_type, **data):
-                    strategies = {}
+                    strategies = self.event_manager_sub.update_strategies
                     strategy = strategies.get(event_type, DefaultSubUpdateStrategy())
                     if event_type in self.events_type_sub:
                         try:
@@ -93,10 +94,12 @@ def pubsub(cls):
                          logger.warning(f"Event {event_type} is not in the configured subscribe list: {events_type_sub}")
 
                 setattr(cls, "update", update.__get__(self))
-                logger.debug(f"__update criado: {getattr(self, 'update')}")
+                logger.debug(f"__update created: {getattr(self, 'update')}")
 
                 try:
                     for event_type in self.events_type_sub:
+                        if event_type not in self.event_manager_sub.update_strategies:
+                            logger.warning(f"No update strategy registered for event '{event_type}'. Using default.")
                         self.event_manager_sub.subscribe(event_type, self)
                         logger.info(f"Subscribed to event {event_type}")
                 except Exception as e:

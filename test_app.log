@@ -13,3 +13,6 @@
 2024-12-05 18:39:27,952 | INFO | test_custom_logger:test_logging_to_file_and_console - Informational message.
 2024-12-05 18:39:27,953 | ERROR | test_custom_logger:test_logging_to_file_and_console - Error message.
 2024-12-05 18:39:27,976 | INFO | test_custom_logger:test_password_filter - Not password message.
+2024-12-05 20:49:17,273 | INFO | test_custom_logger:test_logging_to_file_and_console - Informational message.
+2024-12-05 20:49:17,273 | ERROR | test_custom_logger:test_logging_to_file_and_console - Error message.
+2024-12-05 20:49:17,280 | INFO | test_custom_logger:test_password_filter - Not password message.
