@@ -239,14 +239,16 @@ class DatabaseManagerCentral:
         try:
             if foreign_keys:
                 for fk_table, fk_column in foreign_keys.items():
+                    logger.debug(f"Validating foreign key '{fk_column}' in table '{fk_table}'")
                     fk_value = data.get(fk_column)
+                    logger.debug(f"Foreign key value: {fk_value}")
                     if fk_value is None:
                         logger.error(f"Foreign key '{fk_column}' must be provided.")
                         raise ValueError(f"Foreign key '{fk_column}' must be provided.")
 
                     logger.debug(f"Validating foreign key '{fk_column}' with value '{fk_value}' in table '{fk_table}'")
                     table_instance = getattr(self.instance_tables, fk_table, None)
-
+                    logger.debug(f"Table instance: {table_instance}")
                     if not table_instance:
                         raise ValueError(f"Foreign key table '{fk_table}' not found in instance tables.")
                     record_exists = table_instance.search_record(**{fk_column: fk_value})
