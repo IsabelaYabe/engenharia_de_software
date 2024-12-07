@@ -79,82 +79,7 @@ class DatabaseManagerCentral:
         self.__database = database
         self.__password_hasher = PasswordHasher()
 
-        self.create_tables()
-
-        self.event_manager = EventManager()
-        self.event_manager.update_strategies["PurchaseProductEvent"] = PurchaseProductSubUpdateStrategy()
-
-        self.__products_config = Config(self.host, self.user, self.password, self.database, "products_profile", ["id", "name", "description", "price", "quantity", "vending_machine_id", "timestamp"], "id")
-        self.__products_config_pub = None
-        self.__products_config_sub = ConfigSub(event_manager=self.event_manager, events_type_sub=["PurchaseProductEvent"])
-        self.__products_profile = DatabaseManager(self.__products_config, self.__products_config_pub, self.__products_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile"})
-        
-        self.__users_config = Config(self.host, self.user, self.password, self.database, "users_profile", ["id", "username", "email", "password", "first_name", "last_name", "birthdate", "phone number", "address", "budget"], "id")
-        self.__users_config_pub = None
-        self.__users_config_sub = None
-        self.__users_profile = DatabaseManager(self.__users_config, self.__users_config_pub, self.__users_config_sub, immutable_columns=["birthdate", "first_name", "last_name"])
-        
-        self.__vending_machines_config = Config(self.host, self.user, self.password, self.database, "vending_machines_profile", ["id", "name", "location", "status", "timestamp", "owner_id"], "id")
-        self.__vending_machines_config_pub = None
-        self.__vending_machines_config_sub = None
-        self.__vending_machines_profile = DatabaseManager(self.__vending_machines_config, self.__vending_machines_config_pub, self.__vending_machines_config_sub, immutable_columns=None, foreign_keys={"owner_id": "owners_profile"})
-
-        self.__owners_config = Config(self.host, self.user, self.password, self.database, "owners_profile", ["id", "username", "email", "password", "first name", "last name", "birthdate", "phone_number", "address", "budget"], "id")
-        self.__owners_config_pub = None
-        self.__owners_config_sub = None
-        self.__owners_profile = DatabaseManager(self.__owners_config, self.__owners_config_pub, self.__owners_config_sub, immutable_columns=["birthdate", "first_name", "last_name"])
-    
-        self.__product_complaint_config = Config(self.host, self.user, self.password, self.database, "product_complaint", ["id", "text", "product_id", "user_id", "timestamp"], column_id="id")
-        self.__product_complaint_config_pub = None
-        self.__product_complaint_config_sub = None
-        self.__product_complaint = DatabaseManager(self.__product_complaint_config, self.__product_complaint_config_pub, self.__product_complaint_config_sub, immutable_columns=None, foreign_keys={"product_id": "products_profile", "user_id": "users_profile"})
-
-        self.__product_comment_config = Config(self.host, self.user, self.password, self.database, "product_comment", ["id", "text", "product_id", "user_id", "timestamp"], column_id="id")
-        self.__product_comment_config_pub = None
-        self.__product_comment_config_sub = None
-        self.__product_comment = DatabaseManager(self.__product_comment_config, self.__product_comment_config_pub, self.__product_comment_config_sub, immutable_columns=None, foreign_keys={"product_id": "products_profile", "user_id": "users_profile"})
-
-        self.__purchase_transaction_config = Config(self.host, self.user, self.password, self.database, "purchase_transaction", ["id", "user_id", "product_id", "vending_machine_id", "timestamp", "quantity", "amount_paid_per_unit"], column_id="id")
-        self.__purchase_transaction_config_pub = ConfigPub(event_manager=self.event_manager, events_type_pub=["PurchaseProductEvent"])
-        self.__purchase_transaction_config_sub = None
-        self.__purchase_transaction = DatabaseManager(self.__purchase_transaction_config, self.__purchase_transaction_config_pub, self.__purchase_transaction_config_sub, immutable_columns=None, foreign_keys={"user_id": "users_profile", "product_id": "products_profile", "vending_machine_id": "vending_machines_profile"})
-        
-        self.__vending_machine_complaint_config = Config(self.host, self.user, self.password, self.database, "vending_machine_complaint", ["id", "text", "vending_machine_id", "user id", "timestamp"], column_id="id")
-        self.__vending_machine_complaint_config_pub = None
-        self.__vending_machine_complaint_config_sub = None
-        self.__vending_machine_complaint = DatabaseManager( self.__vending_machine_complaint_config, self.__vending_machine_complaint_config_pub, self.__vending_machine_complaint_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile", "user_id": "users_profile"})
-
-        self.__vending_machine_comment_config = Config(self.host, self.user, self.password, self.database, "vending_machine_comment", ["id", "text", "vending_machine_id", "user_id", "timestamp"], column_id="id")
-        self.__vending_machine_comment_config_pub = None
-        self.__vending_machine_comment_config_sub = None
-        self.__vending_machine_comment = DatabaseManager( self.__vending_machine_comment_config, self.__vending_machine_comment_config_pub, self.__vending_machine_comment_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile", "user_id": "users_profile"})
-
-        self.__favorite_vending_machines_config = Config(self.host, self.user, self.password, self.database, "favorite_vending_machines", ["id", "vending_machine_id", "user_id"], column_id="id")
-        self.__favorite_vending_machines_config_pub = None
-        self.__favorite_vending_machines_config_sub = None
-        self.__favorite_vending_machines = DatabaseManager( self.__favorite_vending_machines_config, self.__favorite_vending_machines_config_pub, self.__favorite_vending_machines_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile", "user_id": "users_profile"})
-
-        self.__favorite_products_config = Config(self.host, self.user, self.password, self.database, "favorite_products", ["id", "product_id", "user_id"], column_id="id")
-        self.__favorite_products_config_pub = None
-        self.__favorite_products_config_sub = None
-        self.__favorite_products = DatabaseManager( self.__favorite_products_config, self.__favorite_products_config_pub, self.__favorite_products_config_sub, immutable_columns=None, foreign_keys={"product_id": "products_profile", "user_id": "users_profile"})
-
-        self.__instance_tables = InstancesTables(
-            products_profile = self.__products_profile,
-            users_profile = self.__users_profile,
-            vending_machines_profile = self.__vending_machines_profile,
-            owners_profile = self.__owners_profile,
-            product_complaint = self.__product_complaint,
-            product_comment = self.__product_comment,
-            purchase_transaction = self.__purchase_transaction,
-            vending_machine_complaint = self.__vending_machine_complaint,
-            vending_machine_comment = self.__vending_machine_comment,
-            favorite_products = self.__favorite_products,
-            favorite_vending_machines = self.__favorite_vending_machines
-        )
-
-    def create_tables(self):
-        # Load SQL script to create tables and relationships
+         # Load SQL script to create tables and relationships
         try:
             with open("src\MYSQL\create_tables_relationships.sql", "r") as file:
                 logger.debug("Reading SQL script to create tables and relationships.")
@@ -176,18 +101,113 @@ class DatabaseManagerCentral:
 
         # Execute the SQL script to create tables and relationships
         with conn.cursor() as cursor:
-            cursor.execute(create_tables_sql)
+            sql_statements = create_tables_sql.split(";")
+            for statement in sql_statements:
+                if statement.strip():  # Ignorar instruções vazias
+                    cursor.execute(statement.strip())
         
+
+        logger.debug("Database tables and relationships created successfully.")
+        
+        print("""dfhd suwfe uosd dc qwyeb qwe
+              dws
+              wd
+              wdehd1jdw0w""")
+
+        self.event_manager = EventManager()
+        self.event_manager.update_strategies["PurchaseProductEvent"] = PurchaseProductSubUpdateStrategy()
+
+        self.__products_config = Config(self.host, self.user, self.password, self.database, "products_profile", ["id", "name", "description", "price", "quantity", "vending_machine_id", "timestamp"], "id")
+        self.__products_config_pub = None
+        self.__products_config_sub = ConfigSub(event_manager=self.event_manager, events_type_sub=["PurchaseProductEvent"])
+        self.__products_profile = DatabaseManager(self.__products_config, self.__products_config_pub, self.__products_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile"})
+        logger.debug(f"Products profile table created successfully. {self.__products_profile}")
+        logger.debug(f"Products profile table created successfully. {self.__products_profile.show_table()}")
+        self.__users_config = Config(self.host, self.user, self.password, self.database, "users_profile", ["id", "username", "email", "password", "first_name", "last_name", "birthdate", "phone number", "address", "budget"], "id")
+        self.__users_config_pub = None
+        self.__users_config_sub = None
+        self.__users_profile = DatabaseManager(self.__users_config, self.__users_config_pub, self.__users_config_sub, immutable_columns=["birthdate", "first_name", "last_name"])
+        logger.debug(f"Users profile table created successfully. {self.__users_profile}")
+        logger.debug(f"Users profile table created successfully. {self.__users_profile.show_table()}")
+        self.__vending_machines_config = Config(self.host, self.user, self.password, self.database, "vending_machines_profile", ["id", "name", "location", "status", "timestamp", "owner_id"], "id")
+        self.__vending_machines_config_pub = None
+        self.__vending_machines_config_sub = None
+        self.__vending_machines_profile = DatabaseManager(self.__vending_machines_config, self.__vending_machines_config_pub, self.__vending_machines_config_sub, immutable_columns=None, foreign_keys={"owner_id": "owners_profile"})
+        logger.debug(f"Vending machines profile table created successfully. {self.__vending_machines_profile}")
+        logger.debug(f"Vending machines profile table created successfully. {self.__vending_machines_profile.show_table()}")
+        self.__owners_config = Config(self.host, self.user, self.password, self.database, "owners_profile", ["id", "username", "email", "password", "first name", "last name", "birthdate", "phone_number", "address", "budget"], "id")
+        self.__owners_config_pub = None
+        self.__owners_config_sub = None
+        self.__owners_profile = DatabaseManager(self.__owners_config, self.__owners_config_pub, self.__owners_config_sub, immutable_columns=["birthdate", "first_name", "last_name"])
+        logger.debug(f"Owners profile table created successfully. {self.__owners_profile}")
+        logger.debug(f"Owners profile table created successfully. {self.__owners_profile.show_table()}")
+        self.__product_complaint_config = Config(self.host, self.user, self.password, self.database, "product_complaint", ["id", "text", "product_id", "user_id", "timestamp"], column_id="id")
+        self.__product_complaint_config_pub = None
+        self.__product_complaint_config_sub = None
+        self.__product_complaint = DatabaseManager(self.__product_complaint_config, self.__product_complaint_config_pub, self.__product_complaint_config_sub, immutable_columns=None, foreign_keys={"product_id": "products_profile", "user_id": "users_profile"})
+        logger.debug(f"Product complaint table created successfully. {self.__product_complaint}")
+        logger.debug(f"Product complaint table created successfully. {self.__product_complaint.show_table()}")
+        self.__product_comment_config = Config(self.host, self.user, self.password, self.database, "product_comment", ["id", "text", "product_id", "user_id", "timestamp"], column_id="id")
+        self.__product_comment_config_pub = None
+        self.__product_comment_config_sub = None
+        self.__product_comment = DatabaseManager(self.__product_comment_config, self.__product_comment_config_pub, self.__product_comment_config_sub, immutable_columns=None, foreign_keys={"product_id": "products_profile", "user_id": "users_profile"})
+        logger.debug(f"Product comment table created successfully. {self.__product_comment}")
+        logger.debug(f"Product comment table created successfully. {self.__product_comment.show_table()}")
+        self.__purchase_transaction_config = Config(self.host, self.user, self.password, self.database, "purchase_transaction", ["id", "user_id", "product_id", "vending_machine_id", "timestamp", "quantity", "amount_paid_per_unit"], column_id="id")
+        self.__purchase_transaction_config_pub = ConfigPub(event_manager=self.event_manager, events_type_pub=["PurchaseProductEvent"])
+        self.__purchase_transaction_config_sub = None
+        self.__purchase_transaction = DatabaseManager(self.__purchase_transaction_config, self.__purchase_transaction_config_pub, self.__purchase_transaction_config_sub, immutable_columns=None, foreign_keys={"user_id": "users_profile", "product_id": "products_profile", "vending_machine_id": "vending_machines_profile"})
+        logger.debug(f"Purchase transaction table created successfully. {self.__purchase_transaction}")
+        logger.debug(f"Purchase transaction table created successfully. {self.__purchase_transaction.show_table()}")
+        self.__vending_machine_complaint_config = Config(self.host, self.user, self.password, self.database, "vending_machine_complaint", ["id", "text", "vending_machine_id", "user id", "timestamp"], column_id="id")
+        self.__vending_machine_complaint_config_pub = None
+        self.__vending_machine_complaint_config_sub = None
+        self.__vending_machine_complaint = DatabaseManager( self.__vending_machine_complaint_config, self.__vending_machine_complaint_config_pub, self.__vending_machine_complaint_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile", "user_id": "users_profile"})
+        logger.debug(f"Vending machine complaint table created successfully. {self.__vending_machine_complaint}")
+        logger.debug(f"Vending machine complaint table created successfully. {self.__vending_machine_complaint.show_table()}")
+        self.__vending_machine_comment_config = Config(self.host, self.user, self.password, self.database, "vending_machine_comment", ["id", "text", "vending_machine_id", "user_id", "timestamp"], column_id="id")
+        self.__vending_machine_comment_config_pub = None
+        self.__vending_machine_comment_config_sub = None
+        self.__vending_machine_comment = DatabaseManager( self.__vending_machine_comment_config, self.__vending_machine_comment_config_pub, self.__vending_machine_comment_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile", "user_id": "users_profile"})
+        logger.debug(f"Vending machine comment table created successfully. {self.__vending_machine_comment}")
+        logger.debug(f"Vending machine comment table created successfully. {self.__vending_machine_comment.show_table()}")
+        self.__favorite_vending_machines_config = Config(self.host, self.user, self.password, self.database, "favorite_vending_machines", ["id", "vending_machine_id", "user_id"], column_id="id")
+        self.__favorite_vending_machines_config_pub = None
+        self.__favorite_vending_machines_config_sub = None
+        self.__favorite_vending_machines = DatabaseManager( self.__favorite_vending_machines_config, self.__favorite_vending_machines_config_pub, self.__favorite_vending_machines_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile", "user_id": "users_profile"})
+        logger.debug(f"Favorite vending machines table created successfully. {self.__favorite_vending_machines}")
+        logger.debug(f"Favorite vending machines table created successfully. {self.__favorite_vending_machines.show_table()}")
+        self.__favorite_products_config = Config(self.host, self.user, self.password, self.database, "favorite_products", ["id", "product_id", "user_id"], column_id="id")
+        self.__favorite_products_config_pub = None
+        self.__favorite_products_config_sub = None
+        self.__favorite_products = DatabaseManager( self.__favorite_products_config, self.__favorite_products_config_pub, self.__favorite_products_config_sub, immutable_columns=None, foreign_keys={"product_id": "products_profile", "user_id": "users_profile"})
+        logger.debug(f"Favorite products table created successfully. {self.__favorite_products}")
+        logger.debug(f"Favorite products table created successfully. {self.__favorite_products.show_table()}")
+
+        self.__instance_tables = InstancesTables(
+            products_profile = self.__products_profile,
+            users_profile = self.__users_profile,
+            vending_machines_profile = self.__vending_machines_profile,
+            owners_profile = self.__owners_profile,
+            product_complaint = self.__product_complaint,
+            product_comment = self.__product_comment,
+            purchase_transaction = self.__purchase_transaction,
+            vending_machine_complaint = self.__vending_machine_complaint,
+            vending_machine_comment = self.__vending_machine_comment,
+            favorite_products = self.__favorite_products,
+            favorite_vending_machines = self.__favorite_vending_machines
+        )
+       
+
+    def verify_creation(self):
         #conmfirming the creation of the tables
         for table_name, table_instance in self.instance_tables.__dict__.items():
             logger.debug(f"Checking if table '{table_name}' exists.")
-            table_exists = table_instance.table_exists()
+            table_exists = table_instance.fetchone()
             if not table_exists:
                 logger.error(f"Table '{table_name}' not found.")
                 raise ValueError(f"Table '{table_name}' not found.")
             logger.debug(f"Table '{table_name}' found.")
-
-        logger.debug("Database tables and relationships created successfully.")
     
     def drop_tables(self):
         # Load SQL script to drop tables

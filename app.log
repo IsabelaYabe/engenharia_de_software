@@ -4157,3 +4157,1086 @@
 2024-12-07 18:20:01,763 | INFO | database_manager:__connect - Connected into database
 2024-12-07 18:20:01,764 | ERROR | database_manager_central:insert_record - Error inserting record into 'owners_profile': 1146 (42S02): Table 'my_database.owners_profile' doesn't exist
 2024-12-07 18:20:01,765 | ERROR | database_manager_central:insert_record - Error inserting record into 'owners_profile': 1146 (42S02): Table 'my_database.owners_profile' doesn't exist
+2024-12-07 18:20:42,634 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:20:42,635 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:20:42,716 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:20:42,734 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 18:20:42,735 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 18:20:42,736 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 18:20:42,736 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 18:20:42,736 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 18:20:42,737 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 18:20:42,737 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 18:20:42,738 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 18:20:42,739 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 18:20:42,740 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 18:20:42,740 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 18:20:42,741 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 18:20:42,742 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 18:20:42,743 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 18:20:42,745 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 18:20:42,746 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 18:20:42,754 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 18:20:42,766 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:20:42,776 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 18:20:42,776 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 18:20:42,791 | INFO | database_manager:__connect - Connected into database
+2024-12-07 18:20:42,799 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 1
+2024-12-07 18:20:42,799 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '1' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 18:20:42,800 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 18:20:42,801 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 18:20:42,809 | INFO | database_manager:__connect - Connected into database
+2024-12-07 18:20:42,810 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 2
+2024-12-07 18:20:42,812 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '2' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 18:20:42,813 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 18:20:42,813 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 18:20:42,823 | INFO | database_manager:__connect - Connected into database
+2024-12-07 18:20:42,825 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 3
+2024-12-07 18:20:42,827 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '3' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 18:20:42,828 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 18:20:42,828 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 18:20:42,840 | INFO | database_manager:__connect - Connected into database
+2024-12-07 18:20:42,841 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 4
+2024-12-07 18:20:42,842 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '4' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 18:20:42,843 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 18:20:42,843 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 18:20:42,852 | INFO | database_manager:__connect - Connected into database
+2024-12-07 18:20:42,854 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 5
+2024-12-07 18:20:42,854 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '5' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 18:20:42,855 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 18:20:42,856 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 18:20:42,866 | INFO | database_manager:__connect - Connected into database
+2024-12-07 18:20:42,867 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 6
+2024-12-07 18:20:42,868 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '6' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 18:20:42,870 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 18:20:42,871 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 18:20:42,883 | INFO | database_manager:__connect - Connected into database
+2024-12-07 18:20:42,886 | ERROR | database_manager_central:insert_record - Error inserting record into 'owners_profile': 1146 (42S02): Table 'my_database.owners_profile' doesn't exist
+2024-12-07 18:20:42,886 | ERROR | database_manager_central:insert_record - Error inserting record into 'owners_profile': 1146 (42S02): Table 'my_database.owners_profile' doesn't exist
+2024-12-07 18:25:48,797 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:25:48,797 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:25:48,884 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:25:48,901 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 18:25:48,902 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 18:25:48,902 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 18:25:48,902 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 18:25:48,902 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 18:25:48,902 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 18:25:48,903 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 18:25:48,903 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 18:25:48,904 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 18:25:48,905 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 18:25:48,905 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 18:25:48,906 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 18:25:48,907 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 18:25:48,907 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 18:25:48,908 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 18:25:48,909 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 18:25:48,918 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 18:25:48,934 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:25:48,939 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 18:25:48,939 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 18:25:48,949 | INFO | database_manager:__connect - Connected into database
+2024-12-07 18:25:48,957 | ERROR | database_manager_central:insert_record - Error inserting record into 'users_profile': 1146 (42S02): Table 'my_database.users_profile' doesn't exist
+2024-12-07 18:25:48,957 | ERROR | database_manager_central:insert_record - Error inserting record into 'users_profile': 1146 (42S02): Table 'my_database.users_profile' doesn't exist
+2024-12-07 18:27:43,313 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:27:43,314 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:27:43,401 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:27:43,405 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 18:27:43,406 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 18:27:43,407 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 18:27:43,408 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 18:27:43,408 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 18:27:43,408 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 18:27:43,409 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 18:27:43,410 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 18:27:43,411 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 18:27:43,411 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 18:27:43,412 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 18:27:43,413 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 18:27:43,415 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 18:27:43,416 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 18:27:43,417 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 18:27:43,417 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 18:27:43,426 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 18:27:43,437 | INFO | database_manager:__connect - Connected into database
+2024-12-07 18:28:50,750 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:28:50,750 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:28:50,830 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:30:50,796 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:30:50,797 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:30:50,889 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:31:46,192 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:31:46,193 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:31:46,285 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:33:28,569 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:33:28,570 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:33:28,652 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:34:47,618 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:34:47,618 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:34:47,706 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:34:47,710 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 18:34:47,711 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 18:34:47,712 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 18:34:47,712 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 18:34:47,713 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 18:34:47,713 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 18:34:47,714 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 18:34:47,714 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 18:34:47,715 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 18:34:47,715 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 18:34:47,716 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 18:34:47,716 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 18:34:47,718 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 18:34:47,719 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 18:34:47,720 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 18:34:47,721 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 18:36:45,705 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:36:45,706 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:36:45,787 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:37:29,159 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:37:29,159 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:37:29,242 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:37:29,246 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 18:37:29,247 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 18:37:29,248 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 18:37:29,248 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 18:37:29,248 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 18:37:29,249 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 18:37:29,249 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 18:37:29,250 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 18:37:29,250 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 18:37:29,251 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 18:37:29,251 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 18:37:29,251 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 18:37:29,252 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 18:37:29,253 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 18:37:29,254 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 18:37:29,254 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 18:39:27,952 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:39:27,952 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:39:28,044 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:40:03,374 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:40:03,375 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:40:03,463 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:40:55,150 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:40:55,151 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:40:55,237 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:42:37,724 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:42:37,725 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:42:37,806 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:42:37,811 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 18:42:37,811 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 18:42:37,813 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 18:42:37,813 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 18:42:37,813 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 18:42:37,814 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 18:42:37,815 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 18:42:37,816 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 18:42:37,817 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 18:42:37,818 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 18:42:37,819 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 18:42:37,820 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 18:42:37,821 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 18:42:37,822 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 18:42:37,823 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 18:42:37,824 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 18:47:13,856 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:47:13,857 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:47:13,941 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 18:47:13,944 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 18:47:13,945 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 18:47:13,945 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 18:47:13,945 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 18:47:13,945 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 18:47:13,954 | INFO | database_manager:__connect - Connected into database
+2024-12-07 18:49:38,293 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:49:38,294 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:49:38,383 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 18:49:38,386 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 18:49:38,387 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 18:49:38,388 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 18:49:38,389 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 18:49:38,389 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 18:49:38,397 | INFO | database_manager:__connect - Connected into database
+2024-12-07 18:57:38,794 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:57:38,794 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:57:38,877 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 18:57:38,880 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 18:57:38,881 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 18:57:38,882 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 18:57:38,882 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 18:57:38,883 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 18:57:38,894 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:00:22,047 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:00:22,048 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:00:22,144 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:01:23,464 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:01:23,466 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:01:23,561 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:03:43,713 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:03:43,714 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:03:43,798 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:03:43,802 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:03:43,803 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:03:43,804 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:03:43,805 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:03:43,805 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:03:43,816 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:04:35,119 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:04:35,119 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:04:35,202 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:04:35,208 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:04:35,210 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:04:35,212 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:04:35,212 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:04:35,213 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:04:35,213 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:04:35,214 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:04:35,215 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:04:35,216 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:04:35,217 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:04:35,218 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:04:35,219 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:04:35,220 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:04:35,220 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:04:35,221 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:04:35,221 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:04:44,086 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:04:44,086 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:04:44,170 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:04:44,175 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:04:44,177 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:04:44,179 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:04:44,179 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:04:44,180 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:04:44,180 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:04:44,181 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:04:44,182 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:04:44,183 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:04:44,183 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:04:44,185 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:04:44,186 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:04:44,186 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:04:44,187 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:04:44,188 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:04:44,188 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:04:44,196 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 19:04:44,207 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:05:25,069 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:05:25,070 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:05:25,157 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:05:25,192 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:05:25,193 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:05:25,194 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:05:25,194 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:05:25,195 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:05:25,195 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:05:25,195 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:05:25,196 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:05:25,197 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:05:25,198 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:05:25,198 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:05:25,199 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:05:25,200 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:05:25,201 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:05:25,202 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:05:25,202 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:06:53,096 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:06:53,096 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:06:53,187 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:06:53,198 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:06:53,199 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:06:53,201 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:06:53,201 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:06:53,201 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:06:53,202 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:06:53,203 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:06:53,204 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:06:53,205 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:06:53,205 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:06:53,206 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:06:53,207 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:06:53,209 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:06:53,209 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:06:53,210 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:06:53,211 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:06:53,219 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 19:07:24,381 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:07:24,382 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:07:24,467 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:07:24,503 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:07:24,504 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:07:24,505 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:07:24,505 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:07:24,506 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:07:24,506 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:07:24,507 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:07:24,508 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:07:24,509 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:07:24,510 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:07:24,511 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:07:24,511 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:07:24,512 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:07:24,513 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:07:24,514 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:07:24,515 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:07:24,525 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 19:07:24,529 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:07:24,529 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:07:24,543 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:07:24,551 | ERROR | database_manager_central:insert_record - Error inserting record into 'users_profile': 1146 (42S02): Table 'my_database.users_profile' doesn't exist
+2024-12-07 19:07:24,551 | ERROR | database_manager_central:insert_record - Error inserting record into 'users_profile': 1146 (42S02): Table 'my_database.users_profile' doesn't exist
+2024-12-07 19:08:27,275 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:08:27,276 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:08:27,366 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:08:27,593 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:08:27,594 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:08:27,595 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:08:27,595 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:08:27,595 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:08:27,604 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:08:27,611 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:08:27,614 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:08:27,622 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:08:27,625 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:08:27,627 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:08:27,637 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:08:27,646 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:08:27,648 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:08:27,658 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:08:27,663 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:08:27,664 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:08:27,674 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:08:27,683 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:08:27,685 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:08:27,694 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:08:27,699 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:08:27,700 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:08:27,701 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:08:27,714 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:08:27,721 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:08:27,722 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:08:27,731 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:08:27,734 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:08:27,736 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:08:27,746 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:08:27,754 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:08:27,756 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:08:27,764 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:08:27,769 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:08:27,770 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:08:27,782 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:08:27,789 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:10:15,240 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:10:15,241 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:10:15,325 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:10:15,343 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:10:15,344 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:10:15,345 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:10:15,345 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:10:15,346 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:10:15,356 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:10:15,359 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:10:15,360 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:10:15,368 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:10:15,372 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:10:15,374 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:10:15,384 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:10:15,387 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:10:15,388 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:10:15,397 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:10:15,401 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:10:15,402 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:10:15,411 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:10:15,414 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:10:15,415 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:10:15,425 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:10:15,428 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:10:15,429 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:10:15,429 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:10:15,439 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:10:15,442 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:10:15,444 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:10:15,454 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:10:15,457 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:10:15,458 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:10:15,467 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:10:15,469 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:10:15,471 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:10:15,483 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:10:15,487 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:10:15,489 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:10:15,499 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:10:15,502 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:11:24,884 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:11:24,884 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:11:24,980 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:11:24,998 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:11:24,999 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:11:25,000 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:11:25,000 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:11:25,000 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:11:25,008 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:11:25,011 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:11:25,012 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:11:25,020 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:11:25,023 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:11:25,024 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:11:25,034 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:11:25,038 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:11:25,039 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:11:25,047 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:11:25,050 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:11:25,051 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:11:25,059 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:11:25,064 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:11:25,066 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:11:25,077 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:11:25,080 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:11:25,081 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:11:25,082 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:11:25,091 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:11:25,095 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:11:25,096 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:11:25,107 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:11:25,110 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:11:25,112 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:11:25,121 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:11:25,123 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:11:25,124 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:11:25,136 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:11:25,139 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:11:25,140 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:11:25,148 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:11:25,150 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:11:25,159 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 19:12:12,415 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:12:12,416 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:12:12,504 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:12:12,715 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:12:12,715 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:12:12,715 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:12:12,716 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:12:12,716 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:12:12,727 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:12,734 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:12:12,735 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:12:12,745 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:12,749 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:12:12,750 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:12:12,760 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:12,765 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:12:12,767 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:12:12,778 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:12,782 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:12:12,783 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:12:12,793 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:12,796 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:12:12,798 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:12:12,809 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:12,815 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:12:12,816 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:12:12,817 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:12:12,826 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:12,832 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:12:12,833 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:12:12,844 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:12,848 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:12:12,851 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:12:12,859 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:12,865 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:12:12,867 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:12:12,876 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:12,881 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:12:12,882 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:12:12,890 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:12,893 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:12:12,908 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 19:12:27,743 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:12:27,743 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:12:27,838 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:12:28,042 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:12:28,043 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:12:28,044 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:12:28,044 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:12:28,044 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:12:28,051 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:28,055 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:12:28,056 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:12:28,066 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:28,072 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:12:28,073 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:12:28,082 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:28,085 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:12:28,087 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:12:28,095 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:28,101 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:12:28,103 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:12:28,112 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:28,116 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:12:28,117 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:12:28,126 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:28,130 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:12:28,132 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:12:28,134 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:12:28,146 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:28,150 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:12:28,151 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:12:28,161 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:28,165 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:12:28,166 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:12:28,178 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:28,182 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:12:28,183 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:12:28,193 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:28,197 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:12:28,198 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:12:28,208 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:12:28,213 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:12:28,226 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 19:14:35,631 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:14:35,632 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:14:35,727 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:14:35,940 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:14:35,941 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:14:35,942 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:14:35,942 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:14:35,943 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:14:35,952 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:35,956 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:14:35,957 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:14:35,967 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:35,973 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:14:35,976 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:14:35,985 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:35,989 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:14:35,990 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:14:36,000 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:36,004 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:14:36,005 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:14:36,018 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:36,021 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:14:36,023 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:14:36,033 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:36,038 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:14:36,039 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:14:36,040 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:14:36,052 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:36,058 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:14:36,059 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:14:36,069 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:36,074 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:14:36,075 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:14:36,088 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:36,094 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:14:36,096 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:14:36,105 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:36,111 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:14:36,114 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:14:36,126 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:36,130 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:14:57,381 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:14:57,381 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:14:57,475 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:14:57,494 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:14:57,495 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:14:57,496 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:14:57,497 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:14:57,497 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:14:57,506 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,509 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:14:57,510 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:14:57,520 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,524 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:14:57,525 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:14:57,533 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,537 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:14:57,538 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:14:57,546 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,549 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:14:57,551 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:14:57,563 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,566 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:14:57,567 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:14:57,575 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,579 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:14:57,580 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:14:57,581 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:14:57,591 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,594 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:14:57,596 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:14:57,605 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,607 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:14:57,608 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:14:57,619 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,622 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:14:57,624 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:14:57,634 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,637 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:14:57,638 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:14:57,646 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,650 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:14:57,661 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,665 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:14:57,674 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,679 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:14:57,690 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,693 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:14:57,704 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,706 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:14:57,716 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,719 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:14:57,731 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,734 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:14:57,744 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,749 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:14:57,763 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,767 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:14:57,779 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,783 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:14:57,797 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,802 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:14:57,812 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,817 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:14:57,820 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:14:57,821 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:14:57,832 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,834 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 1
+2024-12-07 19:14:57,835 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '1' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 19:14:57,837 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:14:57,837 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:14:57,847 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,849 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 2
+2024-12-07 19:14:57,850 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '2' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 19:14:57,851 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:14:57,851 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:14:57,861 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,863 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 3
+2024-12-07 19:14:57,865 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '3' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 19:14:57,866 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:14:57,867 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:14:57,875 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,877 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 4
+2024-12-07 19:14:57,878 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '4' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 19:14:57,879 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:14:57,879 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:14:57,888 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,889 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 5
+2024-12-07 19:14:57,890 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '5' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 19:14:57,891 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:14:57,892 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:14:57,904 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,905 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 6
+2024-12-07 19:14:57,906 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '6' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 19:14:57,908 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:14:57,908 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:14:57,922 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,923 | INFO | database_manager:insert_row - Row ({'username': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}) inserted in table owners_profile with id 1
+2024-12-07 19:14:57,925 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '1' and data {'username': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}
+2024-12-07 19:14:57,926 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:14:57,926 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:14:57,942 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,945 | INFO | database_manager:insert_row - Row ({'username': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}) inserted in table owners_profile with id 2
+2024-12-07 19:14:57,947 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '2' and data {'username': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
+2024-12-07 19:14:57,959 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:14:57,960 | ERROR | database_manager_central:insert_record - Error inserting record into 'vending_machines_profile': 1054 (42S22): Unknown column 'owner_id' in 'where clause'
+2024-12-07 19:16:02,904 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:16:02,905 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:16:03,011 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:16:03,030 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:16:03,031 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:16:03,032 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:16:03,032 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:16:03,033 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:16:03,042 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,045 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:16:03,047 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:16:03,058 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,062 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:16:03,065 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:16:03,077 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,081 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:16:03,084 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:16:03,098 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,102 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:16:03,103 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:16:03,115 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,119 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:16:03,120 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:16:03,132 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,136 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:16:03,139 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:16:03,140 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:16:03,148 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,151 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:16:03,152 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:16:03,161 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,164 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:16:03,165 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:16:03,173 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,175 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:16:03,176 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:16:03,186 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,189 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:16:03,190 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:16:03,200 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,204 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:16:03,215 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,218 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:16:03,231 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,233 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:16:03,242 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,245 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:16:03,257 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,260 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:16:03,272 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,274 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:16:03,284 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,287 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:16:03,298 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,301 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:16:03,310 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,312 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:16:03,321 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,324 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:16:03,337 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,339 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:16:03,349 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,352 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:16:03,354 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:03,354 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:03,366 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,368 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 7
+2024-12-07 19:16:03,369 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '7' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 19:16:03,371 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:03,371 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:03,380 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,382 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 8
+2024-12-07 19:16:03,383 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '8' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 19:16:03,385 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:03,385 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:03,398 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,401 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 9
+2024-12-07 19:16:03,403 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '9' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 19:16:03,405 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:03,406 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:03,417 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,419 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 10
+2024-12-07 19:16:03,419 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '10' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 19:16:03,420 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:03,421 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:03,432 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,434 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 11
+2024-12-07 19:16:03,436 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '11' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 19:16:03,438 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:03,438 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:03,448 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,449 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 12
+2024-12-07 19:16:03,450 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '12' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 19:16:03,451 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:03,452 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:03,460 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,462 | INFO | database_manager:insert_row - Row ({'username': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}) inserted in table owners_profile with id 3
+2024-12-07 19:16:03,464 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '3' and data {'username': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}
+2024-12-07 19:16:03,465 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:03,465 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:03,478 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,479 | INFO | database_manager:insert_row - Row ({'username': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}) inserted in table owners_profile with id 4
+2024-12-07 19:16:03,480 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '4' and data {'username': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
+2024-12-07 19:16:03,491 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:03,492 | ERROR | database_manager_central:insert_record - Error inserting record into 'vending_machines_profile': 1054 (42S22): Unknown column 'owner_id' in 'where clause'
+2024-12-07 19:16:18,439 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:16:18,440 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:16:18,529 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:16:18,547 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:16:18,548 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:16:18,549 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:16:18,550 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:16:18,550 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:16:18,557 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:18,560 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:16:18,561 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:16:18,570 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:18,572 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:16:18,574 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:16:18,587 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:18,589 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:16:18,590 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:16:18,599 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:18,602 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:16:18,603 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:16:18,613 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:18,617 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:16:18,619 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:16:18,626 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:18,629 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:16:18,630 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:16:18,631 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:16:18,641 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:18,644 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:16:18,645 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:16:18,654 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:18,657 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:16:18,658 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:16:18,666 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:18,669 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:16:18,670 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:16:18,681 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:18,684 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:16:18,685 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:16:18,694 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:18,698 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:16:18,711 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 19:16:29,497 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:16:29,497 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:16:29,593 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:16:29,799 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:16:29,800 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:16:29,801 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:16:29,802 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:16:29,802 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:16:29,809 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:29,815 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:16:29,817 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:16:29,827 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:29,835 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:16:29,836 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:16:29,847 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:29,851 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:16:29,853 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:16:29,860 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:29,864 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:16:29,866 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:16:29,877 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:29,881 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:16:29,883 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:16:29,891 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:29,896 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:16:29,898 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:16:29,899 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:16:29,908 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:29,911 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:16:29,912 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:16:29,921 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:29,923 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:16:29,925 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:16:29,935 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:29,939 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:16:29,940 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:16:29,949 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:29,952 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:16:29,953 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:16:29,961 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:29,967 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:16:29,977 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:29,979 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:16:29,988 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:29,990 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:16:30,001 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,006 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:16:30,016 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,020 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:16:30,030 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,035 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:16:30,044 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,047 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:16:30,056 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,059 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:16:30,070 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,072 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:16:30,082 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,084 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:16:30,094 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,098 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:16:30,112 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,115 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:16:30,117 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:30,117 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:30,128 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,129 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 1
+2024-12-07 19:16:30,130 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '1' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 19:16:30,131 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:30,132 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:30,145 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,147 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 2
+2024-12-07 19:16:30,148 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '2' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 19:16:30,150 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:30,150 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:30,160 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,161 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 3
+2024-12-07 19:16:30,162 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '3' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 19:16:30,163 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:30,163 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:30,176 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,177 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 4
+2024-12-07 19:16:30,177 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '4' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 19:16:30,179 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:30,179 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:30,190 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,191 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 5
+2024-12-07 19:16:30,192 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '5' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 19:16:30,192 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:30,193 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:30,205 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,207 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 6
+2024-12-07 19:16:30,209 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '6' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 19:16:30,210 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:30,211 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:30,224 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,226 | INFO | database_manager:insert_row - Row ({'username': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}) inserted in table owners_profile with id 1
+2024-12-07 19:16:30,227 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '1' and data {'username': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}
+2024-12-07 19:16:30,228 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:16:30,229 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:16:30,245 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,247 | INFO | database_manager:insert_row - Row ({'username': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}) inserted in table owners_profile with id 2
+2024-12-07 19:16:30,249 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '2' and data {'username': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
+2024-12-07 19:16:30,262 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:16:30,264 | ERROR | database_manager_central:insert_record - Error inserting record into 'vending_machines_profile': 1054 (42S22): Unknown column 'owner_id' in 'where clause'
+2024-12-07 19:18:20,747 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:18:20,748 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:18:20,846 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:18:20,868 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:18:20,870 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:18:20,871 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:18:20,871 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:18:20,872 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:18:20,882 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:20,884 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:18:20,886 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:18:20,896 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:20,899 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:18:20,900 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:18:20,912 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:20,915 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:18:20,916 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:18:20,929 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:20,933 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:18:20,935 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:18:20,948 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:20,952 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:18:20,954 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:18:20,967 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:20,971 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:18:20,973 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:18:20,975 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:18:20,987 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:20,992 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:18:20,995 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:18:21,006 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:21,009 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:18:21,011 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:18:21,021 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:21,025 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:18:21,027 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:18:21,035 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:21,038 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:18:21,039 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:18:21,049 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:21,051 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:18:21,062 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 19:18:28,843 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 19:18:28,844 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 19:18:28,976 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 19:18:29,281 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 19:18:29,282 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 19:18:29,282 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 19:18:29,283 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 19:18:29,283 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 19:18:29,292 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,296 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:18:29,298 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 19:18:29,309 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,313 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:18:29,314 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 19:18:29,325 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,328 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:18:29,330 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 19:18:29,341 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,346 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:18:29,348 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 19:18:29,358 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,362 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:18:29,363 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 19:18:29,372 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,378 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:18:29,379 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 19:18:29,380 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 19:18:29,390 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,395 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:18:29,396 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 19:18:29,406 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,410 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:18:29,412 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 19:18:29,421 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,425 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:18:29,427 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 19:18:29,438 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,444 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:18:29,445 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 19:18:29,453 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,458 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:18:29,469 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,473 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 19:18:29,484 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,487 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 19:18:29,498 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,501 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 19:18:29,512 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,515 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 19:18:29,524 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,528 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 19:18:29,538 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,541 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 19:18:29,550 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,553 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 19:18:29,564 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,567 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 19:18:29,578 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,581 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 19:18:29,590 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,592 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 19:18:29,602 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,607 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 19:18:29,612 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:18:29,612 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:18:29,621 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,624 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 1
+2024-12-07 19:18:29,625 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '1' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 19:18:29,626 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:18:29,627 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:18:29,638 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,643 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 2
+2024-12-07 19:18:29,644 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '2' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 19:18:29,646 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:18:29,646 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:18:29,655 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,657 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 3
+2024-12-07 19:18:29,659 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '3' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 19:18:29,662 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:18:29,662 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:18:29,680 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,683 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 4
+2024-12-07 19:18:29,684 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '4' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 19:18:29,686 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:18:29,686 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:18:29,703 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,707 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 5
+2024-12-07 19:18:29,708 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '5' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 19:18:29,710 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:18:29,710 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:18:29,722 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,727 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 6
+2024-12-07 19:18:29,729 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '6' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 19:18:29,734 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:18:29,734 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:18:29,747 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,748 | INFO | database_manager:insert_row - Row ({'username': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}) inserted in table owners_profile with id 1
+2024-12-07 19:18:29,750 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '1' and data {'username': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}
+2024-12-07 19:18:29,751 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 19:18:29,751 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 19:18:29,760 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,762 | INFO | database_manager:insert_row - Row ({'username': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}) inserted in table owners_profile with id 2
+2024-12-07 19:18:29,764 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '2' and data {'username': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
+2024-12-07 19:18:29,774 | INFO | database_manager:__connect - Connected into database
+2024-12-07 19:18:29,777 | ERROR | database_manager_central:insert_record - Error inserting record into 'vending_machines_profile': 1054 (42S22): Unknown column 'owner_id' in 'where clause'
