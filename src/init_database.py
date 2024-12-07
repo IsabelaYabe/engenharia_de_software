@@ -175,11 +175,11 @@ def populate_database(db_config):
 
     for transaction in transactions:
         logger.debug(f"Inserting transaction: {transaction}")
-        manager.add_transaction(*transaction)
+        manager.add_purchase_transaction(*transaction)
         logger.debug("Transaction inserted.")
 
     logger.debug("Transactions inserted.")
-    
+
 
 
     manager.show()

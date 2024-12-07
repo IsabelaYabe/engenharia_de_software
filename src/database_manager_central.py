@@ -573,7 +573,7 @@ class DatabaseManagerCentral:
                 raise ValueError(f"Product with ID '{product_id}' does not exist.")
             
             logger.debug(f"Product found: {product}")
-            available_quantity = product[0]["quantity"]
+            available_quantity = product[0][4]
             
             if available_quantity < quantity:
                 raise ValueError(f"Insufficient quantity for product ID '{product_id}'. Available: {available_quantity}, Requested: {quantity}.")
