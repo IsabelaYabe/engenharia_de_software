@@ -85,6 +85,8 @@ def hash_password_decorator(func):
         """
         Wraps the target function, hashes the 'password' in kwargs, and calls the function.
         """
+        logger.debug(f"Calling the original function: {func.__name__}")
+        logger.debug(f"Dentro do decorador") 
         if "password" in kwargs:
             logger.info("Hashing password before calling the original function.")
             logger.debug(f"Original password: {kwargs['password']}")
