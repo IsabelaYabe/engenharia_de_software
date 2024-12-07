@@ -27,12 +27,12 @@ def populate_database(db_config):
 
     # Inserting mock data
     users = [
-    ["Al1ce", "alicinha@gmail.com", "alqqq", "Alice", "Silva", "Ontem", "pizzaria_buonasserra", "Rua de Baixo", 50.0],
-    ["Bob", "bob@example.com", "bob123", "Bob", "Smith", "Hoje", "pizzaria_buonasserra", "Rua de Cima", 60.0],
-    ["Charlie", "charlie@example.com", "charlie123", "Charlie", "Brown", "Hoje", "pizzaria_buonasserra", "Rua do Meio", 70.0],
-    ["David", "david@example.com", "david123", "David", "Johnson", "Hoje", "pizzaria_buonasserra", "Rua Nova", 80.0],
-    ["Eve", "eve@example.com", "eve123", "Eve", "Davis", "Hoje", "pizzaria_buonasserra", "Rua Velha", 90.0],
-    ["Frank", "frank@example.com", "frank123", "Frank", "Miller", "Hoje", "pizzaria_buonasserra", "Rua Alta", 100.0]
+    ["Al1ce", "alicinha@gmail.com", "alqqq", "Alice", "Silva", "2024-12-07", "pizzaria_buonasserra", "Rua de Baixo", 50.0],
+    ["Bob", "bob@example.com", "bob123", "Bob", "Smith", "2024-12-07", "pizzaria_buonasserra", "Rua de Cima", 60.0],
+    ["Charlie", "charlie@example.com", "charlie123", "Charlie", "Brown", "2024-12-07", "pizzaria_buonasserra", "Rua do Meio", 70.0],
+    ["David", "david@example.com", "david123", "David", "Johnson", "2024-12-07", "pizzaria_buonasserra", "Rua Nova", 80.0],
+    ["Eve", "eve@example.com", "eve123", "Eve", "Davis", "2024-12-07", "pizzaria_buonasserra", "Rua Velha", 90.0],
+    ["Frank", "frank@example.com", "frank123", "Frank", "Miller", "2024-12-06", "pizzaria_buonasserra", "Rua Alta", 100.0]
     ]
 
     for user in users:
