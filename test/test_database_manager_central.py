@@ -193,7 +193,7 @@ class TestDatabaseManagerCentral(unittest.TestCase):
         user_data = {
             "username": "test_user",
             "email": "test_user@example.com",
-            "password": "secure_password",
+            "password": "ff2f12ec5c6a2e9ef6b61c958ed701c327469190a18075fd909ec2a9b42b94f2",
             "first_name": "Test",
             "last_name": "User",
             "birthdate": "1990-01-01",
