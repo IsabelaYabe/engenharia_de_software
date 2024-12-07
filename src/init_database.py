@@ -11,7 +11,7 @@ import mysql.connector
 from database_manager_central import DatabaseManagerCentral
 from custom_logger import setup_logger
 
-looger = setup_logger()
+logger = setup_logger()
 
 def init_database(db_config):
     """
@@ -38,11 +38,11 @@ def populate_database(db_config):
     ]
 
     for user in users:
-        looger.debug(f"Inserting user: {user}")
+        logger.debug(f"Inserting user: {user}")
         manager.add_user(*user)
-        looger.debug("User inserted.")
+        logger.debug("User inserted.")
 
-    looger.debug("Users inserted.")
+    logger.debug("Users inserted.")
 
     owners = [
         ["Garry", "g2@gmail.com", "sdf", "Gar", "Ry", "2024-12-05", "4002-8922", "Rua de Baixo", 52.0],
@@ -50,9 +50,19 @@ def populate_database(db_config):
     ]
 
     for owner in owners:
-        looger.debug(f"Inserting owner: {owner}")
+        logger.debug(f"Inserting owner: {owner}")
         manager.add_owner(*owner)
-        looger.debug("Owner inserted.")
+        logger.debug("Owner inserted.")
+    
+    print("""orfnwifnfnfpwefiwfnsvknwkofnwkovnkovnownvp
+          ewrfwfe2
+          23
+          r2
+          3r23
+          r
+          23r
+          """)
+    manager.show()
     
     vms = [
         ["VM1", "Rua de Baixo", "1"],
@@ -61,9 +71,9 @@ def populate_database(db_config):
     ]
 
     for vm in vms:
-        looger.debug(f"Inserting vending machine: {vm}")
+        logger.debug(f"Inserting vending machine: {vm}")
         manager.add_vending_machine(*vm)
-        looger.debug("Vending machine inserted.")
+        logger.debug("Vending machine inserted.")
 
     manager.show()
 

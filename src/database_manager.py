@@ -218,6 +218,7 @@ class DatabaseManager():
      
         with self.__connect() as conn, conn.cursor() as cursor:    
             cursor.execute(alter_table_sql)
+            conn.commit()
         self.__columns.append(column_name) 
         logger.info(f"Column {column_name} was added to {self.__table_name} as {type} and not_null {not_null}")       
 
@@ -327,6 +328,7 @@ class DatabaseManager():
         logger.debug(f"Values: {values}")
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(insert_sql, tuple(values))
+            conn.commit()
             id = cursor.lastrowid
             logger.info(f"Row ({kwargs}) inserted in table {self.__table_name} with id {id}")
         
@@ -368,6 +370,7 @@ class DatabaseManager():
 
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(query, tuple(values))
+            conn.commit()
             new_row = self.get_by_id(record_id)      
             logger.info(f"Row {record_id} id from table {self.table_name} updated columns: {columns} (from {old_row} (old row) to {new_row} (new row))")
       
@@ -408,6 +411,10 @@ class DatabaseManager():
         Raises:
             Exception: If the search query fails for any reason.
         """
+        logger.debug(f"Searching for records with: {kwargs}")
+        logger.debug(f"Tabela: {self.__table_name}")
+        logger.debug(f"Columns: {self.__columns}")
+        logger.debug(f"Show table: {self.show_table()}")
         columns = []
         values = []
         for key, value in kwargs.items():

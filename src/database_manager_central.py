@@ -283,7 +283,8 @@ class DatabaseManagerCentral:
                     logger.debug(f"Table instance: {table_instance}")
                     if not table_instance:
                         raise ValueError(f"Foreign key table '{fk_table}' not found in instance tables.")
-                    record_exists = table_instance.search_record(**{fk_column: fk_value})
+                    logger.debug(f"Searching for foreign key id with value '{fk_value}' in table '{fk_table}'")
+                    record_exists = table_instance.search_record(**{"id": fk_value})
 
                     logger.debug(f"Record exists: {record_exists}")
                     if not record_exists:
