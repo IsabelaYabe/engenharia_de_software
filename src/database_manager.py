@@ -138,6 +138,11 @@ class DatabaseManager():
         }
         self.__table_name = config.table_name
         self.__columns = config.columns
+        self.__columns_parameters = []
+        for column in self.__columns:
+            if column != "id" or column != "timestamp":
+                self.__columns_parameters.append(column)
+                
         self.__column_id = config.column_id
         self.__foreign_keys = foreign_keys
         self.__foreign_keys_columns =  list(deepcopy(self.__foreign_keys).keys()) if self.__foreign_keys else None

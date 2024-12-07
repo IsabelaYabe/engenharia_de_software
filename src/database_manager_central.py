@@ -808,12 +808,11 @@ class DatabaseManagerCentral:
             user_record = table_instance.search_record(username=username, password=encrypted_password)
 
             if user_record:
-                user_data = self._map_tuple_to_dict(user_record[0], table_instance.columns)
-                logger.info(f"Login successful for user: {username} in table: {table_name}")
-                return user_data
+                logger.info(f"User '{username}' successfully logged in.")
+                return True
             else:
                 logger.error(f"Invalid username or password for user: {username} in table: {table_name}")
-                return None
+                return False
 
         except ValueError as ve:
             logger.error(f"ValueError: {ve}")
