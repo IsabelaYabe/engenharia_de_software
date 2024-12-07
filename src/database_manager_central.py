@@ -502,7 +502,7 @@ class DatabaseManagerCentral:
             Exception: If an error occurs during the update operation.
         """
         data = {
-            "username": username,
+            "ownername": username,
             "email": email,
             "password": password,
             "first_name": first_name,
@@ -514,7 +514,7 @@ class DatabaseManagerCentral:
         }
         return self.insert_record("owners_profile", data)
 
-    def add_vending_machine(self, name, location, status, owner_id):
+    def add_vending_machine(self, name, location, owner_id):
         """
         Adds a new vending machine to the `vending_machines_profile` table.
 
@@ -533,7 +533,6 @@ class DatabaseManagerCentral:
         data = {
             "name": name,
             "location": location,
-            "status": status,
             "owner_id": owner_id,
         }
         
