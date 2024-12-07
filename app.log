@@ -3880,3 +3880,53 @@
 2024-12-07 17:54:16,998 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '18' and data {'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
 2024-12-07 17:54:17,011 | INFO | database_manager:__connect - Connected into database
 2024-12-07 17:54:17,012 | ERROR | database_manager_central:insert_record - Error inserting record into 'vending_machines_profile': 1054 (42S22): Unknown column 'owner_id' in 'where clause'
+2024-12-07 17:58:54,726 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 17:58:54,727 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 17:58:54,735 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 17:58:54,736 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 17:58:54,736 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 17:58:54,737 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 17:58:54,737 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 17:58:54,738 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 17:58:54,738 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 17:58:54,739 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 17:58:54,740 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 17:58:54,740 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 17:58:54,741 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 17:58:54,742 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 17:58:54,743 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 17:58:54,744 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 17:58:54,745 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 17:58:54,745 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 17:58:54,828 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 17:58:54,864 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:58:54,869 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:58:54,879 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:58:54,885 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:58:54,898 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:58:55,005 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:58:55,014 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:58:55,016 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:58:55,028 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:58:55,032 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:58:55,043 | INFO | database_manager:__connect - Connected into database
+2024-12-07 18:00:34,895 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 18:00:34,896 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 18:00:34,904 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 18:00:34,906 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 18:00:34,907 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 18:00:34,907 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 18:00:34,908 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 18:00:34,908 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 18:00:34,910 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 18:00:34,911 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 18:00:34,912 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 18:00:34,913 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 18:00:34,914 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 18:00:34,914 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 18:00:34,915 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 18:00:34,915 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 18:00:34,916 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 18:00:34,916 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 18:00:35,000 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 18:00:35,012 | INFO | database_manager:__connect - Connected into database

@@ -49,12 +49,6 @@ CREATE TABLE IF NOT EXISTS products_profile (
     FOREIGN KEY (vending_machine_id) REFERENCES vending_machines_profile(id) ON DELETE CASCADE
 );
 
-
-
-
-
-
-
 -- Tabela `product_complaint`
 CREATE TABLE IF NOT EXISTS product_complaint (
     id VARCHAR(36) PRIMARY KEY,
