@@ -323,9 +323,12 @@ class DatabaseManager():
         placeholders = ", ".join(placeholders)
         insert_sql = f"INSERT INTO `{self.__table_name}` ({columns_str}) VALUES ({placeholders});"
         
+        logger.debug(f"Insert SQL: {insert_sql}")
+        logger.debug(f"Values: {values}")
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(insert_sql, tuple(values))
             logger.info(f"Row ({kwargs}) inserted in table {self.__table_name} with id {id}")
+        
         return id
 
     @immutable_fields("immutable_columns")
