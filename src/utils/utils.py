@@ -22,6 +22,7 @@ import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "src")))
 from custom_logger import setup_logger
+from random import randint
 
 logger = setup_logger()
 
@@ -70,3 +71,20 @@ def tuple_to_dict(tuple, columns):
         _dict[columns[i]] = tuple[i]
     logger.info(f"Dictionary: {_dict}")
     return _dict
+
+def uuid():
+    """
+    Generates a random UUID.
+
+    Returns:
+        str: A random UUID.
+    """
+    algarism = "0123456789abcdefghijklmnopqrstuvwxyz"
+    num_alg = len(algarism)
+    uuid = []
+    for i in range(36):
+        if i in [8, 13, 18, 23]:
+            uuid.append("-")
+        else:
+            uuid.append(algarism[randint(0, num_alg - 1)])
+    return uuid
