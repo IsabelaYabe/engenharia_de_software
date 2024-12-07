@@ -208,9 +208,17 @@ class DatabaseManagerCentral:
     def show(self):
         for table_name, table_instance in self.instance_tables.__dict__.items():
             print(f"Table: {table_name}")
-            records = table_instance.show_table()
-            for record in records:
-                print(record)
+            head, records = table_instance.show_table()
+            print("Columns:")
+            for col in head:
+                print(col, end=" ")
+            print()
+            print("Records:")
+            if records:
+                for record in records:
+                    print(record)
+            else:
+                print("No records found.")
 
     def insert_record(self, table_name, data, foreign_keys=None):
         """

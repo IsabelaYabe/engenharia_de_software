@@ -424,15 +424,18 @@ class DatabaseManager():
         Raises:
             Exception: If the search query fails for any reason.
         """
-        query = f"SELECT * FROM `{self.__table_name}`;"
+        head_query = f'SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = %s;'
+        query = f'SELECT * FROM `{self.__table_name}`;'
         with self.__connect() as conn, conn.cursor() as cursor:
+            cursor.execute(head_query, (self.__table_name,))
+            head = [column[0] for column in cursor.fetchall()]
             cursor.execute(query)
             return_execute = cursor.fetchall()
-            if return_execute == []:
+            if not return_execute:
                 logger.warning(f"No instance found in table: {self.__table_name}")
             else:
                 logger.info(f"Got all instances in table: {self.__table_name}")
-                return return_execute
+            return head, return_execute
         
     def execute_sql(self, query, params=None, fetch_one=False, fetch_all=False, error_message=""):
         """
