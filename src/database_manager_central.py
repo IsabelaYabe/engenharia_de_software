@@ -1,15 +1,21 @@
 """
-    Module for creating the DatabaseManagerCentral class.
+Module for creating the `DatabaseManagerCentral` class.
 
-    Author: Isabela Yabe
-    Last Modified: 19/11/2024
-    Status: Preciso atualiza colocando o no init, por logs e fazer testes
+This module provides a centralized manager to handle all table-specific database managers
+using a singleton pattern. The class includes methods to manage CRUD operations, foreign key validations, 
+event notifications, and other database-related functionality.
 
-    Dependencies:
-        - product_profile
-        - decorators
-        - tables
-        - custom_logger
+Author: Isabela Yabe
+Last Modified: 19/11/2024
+Status: In Progress (pending additional tests and logging updates)
+
+Dependencies:
+    - database_manager.DatabaseManager
+    - event_manager.EventManager
+    - sub_strategy.PurchaseProductSubUpdateStrategy
+    - singleton_decorator.singleton
+    - custom_logger.setup_logger
+    - dataclasses.dataclass
 """
 from database_manager import DatabaseManager, Config, ConfigPub, ConfigSub
 from event_manager.event_manager import EventManager
@@ -22,34 +28,47 @@ logger = setup_logger()
 
 @dataclass
 class InstancesTables:
+    """
+    Dataclass to organize and store instances of table-specific DatabaseManager objects.
+    """
     products_profile: DatabaseManager 
     users_profile: DatabaseManager
-    product_comment: DatabaseManager 
-    favorite_products: DatabaseManager
-    favorite_vending_machines: DatabaseManager 
-    vending_machine_comment: DatabaseManager
-    vending_machine_complaint: DatabaseManager
-    product_complaint: DatabaseManager 
-    owners_profile: DatabaseManager
     vending_machines_profile: DatabaseManager 
+    owners_profile: DatabaseManager
+    product_complaint: DatabaseManager
+    product_comment: DatabaseManager
     purchase_transaction: DatabaseManager
+    vending_machine_complaint: DatabaseManager
+    vending_machine_comment: DatabaseManager
+    favorite_products: DatabaseManager
+    favorite_vending_machines: DatabaseManager
     
 @singleton
 class DatabaseManagerCentral:
     """
-    DatabaseManagerCentral class.
-    
-    This class provides a central manager for all the individual table managers.
-    """
+    Singleton class to manage multiple table-specific DatabaseManager instances.
 
+    The `DatabaseManagerCentral` class initializes and organizes instances of 
+    `DatabaseManager` for each database table. It provides methods to perform 
+    CRUD operations, manage relationships between tables, handle events, and 
+    ensure data integrity.
+
+    Attributes:
+        __host (str): The MySQL server host.
+        __user (str): The MySQL username.
+        __password (str): The MySQL password.
+        __database (str): The name of the MySQL database.
+        event_manager (EventManager): Centralized event manager for handling notifications.
+        __instance_tables (InstancesTables): Dataclass instance containing table-specific managers.
+    """
     def __init__(self, host, user, password, database):
         """
-        Initializes the central manager with table-specific managers.
-        
-        Parameters:
+        Initializes the `DatabaseManagerCentral` instance and sets up the event manager and table managers.
+
+        Args:
             host (str): The MySQL server host.
-            user (str): The MySQL user.
-            password (str): The MySQL user's password.
+            user (str): The MySQL username.
+            password (str): The MySQL password.
             database (str): The name of the MySQL database.
         """
         self.__host = host
@@ -182,6 +201,22 @@ class DatabaseManagerCentral:
             raise
 
     def add_product(self, name, description, price, quantity, vending_machine_id):
+        """
+        Adds a new product to the `products_profile` table.
+
+        Args:
+            name (str): Name of the product.
+            description (str): Description of the product.
+            price (float): Price of the product.
+            quantity (int): Available quantity of the product.
+            vending_machine_id (str): ID of the vending machine where the product is located.
+
+        Returns:
+            str: ID of the inserted product.
+
+        Raises:
+            ValueError: If foreign key validation fails.
+        """
         data = {
             "name": name,
             "description": description,
@@ -197,7 +232,21 @@ class DatabaseManagerCentral:
 
     def add_user(self, username, email, password, first_name, last_name, birthdate, phone_number, address, budget):
         """
-        Add a new user to the database.
+        Adds a new user to the `users_profile` table.
+
+        Args:
+            username (str): User's username.
+            email (str): User's email address.
+            password (str): Encrypted password.
+            first_name (str): User's first name.
+            last_name (str): User's last name.
+            birthdate (str): User's birth date.
+            phone_number (str): User's phone number.
+            address (str): User's address.
+            budget (float): User's budget.
+
+        Returns:
+            str: ID of the inserted user.
         """
         data = {
             "username": username,
@@ -214,7 +263,18 @@ class DatabaseManagerCentral:
     
     def add_product_comment(self, product_id, user_id, text):
         """
-        Add a comment to a product.
+        Adds a comment for a product in the `product_comment` table.
+
+        Args:
+            product_id (str): ID of the product being commented on.
+            user_id (str): ID of the user making the comment.
+            text (str): Content of the comment.
+
+        Returns:
+            str: ID of the inserted comment.
+
+        Raises:
+            ValueError: If foreign key validation fails.
         """
         data = {
             "product_id": product_id,
@@ -229,7 +289,17 @@ class DatabaseManagerCentral:
 
     def add_favorite_product(self, user_id, product_id):
         """
-        Add a product to the user's favorites.
+        Adds a product to a user's favorites in the `favorite_products` table.
+
+        Args:
+            user_id (str): ID of the user adding the product to favorites.
+            product_id (str): ID of the product to be added to favorites.
+
+        Returns:
+            str: ID of the inserted favorite entry.
+
+        Raises:
+            ValueError: If foreign key validation fails.
         """
         data = {
             "user_id": user_id,
@@ -243,7 +313,17 @@ class DatabaseManagerCentral:
 
     def add_favorite_vending_machine(self, user_id, vending_machine_id):
         """
-        Add a vending machine to the user's favorites.
+        Adds a vending machine to a user's favorites in the `favorite_vending_machines` table.
+
+        Args:
+            user_id (str): ID of the user adding the vending machine to favorites.
+            vending_machine_id (str): ID of the vending machine to be added to favorites.
+
+        Returns:
+            str: ID of the inserted favorite entry.
+
+        Raises:
+            ValueError: If foreign key validation fails.
         """
         data = {
             "user_id": user_id,
@@ -257,7 +337,18 @@ class DatabaseManagerCentral:
 
     def add_vending_machine_comment(self, vending_machine_id, user_id, text):
         """
-        Add a comment to a vending machine.
+        Adds a comment for a vending machine in the `vending_machine_comment` table.
+
+        Args:
+            vending_machine_id (str): ID of the vending machine being commented on.
+            user_id (str): ID of the user making the comment.
+            text (str): Content of the comment.
+
+        Returns:
+            str: ID of the inserted comment.
+
+        Raises:
+            ValueError: If foreign key validation fails.
         """
         data = {
             "vending_machine_id": vending_machine_id,
@@ -272,7 +363,18 @@ class DatabaseManagerCentral:
 
     def add_vending_machine_complaint(self, vending_machine_id, user_id, text):
         """
-        Add a complaint to a vending machine.
+        Adds a complaint for a vending machine in the `vending_machine_complaint` table.
+
+        Args:
+            vending_machine_id (str): ID of the vending machine being complained about.
+            user_id (str): ID of the user making the complaint.
+            text (str): Content of the complaint.
+
+        Returns:
+            str: ID of the inserted complaint.
+
+        Raises:
+            ValueError: If foreign key validation fails.
         """
         data = {
             "vending_machine_id": vending_machine_id,
@@ -287,7 +389,18 @@ class DatabaseManagerCentral:
 
     def add_product_complaint(self, product_id, user_id, text):
         """
-        Add a complaint to a product.
+        Adds a complaint for a product in the `product_complaint` table.
+
+        Args:
+            product_id (str): ID of the product being complained about.
+            user_id (str): ID of the user making the complaint.
+            text (str): Content of the complaint.
+
+        Returns:
+            str: ID of the inserted complaint.
+
+        Raises:
+            ValueError: If foreign key validation fails.
         """
         data = {
             "product_id": product_id,
@@ -302,7 +415,14 @@ class DatabaseManagerCentral:
 
     def add_owner(self, ownername, email, password, first_name, last_name, birthdate, phone_number, address, budget):
         """
-        Add a new owner to the database.
+        Updates the budget of an owner in the database.
+
+        Args:
+            owner_id (str): ID of the owner to update.
+            new_budget (float): The new budget value.
+
+        Raises:
+            Exception: If an error occurs during the update operation.
         """
         data = {
             "ownername": ownername,
@@ -319,8 +439,20 @@ class DatabaseManagerCentral:
 
     def add_vending_machine(self, name, location, status, owner_id):
         """
-        Add a vending machine.
-        """
+        Adds a new vending machine to the `vending_machines_profile` table.
+
+        Args:
+            name (str): Name of the vending machine.
+            location (str): Location of the vending machine.
+            status (str): Current status of the vending machine (e.g., active/inactive).
+            owner_id (str): ID of the owner associated with the vending machine.
+
+        Returns:
+            str: ID of the inserted vending machine.
+
+        Raises:
+            ValueError: If foreign key validation fails.
+        """        
         data = {
             "name": name,
             "location": location,
@@ -335,6 +467,23 @@ class DatabaseManagerCentral:
         )
     
     def add_purchase_transaction(self, user_id, product_id, vending_machine_id, quantity, amount_paid_per_unit):
+        """
+        Adds a purchase transaction and handles event notifications.
+
+        Args:
+            user_id (str): ID of the user making the purchase.
+            product_id (str): ID of the purchased product.
+            vending_machine_id (str): ID of the vending machine.
+            quantity (int): Quantity of the product purchased.
+            amount_paid_per_unit (float): Price paid per unit.
+
+        Returns:
+            str: ID of the transaction.
+
+        Raises:
+            ValueError: If validations fail.
+            RuntimeError: If event notification fails.
+        """
         try:
             product = self.products_profile.search_record(id=product_id)
             if not product:
@@ -389,6 +538,16 @@ class DatabaseManagerCentral:
             raise
 
     def update_vending_machine_status(self, vending_machine_id, status):
+        """
+        Updates the status of a vending machine.
+
+        Args:
+            vending_machine_id (str): ID of the vending machine to update.
+            status (str): The new status for the vending machine.
+
+        Raises:
+            Exception: If an error occurs during the update operation.
+        """
         try:
             self.__vending_machines_profile.update_row(
                 record_id=vending_machine_id,
@@ -400,6 +559,23 @@ class DatabaseManagerCentral:
             raise
 
     def update_owner_budget(self, owner_id, new_budget):
+        """
+        Updates the budget of a specific owner in the `owners_profile` table.
+
+        Args:
+            owner_id (str): ID of the owner whose budget needs to be updated.
+            new_budget (float): The new budget value to be set.
+
+        Returns:
+            None
+
+        Logs:
+            - Logs a success message if the budget update is successful.
+            - Logs an error message if an exception occurs.
+
+        Raises:
+            Exception: If an error occurs during the update operation.
+        """
         try:
             self.__owners_profile.update_row(
                 record_id=owner_id,
@@ -411,6 +587,22 @@ class DatabaseManagerCentral:
             raise
 
     def add_product_quantity(self, product_id=None, name=None, vending_machine_id=None, quantity_to_add=0):
+        """
+        Adds a specified quantity to an existing product in the database.
+
+        Args:
+            product_id (str, optional): ID of the product to update. Defaults to None.
+            name (str, optional): Name of the product to update (used with `vending_machine_id`). Defaults to None.
+            vending_machine_id (str, optional): ID of the vending machine containing the product. Defaults to None.
+            quantity_to_add (int): The quantity to add to the product. Must be greater than 0.
+
+        Returns:
+            int: The new quantity of the product after the addition.
+
+        Raises:
+            ValueError: If `quantity_to_add` is not greater than 0, or if the product is not found.
+            Exception: If an error occurs during the update operation.
+        """
         try:
             if quantity_to_add <= 0:
                 raise ValueError("The quantity to be added must be greater than zero.")
@@ -439,6 +631,20 @@ class DatabaseManagerCentral:
             raise
 
     def search_table(self, table_name, **filters):
+        """
+        Searches for records in a specified table using the provided filters.
+
+        Args:
+            table_name (str): Name of the table to search.
+            **filters: Arbitrary keyword arguments representing column-value pairs to filter the search.
+
+        Returns:
+            list: A list of records matching the filters.
+
+        Raises:
+            ValueError: If the specified table does not exist.
+            Exception: If an error occurs while fetching records.
+        """
         try:
             table_instance = getattr(self.instance_tables, table_name, None)
             if not table_instance:
@@ -452,6 +658,19 @@ class DatabaseManagerCentral:
             raise
 
     def get_sales_report(self, start_date, end_date):
+        """
+        Generates a sales report for a specified time range.
+
+        Args:
+            start_date (str): The start date for the report in 'YYYY-MM-DD' format.
+            end_date (str): The end date for the report in 'YYYY-MM-DD' format.
+
+        Returns:
+            list: A list of dictionaries containing product IDs and total quantities sold.
+
+        Raises:
+            Exception: If an error occurs while executing the query or fetching the data.
+        """
         try:
             query = """
                 SELECT product_id, SUM(quantity) as total_sold
