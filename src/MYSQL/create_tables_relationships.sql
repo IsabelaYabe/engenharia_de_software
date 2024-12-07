@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS users_profile (
 
 -- Tabela `vending_machines_profile`
 CREATE TABLE IF NOT EXISTS vending_machines_profile (
-    id VARCHAR(36) PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     location TEXT NOT NULL,
     status VARCHAR(50) DEFAULT 'active',
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS vending_machines_profile (
 
 -- Tabela `products_profile`
 CREATE TABLE IF NOT EXISTS products_profile (
-    id VARCHAR(36) PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
     price DECIMAL(10, 2) NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS products_profile (
 
 -- Tabela `product_complaint`
 CREATE TABLE IF NOT EXISTS product_complaint (
-    id VARCHAR(36) PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     text TEXT NOT NULL,
     product_id INT NOT NULL,
     user_id INT NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS product_complaint (
 
 -- Tabela `product_comment`
 CREATE TABLE IF NOT EXISTS product_comment (
-    id VARCHAR(36) PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     text TEXT NOT NULL,
     product_id INT NOT NULL,
     user_id INT NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS product_comment (
 
 -- Tabela `purchase_transaction`
 CREATE TABLE IF NOT EXISTS purchase_transaction (
-    id VARCHAR(36) PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     product_id INT NOT NULL,
     vending_machine_id INT NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS purchase_transaction (
 
 -- Tabela `vending_machine_complaint`
 CREATE TABLE IF NOT EXISTS vending_machine_complaint (
-    id VARCHAR(36) PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     text TEXT NOT NULL,
     vending_machine_id INT NOT NULL,
     user_id INT NOT NULL,
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS vending_machine_complaint (
 
 -- Tabela `vending_machine_comment`
 CREATE TABLE IF NOT EXISTS vending_machine_comment (
-    id VARCHAR(36) PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     text TEXT NOT NULL,
     vending_machine_id INT NOT NULL,
     user_id INT NOT NULL,
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS vending_machine_comment (
 
 -- Tabela `favorite_vending_machines`
 CREATE TABLE IF NOT EXISTS favorite_vending_machines (
-    id VARCHAR(36) PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     vending_machine_id INT NOT NULL,
     user_id INT NOT NULL,
     FOREIGN KEY (vending_machine_id) REFERENCES vending_machines_profile(id) ON DELETE CASCADE,
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS favorite_vending_machines (
 
 -- Tabela `favorite_products`
 CREATE TABLE IF NOT EXISTS favorite_products (
-    id VARCHAR(36) PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL,
     user_id INT NOT NULL,
     FOREIGN KEY (product_id) REFERENCES products_profile(id) ON DELETE CASCADE,
