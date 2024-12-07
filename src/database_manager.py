@@ -146,7 +146,13 @@ class DatabaseManager():
         self.__event_manager_sub = config_sub.event_manager if config_sub else None
         self.__events_type_pub = config_pub.events_type_pub if config_pub else None
         self.__events_type_sub = config_sub.events_type_sub if config_sub else None
-        self.__immutable_columns = [self.__column_id, "timestamp"]  + (self.__foreign_keys or []) + (immutable_columns or [])
+        self.__immutable_columns = [self.__column_id, "timestamp"]
+        if self.foreign_keys:  
+            for foreign_key in list(self.__foreign_keys.values()):
+                self.__immutable_columns.append(foreign_key)
+        if immutable_columns:
+            for col in immutable_columns:
+                self.__immutable_columns.append(col)
         
     def __connect(self):
         """

@@ -5,8 +5,8 @@ This module provides unit tests for the `pubsub` decorator applied to the `Datab
 The tests validate the publish/subscribe functionality, ensuring that events are correctly published and handled by subscribers.
 
 Author: Isabela Yabe
-Last Modified: 19/11/2024
-Status: Complet
+Last Modified: 07/12/2024
+Status: Complete
 
 Dependencies:
     - unittest
@@ -22,6 +22,7 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "src")))
 from database_manager import DatabaseManager, Config, ConfigPub, ConfigSub
 from event_manager.event_manager import EventManager
+from sub_strategy.sub_update_strategy import DefaultSubUpdateStrategy
 from custom_logger import setup_logger
 
 logger = setup_logger()
@@ -98,19 +99,30 @@ class TestPubSubDecorator(unittest.TestCase):
         self.mock_event_manager.subscribe.assert_any_call("event_update", self.db_manager)
         logger.info("Test subscribe to events: OK!!! ---------------------------> TEST 3 OK!!!")
 
-    @patch("sub_strategy.default_sub_update_strategy.DefaultSubUpdateStrategy.update")
+    @patch("sub_strategy.sub_update_strategy.DefaultSubUpdateStrategy.update")
     def test_handle_subscribed_event(self, mock_strategy_update):
         """
         Tests handling a subscribed event.
         Ensures that the appropriate strategy's `update` method is called with correct data.
         """
+        # Configurando o EventManager para associar a estratégia ao evento
+        self.mock_event_manager.update_strategies = {
+            "event_update": DefaultSubUpdateStrategy()
+        }
+
         event_type = "event_update"
         data = {"id": "123", "name": "updated_name", "value": 84}
 
-        self.db_manager.update(event_type, **data)
+        with patch.object(
+            self.mock_event_manager.update_strategies[event_type],
+            "update",
+            wraps=mock_strategy_update
+        ):
+            self.db_manager.update(event_type, **data)
 
         mock_strategy_update.assert_called_once_with(data)
         logger.info("Test handle subscribed event: OK!!! ---------------------------> TEST 4 OK!!!")
+
 
     def test_handle_unsubscribed_event(self):
         """

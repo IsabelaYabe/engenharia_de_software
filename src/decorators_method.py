@@ -114,23 +114,6 @@ def immutable_fields(attribute_name):
     return decorator
 
 '''
-def foreign_key_validation(foreign_keys):
-    def decorador(funcao):
-        sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-        from database_manager_central import DatabaseManagerCentral
-        @wraps(funcao)
-        def wrapper(self, *args, **kwargs):    
-            for table_name in foreign_keys:
-                table_name_id = table_name[:-1].replace(" ","_")+"_id"
-                record_id = kwargs.get(table_name_id)
-                table = relationship_manager_central.dict_relationships[table_name]
-                if record_id and not table.get_by_id(record_id):
-                    return f"{table.get_column_id()} {record_id} does not exist."
-            return funcao(self, record_id, **kwargs)
-        return wrapper
-    return decorador 
-
-
 def transaction_validations(strategies):
     def decorator(funcao):
         @wraps(funcao)

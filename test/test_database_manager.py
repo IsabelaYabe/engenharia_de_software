@@ -13,8 +13,7 @@ Status: Complete
 Dependencies:
     - unittest
     - unittest.mock
-    - mysql.connector
-    - re
+    - res
     - uuid
     - custom_logger.setup_logger
     - database_manager.DatabaseManager
@@ -23,13 +22,13 @@ Dependencies:
 import unittest
 from unittest.mock import MagicMock, patch
 import re
-import mysql.connector
 import uuid
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
 from database_manager import DatabaseManager, Config
 from custom_logger import setup_logger
+
 logger = setup_logger()
 
 class TestDatabaseManager(unittest.TestCase):
@@ -319,7 +318,7 @@ class TestDatabaseManager(unittest.TestCase):
 
         mock_connection = MagicMock()
         mock_connect.return_value = mock_connection
-        # Change de enviroment (with)
+       
         mock_connection = mock_connection.__enter__()
         mock_cursor = mock_connection.cursor().__enter__.return_value
 
