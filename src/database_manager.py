@@ -31,7 +31,6 @@ Decorators:
 from dataclasses import dataclass, field
 from custom_logger import setup_logger
 import mysql.connector
-#import uuid
 import re
 from copy import deepcopy
 
@@ -41,10 +40,10 @@ sys.path.append(os.path.abspath(os.path.join(os.getcwd(),'src')))
 from decorators_method import immutable_fields
 from decorators_class import pubsub
 from event_manager.event_manager import EventManager
-from utils.utils import tuple_rows_to_dict, uuid
-
+from utils.utils import tuple_rows_to_dict
 
 logger = setup_logger()
+
 @dataclass
 class Config:
     """
@@ -306,18 +305,6 @@ class DatabaseManager():
         Raises:
             ValueError: If insertion fails due to invalid data or constraints.
         """
-        logger.debug(f"Insert row teste")   
-        logger.debug(f"Kwargs: {kwargs}")
-        #id = int(str(uuid.uuid4()).replace("-", ""))
-        """raw_uuid = uuid.uuid4().int
-        id = ''.join(filter(str.isdigit, str(raw_uuid)))[:35]"""
-        id = uuid()
-        logger.debug(f"ID: {id}")
-        column_id = self.__column_id
-        logger.debug(f"Column ID: {column_id}")
-        """columns = [f"`{column_id}`"]
-        values = [id]
-        placeholders = ["%s"]"""
         columns = []
         values = []
         placeholders = []
