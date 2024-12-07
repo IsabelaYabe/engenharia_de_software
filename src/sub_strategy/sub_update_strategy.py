@@ -115,7 +115,8 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
             Exception: If an error occurs during the update process.
         """
         logger.info(f"Executing update strategy with data: {data}")
-        name = data["name"]
+        
+        name = data["product_id"]
         vending_machine_id = data["vending_machine_id"]
         quantity = data["quantity"]
         try:

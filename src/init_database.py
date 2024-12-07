@@ -169,8 +169,8 @@ def populate_database(db_config):
 
     transactions = [
         [1, 1, 1, 3, 5.0],
-        [2, 2, 2, 1, 4.5],
-        [3, 3, 3, 5, 4.0]
+        [2, 2, 1, 1, 4.5],
+        [3, 3, 2, 5, 4.0]
     ]
 
     for transaction in transactions:
