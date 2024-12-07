@@ -2,7 +2,7 @@
 Module for Testing DatabaseManagerCentral Class.
 
 This module provides a suite of unit tests for the `DatabaseManagerCentral` class using the `unittest` framework.
-It tests various operations such as table management, CRUD operations, and proper instantiation of dependent classes.
+It tests various operations such as table management, and proper instantiation of dependent classes.
 
 Author: Isabela Yabe
 Last Modified: 07/12/2024
@@ -185,34 +185,33 @@ class TestDatabaseManagerCentral(unittest.TestCase):
         """
         Test adding a new user to the database.
         """
-        logger.debug("Starting test_add_user ---------------------------> TEST 6")
         db_manager_central = DatabaseManagerCentral(
-            host=self.host, user=self.user, password=self.password, database=self.database
-        )
+                host=self.host, user=self.user, password=self.password, database=self.database
+            )
 
         user_data = {
             "username": "test_user",
             "email": "test_user@example.com",
-            "password": "ff2f12ec5c6a2e9ef6b61c958ed701c327469190a18075fd909ec2a9b42b94f2",
+            "password": "mypassword123", 
             "first_name": "Test",
             "last_name": "User",
             "birthdate": "1990-01-01",
             "phone_number": "1234567890",
-            "address": "123 Test Street",
+            "address": "123 Test Street", 
             "budget": 100.0,
         }
+        expected_hashed_password = "ff2f12ec5c6a2e9ef6b61c958ed701c327469190a18075fd909ec2a9b42b94f2"  
 
-        with patch.object(db_manager_central.users_profile, 'search_record', return_value=True) as mock_search_record, \
-             patch.object(db_manager_central.users_profile, 'insert_row', return_value="new_user_id") as mock_insert_row:
-
+        with patch.object(db_manager_central.password_hasher, "hash_password", return_value=expected_hashed_password) as mock_hash_password, \
+             patch.object(db_manager_central.users_profile, "insert_row", return_value="new_user_id") as mock_insert_row:
             user_id = db_manager_central.add_user(**user_data)
-
+        
+            mock_hash_password.assert_called_once_with(user_data["password"])
+        
+            user_data["password"] = expected_hashed_password
             mock_insert_row.assert_called_once_with(**user_data)
-
-            mock_search_record.assert_not_called()
-
             self.assertEqual(user_id, "new_user_id")
-            logger.info("Test add_user: OK!!! ---------------------------> TEST 6 OK!!!")
+        logger.info("Test add_user: OK!!! ---------------------------> TEST 6 OK!!!")
 
     def test_add_purchase_transaction_success(self):
         """
@@ -489,6 +488,113 @@ class TestDatabaseManagerCentral(unittest.TestCase):
             )
             self.assertEqual(sales_report, mock_sales_data)
             logger.info("Test get_sales_report: OK!!! ---------------------------> TEST 16 OK!!!")
+
+    def test_login_user_success(self):
+        """
+        Test successful user login.
+        """
+        db_manager_central = DatabaseManagerCentral(
+            host=self.host, user=self.user, password=self.password, database=self.database
+        )
+
+        username = "test_user"
+        password = "mypassword123"
+    
+        user_data = ("1", username, "test_user@example.com", password, "Test", "User", "1990-01-01", "1234567890", "123 Test Street", 100.0)
+        columns = ["id", "username", "email", "password", "first_name", "last_name", "birthdate", "phone_number", "address", "budget"]
+
+        with patch.object(db_manager_central.users_profile, "search_record", return_value=[user_data]) as mock_search_record:
+
+            user = db_manager_central.login_user(table_name="users_profile", username=username, password=password)
+
+            mock_search_record.assert_called_once_with(username=username, password="6e659deaa85842cdabb5c6305fcc40033ba43772ec00d45c2a3c921741a5e377")
+
+            self.assertIsNotNone(user)
+
+            self.assertEqual(user["username"], username)
+
+            logger.info("Test login_user_success: OK!!! ---------------------------> TEST 17 OK!!!")
+
+
+    def test_login_user_incorrect_password(self):
+        """
+        Test login fails due to incorrect password.
+        """
+        db_manager_central = DatabaseManagerCentral(
+            host=self.host, user=self.user, password=self.password, database=self.database
+        )
+
+        username = "test_user"
+        password = "wrongpassword"
+        hashed_password = "hashed_wrong_password"
+
+        with patch.object(db_manager_central.password_hasher, 'hash_password', return_value=hashed_password) as mock_hash_password, \
+             patch.object(db_manager_central.users_profile, 'search_record', return_value=[]) as mock_search_record:
+
+            user = db_manager_central.login_user(table_name="users_profile", username=username, password=password)
+
+            mock_hash_password.assert_called_once_with(password)
+            mock_search_record.assert_called_once_with(username=username, password=hashed_password)
+            self.assertIsNone(user)
+            logger.info("Test login_user_incorrect_password: OK!!! ---------------------------> TEST 18 OK!!!")
+
+
+    def test_login_user_incorrect_username(self):
+        """
+        Test login fails due to incorrect username.
+        """
+        db_manager_central = DatabaseManagerCentral(
+            host=self.host, user=self.user, password=self.password, database=self.database
+        )
+
+        username = "non_existent_user"
+        password = "mypassword123"
+        
+        with patch.object(db_manager_central.users_profile, 'search_record', return_value=[]) as mock_search_record:
+
+            user = db_manager_central.login_user(table_name="users_profile", username=username, password=password)
+
+            mock_search_record.assert_called_once_with(username=username, password="6e659deaa85842cdabb5c6305fcc40033ba43772ec00d45c2a3c921741a5e377")
+            self.assertIsNone(user)
+            logger.info("Test login_user_incorrect_username: OK!!! ---------------------------> TEST 19 OK!!!")
+
+    def test_login_user_table_not_found(self):
+        """
+        Test login fails due to table not being found.
+        """
+        db_manager_central = DatabaseManagerCentral(
+            host=self.host, user=self.user, password=self.password, database=self.database
+        )
+
+        username = "test_user"
+        password = "mypassword123"
+
+        with self.assertRaises(ValueError) as context:
+            db_manager_central.login_user(table_name="non_existent_table", username=username, password=password)
+
+        self.assertIn("Table 'non_existent_table' not found", str(context.exception))
+        logger.info("Test login_user_table_not_found: OK!!! ---------------------------> TEST 20 OK!!!")
+
+
+    def test_login_user_system_error(self):
+        """
+        Test login fails due to an internal system error.
+        """
+        db_manager_central = DatabaseManagerCentral(
+            host=self.host, user=self.user, password=self.password, database=self.database
+        )
+
+        username = "test_user"
+        password = "mypassword123"
+
+        with patch.object(db_manager_central.users_profile, 'search_record', side_effect=Exception("Database error")) as mock_search_record:
+
+            with self.assertRaises(Exception) as context:
+                db_manager_central.login_user(table_name="users_profile", username=username, password=password)
+
+            mock_search_record.assert_called_once_with(username=username, password="6e659deaa85842cdabb5c6305fcc40033ba43772ec00d45c2a3c921741a5e377")
+            self.assertIn("An error occurred while attempting to log in.", str(context.exception))
+            logger.info("Test login_user_system_error: OK!!! ---------------------------> TEST 21 OK!!!")
 
 if __name__ == "__main__":
     unittest.main()
