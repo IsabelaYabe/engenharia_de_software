@@ -115,72 +115,6 @@ def populate_database(db_config):
 
     logger.debug("Product comments inserted.")
 
-    vm_complaint = [
-        ["Máquina quebrada", 1, 2],
-        ["Máquina quebrada", 2, 3],
-        ["Máquina quebrada", 3, 1]
-    ]
-
-    for complaint in vm_complaint:
-        logger.debug(f"Inserting vending machine complaint: {complaint}")
-        manager.add_vending_machine_complaint(*complaint)
-        logger.debug("Vending machine complaint inserted.")
-
-    logger.debug("Vending machine complaints inserted.")
-
-    vm_comment = [
-        ["Muito bom", 1, 2],
-        ["Muito bom", 2, 3],
-        ["Muito bom", 3, 1]
-    ]
-
-    for comment in vm_comment:
-        logger.debug(f"Inserting vending machine comment: {comment}")
-        manager.add_vending_machine_comment(*comment)
-        logger.debug("Vending machine comment inserted.")
-
-    logger.debug("Vending machine comments inserted.")
-
-    pro_favorite = [
-        [1, 1],
-        [2, 2],
-        [3, 3]
-    ]
-
-    for favorite in pro_favorite:
-        logger.debug(f"Inserting product favorite: {favorite}")
-        manager.add_favorite_product(*favorite)
-        logger.debug("Product favorite inserted.")
-
-    logger.debug("Product favorites inserted.")
-
-    vm_favorite = [
-        [1, 1],
-        [2, 2],
-        [3, 3]
-    ]
-
-    for favorite in vm_favorite:
-        logger.debug(f"Inserting vending machine favorite: {favorite}")
-        manager.add_favorite_vending_machine(*favorite)
-        logger.debug("Vending machine favorite inserted.")
-
-    logger.debug("Vending machine favorites inserted.")
-
-    transactions = [
-        [1, 1, 1, 3, 5.0],
-        [2, 2, 2, 1, 4.5],
-        [3, 3, 3, 5, 4.0]
-    ]
-
-    for transaction in transactions:
-        logger.debug(f"Inserting transaction: {transaction}")
-        manager.add_transaction(*transaction)
-        logger.debug("Transaction inserted.")
-
-    logger.debug("Transactions inserted.")
-    
-
 
     manager.show()
 
@@ -228,7 +162,7 @@ if __name__ == "__main__":
         "password": "Alacazumba123*",
         "database": "my_database"
     }
-    #drop_database(db_config)
-    init_database(db_config)
-    print("iurbfquwcrhfcmpwoerjfh 94ufb pwrg fquirh qieb qwbrf iergnipqe fprh f hqrf iro roph oqwr ojwji"*3)
-    populate_database(db_config)
+    drop_database(db_config)
+    #init_database(db_config)
+    #print("iurbfquwcrhfcmpwoerjfh 94ufb pwrg fquirh qieb qwbrf iergnipqe fprh f hqrf iro roph oqwr ojwji"*3)
+    #populate_database(db_config)

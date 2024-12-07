@@ -209,32 +209,7 @@ class DatabaseManagerCentral:
                 raise ValueError(f"Table '{table_name}' not found.")
             logger.debug(f"Table '{table_name}' found.")
     
-    def drop_tables(self):
-        # Load SQL script to drop tables
-        try:
-            with open("src\MYSQL\drop_tables_relationships.sql", "r") as file:
-                logger.debug("Reading SQL script to drop tables.")
-                drop_tables_sql = file.read()
-        except FileNotFoundError:
-            logger.error("SQL script file not found.")
-            raise
-        except Exception as e:
-            logger.error(f"Error reading SQL script file: {e}")
-            raise
-
-        try:
-            conn = mysql.connector.connect(host = self.__host, user = self.__user, password = self.__password, database = self.__database)
-            logger.debug("Successful connection")
-        except mysql.connector.Error as e:
-            logger.error("Unsuccessful connection: %s (errno=%d)", e.msg, e.errno)
-            raise
-        logger.info("Connected into database")
-
-        # Execute the SQL script to drop tables
-        with conn.cursor() as cursor:
-            cursor.execute(drop_tables_sql)
-
-        logger.debug("Database tables dropped successfully.")
+        
 
     def show(self):
         for table_name, table_instance in self.instance_tables.__dict__.items():
@@ -369,7 +344,7 @@ class DatabaseManagerCentral:
         }
         return self.insert_record("users_profile", data)
     
-    def add_product_comment(self, product_id, user_id, text):
+    def add_product_comment(self, text, product_id, user_id):
         """
         Adds a comment for a product in the `product_comment` table.
 
@@ -443,7 +418,7 @@ class DatabaseManagerCentral:
             foreign_keys={"vending_machines_profile": "vending_machine_id", "users_profile": "user_id"}
         )
 
-    def add_vending_machine_comment(self, vending_machine_id, user_id, text):
+    def add_vending_machine_comment(self, text, vending_machine_id, user_id):
         """
         Adds a comment for a vending machine in the `vending_machine_comment` table.
 
@@ -459,9 +434,9 @@ class DatabaseManagerCentral:
             ValueError: If foreign key validation fails.
         """
         data = {
-            "vending_machine_id": vending_machine_id,
-            "user_id": user_id,
             "text": text,
+            "vending_machine_id": vending_machine_id,
+            "user_id": user_id
         }
         return self.insert_record(
             "vending_machine_comment",
@@ -469,7 +444,7 @@ class DatabaseManagerCentral:
             foreign_keys={"vending_machines_profile": "vending_machine_id", "users_profile": "user_id"}
         )
 
-    def add_vending_machine_complaint(self, vending_machine_id, user_id, text):
+    def add_vending_machine_complaint(self, text, vending_machine_id, user_id):
         """
         Adds a complaint for a vending machine in the `vending_machine_complaint` table.
 
@@ -485,9 +460,9 @@ class DatabaseManagerCentral:
             ValueError: If foreign key validation fails.
         """
         data = {
-            "vending_machine_id": vending_machine_id,
-            "user_id": user_id,
             "text": text,
+            "vending_machine_id": vending_machine_id,
+            "user_id": user_id
         }
         return self.insert_record(
             "vending_machine_complaint",
@@ -495,7 +470,7 @@ class DatabaseManagerCentral:
             foreign_keys={"vending_machines_profile": "vending_machine_id", "users_profile": "user_id"}
         )
 
-    def add_product_complaint(self, product_id, user_id, text):
+    def add_product_complaint(self, text, product_id, user_id):
         """
         Adds a complaint for a product in the `product_complaint` table.
 
@@ -511,9 +486,9 @@ class DatabaseManagerCentral:
             ValueError: If foreign key validation fails.
         """
         data = {
+            "text": text,
             "product_id": product_id,
             "user_id": user_id,
-            "text": text,
         }
         return self.insert_record(
             "product_complaint",
