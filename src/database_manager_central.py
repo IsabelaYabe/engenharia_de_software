@@ -23,6 +23,7 @@ from sub_strategy.sub_update_strategy import PurchaseProductSubUpdateStrategy
 from singleton_decorator import singleton
 from custom_logger import setup_logger
 from dataclasses import dataclass
+from password_hasher import PasswordHasher, hash_password_decorator
 
 logger = setup_logger()
 
@@ -75,6 +76,7 @@ class DatabaseManagerCentral:
         self.__user = user
         self.__password = password
         self.__database = database
+        self.__password_hasher = PasswordHasher()
 
         self.event_manager = EventManager()
         self.event_manager.update_strategies["PurchaseProductEvent"] = PurchaseProductSubUpdateStrategy()
@@ -94,7 +96,7 @@ class DatabaseManagerCentral:
         self.__vending_machines_config_sub = None
         self.__vending_machines_profile = DatabaseManager(self.__vending_machines_config, self.__vending_machines_config_pub, self.__vending_machines_config_sub, immutable_columns=None, foreign_keys={"owner_id": "owners_profile"})
 
-        self.__owners_config = Config(self.host, self.user, self.password, self.database, "owners_profile", ["id", "ownername", "email", "password", "first name", "last name", "birthdate", "phone_number", "address", "budget"], "id")
+        self.__owners_config = Config(self.host, self.user, self.password, self.database, "owners_profile", ["id", "username", "email", "password", "first name", "last name", "birthdate", "phone_number", "address", "budget"], "id")
         self.__owners_config_pub = None
         self.__owners_config_sub = None
         self.__owners_profile = DatabaseManager(self.__owners_config, self.__owners_config_pub, self.__owners_config_sub, immutable_columns=["birthdate", "first_name", "last_name"])
@@ -230,6 +232,7 @@ class DatabaseManagerCentral:
             foreign_keys={"vending_machines_profile": "vending_machine_id"}
         )
 
+    @hash_password_decorator
     def add_user(self, username, email, password, first_name, last_name, birthdate, phone_number, address, budget):
         """
         Adds a new user to the `users_profile` table.
@@ -413,7 +416,8 @@ class DatabaseManagerCentral:
             foreign_keys={"products_profile": "product_id", "users_profile": "user_id"}
         )
 
-    def add_owner(self, ownername, email, password, first_name, last_name, birthdate, phone_number, address, budget):
+    @hash_password_decorator
+    def add_owner(self, username, email, password, first_name, last_name, birthdate, phone_number, address, budget):
         """
         Updates the budget of an owner in the database.
 
@@ -425,7 +429,7 @@ class DatabaseManagerCentral:
             Exception: If an error occurs during the update operation.
         """
         data = {
-            "ownername": ownername,
+            "username": username,
             "email": email,
             "password": password,
             "first_name": first_name,
@@ -686,6 +690,70 @@ class DatabaseManagerCentral:
             logger.error(f"Error generating sales report: {e}")
             raise
 
+    def login_user(self, table_name: str, username: str, password: str):
+        """
+        Logs in a user by validating the username and password for a specific table.
+
+        Args:
+            table_name (str): The name of the table where the user data is stored.
+            username (str): The username provided by the user.
+            password (str): The plain text password provided by the user.
+
+        Returns:
+            dict: The user information if the login is successful.
+            None: If the login fails (invalid username or password).
+
+        Logs:
+            - Logs an info message indicating the login attempt.
+            - Logs an error message if the login fails.
+            - Logs an error message if a system error occurs.
+
+        Raises:
+            ValueError: If the table does not exist.
+            Exception: If any system-related error occurs (like SQL query issues).
+        """
+        try:
+            table_instance = getattr(self.instance_tables, table_name, None)
+            if not table_instance:
+                logger.error(f"Table '{table_name}' not found in instance tables.")
+                raise ValueError(f"Table '{table_name}' not found in instance tables.")
+
+            encrypted_password = self.password_hasher.hash_password(password)
+
+            logger.info(f"Attempting login for user: {username} in table: {table_name}")
+
+            user_record = table_instance.search_record(username=username, password=encrypted_password)
+
+            if user_record:
+                user_data = self._map_tuple_to_dict(user_record[0], table_instance.columns)
+                logger.info(f"Login successful for user: {username} in table: {table_name}")
+                return user_data
+            else:
+                logger.error(f"Invalid username or password for user: {username} in table: {table_name}")
+                return None
+
+        except ValueError as ve:
+            logger.error(f"ValueError: {ve}")
+            raise  
+
+        except Exception as e:
+            logger.error(f"System error during login for username '{username}' in table '{table_name}': {str(e)}")
+            raise Exception("An error occurred while attempting to log in.") from e
+
+    def _map_tuple_to_dict(self, record_tuple, columns):
+        """
+        Maps a tuple (from SQL result) to a dictionary using the list of column names.
+
+        Args:
+            record_tuple (tuple): The tuple representing a single record.
+            columns (list): The list of column names corresponding to the tuple.
+
+        Returns:
+            dict: A dictionary where keys are column names and values are the respective values from the tuple.
+        """
+        return {column: value for column, value in zip(columns, record_tuple)}
+
+
     @property
     def host(self):
         return self.__host
@@ -750,6 +818,10 @@ class DatabaseManagerCentral:
     @property
     def favorite_products(self):
         return self.__favorite_products
+    
+    @property
+    def password_hasher(self):
+        return self.__password_hasher
 
     @host.setter
     def host(self, value):
