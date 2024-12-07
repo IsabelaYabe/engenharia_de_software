@@ -19,14 +19,13 @@ def init_database(db_config):
     """
 
     manager = DatabaseManagerCentral(**db_config)
-    #manager.show()
+    manager.show()
 
     print("Database initialized with mock data.")
     
 def populate_database(db_config):
 
     manager = DatabaseManagerCentral(**db_config)
-    manager.create_tables()
 
     # Inserting mock data
     users = [
@@ -56,9 +55,9 @@ def populate_database(db_config):
         looger.debug("Owner inserted.")
     
     vms = [
-        ["VM1", "Rua de Baixo", "13"],
-        ["VM2", "Rua de Cima", "13"],
-        ["VM3", "Rua do Meio", "14"]
+        ["VM1", "Rua de Baixo", "1"],
+        ["VM2", "Rua de Cima", "1"],
+        ["VM3", "Rua do Meio", "2"]
     ]
 
     for vm in vms:
@@ -89,7 +88,7 @@ if __name__ == "__main__":
         "password": "Alacazumba123*",
         "database": "my_database"
     }
-    drop_database(db_config)
+    #drop_database(db_config)
     init_database(db_config)
     print("iurbfquwcrhfcmpwoerjfh 94ufb pwrg fquirh qieb qwbrf iergnipqe fprh f hqrf iro roph oqwr ojwji"*3)
     populate_database(db_config)
