@@ -414,6 +414,26 @@ class DatabaseManager():
                 logger.info(f"Records founds: {return_}")
                 return return_
         
+    def show_table(self):
+        """
+        Shows the table in the database.
+
+        Returns:
+            list[tuple]: A list of rows that match the search criteria.
+
+        Raises:
+            Exception: If the search query fails for any reason.
+        """
+        query = f"SELECT * FROM `{self.__table_name}`;"
+        with self.__connect() as conn, conn.cursor() as cursor:
+            cursor.execute(query)
+            return_execute = cursor.fetchall()
+            if return_execute == []:
+                logger.warning(f"No instance found in table: {self.__table_name}")
+            else:
+                logger.info(f"Got all instances in table: {self.__table_name}")
+                return return_execute
+        
     def execute_sql(self, query, params=None, fetch_one=False, fetch_all=False, error_message=""):
         """
         Executes a raw SQL query on the database.
