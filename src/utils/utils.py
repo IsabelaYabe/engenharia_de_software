@@ -87,4 +87,5 @@ def uuid():
             uuid.append("-")
         else:
             uuid.append(algarism[randint(0, num_alg - 1)])
-    return str(uuid)
+    uuid = "".join(uuid)
+    return uuid
