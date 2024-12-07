@@ -502,7 +502,7 @@ class DatabaseManagerCentral:
             Exception: If an error occurs during the update operation.
         """
         data = {
-            "ownername": username,
+            "username": username,
             "email": email,
             "password": password,
             "first_name": first_name,

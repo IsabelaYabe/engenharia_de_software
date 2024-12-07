@@ -1,7 +1,7 @@
 -- Tabela `owners_profile`
 CREATE TABLE IF NOT EXISTS owners_profile (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    ownername VARCHAR(255) NOT NULL UNIQUE,
+    username VARCHAR(255) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     first_name VARCHAR(255),
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS users_profile (
 -- Tabela `vending_machines_profile`
 CREATE TABLE IF NOT EXISTS vending_machines_profile (
     id VARCHAR(36) PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
     location TEXT NOT NULL,
     status VARCHAR(50) DEFAULT 'active',
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
