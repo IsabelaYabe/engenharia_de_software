@@ -86,8 +86,10 @@ def hash_password_decorator(password_position):
             """
             Wraps the target function, hashes the 'password' in kwargs, and calls the function.
             """
+            args = list(args)
             logger.info("Hashing password before calling the original function.")
             args[password_position] = self.password_hasher.hash_password(args[password_position])
+            args = tuple(args)
             return func(self, *args, **kwargs)
         return wrapper
     return decorator
