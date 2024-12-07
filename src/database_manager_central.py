@@ -205,6 +205,13 @@ class DatabaseManagerCentral:
 
         logger.debug("Database tables dropped successfully.")
 
+    def show(self):
+        for table_name, table_instance in self.instance_tables.__dict__.items():
+            print(f"Table: {table_name}")
+            records = table_instance.show()
+            for record in records:
+                print(record)
+
     def insert_record(self, table_name, data, foreign_keys=None):
         """
         Centralized logic for inserting a record into a specified table.
