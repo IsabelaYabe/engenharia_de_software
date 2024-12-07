@@ -5,7 +5,7 @@ This module provides a suite of unit tests for the `DatabaseManagerCentral` clas
 It tests various operations such as table management, CRUD operations, and proper instantiation of dependent classes.
 
 Author: Isabela Yabe
-Last Modified: 19/11/2024
+Last Modified: 07/12/2024
 Status: Complete
 
 Dependencies:

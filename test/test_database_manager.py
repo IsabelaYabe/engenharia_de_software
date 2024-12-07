@@ -28,6 +28,7 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
 from database_manager import DatabaseManager, Config
 from custom_logger import setup_logger
+
 logger = setup_logger()
 
 class TestDatabaseManager(unittest.TestCase):
