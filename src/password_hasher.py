@@ -87,6 +87,8 @@ def hash_password_decorator(func):
         """
         if "password" in kwargs:
             logger.info("Hashing password before calling the original function.")
+            logger.debug(f"Original password: {kwargs['password']}")
             kwargs["password"] = self.password_hasher.hash_password(kwargs["password"])
+            logger.debug(f"Hashed password: {kwargs['password']}")
         return func(self, *args, **kwargs)
     return wrapper
