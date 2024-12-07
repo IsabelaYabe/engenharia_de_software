@@ -308,19 +308,23 @@ class DatabaseManager():
         """
         logger.debug(f"Insert row teste")   
         logger.debug(f"Kwargs: {kwargs}")
-        id = str(uuid.uuid4())
+        #id = int(str(uuid.uuid4()).replace("-", ""))
+        raw_uuid = uuid.uuid4().int
+        id = ''.join(filter(str.isdigit, str(raw_uuid)))[:35]
         logger.debug(f"ID: {id}")
         column_id = self.__column_id
         logger.debug(f"Column ID: {column_id}")
-        columns = [column_id]
+        columns = [f"`{column_id}`"]
         values = [id]
-        placeholders = []
+        placeholders = ["%s"]
         for key, value in kwargs.items():
             columns.append(f"`{key}`")
             values.append(value)
             placeholders.append("%s")
         columns_str = ", ".join(columns)
+        logger.debug(f"Columns: {columns_str}")
         placeholders = ", ".join(placeholders)
+        logger.debug(f"Placeholders: {placeholders}")
         insert_sql = f"INSERT INTO `{self.__table_name}` ({columns_str}) VALUES ({placeholders});"
         
         logger.debug(f"Insert SQL: {insert_sql}")
