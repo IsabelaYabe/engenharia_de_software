@@ -490,6 +490,5 @@ class TestDatabaseManagerCentral(unittest.TestCase):
             self.assertEqual(sales_report, mock_sales_data)
             logger.info("Test get_sales_report: OK!!! ---------------------------> TEST 16 OK!!!")
 
-
 if __name__ == "__main__":
     unittest.main()
