@@ -79,13 +79,10 @@ def uuid():
     Returns:
         str: A random UUID.
     """
-    algarism = "0123456789abcdefghijklmnopqrstuvwxyz"
+    algarism = "0123456789"
     num_alg = len(algarism)
     uuid = []
     for i in range(36):
-        if i in [8, 13, 18, 23]:
-            uuid.append("-")
-        else:
-            uuid.append(algarism[randint(0, num_alg - 1)])
+        uuid.append(algarism[randint(0, num_alg - 1)])
     uuid = "".join(uuid)
     return uuid
