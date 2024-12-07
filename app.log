@@ -1065,3 +1065,47 @@
 2024-12-07 16:20:57,995 | INFO | test_password_hasher:test_log_error_for_non_string_password - Test log error for non string password: OK!!! ---------------------------> TEST 9 OK!!!
 2024-12-07 16:20:57,995 | INFO | test_password_hasher:test_singleton_instance - Test singleton instance: OK!!! ---------------------------> TEST 1 OK!!!
 >>>>>>> d1d8114f220e59999ce43dfd2fa8d95281f5d7df
+2024-12-07 16:36:39,149 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 16:36:39,150 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 16:36:39,179 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 16:36:39,180 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 16:36:39,182 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 16:36:39,183 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 16:36:39,184 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 16:36:39,184 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 16:36:39,186 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 16:36:39,188 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 16:36:39,189 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 16:36:39,191 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 16:36:39,192 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 16:36:39,194 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 16:36:39,196 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 16:36:39,198 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 16:36:39,200 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 16:36:39,202 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 16:36:39,329 | INFO | database_manager:__connect - Connected into database
+2024-12-07 16:36:39,336 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 16:36:39,353 | INFO | database_manager:__connect - Connected into database
+2024-12-07 16:36:39,357 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 16:36:39,375 | INFO | database_manager:__connect - Connected into database
+2024-12-07 16:36:39,379 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 16:36:39,394 | INFO | database_manager:__connect - Connected into database
+2024-12-07 16:36:39,399 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 16:36:39,419 | INFO | database_manager:__connect - Connected into database
+2024-12-07 16:36:39,424 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 16:36:39,442 | INFO | database_manager:__connect - Connected into database
+2024-12-07 16:36:39,446 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 16:36:39,463 | INFO | database_manager:__connect - Connected into database
+2024-12-07 16:36:39,468 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 16:36:39,482 | INFO | database_manager:__connect - Connected into database
+2024-12-07 16:36:39,486 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 16:36:39,503 | INFO | database_manager:__connect - Connected into database
+2024-12-07 16:36:39,509 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 16:36:39,528 | INFO | database_manager:__connect - Connected into database
+2024-12-07 16:36:39,534 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 16:36:39,552 | INFO | database_manager:__connect - Connected into database
+2024-12-07 16:36:39,556 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 16:36:39,571 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 16:36:39,599 | INFO | database_manager:__connect - Connected into database
+2024-12-07 16:36:39,601 | ERROR | database_manager_central:insert_record - Error inserting record into 'users_profile': Not all parameters were used in the SQL statement
+2024-12-07 16:36:39,602 | ERROR | database_manager_central:insert_record - Error inserting record into 'users_profile': Not all parameters were used in the SQL statement
