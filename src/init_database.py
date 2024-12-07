@@ -9,6 +9,9 @@
 """
 import mysql.connector
 from database_manager_central import DatabaseManagerCentral
+from custom_logger import setup_logger
+
+looger = setup_logger()
 
 def init_database(db_config):
     """
@@ -37,6 +40,8 @@ def populate_database(db_config):
 
     for user in users:
         manager.add_user(*user)
+
+    looger.debug("Users inserted.")
 
 
 def show_users(db_config):
