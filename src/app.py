@@ -3,6 +3,7 @@ from profiles.stock_profile import StockProfile
 from profiles.vms_profile import VMProfile
 from profiles.comment_profile import CommentProfile
 from profiles.complaint_profile import Complaint
+from profiles.report_profile import VendingMachineReports
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -12,7 +13,7 @@ CORS(app)
 db_config = {
     "host": "localhost",
     "user": "root",
-    "password": "Alacazumba123*",
+    "password": "Rac@z23p092023",
     "database": "my_database"
 }
 
@@ -47,13 +48,15 @@ def report():
     """
     return render_template('report.html')
 
-@app.route('/get_report', methods=['GET'])
+@app.route('/get_stock_report', methods=['GET'])
 def get_report():
     """
     Endpoint for retrieving a report about sales and ratings.
     """
-
-    return
+    stock_report = VendingMachineReports(**db_config)
+    report = stock_report.get_stock_report()
+    stock_report.close()
+    return jsonify(report)
 
 @app.route('/vms')
 def vms():

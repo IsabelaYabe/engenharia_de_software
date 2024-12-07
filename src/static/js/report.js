@@ -1,6 +1,6 @@
 // Fetch stock information from the server and populate the table
 function fetchStockInfo() {
-    fetch('/get_report')
+    fetch('/get_stock_report')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -14,9 +14,9 @@ function fetchStockInfo() {
             stockInfo.forEach(item => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${item.vending_machine_id}</td>
+                    <td>${item.product_name}</td>
                     <td>${item.vending_machine_name}</td>
-                    <td>${item.product_id}</td>
+                    <td>${item.product_quantity}</td>
                 `;
                 tableBody.appendChild(row);
             });

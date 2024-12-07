@@ -1,12 +1,50 @@
-
-<html>
-    <head><title>Relat�rio das Vending Machines</title></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .button-container {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
     <body>
-        <h1>Relat�rio de Vending Machines</h1>
+        <h1>Vending Machine reports</h1>
 
-        <h2>Relat�rio de Estoque</h2>
+        <h2>Stock report</h2>
         <table border="1">
-            <tr><th>Produto</th><th>M�quina</th><th>Estoque dispon�vel</th></tr
+            <tr><th>Product</th><th>Machine</th><th>Available Stock</th></tr>
             
             <tbody id="report-table-body">
                 <!-- Stock data will be inserted here -->
