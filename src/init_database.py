@@ -8,127 +8,16 @@
     Date: 15/10/2024
 """
 import mysql.connector
-from database_manager import DatabaseManager
+from database_manager_central import DatabaseManagerCentral
 
 def init_database(db_config):
     """
     Initializes the database by creating the necessary tables and inserting mock data.
     """
 
-    manager = DatabaseManager(**db_config)
+    manager = DatabaseManagerCentral(**db_config)
 
-    create_table_sql = """
-    CREATE TABLE IF NOT EXISTS Users (
-        UserID INT AUTO_INCREMENT PRIMARY KEY,
-        UserName VARCHAR(255) NOT NULL,
-        UserEmail VARCHAR(255) NOT NULL,
-        UserPassword VARCHAR(255) NOT NULL
-    )
-    """
-
-    manager.create_table(create_table_sql)
-
-    manager.insert_row("Users", ["UserName", "UserEmail", "UserPassword"], ["Alice", "Alice@gmail.com", "123456"])
-    manager.insert_row("Users", ["UserName", "UserEmail", "UserPassword"], ["Bob", "Bob@gmail.com", "123456"])
-    manager.insert_row("Users", ["UserName", "UserEmail", "UserPassword"], ["Charlie", "Charlie@gmail.com", "123456"])
-
-
-    create_table_sql = """
-    CREATE TABLE IF NOT EXISTS Owner
-        (
-        OwnerID INT AUTO_INCREMENT,
-        PRIMARY KEY (OwnerID)
-        );
-    """
-
-    manager.create_table(create_table_sql)
-
-    manager.insert_row("Owner", ["OwnerID"], [1])
-    manager.insert_row("Owner", ["OwnerID"], [2])
-
-    create_table_sql = """
-    CREATE TABLE IF NOT EXISTS VMs
-        (
-        VMID INT AUTO_INCREMENT,
-        Name VARCHAR(30) NOT NULL,
-        Location VARCHAR(50) NOT NULL,
-        OwnerID INT NOT NULL,
-        Status VARCHAR(10) DEFAULT 'active',
-        PRIMARY KEY (VMID),
-        FOREIGN KEY (OwnerID) REFERENCES Owner(OwnerID)
-);
-    """
-
-    manager.create_table(create_table_sql)
-
-    manager.insert_row("VMs", ["Name", "Location", "OwnerID"], ["Máquina de café", "14 Andar", 1])
-    manager.insert_row("VMs", ["Name", "Location", "OwnerID"], ["Wizmart", "Saguão", 1])
-    manager.insert_row("VMs", ["Name", "Location", "OwnerID"], ["Cesta de brownies", "4 Andar", 2])
-
-
-    create_table_sql = """
-    CREATE TABLE IF NOT EXISTS Products
-        (
-        ProductID INT AUTO_INCREMENT,
-        Name VARCHAR(30) NOT NULL,
-        Description VARCHAR(100) NOT NULL,
-        Price FLOAT NOT NULL,
-        Quantity INT,
-        VMID INT NOT NULL,
-        PRIMARY KEY (ProductID),
-        FOREIGN KEY (VMID) REFERENCES VMs(VMID)
-        );
-    """
-
-    manager.create_table(create_table_sql)
-
-    manager.insert_row("Products", ["Name", "Description", "Price", "VMID"], ["Café curto", "Café numa quantidade pequena", 0.0, 1])
-    manager.insert_row("Products", ["Name", "Description", "Price", "VMID"], ["Café longo", "Café numa quantidade maior", 0.0, 1])
-    manager.insert_row("Products", ["Name", "Description", "Price", "VMID"], ["Capuccino", "Bebida de café, leite e canela", 2.5, 1])
-    manager.insert_row("Products", ["Name", "Description", "Price", "Quantity", "VMID"], ["Água", "H2O", 4.0, 5, 2])
-    manager.insert_row("Products", ["Name", "Description", "Price", "Quantity", "VMID"], ["Brownie", "Delicioso bolo de chocolate caseiro", 5.0, 12, 3])
-
-    create_table_sql = """
-    CREATE TABLE IF NOT EXISTS Complaints
-        (
-        ComplaintID INT AUTO_INCREMENT,
-        Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        VMID INT,
-        UserID INT,
-        Text VARCHAR(250) NOT NULL,
-        PRIMARY KEY (ComplaintID),
-        FOREIGN KEY (VMID) REFERENCES VMs(VMID),
-        FOREIGN KEY (UserID) REFERENCES Users(UserID)
-        );
-    """
-
-    manager.create_table(create_table_sql)
-
-    manager.insert_row("Complaints", ["VMID", "UserID", "Text"], [1, 1, "A máquina de café está com defeito."])
-    manager.insert_row("Complaints", ["VMID", "UserID", "Text"], [2, 1, "Quero mais opções de café."])
-    manager.insert_row("Complaints", ["VMID", "UserID", "Text"], [3, 2, "O brownie estava podre."])
-    manager.insert_row("Complaints", ["UserID", "Text"], [2, " O app trava todo o tempo."])
-
-    create_table_sql = """
-    CREATE TABLE IF NOT EXISTS Comments
-        (
-        CommentID INT AUTO_INCREMENT,
-        Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        Text VARCHAR(250) NOT NULL,
-        ProductID INT NOT NULL,
-        UserID INT NOT NULL,
-        PRIMARY KEY (CommentID),
-        FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
-        FOREIGN KEY (UserID) REFERENCES Users(UserID)
-        );
-    """
-
-    manager.create_table(create_table_sql)
-
-    manager.insert_row("Comments", ["Text", "ProductID", "UserID"], ["Não tem como começar o dia sem.", 1, 1])
-    manager.insert_row("Comments", ["Text", "ProductID", "UserID"], ["Estavam deliciosos", 5, 1])
-    manager.insert_row("Comments", ["Text", "ProductID", "UserID"], ["Até que é bom.", 3, 2])
-    manager.insert_row("Comments", ["Text", "ProductID", "UserID"], ["Beba água", 4, 2])
+    
 
 
 
@@ -216,23 +105,8 @@ def drop_database(db_config):
     Drops the database.
     """
 
-    manager = DatabaseManager(**db_config)
-    manager.delete_table("Complaints")
-    manager.delete_table("Comments")
-    manager.delete_table("Products")
-    manager.delete_table("VMs")
-    manager.delete_table("Owner")
-    manager.delete_table("User")
-
-    conn = mysql.connector.connect(
-        host=db_config["host"],
-        user=db_config["user"],
-        password=db_config["password"]
-    )
-    cursor = conn.cursor()
-    cursor.execute("DROP DATABASE IF EXISTS my_database;")
-    cursor.close()
-    conn.close()
+    manager = DatabaseManagerCentral(**db_config)
+    manager.drop_tables()
 
     print("Database dropped.")
 
@@ -246,10 +120,5 @@ if __name__ == "__main__":
         "password": "Alacazumba123*",
         "database": "my_database"
     }
-    drop_database(db_config)
     init_database(db_config)
-    show_users(db_config)
-    show_vms(db_config)
-    show_products(db_config)
-    show_complaints(db_config)
-    show_comments(db_config)
+    drop_database(db_config)

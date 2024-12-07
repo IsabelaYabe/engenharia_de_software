@@ -215,3 +215,89 @@
 2024-12-07 14:25:49,748 | INFO | test_database_manager_central:test_search_table_success - Test search_table_success: OK!!! ---------------------------> TEST 13 OK!!!
 2024-12-07 14:25:49,748 | ERROR | database_manager_central:search_table - Error fetching from table 'invalid_table': Table 'invalid_table' not found.
 2024-12-07 14:25:49,748 | INFO | test_database_manager_central:test_search_table_table_not_found - Test search_table_table_not_found: OK!!! ---------------------------> TEST 14 OK!!!
+2024-12-07 14:51:03,980 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 14:51:03,983 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 14:53:11,655 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 14:53:11,656 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 14:53:26,689 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 14:53:26,690 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 14:53:59,501 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 14:53:59,503 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 14:54:43,465 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 14:54:43,465 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 14:54:54,376 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 14:54:54,377 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 14:55:08,201 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 14:55:08,202 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 14:55:38,363 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 14:55:38,364 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 14:55:38,391 | ERROR | database_manager_central:__init__ - SQL script file not found.
+2024-12-07 14:56:12,025 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 14:56:12,026 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 14:59:01,282 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 14:59:01,283 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 15:00:21,842 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 15:00:21,843 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 15:00:32,573 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 15:00:32,574 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 15:01:11,556 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 15:01:11,558 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 15:01:11,861 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 15:04:46,506 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 15:04:46,507 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 15:06:15,731 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 15:06:15,732 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 15:06:15,883 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 15:06:15,973 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 15:06:15,974 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 15:06:15,975 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 15:06:15,975 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 15:06:15,976 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 15:06:15,976 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 15:06:15,978 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 15:06:15,980 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 15:06:15,981 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 15:06:15,983 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 15:06:15,984 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 15:06:15,985 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 15:06:15,988 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 15:06:15,989 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 15:06:15,990 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 15:06:15,992 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 15:08:10,816 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 15:08:10,817 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 15:08:10,839 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 15:08:10,840 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 15:08:10,841 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 15:08:10,841 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 15:08:10,842 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 15:08:10,842 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 15:08:10,844 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 15:08:10,844 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 15:08:10,846 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 15:08:10,847 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 15:08:10,848 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 15:08:10,850 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 15:08:10,852 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 15:08:10,854 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 15:08:10,855 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 15:08:10,857 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 15:09:47,708 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 15:09:47,709 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 15:09:47,731 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 15:09:47,733 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 15:09:47,734 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 15:09:47,735 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 15:09:47,735 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 15:09:47,736 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 15:09:47,737 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 15:09:47,738 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 15:09:47,739 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 15:09:47,741 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 15:09:47,742 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 15:09:47,744 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 15:09:47,746 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 15:09:47,748 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 15:09:47,749 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 15:09:47,750 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 15:09:47,879 | INFO | database_manager_central:drop_tables - Connected into database

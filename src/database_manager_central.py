@@ -24,6 +24,7 @@ from singleton_decorator import singleton
 from custom_logger import setup_logger
 from dataclasses import dataclass
 from password_hasher import PasswordHasher, hash_password_decorator
+import mysql.connector
 
 logger = setup_logger()
 
@@ -149,6 +150,60 @@ class DatabaseManagerCentral:
             favorite_products = self.__favorite_products,
             favorite_vending_machines = self.__favorite_vending_machines
         )
+
+    def create_tables(self):
+        # Load SQL script to create tables and relationships
+        try:
+            with open("src\MYSQL\create_tables_relationships.sql", "r") as file:
+                logger.debug("Reading SQL script to create tables and relationships.")
+                create_tables_sql = file.read()
+        except FileNotFoundError:
+            logger.error("SQL script file not found.")
+            raise
+        except Exception as e:
+            logger.error(f"Error reading SQL script file: {e}")
+            raise
+
+        try:
+            conn = mysql.connector.connect(host = self.__host, user = self.__user, password = self.__password, database = self.__database)
+            logger.debug("Successful connection")
+        except mysql.connector.Error as e:
+            logger.error("Unsuccessful connection: %s (errno=%d)", e.msg, e.errno)
+            raise
+        logger.info("Connected into database")
+
+        # Execute the SQL script to create tables and relationships
+        with conn.cursor() as cursor:
+            cursor.execute(create_tables_sql)
+
+        logger.debug("Database tables and relationships created successfully.")
+    
+    def drop_tables(self):
+        # Load SQL script to drop tables
+        try:
+            with open("src\MYSQL\drop_tables_relationships.sql", "r") as file:
+                logger.debug("Reading SQL script to drop tables.")
+                drop_tables_sql = file.read()
+        except FileNotFoundError:
+            logger.error("SQL script file not found.")
+            raise
+        except Exception as e:
+            logger.error(f"Error reading SQL script file: {e}")
+            raise
+
+        try:
+            conn = mysql.connector.connect(host = self.__host, user = self.__user, password = self.__password, database = self.__database)
+            logger.debug("Successful connection")
+        except mysql.connector.Error as e:
+            logger.error("Unsuccessful connection: %s (errno=%d)", e.msg, e.errno)
+            raise
+        logger.info("Connected into database")
+
+        # Execute the SQL script to drop tables
+        with conn.cursor() as cursor:
+            cursor.execute(drop_tables_sql)
+
+        logger.debug("Database tables dropped successfully.")
 
     def insert_record(self, table_name, data, foreign_keys=None):
         """

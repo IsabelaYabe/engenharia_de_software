@@ -8,6 +8,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+
+
 # Database configuration
 db_config = {
     "host": "localhost",
