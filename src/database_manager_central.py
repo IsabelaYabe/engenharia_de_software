@@ -302,7 +302,7 @@ class DatabaseManagerCentral:
             foreign_keys={"vending_machines_profile": "vending_machine_id"}
         )
 
-    @hash_password_decorator
+    @hash_password_decorator(password_position=2)
     def add_user(self, username, email, password, first_name, last_name, birthdate, phone_number, address, budget):
         """
         Adds a new user to the `users_profile` table.
@@ -486,7 +486,7 @@ class DatabaseManagerCentral:
             foreign_keys={"products_profile": "product_id", "users_profile": "user_id"}
         )
 
-    @hash_password_decorator
+    @hash_password_decorator(password_position=2)
     def add_owner(self, username, email, password, first_name, last_name, birthdate, phone_number, address, budget):
         """
         Updates the budget of an owner in the database.

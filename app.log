@@ -696,3 +696,193 @@
 2024-12-07 15:48:32,798 | INFO | database_manager:__connect - Connected into database
 2024-12-07 15:48:32,800 | ERROR | database_manager_central:insert_record - Error inserting record into 'users_profile': Not all parameters were used in the SQL statement
 2024-12-07 15:48:32,801 | ERROR | database_manager_central:insert_record - Error inserting record into 'users_profile': Not all parameters were used in the SQL statement
+2024-12-07 16:10:27,953 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 16:10:27,955 | INFO | test_password_hasher:test_decorator_does_not_raise_error_if_password_not_in_kwargs - Test decorator does not raise error if password not in kwargs: OK!!! ---------------------------> TEST 12 OK!!!
+2024-12-07 16:10:27,955 | INFO | test_password_hasher:test_decorator_works_with_no_kwargs - Test decorator works with no kwargs: OK!!! ---------------------------> TEST 11 OK!!!
+2024-12-07 16:10:27,955 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:10:27,956 | INFO | test_password_hasher:test_hash_password_correct_content - Test hash password correct content: OK!!! ---------------------------> TEST 7 OK!!!
+2024-12-07 16:10:27,956 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 16:10:27,956 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:10:27,956 | INFO | test_password_hasher:test_hash_password_has_correct_length - Test hash password has correct length: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-07 16:10:27,956 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:10:27,956 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:10:27,956 | INFO | test_password_hasher:test_hash_password_is_deterministic - Test hash password is deterministic: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-07 16:10:27,956 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:10:27,957 | INFO | test_password_hasher:test_hash_password_is_not_empty - Test hash password is not empty: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-07 16:10:27,957 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:10:27,957 | ERROR | password_hasher:hash_password - Invalid password type. Expected a string.
+2024-12-07 16:10:27,957 | INFO | test_password_hasher:test_hash_password_raises_value_error_for_non_string - Test hash password raises value error for non string: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-07 16:10:27,957 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:10:27,957 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:10:27,957 | INFO | test_password_hasher:test_hash_password_success - Test hash password success: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-07 16:10:27,957 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:10:27,957 | INFO | test_password_hasher:test_log_error_for_non_string_password - Test log error for non string password: OK!!! ---------------------------> TEST 14 OK!!!
+2024-12-07 16:10:27,958 | INFO | test_password_hasher:test_singleton_instance - Test singleton instance: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-07 16:12:29,799 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 16:12:29,799 | INFO | test_password_hasher:test_decorator_does_not_raise_error_if_password_not_in_kwargs - Test decorator does not raise error if password not in kwargs: OK!!! ---------------------------> TEST 12 OK!!!
+2024-12-07 16:12:29,801 | INFO | test_password_hasher:test_decorator_works_with_no_kwargs - Test decorator works with no kwargs: OK!!! ---------------------------> TEST 11 OK!!!
+2024-12-07 16:12:29,801 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:12:29,801 | INFO | test_password_hasher:test_hash_password_correct_content - Test hash password correct content: OK!!! ---------------------------> TEST 7 OK!!!
+2024-12-07 16:12:29,801 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 16:12:29,802 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:12:29,802 | INFO | test_password_hasher:test_hash_password_has_correct_length - Test hash password has correct length: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-07 16:12:29,802 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:12:29,802 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:12:29,802 | INFO | test_password_hasher:test_hash_password_is_deterministic - Test hash password is deterministic: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-07 16:12:29,802 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:12:29,802 | INFO | test_password_hasher:test_hash_password_is_not_empty - Test hash password is not empty: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-07 16:12:29,802 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:12:29,802 | ERROR | password_hasher:hash_password - Invalid password type. Expected a string.
+2024-12-07 16:12:29,802 | INFO | test_password_hasher:test_hash_password_raises_value_error_for_non_string - Test hash password raises value error for non string: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-07 16:12:29,802 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:12:29,802 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:12:29,802 | INFO | test_password_hasher:test_hash_password_success - Test hash password success: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-07 16:12:29,803 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:12:29,803 | INFO | test_password_hasher:test_log_error_for_non_string_password - Test log error for non string password: OK!!! ---------------------------> TEST 14 OK!!!
+2024-12-07 16:12:29,804 | INFO | test_password_hasher:test_singleton_instance - Test singleton instance: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-07 16:14:18,700 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 16:14:18,701 | INFO | test_password_hasher:test_decorator_does_not_raise_error_if_password_not_in_kwargs - Test decorator does not raise error if password not in kwargs: OK!!! ---------------------------> TEST 12 OK!!!
+2024-12-07 16:14:18,702 | INFO | test_password_hasher:test_decorator_works_with_no_kwargs - Test decorator works with no kwargs: OK!!! ---------------------------> TEST 11 OK!!!
+2024-12-07 16:14:18,702 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:18,702 | INFO | test_password_hasher:test_hash_password_correct_content - Test hash password correct content: OK!!! ---------------------------> TEST 7 OK!!!
+2024-12-07 16:14:18,702 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 16:14:18,702 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:18,702 | INFO | test_password_hasher:test_hash_password_has_correct_length - Test hash password has correct length: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-07 16:14:18,702 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:18,702 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:18,703 | INFO | test_password_hasher:test_hash_password_is_deterministic - Test hash password is deterministic: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-07 16:14:18,703 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:18,703 | INFO | test_password_hasher:test_hash_password_is_not_empty - Test hash password is not empty: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-07 16:14:18,703 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:18,703 | ERROR | password_hasher:hash_password - Invalid password type. Expected a string.
+2024-12-07 16:14:18,703 | INFO | test_password_hasher:test_hash_password_raises_value_error_for_non_string - Test hash password raises value error for non string: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-07 16:14:18,703 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:18,703 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:18,703 | INFO | test_password_hasher:test_hash_password_success - Test hash password success: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-07 16:14:18,703 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:18,703 | INFO | test_password_hasher:test_log_error_for_non_string_password - Test log error for non string password: OK!!! ---------------------------> TEST 14 OK!!!
+2024-12-07 16:14:18,704 | INFO | test_password_hasher:test_singleton_instance - Test singleton instance: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-07 16:14:30,127 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 16:14:30,128 | INFO | test_password_hasher:test_decorator_does_not_raise_error_if_password_not_in_kwargs - Test decorator does not raise error if password not in kwargs: OK!!! ---------------------------> TEST 12 OK!!!
+2024-12-07 16:14:30,129 | INFO | test_password_hasher:test_decorator_works_with_no_kwargs - Test decorator works with no kwargs: OK!!! ---------------------------> TEST 11 OK!!!
+2024-12-07 16:14:30,129 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:30,129 | INFO | test_password_hasher:test_hash_password_correct_content - Test hash password correct content: OK!!! ---------------------------> TEST 7 OK!!!
+2024-12-07 16:14:30,129 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 16:14:30,130 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:30,130 | INFO | test_password_hasher:test_hash_password_has_correct_length - Test hash password has correct length: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-07 16:14:30,130 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:30,130 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:30,130 | INFO | test_password_hasher:test_hash_password_is_deterministic - Test hash password is deterministic: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-07 16:14:30,130 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:30,130 | INFO | test_password_hasher:test_hash_password_is_not_empty - Test hash password is not empty: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-07 16:14:30,130 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:30,130 | ERROR | password_hasher:hash_password - Invalid password type. Expected a string.
+2024-12-07 16:14:30,130 | INFO | test_password_hasher:test_hash_password_raises_value_error_for_non_string - Test hash password raises value error for non string: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-07 16:14:30,130 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:30,130 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:30,130 | INFO | test_password_hasher:test_hash_password_success - Test hash password success: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-07 16:14:30,131 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:14:30,131 | INFO | test_password_hasher:test_log_error_for_non_string_password - Test log error for non string password: OK!!! ---------------------------> TEST 14 OK!!!
+2024-12-07 16:14:30,131 | INFO | test_password_hasher:test_singleton_instance - Test singleton instance: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-07 16:15:14,694 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 16:15:14,695 | INFO | tempCodeRunnerFile:test_decorator_does_not_raise_error_if_password_not_in_kwargs - Test decorator does not raise error if password not in kwargs: OK!!! ---------------------------> TEST 12 OK!!!
+2024-12-07 16:15:14,696 | INFO | tempCodeRunnerFile:test_decorator_works_with_no_kwargs - Test decorator works with no kwargs: OK!!! ---------------------------> TEST 11 OK!!!
+2024-12-07 16:15:14,696 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:14,696 | INFO | tempCodeRunnerFile:test_hash_password_correct_content - Test hash password correct content: OK!!! ---------------------------> TEST 7 OK!!!
+2024-12-07 16:15:14,696 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 16:15:14,697 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:14,697 | INFO | tempCodeRunnerFile:test_hash_password_has_correct_length - Test hash password has correct length: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-07 16:15:14,697 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:14,697 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:14,697 | INFO | tempCodeRunnerFile:test_hash_password_is_deterministic - Test hash password is deterministic: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-07 16:15:14,697 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:14,697 | INFO | tempCodeRunnerFile:test_hash_password_is_not_empty - Test hash password is not empty: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-07 16:15:14,697 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:14,697 | ERROR | password_hasher:hash_password - Invalid password type. Expected a string.
+2024-12-07 16:15:14,697 | INFO | tempCodeRunnerFile:test_hash_password_raises_value_error_for_non_string - Test hash password raises value error for non string: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-07 16:15:14,697 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:14,697 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:14,697 | INFO | tempCodeRunnerFile:test_hash_password_success - Test hash password success: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-07 16:15:14,697 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:14,698 | INFO | tempCodeRunnerFile:test_log_error_for_non_string_password - Test log error for non string password: OK!!! ---------------------------> TEST 14 OK!!!
+2024-12-07 16:15:14,698 | INFO | tempCodeRunnerFile:test_singleton_instance - Test singleton instance: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-07 16:15:35,761 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 16:15:35,761 | INFO | test_password_hasher:test_decorator_does_not_raise_error_if_password_not_in_kwargs - Test decorator does not raise error if password not in kwargs: OK!!! ---------------------------> TEST 12 OK!!!
+2024-12-07 16:15:35,762 | INFO | test_password_hasher:test_decorator_works_with_no_kwargs - Test decorator works with no kwargs: OK!!! ---------------------------> TEST 11 OK!!!
+2024-12-07 16:15:35,762 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:35,763 | INFO | test_password_hasher:test_hash_password_correct_content - Test hash password correct content: OK!!! ---------------------------> TEST 7 OK!!!
+2024-12-07 16:15:35,763 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 16:15:35,763 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:35,763 | INFO | test_password_hasher:test_hash_password_has_correct_length - Test hash password has correct length: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-07 16:15:35,763 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:35,763 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:35,763 | INFO | test_password_hasher:test_hash_password_is_deterministic - Test hash password is deterministic: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-07 16:15:35,763 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:35,764 | INFO | test_password_hasher:test_hash_password_is_not_empty - Test hash password is not empty: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-07 16:15:35,764 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:35,764 | ERROR | password_hasher:hash_password - Invalid password type. Expected a string.
+2024-12-07 16:15:35,764 | INFO | test_password_hasher:test_hash_password_raises_value_error_for_non_string - Test hash password raises value error for non string: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-07 16:15:35,764 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:35,764 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:35,764 | INFO | test_password_hasher:test_hash_password_success - Test hash password success: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-07 16:15:35,764 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:15:35,764 | INFO | test_password_hasher:test_log_error_for_non_string_password - Test log error for non string password: OK!!! ---------------------------> TEST 14 OK!!!
+2024-12-07 16:15:35,765 | INFO | test_password_hasher:test_singleton_instance - Test singleton instance: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-07 16:17:42,028 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 16:17:42,029 | INFO | test_password_hasher:test_decorator_does_not_raise_error_if_password_not_in_kwargs - Test decorator does not raise error if password not in kwargs: OK!!! ---------------------------> TEST 12 OK!!!
+2024-12-07 16:17:42,030 | INFO | test_password_hasher:test_decorator_works_with_no_kwargs - Test decorator works with no kwargs: OK!!! ---------------------------> TEST 11 OK!!!
+2024-12-07 16:17:42,030 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:17:42,030 | INFO | test_password_hasher:test_hash_password_correct_content - Test hash password correct content: OK!!! ---------------------------> TEST 7 OK!!!
+2024-12-07 16:17:42,030 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 16:17:42,030 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:17:42,030 | INFO | test_password_hasher:test_hash_password_has_correct_length - Test hash password has correct length: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-07 16:17:42,030 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:17:42,030 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:17:42,030 | INFO | test_password_hasher:test_hash_password_is_deterministic - Test hash password is deterministic: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-07 16:17:42,030 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:17:42,030 | INFO | test_password_hasher:test_hash_password_is_not_empty - Test hash password is not empty: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-07 16:17:42,031 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:17:42,031 | ERROR | password_hasher:hash_password - Invalid password type. Expected a string.
+2024-12-07 16:17:42,031 | INFO | test_password_hasher:test_hash_password_raises_value_error_for_non_string - Test hash password raises value error for non string: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-07 16:17:42,031 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:17:42,031 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:17:42,031 | INFO | test_password_hasher:test_hash_password_success - Test hash password success: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-07 16:17:42,031 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:17:42,031 | INFO | test_password_hasher:test_log_error_for_non_string_password - Test log error for non string password: OK!!! ---------------------------> TEST 14 OK!!!
+2024-12-07 16:17:42,031 | INFO | test_password_hasher:test_singleton_instance - Test singleton instance: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-07 16:20:20,783 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:20,783 | INFO | test_password_hasher:test_hash_password_correct_content - Test hash password correct content: OK!!! ---------------------------> TEST 7 OK!!!
+2024-12-07 16:20:20,784 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:20,784 | INFO | test_password_hasher:test_hash_password_has_correct_length - Test hash password has correct length: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-07 16:20:20,784 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:20,784 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:20,784 | INFO | test_password_hasher:test_hash_password_is_deterministic - Test hash password is deterministic: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-07 16:20:20,784 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:20,784 | INFO | test_password_hasher:test_hash_password_is_not_empty - Test hash password is not empty: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-07 16:20:20,784 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:20,784 | ERROR | password_hasher:hash_password - Invalid password type. Expected a string.
+2024-12-07 16:20:20,784 | INFO | test_password_hasher:test_hash_password_raises_value_error_for_non_string - Test hash password raises value error for non string: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-07 16:20:20,784 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:20,784 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:20,784 | INFO | test_password_hasher:test_hash_password_success - Test hash password success: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-07 16:20:20,784 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:20,784 | INFO | test_password_hasher:test_log_error_for_non_string_password - Test log error for non string password: OK!!! ---------------------------> TEST 9 OK!!!
+2024-12-07 16:20:20,786 | INFO | test_password_hasher:test_singleton_instance - Test singleton instance: OK!!! ---------------------------> TEST 1 OK!!!
+2024-12-07 16:20:57,993 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:57,994 | INFO | test_password_hasher:test_hash_password_correct_content - Test hash password correct content: OK!!! ---------------------------> TEST 7 OK!!!
+2024-12-07 16:20:57,994 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:57,994 | INFO | test_password_hasher:test_hash_password_has_correct_length - Test hash password has correct length: OK!!! ---------------------------> TEST 6 OK!!!
+2024-12-07 16:20:57,994 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:57,994 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:57,994 | INFO | test_password_hasher:test_hash_password_is_deterministic - Test hash password is deterministic: OK!!! ---------------------------> TEST 3 OK!!!
+2024-12-07 16:20:57,994 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:57,994 | INFO | test_password_hasher:test_hash_password_is_not_empty - Test hash password is not empty: OK!!! ---------------------------> TEST 5 OK!!!
+2024-12-07 16:20:57,994 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:57,994 | ERROR | password_hasher:hash_password - Invalid password type. Expected a string.
+2024-12-07 16:20:57,994 | INFO | test_password_hasher:test_hash_password_raises_value_error_for_non_string - Test hash password raises value error for non string: OK!!! ---------------------------> TEST 4 OK!!!
+2024-12-07 16:20:57,994 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:57,994 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:57,994 | INFO | test_password_hasher:test_hash_password_success - Test hash password success: OK!!! ---------------------------> TEST 2 OK!!!
+2024-12-07 16:20:57,995 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 16:20:57,995 | INFO | test_password_hasher:test_log_error_for_non_string_password - Test log error for non string password: OK!!! ---------------------------> TEST 9 OK!!!
+2024-12-07 16:20:57,995 | INFO | test_password_hasher:test_singleton_instance - Test singleton instance: OK!!! ---------------------------> TEST 1 OK!!!
