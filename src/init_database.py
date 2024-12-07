@@ -38,6 +38,25 @@ def populate_database(db_config):
     for user in users:
         manager.add_user(*user)
 
+    owners = [
+        ["Garry", "g2@gmail.com", "sdf", "Gar", "Ry", "2024-12-05", "4002-8922", "Rua de Baixo", 52.0],
+        ["Harry", "harry@example.com", "harry123", "Harry", "Potter", "2024-12-06", "4002-8923", "Rua de Cima", 62.0]
+    ]
+
+    for owner in owners:
+        manager.add_owner(*owner)
+    
+    vms = [
+        ["VM1", "Rua de Baixo", "13"],
+        ["VM2", "Rua de Cima", "13"],
+        ["VM3", "Rua do Meio", "14"]
+    ]
+
+    for vm in vms:
+        manager.add_vending_machine(*vm)
+
+    manager.show()
+
 
 def show_users(db_config):
     """
@@ -135,6 +154,6 @@ if __name__ == "__main__":
         "password": "Alacazumba123*",
         "database": "my_database"
     }
+    drop_database(db_config)
     init_database(db_config)
     populate_database(db_config)
-    #drop_database(db_config)

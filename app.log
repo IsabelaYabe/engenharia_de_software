@@ -2787,3 +2787,1096 @@
 2024-12-07 17:20:37,954 | INFO | database_manager:__connect - Connected into database
 2024-12-07 17:20:37,956 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 41609065763458632441405350732923187
 2024-12-07 17:20:37,957 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '41609065763458632441405350732923187' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 17:22:04,671 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 17:22:04,671 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 17:22:04,680 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 17:22:04,681 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 17:22:04,682 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 17:22:04,682 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 17:22:04,682 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 17:22:04,682 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 17:22:04,683 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 17:22:04,684 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 17:22:04,685 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 17:22:04,686 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 17:22:04,686 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 17:22:04,687 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 17:22:04,688 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 17:22:04,689 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 17:22:04,689 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 17:22:04,690 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 17:22:04,807 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:04,812 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:22:04,823 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:04,827 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:22:04,848 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:04,852 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:22:04,863 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:04,875 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:22:04,888 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:04,891 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:22:04,912 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:04,915 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:22:04,926 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:04,929 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:22:04,951 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:04,955 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:22:04,964 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:04,967 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:22:04,991 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:04,993 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:22:05,005 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,008 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:22:05,029 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 17:22:05,038 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:22:05,039 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:22:05,051 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,053 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 100623947403816811715105140403156107
+2024-12-07 17:22:05,054 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '100623947403816811715105140403156107' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 17:22:05,055 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:22:05,055 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:22:05,065 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,067 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 113694591719794008460260727437808647
+2024-12-07 17:22:05,069 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '113694591719794008460260727437808647' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 17:22:05,070 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:22:05,073 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:22:05,094 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,096 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 216431761780136280437769931378822524
+2024-12-07 17:22:05,097 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '216431761780136280437769931378822524' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 17:22:05,098 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:22:05,099 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:22:05,111 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,117 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 607610235992359536607204960041599773
+2024-12-07 17:22:05,122 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '607610235992359536607204960041599773' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 17:22:05,123 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:22:05,124 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:22:05,140 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,141 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 195977093896496657168104619968505140
+2024-12-07 17:22:05,143 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '195977093896496657168104619968505140' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 17:22:05,144 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:22:05,144 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:22:05,153 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,154 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 180319767671803677515301079599105761
+2024-12-07 17:22:05,155 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '180319767671803677515301079599105761' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 17:22:05,164 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,167 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:22:05,189 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,193 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:22:05,211 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,217 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:22:05,230 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,233 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:22:05,257 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,260 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:22:05,270 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,274 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:22:05,297 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,300 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:22:05,311 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,314 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:22:05,324 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,327 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:22:05,338 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,341 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:22:05,363 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:22:05,367 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:26:45,552 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 17:26:45,553 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 17:26:45,568 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 17:26:45,570 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 17:26:45,571 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 17:26:45,571 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 17:26:45,573 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 17:26:45,578 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 17:26:45,581 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 17:26:45,583 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 17:26:45,585 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 17:26:45,586 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 17:26:45,588 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 17:26:45,588 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 17:26:45,590 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 17:26:45,591 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 17:26:45,592 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 17:26:45,593 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 17:26:45,710 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:45,712 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:26:45,735 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:45,739 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:26:45,762 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:45,766 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:26:45,784 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:45,789 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:26:45,800 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:45,805 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:26:45,826 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:45,828 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:26:45,838 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:45,841 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:26:45,851 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:45,854 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:26:45,865 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:45,868 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:26:45,894 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:45,899 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:26:45,912 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:45,923 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:26:45,937 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 17:26:45,941 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:26:45,942 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:26:45,967 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:45,968 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 424177147143736602732442982624870066
+2024-12-07 17:26:45,970 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '424177147143736602732442982624870066' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 17:26:45,970 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:26:45,970 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:26:45,992 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:45,994 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 185505757683547045011838706036591765
+2024-12-07 17:26:45,995 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '185505757683547045011838706036591765' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 17:26:45,996 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:26:45,996 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:26:46,007 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:46,008 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 452857477881749407102565225082782021
+2024-12-07 17:26:46,010 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '452857477881749407102565225082782021' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 17:26:46,014 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:26:46,018 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:26:46,035 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:46,036 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 845914377790308807483187606499968185
+2024-12-07 17:26:46,037 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '845914377790308807483187606499968185' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 17:26:46,037 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:26:46,037 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:26:46,060 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:46,062 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 591572630997524784797544040276902446
+2024-12-07 17:26:46,063 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '591572630997524784797544040276902446' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 17:26:46,065 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:26:46,065 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:26:46,076 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:46,079 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 869001763917644459270324752365988384
+2024-12-07 17:26:46,080 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '869001763917644459270324752365988384' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 17:26:46,086 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:26:46,088 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:26:46,105 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:26:46,106 | ERROR | database_manager_central:insert_record - Error inserting record into 'owners_profile': 1054 (42S22): Unknown column 'username' in 'field list'
+2024-12-07 17:26:46,106 | ERROR | database_manager_central:insert_record - Error inserting record into 'owners_profile': 1054 (42S22): Unknown column 'username' in 'field list'
+2024-12-07 17:35:53,712 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 17:35:53,713 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 17:35:53,721 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 17:35:53,722 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 17:35:53,723 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 17:35:53,723 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 17:35:53,723 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 17:35:53,724 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 17:35:53,725 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 17:35:53,725 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 17:35:53,726 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 17:35:53,726 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 17:35:53,727 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 17:35:53,728 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 17:35:53,729 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 17:35:53,730 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 17:35:53,730 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 17:35:53,731 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 17:35:53,815 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 17:35:53,836 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:53,839 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:35:53,864 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:53,867 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:35:53,878 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:53,886 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:35:53,903 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:53,905 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:35:53,916 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:53,919 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:35:53,941 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:53,945 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:35:53,967 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:53,970 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:35:53,981 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:53,989 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:35:54,006 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:54,009 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:35:54,031 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:54,034 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:35:54,045 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:54,048 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:35:54,071 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 17:35:54,075 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:35:54,075 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:35:54,099 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:54,102 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 60414712609911218786961003497779010
+2024-12-07 17:35:54,103 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '60414712609911218786961003497779010' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 17:35:54,104 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:35:54,104 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:35:54,117 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:54,126 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 730911026007848532918317688118827268
+2024-12-07 17:35:54,128 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '730911026007848532918317688118827268' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 17:35:54,130 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:35:54,130 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:35:54,144 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:54,146 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 373334113840932094684709995889979946
+2024-12-07 17:35:54,147 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '373334113840932094684709995889979946' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 17:35:54,148 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:35:54,149 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:35:54,174 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:54,175 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 687860482240370610295946669604003289
+2024-12-07 17:35:54,176 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '687860482240370610295946669604003289' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 17:35:54,177 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:35:54,177 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:35:54,203 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:54,205 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 177522523596291412116851593938360985
+2024-12-07 17:35:54,206 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '177522523596291412116851593938360985' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 17:35:54,207 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:35:54,207 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:35:54,230 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:54,233 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 22331204055820567906437201615694932
+2024-12-07 17:35:54,234 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '22331204055820567906437201615694932' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 17:35:54,235 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:35:54,236 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:35:54,252 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:35:54,255 | ERROR | database_manager_central:insert_record - Error inserting record into 'owners_profile': 1054 (42S22): Unknown column 'username' in 'field list'
+2024-12-07 17:35:54,261 | ERROR | database_manager_central:insert_record - Error inserting record into 'owners_profile': 1054 (42S22): Unknown column 'username' in 'field list'
+2024-12-07 17:37:59,881 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 17:37:59,882 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 17:37:59,893 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 17:37:59,894 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 17:37:59,895 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 17:37:59,896 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 17:37:59,896 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 17:37:59,896 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 17:37:59,902 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 17:37:59,905 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 17:37:59,907 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 17:37:59,909 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 17:37:59,910 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 17:37:59,912 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 17:37:59,914 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 17:37:59,914 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 17:37:59,915 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 17:37:59,916 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 17:37:59,994 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 17:38:00,015 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,018 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:38:00,037 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,042 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:38:00,053 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,057 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:38:00,067 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,070 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:38:00,092 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,098 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:38:00,106 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,108 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:38:00,116 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,119 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:38:00,132 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,141 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:38:00,154 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,157 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:38:00,178 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,181 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:38:00,191 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,195 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:38:00,218 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 17:38:00,221 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:38:00,222 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:38:00,248 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,251 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 305506093502708253887187554959603109
+2024-12-07 17:38:00,252 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '305506093502708253887187554959603109' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 17:38:00,253 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:38:00,253 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:38:00,265 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,266 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 912192358499416159005788689510402265
+2024-12-07 17:38:00,267 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '912192358499416159005788689510402265' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 17:38:00,268 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:38:00,268 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:38:00,290 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,292 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 430501798875618165407974002366415045
+2024-12-07 17:38:00,293 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '430501798875618165407974002366415045' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 17:38:00,294 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:38:00,295 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:38:00,322 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,324 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 19889928716328744530748495986883986
+2024-12-07 17:38:00,325 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '19889928716328744530748495986883986' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 17:38:00,326 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:38:00,326 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:38:00,353 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,354 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 363259185564034478198851949927768606
+2024-12-07 17:38:00,355 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '363259185564034478198851949927768606' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 17:38:00,356 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:38:00,356 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:38:00,369 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,374 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 521379173211537941102692589631564902
+2024-12-07 17:38:00,378 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '521379173211537941102692589631564902' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 17:38:00,380 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:38:00,381 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:38:00,396 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:38:00,398 | ERROR | database_manager_central:insert_record - Error inserting record into 'owners_profile': 1054 (42S22): Unknown column 'username' in 'field list'
+2024-12-07 17:38:00,400 | ERROR | database_manager_central:insert_record - Error inserting record into 'owners_profile': 1054 (42S22): Unknown column 'username' in 'field list'
+2024-12-07 17:39:57,782 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 17:39:57,782 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 17:39:57,794 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 17:39:57,794 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 17:39:57,795 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 17:39:57,796 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 17:39:57,796 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 17:39:57,797 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 17:39:57,797 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 17:39:57,799 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 17:39:57,800 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 17:39:57,802 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 17:39:57,804 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 17:39:57,811 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 17:39:57,814 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 17:39:57,816 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 17:39:57,817 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 17:39:57,818 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 17:39:57,940 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 17:39:57,965 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:57,968 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:39:57,988 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:57,992 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:39:58,002 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,005 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:39:58,022 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,028 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:39:58,041 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,044 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:39:58,069 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,073 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:39:58,095 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,097 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:39:58,106 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,110 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:39:58,134 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,136 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:39:58,148 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,151 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:39:58,160 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,163 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:39:58,173 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 17:39:58,176 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:39:58,177 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:39:58,203 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,204 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 603943706789372745045606223352635001
+2024-12-07 17:39:58,206 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '603943706789372745045606223352635001' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 17:39:58,206 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:39:58,207 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:39:58,232 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,234 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 361025994242776642662677375533688013
+2024-12-07 17:39:58,235 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '361025994242776642662677375533688013' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 17:39:58,236 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:39:58,236 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:39:58,260 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,262 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 100619726194426769447633587428857380
+2024-12-07 17:39:58,264 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '100619726194426769447633587428857380' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 17:39:58,265 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:39:58,266 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:39:58,280 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,283 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 383171102259500531817711905579059357
+2024-12-07 17:39:58,289 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '383171102259500531817711905579059357' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 17:39:58,292 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:39:58,293 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:39:58,309 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,311 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 550206956129533246447130623584962844
+2024-12-07 17:39:58,312 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '550206956129533246447130623584962844' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 17:39:58,312 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:39:58,313 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:39:58,336 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,337 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 493242418877881559814221299034946962
+2024-12-07 17:39:58,338 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '493242418877881559814221299034946962' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 17:39:58,339 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:39:58,340 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:39:58,352 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,353 | INFO | database_manager:insert_row - Row ({'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}) inserted in table owners_profile with id 598775481697814816107385561017127972
+2024-12-07 17:39:58,354 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '598775481697814816107385561017127972' and data {'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}
+2024-12-07 17:39:58,355 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:39:58,356 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:39:58,377 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,380 | INFO | database_manager:insert_row - Row ({'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}) inserted in table owners_profile with id 147344634977282862950054020385802497
+2024-12-07 17:39:58,382 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '147344634977282862950054020385802497' and data {'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
+2024-12-07 17:39:58,395 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,398 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:39:58,407 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,410 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:39:58,423 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,433 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:39:58,446 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,450 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:39:58,472 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,475 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:39:58,487 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,499 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:39:58,512 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,514 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:39:58,537 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,540 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:39:58,553 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,562 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:39:58,578 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,580 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:39:58,600 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:39:58,604 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:44:05,445 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 17:44:05,446 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 17:44:05,462 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 17:44:05,463 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 17:44:05,464 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 17:44:05,464 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 17:44:05,464 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 17:44:05,464 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 17:44:05,465 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 17:44:05,465 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 17:44:05,465 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 17:44:05,466 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 17:44:05,466 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 17:44:05,468 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 17:44:05,469 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 17:44:05,474 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 17:44:05,478 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 17:44:05,480 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 17:44:05,597 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 17:44:05,622 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,626 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:44:05,636 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,640 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:44:05,650 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,652 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:44:05,660 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,662 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:44:05,671 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,682 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:44:05,696 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,700 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:44:05,710 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,723 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:44:05,733 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,736 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:44:05,751 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,759 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:44:05,771 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,775 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:44:05,797 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,800 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:44:05,812 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 17:44:05,824 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:05,824 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:05,838 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,839 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 447386713326665324521738829711998397
+2024-12-07 17:44:05,840 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '447386713326665324521738829711998397' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 17:44:05,841 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:05,841 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:05,866 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,868 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 762914600791922616489441080359132082
+2024-12-07 17:44:05,869 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '762914600791922616489441080359132082' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 17:44:05,869 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:05,870 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:05,884 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,892 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 604445070346667904688906197283502497
+2024-12-07 17:44:05,893 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '604445070346667904688906197283502497' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 17:44:05,895 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:05,896 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:05,910 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,912 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 42990232796066885101463921689744807
+2024-12-07 17:44:05,913 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '42990232796066885101463921689744807' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 17:44:05,914 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:05,914 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:05,939 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,941 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 222734007879939250415340921940170297
+2024-12-07 17:44:05,942 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '222734007879939250415340921940170297' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 17:44:05,944 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:05,944 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:05,968 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,970 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 457515612043420206113059959157926015
+2024-12-07 17:44:05,971 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '457515612043420206113059959157926015' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 17:44:05,972 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:05,972 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:05,997 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:05,999 | INFO | database_manager:insert_row - Row ({'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}) inserted in table owners_profile with id 285144821597693426420494772085702620
+2024-12-07 17:44:06,000 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '285144821597693426420494772085702620' and data {'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}
+2024-12-07 17:44:06,001 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:06,001 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:06,014 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:06,016 | INFO | database_manager:insert_row - Row ({'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}) inserted in table owners_profile with id 439543129839917995622350414931994933
+2024-12-07 17:44:06,018 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '439543129839917995622350414931994933' and data {'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
+2024-12-07 17:44:22,470 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 17:44:22,470 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 17:44:22,480 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 17:44:22,481 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 17:44:22,485 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 17:44:22,487 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 17:44:22,490 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 17:44:22,491 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 17:44:22,493 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 17:44:22,494 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 17:44:22,496 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 17:44:22,497 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 17:44:22,498 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 17:44:22,499 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 17:44:22,500 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 17:44:22,501 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 17:44:22,502 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 17:44:22,503 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 17:44:22,642 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 17:44:22,670 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,673 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:44:22,683 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,685 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:44:22,696 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,699 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:44:22,707 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,710 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:44:22,721 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,725 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:44:22,748 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,753 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:44:22,774 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,778 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:44:22,789 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,798 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:44:22,812 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,815 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:44:22,836 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,839 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:44:22,850 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,853 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:44:22,877 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 17:44:22,881 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:22,881 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:22,902 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,904 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 106885031706624041724732275887851636
+2024-12-07 17:44:22,906 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '106885031706624041724732275887851636' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 17:44:22,907 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:22,908 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:22,919 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,920 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 891870541127179805462064781007959074
+2024-12-07 17:44:22,921 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '891870541127179805462064781007959074' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 17:44:22,922 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:22,922 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:22,942 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,944 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 813206469445595015089319529481569660
+2024-12-07 17:44:22,946 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '813206469445595015089319529481569660' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 17:44:22,947 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:22,947 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:22,960 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:22,962 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 183564348931488008770530817685509677
+2024-12-07 17:44:22,963 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '183564348931488008770530817685509677' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 17:44:22,970 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:22,972 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:22,992 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:23,000 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 728227179243318172253998225385611867
+2024-12-07 17:44:23,002 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '728227179243318172253998225385611867' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 17:44:23,004 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:23,005 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:23,017 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:23,019 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 918861295192706891114179756047933285
+2024-12-07 17:44:23,020 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '918861295192706891114179756047933285' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 17:44:23,021 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:23,021 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:23,044 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:23,046 | INFO | database_manager:insert_row - Row ({'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}) inserted in table owners_profile with id 522174276871569192658200474091192785
+2024-12-07 17:44:23,047 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '522174276871569192658200474091192785' and data {'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}
+2024-12-07 17:44:23,048 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:23,048 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:23,061 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:23,063 | INFO | database_manager:insert_row - Row ({'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}) inserted in table owners_profile with id 867302175473378494164329924258227560
+2024-12-07 17:44:23,064 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '867302175473378494164329924258227560' and data {'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
+2024-12-07 17:44:52,982 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 17:44:52,986 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 17:44:53,005 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 17:44:53,006 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 17:44:53,007 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 17:44:53,007 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 17:44:53,008 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 17:44:53,008 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 17:44:53,009 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 17:44:53,009 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 17:44:53,010 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 17:44:53,011 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 17:44:53,012 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 17:44:53,013 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 17:44:53,022 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 17:44:53,027 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 17:44:53,028 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 17:44:53,029 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 17:44:53,149 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 17:44:53,173 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,176 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:44:53,189 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,198 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:44:53,212 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,214 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:44:53,230 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,237 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:44:53,250 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,253 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:44:53,277 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,279 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:44:53,301 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,305 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:44:53,317 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,319 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:44:53,341 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,344 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:44:53,355 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,357 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:44:53,377 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,382 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:44:53,405 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 17:44:53,409 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:53,409 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:53,423 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,425 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 313774754870526283748131827260458918
+2024-12-07 17:44:53,430 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '313774754870526283748131827260458918' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 17:44:53,434 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:53,435 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:53,450 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,452 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 519151061124795952013478388706651433
+2024-12-07 17:44:53,453 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '519151061124795952013478388706651433' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 17:44:53,454 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:53,454 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:53,477 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,479 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 522343064108721023752723603384300993
+2024-12-07 17:44:53,480 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '522343064108721023752723603384300993' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 17:44:53,481 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:53,482 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:53,492 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,499 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 245583941200314969118443794744768166
+2024-12-07 17:44:53,503 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '245583941200314969118443794744768166' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 17:44:53,505 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:53,506 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:53,519 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,521 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 19755289194778801719019520937063545
+2024-12-07 17:44:53,522 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '19755289194778801719019520937063545' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 17:44:53,522 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:53,523 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:53,536 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,538 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 6077049731441457192909684750225890
+2024-12-07 17:44:53,539 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '6077049731441457192909684750225890' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 17:44:53,542 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:53,545 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:53,565 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,566 | INFO | database_manager:insert_row - Row ({'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}) inserted in table owners_profile with id 133940318037970720863009152160392775
+2024-12-07 17:44:53,568 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '133940318037970720863009152160392775' and data {'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}
+2024-12-07 17:44:53,569 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:44:53,571 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:44:53,594 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:44:53,597 | INFO | database_manager:insert_row - Row ({'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}) inserted in table owners_profile with id 128807459465649791329368233666853464
+2024-12-07 17:44:53,599 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '128807459465649791329368233666853464' and data {'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
+2024-12-07 17:46:24,676 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 17:46:24,677 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 17:46:24,690 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 17:46:24,691 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 17:46:24,691 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 17:46:24,692 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 17:46:24,693 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 17:46:24,693 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 17:46:24,694 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 17:46:24,694 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 17:46:24,695 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 17:46:24,695 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 17:46:24,696 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 17:46:24,697 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 17:46:24,698 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 17:46:24,699 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 17:46:24,699 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 17:46:24,700 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 17:46:24,834 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 17:46:24,863 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:24,870 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:46:24,880 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:24,883 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:46:24,892 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:24,896 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:46:24,904 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:24,907 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:46:24,915 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:24,918 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:46:24,929 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:24,936 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:46:24,956 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:24,959 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:46:24,981 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:24,984 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:46:24,995 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:24,998 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:46:25,019 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:25,022 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:46:25,035 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:25,044 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:46:25,057 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 17:46:25,061 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:46:25,061 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:46:25,086 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:25,088 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 771215247527449127960615936282820551
+2024-12-07 17:46:25,089 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '771215247527449127960615936282820551' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 17:46:25,089 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:46:25,090 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:46:25,102 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:25,103 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 231411539334717861109821985290100407
+2024-12-07 17:46:25,105 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '231411539334717861109821985290100407' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 17:46:25,105 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:46:25,106 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:46:25,117 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:25,119 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 744579217732984892188365836515174577
+2024-12-07 17:46:25,120 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '744579217732984892188365836515174577' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 17:46:25,121 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:46:25,121 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:46:25,132 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:25,133 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 694464816564343441102523064395829110
+2024-12-07 17:46:25,135 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '694464816564343441102523064395829110' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 17:46:25,136 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:46:25,137 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:46:25,159 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:25,161 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 833629036384223475365168220055692862
+2024-12-07 17:46:25,161 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '833629036384223475365168220055692862' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 17:46:25,162 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:46:25,163 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:46:25,187 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:25,188 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 716580199555301867493106754540968246
+2024-12-07 17:46:25,189 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '716580199555301867493106754540968246' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 17:46:25,190 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:46:25,191 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:46:25,204 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:25,206 | INFO | database_manager:insert_row - Row ({'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}) inserted in table owners_profile with id 444216467850584992399228322961642714
+2024-12-07 17:46:25,207 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '444216467850584992399228322961642714' and data {'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}
+2024-12-07 17:46:25,207 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:46:25,208 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:46:25,219 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:25,220 | INFO | database_manager:insert_row - Row ({'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}) inserted in table owners_profile with id 406738164009958942857151046822628530
+2024-12-07 17:46:25,221 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '406738164009958942857151046822628530' and data {'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
+2024-12-07 17:46:25,230 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:46:25,232 | ERROR | database_manager_central:insert_record - Error inserting record into 'vending_machines_profile': 1054 (42S22): Unknown column 'owner_id' in 'where clause'
+2024-12-07 17:49:28,104 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 17:49:28,104 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 17:49:28,115 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 17:49:28,116 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 17:49:28,116 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 17:49:28,117 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 17:49:28,117 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 17:49:28,118 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 17:49:28,119 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 17:49:28,119 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 17:49:28,120 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 17:49:28,121 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 17:49:28,121 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 17:49:28,122 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 17:49:28,123 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 17:49:28,123 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 17:49:28,124 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 17:49:28,124 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 17:49:28,224 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 17:49:28,249 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,252 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:49:28,263 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,268 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:49:28,287 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,289 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:49:28,310 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,313 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:49:28,324 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,327 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:49:28,351 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,354 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:49:28,367 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,379 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:49:28,392 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,396 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:49:28,419 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,422 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:49:28,433 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,443 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:49:28,457 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,460 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:49:28,478 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 17:49:28,483 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:49:28,484 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:49:28,496 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,497 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id <built-in function id>
+2024-12-07 17:49:28,498 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '<built-in function id>' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 17:49:28,499 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:49:28,500 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:49:28,524 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,525 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id <built-in function id>
+2024-12-07 17:49:28,526 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '<built-in function id>' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 17:49:28,527 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:49:28,527 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:49:28,538 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,540 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id <built-in function id>
+2024-12-07 17:49:28,541 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '<built-in function id>' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 17:49:28,546 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:49:28,548 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:49:28,566 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,568 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id <built-in function id>
+2024-12-07 17:49:28,570 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '<built-in function id>' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 17:49:28,571 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:49:28,573 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:49:28,593 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,595 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id <built-in function id>
+2024-12-07 17:49:28,596 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '<built-in function id>' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 17:49:28,597 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:49:28,597 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:49:28,622 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,624 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id <built-in function id>
+2024-12-07 17:49:28,625 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '<built-in function id>' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 17:49:28,626 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:49:28,627 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:49:28,638 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,639 | INFO | database_manager:insert_row - Row ({'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}) inserted in table owners_profile with id <built-in function id>
+2024-12-07 17:49:28,640 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '<built-in function id>' and data {'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}
+2024-12-07 17:49:28,640 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:49:28,641 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:49:28,651 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,652 | INFO | database_manager:insert_row - Row ({'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}) inserted in table owners_profile with id <built-in function id>
+2024-12-07 17:49:28,653 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '<built-in function id>' and data {'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
+2024-12-07 17:49:28,662 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:49:28,663 | ERROR | database_manager_central:insert_record - Error inserting record into 'vending_machines_profile': 1054 (42S22): Unknown column 'owner_id' in 'where clause'
+2024-12-07 17:51:02,799 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 17:51:02,800 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 17:51:02,812 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 17:51:02,813 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 17:51:02,813 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 17:51:02,814 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 17:51:02,814 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 17:51:02,815 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 17:51:02,816 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 17:51:02,816 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 17:51:02,817 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 17:51:02,825 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 17:51:02,827 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 17:51:02,829 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 17:51:02,830 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 17:51:02,832 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 17:51:02,834 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 17:51:02,836 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 17:51:02,940 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 17:51:02,966 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:02,970 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:51:02,994 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:02,997 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:51:03,008 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,011 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:51:03,033 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,036 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:51:03,048 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,058 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:51:03,071 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,073 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:51:03,083 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,095 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:51:03,106 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,108 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:51:03,128 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,132 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:51:03,145 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,148 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:51:03,171 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,173 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:51:03,193 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 17:51:03,198 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:51:03,199 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:51:03,212 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,213 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 67
+2024-12-07 17:51:03,215 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '67' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 17:51:03,216 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:51:03,216 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:51:03,244 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,245 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 68
+2024-12-07 17:51:03,247 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '68' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 17:51:03,248 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:51:03,248 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:51:03,274 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,276 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 69
+2024-12-07 17:51:03,277 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '69' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 17:51:03,277 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:51:03,277 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:51:03,301 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,302 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 70
+2024-12-07 17:51:03,304 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '70' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 17:51:03,305 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:51:03,306 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:51:03,325 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,327 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 71
+2024-12-07 17:51:03,329 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '71' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 17:51:03,330 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:51:03,330 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:51:03,340 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,342 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 72
+2024-12-07 17:51:03,343 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '72' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 17:51:03,343 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:51:03,343 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:51:03,352 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,354 | INFO | database_manager:insert_row - Row ({'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}) inserted in table owners_profile with id 13
+2024-12-07 17:51:03,355 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '13' and data {'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}
+2024-12-07 17:51:03,356 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:51:03,356 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:51:03,378 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,379 | INFO | database_manager:insert_row - Row ({'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}) inserted in table owners_profile with id 14
+2024-12-07 17:51:03,381 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '14' and data {'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
+2024-12-07 17:51:03,399 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:51:03,403 | ERROR | database_manager_central:insert_record - Error inserting record into 'vending_machines_profile': 1054 (42S22): Unknown column 'owner_id' in 'where clause'
+2024-12-07 17:52:05,357 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 17:52:05,357 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 17:52:05,373 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 17:52:05,374 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 17:52:05,374 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 17:52:05,374 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 17:52:05,374 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 17:52:05,375 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 17:52:05,376 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 17:52:05,376 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 17:52:05,377 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 17:52:05,378 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 17:52:05,378 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 17:52:05,379 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 17:52:05,380 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 17:52:05,381 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 17:52:05,381 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 17:52:05,382 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 17:52:05,500 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 17:52:05,527 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,529 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:52:05,540 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,550 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:52:05,565 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,569 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:52:05,590 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,594 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:52:05,605 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,609 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:52:05,630 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,633 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:52:05,645 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,657 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:52:05,671 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,675 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:52:05,697 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,701 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:52:05,713 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,724 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:52:05,740 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,743 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:52:05,758 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 17:52:05,765 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:52:05,765 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:52:05,779 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,782 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 73
+2024-12-07 17:52:05,788 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '73' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 17:52:05,790 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:52:05,791 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:52:05,805 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,806 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 74
+2024-12-07 17:52:05,807 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '74' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 17:52:05,808 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:52:05,808 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:52:05,830 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,831 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 75
+2024-12-07 17:52:05,832 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '75' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 17:52:05,833 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:52:05,834 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:52:05,845 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,847 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 76
+2024-12-07 17:52:05,848 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '76' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 17:52:05,848 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:52:05,849 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:52:05,870 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,872 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 77
+2024-12-07 17:52:05,874 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '77' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 17:52:05,874 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:52:05,875 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:52:05,898 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,900 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 78
+2024-12-07 17:52:05,901 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '78' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 17:52:05,902 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:52:05,902 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:52:05,916 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,923 | INFO | database_manager:insert_row - Row ({'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}) inserted in table owners_profile with id 15
+2024-12-07 17:52:05,926 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '15' and data {'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}
+2024-12-07 17:52:05,927 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:52:05,928 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:52:05,942 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,943 | INFO | database_manager:insert_row - Row ({'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}) inserted in table owners_profile with id 16
+2024-12-07 17:52:05,944 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '16' and data {'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
+2024-12-07 17:52:05,955 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:52:05,957 | ERROR | database_manager_central:insert_record - Error inserting record into 'vending_machines_profile': 1054 (42S22): Unknown column 'owner_id' in 'where clause'
+2024-12-07 17:54:16,601 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 17:54:16,602 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 17:54:16,612 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 17:54:16,613 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 17:54:16,614 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 17:54:16,614 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 17:54:16,615 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 17:54:16,615 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 17:54:16,616 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 17:54:16,616 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 17:54:16,617 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 17:54:16,617 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 17:54:16,618 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 17:54:16,619 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 17:54:16,621 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 17:54:16,621 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 17:54:16,623 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 17:54:16,624 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 17:54:16,711 | INFO | database_manager_central:drop_tables - Connected into database
+2024-12-07 17:54:16,722 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,730 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-07 17:54:16,740 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,742 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-07 17:54:16,750 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,752 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-07 17:54:16,761 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,766 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-07 17:54:16,775 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,777 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-07 17:54:16,785 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,788 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-07 17:54:16,801 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,803 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-07 17:54:16,811 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,816 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-07 17:54:16,827 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,830 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-07 17:54:16,845 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,849 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-07 17:54:16,861 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,865 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-07 17:54:16,876 | INFO | database_manager_central:create_tables - Connected into database
+2024-12-07 17:54:16,880 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:54:16,881 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:54:16,894 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,896 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 79
+2024-12-07 17:54:16,897 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '79' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-07 17:54:16,898 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:54:16,898 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:54:16,909 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,911 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 80
+2024-12-07 17:54:16,912 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '80' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-07 17:54:16,913 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:54:16,913 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:54:16,922 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,923 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 81
+2024-12-07 17:54:16,924 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '81' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-07 17:54:16,925 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:54:16,925 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:54:16,934 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,936 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 82
+2024-12-07 17:54:16,938 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '82' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-07 17:54:16,939 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:54:16,940 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:54:16,952 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,954 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 83
+2024-12-07 17:54:16,954 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '83' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-07 17:54:16,955 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:54:16,955 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:54:16,968 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,969 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 84
+2024-12-07 17:54:16,970 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '84' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-07 17:54:16,971 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:54:16,971 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:54:16,982 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,984 | INFO | database_manager:insert_row - Row ({'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}) inserted in table owners_profile with id 17
+2024-12-07 17:54:16,985 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '17' and data {'ownername': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}
+2024-12-07 17:54:16,985 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-07 17:54:16,986 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-07 17:54:16,995 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:16,997 | INFO | database_manager:insert_row - Row ({'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}) inserted in table owners_profile with id 18
+2024-12-07 17:54:16,998 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '18' and data {'ownername': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
+2024-12-07 17:54:17,011 | INFO | database_manager:__connect - Connected into database
+2024-12-07 17:54:17,012 | ERROR | database_manager_central:insert_record - Error inserting record into 'vending_machines_profile': 1054 (42S22): Unknown column 'owner_id' in 'where clause'

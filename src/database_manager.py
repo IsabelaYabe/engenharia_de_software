@@ -322,6 +322,7 @@ class DatabaseManager():
         logger.debug(f"Values: {values}")
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(insert_sql, tuple(values))
+            id = cursor.lastrowid
             logger.info(f"Row ({kwargs}) inserted in table {self.__table_name} with id {id}")
         
         return id

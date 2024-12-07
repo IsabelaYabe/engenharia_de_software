@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS users_profile (
 -- Tabela `vending_machines_profile`
 CREATE TABLE IF NOT EXISTS vending_machines_profile (
     id VARCHAR(36) PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
+    username VARCHAR(255) NOT NULL,
     location TEXT NOT NULL,
     status VARCHAR(50) DEFAULT 'active',
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
