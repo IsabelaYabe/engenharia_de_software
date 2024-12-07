@@ -175,6 +175,15 @@ class DatabaseManagerCentral:
         # Execute the SQL script to create tables and relationships
         with conn.cursor() as cursor:
             cursor.execute(create_tables_sql)
+        
+        #conmfirming the creation of the tables
+        for table_name, table_instance in self.__instance_tables.__dict__.items():
+            logger.debug(f"Checking if table '{table_name}' exists.")
+            table_exists = table_instance.table_exists()
+            if not table_exists:
+                logger.error(f"Table '{table_name}' not found.")
+                raise ValueError(f"Table '{table_name}' not found.")
+            logger.debug(f"Table '{table_name}' found.")
 
         logger.debug("Database tables and relationships created successfully.")
     
