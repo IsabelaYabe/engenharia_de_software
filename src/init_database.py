@@ -39,7 +39,9 @@ def populate_database(db_config):
     ]
 
     for user in users:
+        looger.debug(f"Inserting user: {user}")
         manager.add_user(*user)
+        looger.debug("User inserted.")
 
     looger.debug("Users inserted.")
 
@@ -49,7 +51,9 @@ def populate_database(db_config):
     ]
 
     for owner in owners:
+        looger.debug(f"Inserting owner: {owner}")
         manager.add_owner(*owner)
+        looger.debug("Owner inserted.")
     
     vms = [
         ["VM1", "Rua de Baixo", "13"],
@@ -58,7 +62,9 @@ def populate_database(db_config):
     ]
 
     for vm in vms:
+        looger.debug(f"Inserting vending machine: {vm}")
         manager.add_vending_machine(*vm)
+        looger.debug("Vending machine inserted.")
 
     manager.show()
 
