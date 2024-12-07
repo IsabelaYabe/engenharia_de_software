@@ -19,7 +19,7 @@ def init_database(db_config):
     """
 
     manager = DatabaseManagerCentral(**db_config)
-    manager.show()
+    #manager.show()
 
     print("Database initialized with mock data.")
     
@@ -91,4 +91,5 @@ if __name__ == "__main__":
     }
     drop_database(db_config)
     init_database(db_config)
+    print("iurbfquwcrhfcmpwoerjfh 94ufb pwrg fquirh qieb qwbrf iergnipqe fprh f hqrf iro roph oqwr ojwji"*3)
     populate_database(db_config)

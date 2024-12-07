@@ -79,6 +79,8 @@ class DatabaseManagerCentral:
         self.__database = database
         self.__password_hasher = PasswordHasher()
 
+        self.create_tables()
+
         self.event_manager = EventManager()
         self.event_manager.update_strategies["PurchaseProductEvent"] = PurchaseProductSubUpdateStrategy()
 
