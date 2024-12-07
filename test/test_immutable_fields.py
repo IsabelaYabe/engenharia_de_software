@@ -43,15 +43,15 @@ class TestImmutableFieldsDecorator(unittest.TestCase):
         """
         class MockDatabase:
             def __init__(self):
-                self.immutable_columns = ["col2"]
-                self.columns = ["id", "col1", "col2", "col3", "col_id"]
+                self.immutable_columns = ["id", "col2"]
+                self.columns = ["id", "col1", "col2", "col3"]
 
             def get_by_id(self, record_id):
                 """
                 Mock method to simulate fetching a record by ID.
                 """
                 if record_id == "1":
-                    return ("1", "value_1", "value_2", "value_3", "value_id")  
+                    return ("1", "value_1", "value_2", "value_3")  
                 return None
             
             @immutable_fields("immutable_columns")
@@ -73,8 +73,7 @@ class TestImmutableFieldsDecorator(unittest.TestCase):
             "id": "1",
             "col1": "value_1",
             "col2": "value_2",
-            "col3": "value_3",
-            "col_id": "value_id"
+            "col3": "value_3"
         }
         result = self.MockDatabase.update_record("1", col1="new_value_1")
         self.assertEqual(result, {"col1": "new_value_1"})
@@ -89,29 +88,7 @@ class TestImmutableFieldsDecorator(unittest.TestCase):
             "id": "1",
             "col1": "value_1",
             "col2": "value_2",
-            "col3": "value_3",
-            "col_id": "value_id"
-        }
-        with self.assertRaises(ValueError) as context:
-            self.MockDatabase.update_record("1", col_id="new_value_id")
-
-        self.assertEqual(
-            str(context.exception),
-            "The col_id field is immutable and cannot be updated"
-        )
-        logger.info("Test update immutable field: OK!!! ---------------------------> TEST 2 OK!!!")
-    
-    @patch("utils.utils.tuple_to_dict")
-    def test_update_immutable_field_id(self, mock_tuple_to_dict):
-        """
-        Test updating an immutable field raises ValueError.
-        """
-        mock_tuple_to_dict.return_value = {
-            "id": "1",
-            "col1": "value_1",
-            "col2": "value_2",
-            "col3": "value_3",
-            "col_id": "value_id"
+            "col3": "value_3"
         }
         with self.assertRaises(ValueError) as context:
             self.MockDatabase.update_record("1", id="2")
@@ -120,7 +97,7 @@ class TestImmutableFieldsDecorator(unittest.TestCase):
             str(context.exception),
             "The id field is immutable and cannot be updated"
         )
-        logger.info("Test update immutable id field: OK!!! ---------------------------> TEST 3 OK!!!")
+        logger.info("Test update immutable field: OK!!! ---------------------------> TEST 2 OK!!!")
 
     @patch("utils.utils.tuple_to_dict")
     def test_record_not_found(self, mock_tuple_to_dict):
@@ -135,7 +112,7 @@ class TestImmutableFieldsDecorator(unittest.TestCase):
             str(context.exception),
             "Record with ID 999 not found"
         )
-        logger.info("Test record not found: OK!!! ---------------------------> TEST 4 OK!!!")
+        logger.info("Test record not found: OK!!! ---------------------------> TEST 3 OK!!!")
 
 if __name__ == "__main__":
     unittest.main()

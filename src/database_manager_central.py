@@ -6,7 +6,7 @@ using a singleton pattern. The class includes methods to manage CRUD operations,
 event notifications, and other database-related functionality.
 
 Author: Isabela Yabe
-Last Modified: 19/11/2024
+Last Modified: 07/12/2024
 Status: In Progress (pending additional tests and logging updates)
 
 Dependencies:
