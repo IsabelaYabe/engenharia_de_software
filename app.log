@@ -440,3 +440,23 @@
 2024-12-07 15:29:01,563 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
 2024-12-07 15:29:01,564 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
 2024-12-07 15:29:01,720 | INFO | database_manager:__connect - Connected into database
+2024-12-07 15:33:43,126 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 15:33:43,127 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 15:33:43,151 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 15:33:43,153 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 15:33:43,154 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 15:33:43,155 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 15:33:43,156 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 15:33:43,156 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 15:33:43,157 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 15:33:43,158 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 15:33:43,159 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 15:33:43,161 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 15:33:43,162 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 15:33:43,163 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 15:33:43,166 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 15:33:43,167 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 15:33:43,168 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 15:33:43,169 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 15:33:43,315 | INFO | database_manager:__connect - Connected into database
+2024-12-07 15:33:43,320 | WARNING | database_manager:show_table - No instance found in table: products_profile

@@ -208,7 +208,7 @@ class DatabaseManagerCentral:
     def show(self):
         for table_name, table_instance in self.instance_tables.__dict__.items():
             print(f"Table: {table_name}")
-            records = table_instance.show()
+            records = table_instance.show_table()
             for record in records:
                 print(record)
 
