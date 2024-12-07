@@ -306,8 +306,12 @@ class DatabaseManager():
         Raises:
             ValueError: If insertion fails due to invalid data or constraints.
         """
+        logger.debug(f"Insert row teste")   
+        logger.debug(f"Kwargs: {kwargs}")
         id = str(uuid.uuid4())
+        logger.debug(f"ID: {id}")
         column_id = self.__column_id
+        logger.debug(f"Column ID: {column_id}")
         columns = [column_id]
         values = [id]
         placeholders = []

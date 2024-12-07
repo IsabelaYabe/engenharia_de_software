@@ -237,6 +237,7 @@ class DatabaseManagerCentral:
             ValueError: If any validation fails or insertion encounters an issue.
         """
         try:
+            logger.debug(f"Validating record data for table '{table_name}'")
             if foreign_keys:
                 for fk_table, fk_column in foreign_keys.items():
                     logger.debug(f"Validating foreign key '{fk_column}' in table '{fk_table}'")
