@@ -120,7 +120,7 @@ class DatabaseManagerCentral:
 
         self.__products_config = Config(self.host, self.user, self.password, self.database, "products_profile", ["id", "name", "description", "price", "quantity", "vending_machine_id", "timestamp"], "id")
         self.__products_config_pub = None
-        self.__products_config_sub = ConfigSub(event_manager=self.event_manager, events_type_sub=["PurchaseProductEvent", "WithdrawMoneyEvent"])
+        self.__products_config_sub = ConfigSub(event_manager=self.event_manager, events_type_sub=["PurchaseProductEvent"])
         self.__products_profile = DatabaseManager(self.__products_config, self.__products_config_pub, self.__products_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile"})
         logger.debug(f"Products profile table created successfully. {self.__products_profile}")
         logger.debug(f"Products profile table created successfully. {self.__products_profile.show_table()}")
@@ -134,7 +134,7 @@ class DatabaseManagerCentral:
 
         self.__vending_machines_config = Config(self.host, self.user, self.password, self.database, "vending_machines_profile", ["id", "name", "location", "status", "budget", "timestamp", "owner_id"], "id")
         self.__vending_machines_config_pub = None
-        self.__vending_machines_config_sub = ConfigSub(event_manager=self.event_manager, events_type_sub=["PurchaseProductEvent"])
+        self.__vending_machines_config_sub = ConfigSub(event_manager=self.event_manager, events_type_sub=["PurchaseProductEvent", "WithdrawMoneyEvent"])
         self.__vending_machines_profile = DatabaseManager(self.__vending_machines_config, self.__vending_machines_config_pub, self.__vending_machines_config_sub, immutable_columns=None, foreign_keys={"owner_id": "owners_profile"})
         logger.debug(f"Vending machines profile table created successfully. {self.__vending_machines_profile}")
         logger.debug(f"Vending machines profile table created successfully. {self.__vending_machines_profile.show_table()}")
