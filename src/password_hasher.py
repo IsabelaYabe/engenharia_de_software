@@ -67,7 +67,6 @@ class PasswordHasher:
 
         try:
             hashed_password = sha256(password.encode()).hexdigest()
-            logger.debug(f"Password successfully hashed: from {password} to {hashed_password}")
             return hashed_password
         except Exception as e:
             logger.error(f"Error hashing password: {e}")

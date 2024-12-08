@@ -58,18 +58,19 @@ def request_validations(strategies=[banned_words_strategy, sql_injection_strateg
     """
 def request_validations(*request_methods, strategies=[banned_words_strategy, sql_injection_strategy]):
     """
-    Decorador para aplicar as estratégias de validação de dados em solicitações de API.
-
-    Este decorador verifica os dados das solicitações para garantir que eles não contêm **palavrões** ou **comandos SQL**. 
-    Ele aplica as estratégias de validação configuradas e retorna uma mensagem de erro se algum padrão for detectado.
-
+    Decorator for applying data validation strategies to API requests.
+    
+    This decorator verifies request data to ensure that it does not contain **profanity** or **SQL commands**. 
+    It applies the configured validation strategies and returns an error message if any prohibited patterns are detected.
+    
     Args:
-        *request_methods (str): Métodos HTTP permitidos (ex: "POST", "PUT").
-        strategies (list): Lista de instâncias de estratégia de validação (padrão: BannedWordsStrategy e SQLInjectionStrategy).
-
+        *request_methods (str): Allowed HTTP methods (e.g., "POST", "PUT").
+        strategies (list): List of validation strategy instances (default: BannedWordsStrategy and SQLInjectionStrategy).
+    
     Returns:
-        function: A função decorada que faz a validação antes de continuar.
+        function: The decorated function that performs the validation before proceeding.
     """
+
     def decorator(funcao):
         @wraps(funcao)
         def wrapped(*args, **kwargs):

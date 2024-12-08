@@ -28,7 +28,6 @@ def populate_database(db_config):
 
     manager = DatabaseManagerCentral(**db_config)
 
-    # Inserting mock data
     users = [
     ["Al1ce", "alicinha@gmail.com", "alqqq", "Alice", "Silva", "2024-12-07", "pizzaria_buonasserra", "Rua de Baixo", 50.0],
     ["Bob", "bob@example.com", "bob123", "Bob", "Smith", "2024-12-07", "pizzaria_buonasserra", "Rua de Cima", 60.0],
@@ -192,7 +191,6 @@ def drop_database(db_config):
     Drops the database.
     """
 
-    # Load SQL script to drop tables
     try:
         with open("src\MYSQL\drop_tables_relationships.sql", "r") as file:
             logger.debug("Reading SQL script to drop tables.")
@@ -212,7 +210,6 @@ def drop_database(db_config):
         raise
     logger.info("Connected into database")
 
-    # Execute the SQL script to drop tables
     with conn.cursor() as cursor:
         cursor.execute(drop_tables_sql)
 
@@ -230,7 +227,7 @@ if __name__ == "__main__":
         "password": "Alacazumba123*",
         "database": "my_database"
     }
-    #drop_database(db_config)
+    
     init_database(db_config)
     print("iurbfquwcrhfcmpwoerjfh 94ufb pwrg fquirh qieb qwbrf iergnipqe fprh f hqrf iro roph oqwr ojwji"*3)
     populate_database(db_config)
