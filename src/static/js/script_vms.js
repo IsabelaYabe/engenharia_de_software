@@ -51,6 +51,8 @@ function fetchVmInfo() {
             if(userType == "user"){
                 const comment = document.getElementById('comment');
                 comment.style.display = 'block';
+                const complaint = document.getElementById('complaint');
+                complaint.style.display = 'block';
             }
         })
         
@@ -67,8 +69,19 @@ function handleTableClick(id) {
     if (commentButton) {
         commentButton.setAttribute('data-vm-id', id);
     }
+
+    const complaintTitle = document.getElementById('complaint-title');
+    if (complaintTitle) {
+        complaintTitle.textContent = "Complain about machine " + id;
+    }
+    const complaintButton = document.getElementById('submit-complaint');
+    if (complaintButton) {
+        complaintButton.setAttribute('data-vm-id', id);
+    }
+
     console.log(id);
     fetchComments(id);
+    fetchComplaints(id);
 }
 
 // Add a new comment for the product
@@ -139,6 +152,80 @@ function fetchComments(vmId) {
         })
         .catch(error => {
             console.error('Error fetching comments:', error);
+            // Optionally, display an error message to the user
+        });
+}
+
+// Add a new complaint for the product
+document.getElementById('submit-complaint').addEventListener('click', function () {
+    console.log("Submit complaint clicked");
+    const vmId = this.getAttribute('data-vm-id');
+    const complaintText = document.getElementById('complaint-text').value;
+
+    if (!vmId || !complaintText) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    // Send a POST request to the server with the new complaint data
+    fetch('/add_complaint', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            id: this.getAttribute('data-vm-id'),
+            text: complaintText,
+            type: 'vending_machine'
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Complaint added successfully!');
+        } else {
+            alert('Failed to add complaint: ' + data.error);
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
+
+// Fetch complaints for the product
+function fetchComplaints(vmId) {
+    fetch(`/get_complaints/${vmId}/vending_machine`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(complaints => {
+            console.log("mkkmmkmkkmkmm")
+            const complaintsList = document.getElementById('complaints-list');
+            console.log("nwfenjdfsijdfsij")
+            console.log(complaints);
+            if (complaintsList) {
+                complaintsList.innerHTML = ''; // Clear the complaints list
+            }
+            if(complaints.length == 0){
+                const complaintItem = document.createElement('li');
+                complaintItem.textContent = "No complaints yet!";
+                
+                complaintsList.appendChild(complaintItem);
+            }
+            else{
+            complaints["data"].forEach(complaint => {
+                const complaintItem = document.createElement('li');
+                console.log(complaint);
+                complaintItem.textContent = complaint[1];
+                complaintsList.appendChild(complaintItem);
+            });
+        }
+        })
+        .catch(error => {
+            console.error('Error fetching complaints:', error);
             // Optionally, display an error message to the user
         });
 }
