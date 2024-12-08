@@ -332,6 +332,15 @@ def get_complaints(id, type):
     else:
         return jsonify({"success": False, "error": "Invalid type"}), 400
 
+    vm_name = manager.vending_machines_profile.search_record(id=complaints[0][2])[0][1]
+    logger.debug(f"Vending machine name: {vm_name}")
+    i = 0
+    for complaint in complaints:
+        username = manager.users_profile.search_record(id=complaint[3])[0][1]
+        complaints[i] = {"id": complaint[0], "text": complaint[1], "vm_name": vm_name, "username": username}
+        logger.debug(f"complaint: {complaint}")
+        i += 1
+
     logger.debug(f"complaints for {type} {id}: {complaints}")
     return jsonify({"data": complaints})
 

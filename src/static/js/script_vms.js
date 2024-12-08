@@ -238,11 +238,32 @@ function fetchComplaints(vmId) {
                 complaintsList.appendChild(complaintItem);
             }
             else{
-            complaints["data"].forEach(complaint => {
-                const complaintItem = document.createElement('li');
-                console.log(complaint);
-                complaintItem.textContent = complaint[1];
-                complaintsList.appendChild(complaintItem);
+                const complaintSectionTitle = document.getElementById('complaint-section-title');
+                if (complaintSectionTitle) {
+                    complaintSectionTitle.textContent = `Complaints on ${vmId}`;
+                }
+
+                complaints["data"].forEach(complaint => {
+                const complaintWidget = document.createElement('div');
+                complaintWidget.className = 'complaint-widget';
+                complaintWidget.style.border = '1px solid #ccc';
+                complaintWidget.style.padding = '10px';
+                complaintWidget.style.marginBottom = '10px';
+                complaintWidget.style.borderRadius = '5px';
+                
+                const complaintHeader = document.createElement('div');
+                complaintHeader.innerHTML = `<strong>VM:</strong> ${complaint[1]}`;
+                complaintHeader.className = 'complaint-header';
+                complaintHeader.textContent = `${complaint["text"]}`;
+                
+                const complaintBody = document.createElement('div');
+                complaintBody.className = 'complaint-body';
+                complaintBody.style.fontSize = '12px'; // Decrease font size
+                complaintBody.textContent = complaint["username"];
+            
+                complaintWidget.appendChild(complaintHeader);
+                complaintWidget.appendChild(complaintBody);
+                complaintsList.appendChild(complaintWidget);
             });
             
         }
@@ -251,6 +272,9 @@ function fetchComplaints(vmId) {
             console.error('Error fetching complaints:', error);
             // Optionally, display an error message to the user
         });
+
+        
+        
 }
 
 // Fetch vm information when the DOM content is fully loaded
