@@ -30400,3 +30400,52 @@
 2024-12-08 01:11:22,997 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
 2024-12-08 01:12:00,325 | INFO | database_manager:__connect - Connected into database
 2024-12-08 01:12:00,328 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:15:52,564 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 01:15:52,565 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 01:15:53,029 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 01:15:53,030 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 01:15:58,163 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-08 01:15:58,176 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-08 01:15:58,177 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-08 01:15:58,178 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-08 01:15:58,178 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-08 01:15:58,178 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-08 01:15:58,186 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:15:58,189 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 01:15:58,190 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-08 01:15:58,198 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:15:58,201 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 01:15:58,203 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-08 01:15:58,211 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:15:58,212 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:15:58,214 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-08 01:15:58,221 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:15:58,223 | INFO | database_manager:show_table - Got all instances in table: owners_profile
+2024-12-08 01:15:58,224 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-08 01:15:58,232 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:15:58,235 | INFO | database_manager:show_table - Got all instances in table: product_complaint
+2024-12-08 01:15:58,236 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-08 01:15:58,244 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:15:58,248 | INFO | database_manager:show_table - Got all instances in table: product_comment
+2024-12-08 01:15:58,249 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-08 01:15:58,250 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-08 01:15:58,259 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:15:58,261 | INFO | database_manager:show_table - Got all instances in table: purchase_transaction
+2024-12-08 01:15:58,262 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-08 01:15:58,270 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:15:58,273 | INFO | database_manager:show_table - Got all instances in table: vending_machine_complaint
+2024-12-08 01:15:58,274 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-08 01:15:58,281 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:15:58,285 | INFO | database_manager:show_table - Got all instances in table: vending_machine_comment
+2024-12-08 01:15:58,286 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-08 01:15:58,294 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:15:58,296 | INFO | database_manager:show_table - Got all instances in table: favorite_vending_machines
+2024-12-08 01:15:58,297 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-08 01:15:58,306 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:15:58,308 | INFO | database_manager:show_table - Got all instances in table: favorite_products
+2024-12-08 01:15:58,316 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:15:58,319 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:16:00,077 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:16:00,080 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:25:16,954 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 01:25:16,955 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.

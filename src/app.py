@@ -140,6 +140,8 @@ def admin_complaints():
 @app.route('/get_complaints', methods=['GET'])
 def get_complaints():
     pass
+
+#Register a new user and login
     
 
 if __name__ == "__main__":
