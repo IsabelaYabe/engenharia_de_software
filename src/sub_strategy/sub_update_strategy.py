@@ -197,7 +197,7 @@ class WithdrawSubUpdateStrategy(SubUpdateStrategy):
                     budget=new_budget
                 )
 
-                logger.info(f"Updated budget for vending machine '{vending_machine}' to: {new_budget")
+                logger.info(f"Updated budget for vending machine '{vending_machine}' to: {new_budget}")
 
             except Exception as e:
                 logger.error(f"Failed to update budget for vending machine '{vending_machine}': {e}")
