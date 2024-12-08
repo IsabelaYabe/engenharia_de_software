@@ -194,6 +194,8 @@ def add_comment():
     id = data['id']
     manager = DatabaseManagerCentral(**db_config)
     user = manager.users_profile.search_record(username=active_user['username'])
+    if active_user['user_type'] == 'owner':
+        return jsonify({"success": False, "error": "Owners cannot comment"})
     if not user:
         return jsonify({"success": False, "error": "User not found"})
     user_id = user[0][0]
@@ -204,9 +206,11 @@ def add_comment():
         manager = DatabaseManagerCentral(**db_config)
         if type == 'product':
             comment_profile = manager.product_comment
+            comment_profile.insert_row(text=text, product_id=id, user_id=user_id)
         elif type == 'vending_machine':
             comment_profile = manager.vending_machine_comment
-        comment_id = comment_profile.insert_row(id=id, user_id=user_id, text=text)
+            comment_profile.insert_row(text=text, vending_machine_id=id, user_id=user_id)
+        comment_id = comment_profile.get_last_id()
         return jsonify({"success": True, "comment_id": comment_id})
     except ValueError as e:
         return jsonify({"success": False, "error": str(e)})
