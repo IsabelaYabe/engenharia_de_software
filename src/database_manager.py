@@ -38,7 +38,6 @@ import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(),'src')))
 from decorators_method import immutable_fields
-from decorators_class import pubsub
 from event_manager.event_manager import EventManager
 from sub_strategy.sub_update_strategy import DefaultSubUpdateStrategy
 from utils.utils import tuple_rows_to_dict
@@ -91,7 +90,6 @@ class ConfigSub:
     event_manager: EventManager
     events_type_sub: list[str] = field(default_factory=list)
 
-@pubsub
 class DatabaseManager():
     """
     DatabaseManager class for table management and pub-sub integration.
@@ -508,33 +506,33 @@ class DatabaseManager():
             "rows": rows
         }
     
-    if self.event_manager_pub != None:
-        if self.events_type_pub != None:
-            def publish_event(self, event_type, **data):
-                if event_type in self.events_type_pub:
-                    try:
-                        self.event_manager_pub.notify(event_type, data)
-                        logger.info(f"Event published: {event_type} with data: {data}")
-                    except Exception as e:
-                         logger.error(f"Failed to publish event {event_type}: {e}")
-                else:
-                     logger.warning(f"Event {event_type} is not in the configured publish list: {self.events_type_pub}")
-            logger.debug(f"publish_event: {publish_event}")
+    def publish_event(self, event_type, **data):
+        if self.event_manager_pub == None or self.events_type_pub == None:
+            logger.error("Event manager or events type not set")
+        if event_type in self.events_type_pub:
+            try:
+                self.event_manager_pub.notify(event_type, data)
+                logger.info(f"Event published: {event_type} with data: {data}")
+            except Exception as e:
+                 logger.error(f"Failed to publish event {event_type}: {e}")
+        else:
+             logger.warning(f"Event {event_type} is not in the configured publish list: {self.evets_type_pub}")
+    logger.debug(f"publish_event: {publish_event}")
             
-    if event_manager_sub != None:    
-        if events_type_sub != None:
-            def update(self, event_type, **data):
-                strategies = self.event_manager_sub.update_strategies
-                strategy = strategies.get(event_type, DefaultSubUpdateStrategy())
-                if event_type in self.events_type_sub:
-                    try:
-                        logger.info(f"Received event {event_type} with data: {data}")
-                        logger.debug(f"Table name: {self.table_name}")
-                        strategy.update(data, self.table_name, self.search_record, self.update_row)
-                    except Exception as e:
-                        logger.error(f"Failed to handle event '{event_type}': {e}")
-                else:
-                     logger.warning(f"Event {event_type} is not in the configured subscribe list: {self.events_type_sub}")
+    def update(self, event_type, **data):
+        if self.event_manager_sub == None or self.events_type_sub == None:
+            logger.error("Event manager or events type not set")
+        strategies = self.event_manager_sub.update_strategies
+        strategy = strategies.get(event_type, DefaultSubUpdateStrategy())
+        if event_type in self.events_type_sub:
+            try:
+                logger.info(f"Received event {event_type} with data: {data}")
+                logger.debug(f"Table name: {self.table_name}")
+                strategy.update(data, self.table_name, self.search_record, self.update_row)
+            except Exception as e:
+                logger.error(f"Failed to handle event '{event_type}': {e}")
+        else:
+             logger.warning(f"Event {event_type} is not in the configured subscribe list: {self.events_type_sub}")
 
             
 
