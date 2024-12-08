@@ -24,7 +24,7 @@ function fetchVmInfo() {
                     <td>${item[2]}</td>
                     <td>${item[4]}</td>
                     <td>${item[3]}</td>
-                    <button class="btn btn-primary" onclick="window.location.href='/vm_profile/${item[0]}'">View</button>
+                    <td><button class="btn btn-primary" onclick="window.location.href='/vm_profile/${item[0]}'">View</button></td>
                 `;
                 tableBody.appendChild(row);
 

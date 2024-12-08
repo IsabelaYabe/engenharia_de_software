@@ -29465,3 +29465,167 @@
 2024-12-07 23:39:33,801 | INFO | database_manager:show_table - Got all instances in table: products_profile
 2024-12-07 23:39:33,810 | INFO | database_manager:__connect - Connected into database
 2024-12-07 23:39:33,811 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', Decimal('4.00'), 25, 3, datetime.datetime(2024, 12, 7, 22, 7, 50)), (7, 'Suco de Laranja', 'Natural', Decimal('3.50'), 10, 3, datetime.datetime(2024, 12, 7, 22, 7, 50)), (10, 'Energético', 'Para dar energia', Decimal('6.00'), 5, 3, datetime.datetime(2024, 12, 7, 22, 7, 51))]
+2024-12-07 23:54:24,971 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 23:54:24,972 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 23:54:25,453 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 23:54:25,454 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 23:54:33,463 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 23:54:33,482 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 23:54:33,483 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 23:54:33,484 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 23:54:33,484 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 23:54:33,484 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 23:54:33,494 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:54:33,497 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:54:33,498 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 23:54:33,510 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:54:33,512 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-07 23:54:33,514 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 23:54:33,525 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:54:33,528 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-07 23:54:33,530 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 23:54:33,540 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:54:33,544 | INFO | database_manager:show_table - Got all instances in table: owners_profile
+2024-12-07 23:54:33,546 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 23:54:33,554 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:54:33,556 | INFO | database_manager:show_table - Got all instances in table: product_complaint
+2024-12-07 23:54:33,558 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 23:54:33,566 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:54:33,569 | INFO | database_manager:show_table - Got all instances in table: product_comment
+2024-12-07 23:54:33,571 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 23:54:33,572 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 23:54:33,583 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:54:33,586 | INFO | database_manager:show_table - Got all instances in table: purchase_transaction
+2024-12-07 23:54:33,587 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 23:54:33,596 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:54:33,600 | INFO | database_manager:show_table - Got all instances in table: vending_machine_complaint
+2024-12-07 23:54:33,601 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 23:54:33,612 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:54:33,615 | INFO | database_manager:show_table - Got all instances in table: vending_machine_comment
+2024-12-07 23:54:33,616 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 23:54:33,626 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:54:33,629 | INFO | database_manager:show_table - Got all instances in table: favorite_vending_machines
+2024-12-07 23:54:33,631 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 23:54:33,641 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:54:33,645 | INFO | database_manager:show_table - Got all instances in table: favorite_products
+2024-12-07 23:54:33,655 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:54:33,659 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:54:33,669 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:54:33,671 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', 4.0, 25, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (7, 'Suco de Laranja', 'Natural', 3.5, 10, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (10, 'Energético', 'Para dar energia', 6.0, 5, 3, datetime.datetime(2024, 12, 7, 23, 50, 16))]
+2024-12-07 23:55:35,189 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:35,192 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:55:35,202 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:35,204 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', 4.0, 25, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (7, 'Suco de Laranja', 'Natural', 3.5, 10, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (10, 'Energético', 'Para dar energia', 6.0, 5, 3, datetime.datetime(2024, 12, 7, 23, 50, 16))]
+2024-12-07 23:55:36,271 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:36,274 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:55:36,286 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:36,288 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', 4.0, 25, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (7, 'Suco de Laranja', 'Natural', 3.5, 10, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (10, 'Energético', 'Para dar energia', 6.0, 5, 3, datetime.datetime(2024, 12, 7, 23, 50, 16))]
+2024-12-07 23:55:42,215 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 23:55:42,215 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 23:55:42,640 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-07 23:55:42,641 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-07 23:55:45,637 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-07 23:55:45,653 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-07 23:55:45,654 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-07 23:55:45,655 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-07 23:55:45,656 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-07 23:55:45,656 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-07 23:55:45,664 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:45,667 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:55:45,669 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-07 23:55:45,678 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:45,680 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-07 23:55:45,682 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-07 23:55:45,692 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:45,694 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-07 23:55:45,696 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-07 23:55:45,710 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:45,714 | INFO | database_manager:show_table - Got all instances in table: owners_profile
+2024-12-07 23:55:45,716 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-07 23:55:45,724 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:45,726 | INFO | database_manager:show_table - Got all instances in table: product_complaint
+2024-12-07 23:55:45,727 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-07 23:55:45,736 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:45,738 | INFO | database_manager:show_table - Got all instances in table: product_comment
+2024-12-07 23:55:45,739 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-07 23:55:45,739 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-07 23:55:45,748 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:45,751 | INFO | database_manager:show_table - Got all instances in table: purchase_transaction
+2024-12-07 23:55:45,752 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-07 23:55:45,759 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:45,761 | INFO | database_manager:show_table - Got all instances in table: vending_machine_complaint
+2024-12-07 23:55:45,762 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-07 23:55:45,771 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:45,773 | INFO | database_manager:show_table - Got all instances in table: vending_machine_comment
+2024-12-07 23:55:45,775 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-07 23:55:45,784 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:45,787 | INFO | database_manager:show_table - Got all instances in table: favorite_vending_machines
+2024-12-07 23:55:45,788 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-07 23:55:45,796 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:45,800 | INFO | database_manager:show_table - Got all instances in table: favorite_products
+2024-12-07 23:55:45,810 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:45,813 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:55:45,823 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:55:45,825 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', 4.0, 25, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (7, 'Suco de Laranja', 'Natural', 3.5, 10, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (10, 'Energético', 'Para dar energia', 6.0, 5, 3, datetime.datetime(2024, 12, 7, 23, 50, 16))]
+2024-12-07 23:56:09,474 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:56:09,477 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:56:09,487 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:56:09,488 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', 4.0, 25, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (7, 'Suco de Laranja', 'Natural', 3.5, 10, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (10, 'Energético', 'Para dar energia', 6.0, 5, 3, datetime.datetime(2024, 12, 7, 23, 50, 16))]
+2024-12-07 23:56:10,443 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:56:10,446 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:56:10,458 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:56:10,460 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', 4.0, 25, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (7, 'Suco de Laranja', 'Natural', 3.5, 10, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (10, 'Energético', 'Para dar energia', 6.0, 5, 3, datetime.datetime(2024, 12, 7, 23, 50, 16))]
+2024-12-07 23:56:29,514 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:56:29,518 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:56:29,527 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:56:29,530 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', 4.0, 25, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (7, 'Suco de Laranja', 'Natural', 3.5, 10, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (10, 'Energético', 'Para dar energia', 6.0, 5, 3, datetime.datetime(2024, 12, 7, 23, 50, 16))]
+2024-12-07 23:56:30,554 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:56:30,557 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:56:30,568 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:56:30,571 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', 4.0, 25, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (7, 'Suco de Laranja', 'Natural', 3.5, 10, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (10, 'Energético', 'Para dar energia', 6.0, 5, 3, datetime.datetime(2024, 12, 7, 23, 50, 16))]
+2024-12-07 23:56:31,232 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:56:31,236 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:56:31,245 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:56:31,246 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', 4.0, 25, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (7, 'Suco de Laranja', 'Natural', 3.5, 10, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (10, 'Energético', 'Para dar energia', 6.0, 5, 3, datetime.datetime(2024, 12, 7, 23, 50, 16))]
+2024-12-07 23:57:07,143 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:57:07,146 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:57:07,156 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:57:07,158 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', 4.0, 25, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (7, 'Suco de Laranja', 'Natural', 3.5, 10, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (10, 'Energético', 'Para dar energia', 6.0, 5, 3, datetime.datetime(2024, 12, 7, 23, 50, 16))]
+2024-12-07 23:59:04,480 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:59:04,483 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:59:04,493 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:59:04,495 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', 4.0, 25, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (7, 'Suco de Laranja', 'Natural', 3.5, 10, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (10, 'Energético', 'Para dar energia', 6.0, 5, 3, datetime.datetime(2024, 12, 7, 23, 50, 16))]
+2024-12-07 23:59:49,226 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:59:49,230 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:59:49,242 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:59:49,244 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', 4.0, 25, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (7, 'Suco de Laranja', 'Natural', 3.5, 10, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (10, 'Energético', 'Para dar energia', 6.0, 5, 3, datetime.datetime(2024, 12, 7, 23, 50, 16))]
+2024-12-07 23:59:50,733 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:59:50,737 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:59:50,750 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:59:50,754 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', 4.0, 25, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (7, 'Suco de Laranja', 'Natural', 3.5, 10, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (10, 'Energético', 'Para dar energia', 6.0, 5, 3, datetime.datetime(2024, 12, 7, 23, 50, 16))]
+2024-12-07 23:59:50,966 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:59:50,969 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-07 23:59:50,982 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:59:50,985 | INFO | database_manager:search_record - Records founds: [(4, 'Sprite', 'Refrescante e limonada', 4.0, 25, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (7, 'Suco de Laranja', 'Natural', 3.5, 10, 3, datetime.datetime(2024, 12, 7, 23, 50, 16)), (10, 'Energético', 'Para dar energia', 6.0, 5, 3, datetime.datetime(2024, 12, 7, 23, 50, 16))]
+2024-12-07 23:59:55,076 | INFO | database_manager:__connect - Connected into database
+2024-12-07 23:59:55,081 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:01:31,683 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:01:31,683 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:01:32,253 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:01:32,254 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:02:04,799 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:02:04,800 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:02:18,728 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:02:18,728 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:05:19,288 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:05:19,289 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:09:37,874 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:09:37,875 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:09:38,383 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:09:38,383 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:11:09,402 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:11:09,402 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:11:52,731 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:11:52,731 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:11:53,151 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:11:53,152 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
