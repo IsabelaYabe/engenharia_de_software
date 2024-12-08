@@ -75,6 +75,7 @@ class DefaultPubNotifyStrategy(PubNotifyStrategy):
         """
         logger.info(f"Notifying subscribers for event {event_type} with data: {data}")
         for subscriber in subscribers:
+            logger.debug(f"Updating subscriber {subscriber.table_name}...")
             try:
                 subscriber.update(event_type, **data)
                 logger.info(f"Subscriber {subscriber.table_name} updated for event {event_type}")
