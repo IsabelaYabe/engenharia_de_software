@@ -1,4 +1,6 @@
 import mysql.connector
+import io
+import csv
 
 class VendingMachineReports:
     def __init__(self, host, user, password, database):
@@ -138,6 +140,32 @@ class VendingMachineReports:
         # # Salvar o relatório em um arquivo HTML
         # with open("relatorio_vending_machines.html", "w") as file:
         #     file.write(html_content)
+        
+    def generate_stock_report_csv(self):
+        """
+        Gera o relatório de estoque em formato CSV.
+        """
+        query = """
+        SELECT 
+            p.Name AS product_name, 
+            p.Quantity AS product_quantity,
+            vm.Name AS vending_machine_name
+        FROM 
+            Products AS p
+        JOIN 
+            VMs AS vm ON p.VMID = vm.VMID
+        """
+        self.__cursor.execute(query)
+        stock_data = self.__cursor.fetchall()
+
+        # Gerar CSV em memória
+        output = io.StringIO()
+        writer = csv.writer(output)
+        writer.writerow(["Product Name", "Product Quantity", "Vending Machine Name"])  # Cabeçalhos do CSV
+        for row in stock_data:
+            writer.writerow(row)
+        output.seek(0)  # Voltar ao início do arquivo para leitura
+        return output
 
     def close(self):
         """Fecha a conexão com o banco de dados."""

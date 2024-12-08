@@ -1,10 +1,12 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_file
 from profiles.stock_profile import StockProfile
 from profiles.vms_profile import VMProfile
 from profiles.comment_profile import CommentProfile
 from profiles.complaint_profile import Complaint
 from profiles.report_profile import VendingMachineReports
 from flask_cors import CORS
+import io
+import csv
 
 app = Flask(__name__)
 CORS(app)
@@ -13,7 +15,7 @@ CORS(app)
 db_config = {
     "host": "localhost",
     "user": "root",
-    "password": "Rac@z23p092023",
+    "password": "Alacazumba123*",
     "database": "my_database"
 }
 
@@ -57,6 +59,24 @@ def get_report():
     report = stock_report.get_stock_report()
     stock_report.close()
     return jsonify(report)
+
+@app.route('/download_stock_report', methods=['GET'])
+def download_stock_report():
+    """
+    Endpoint para download do relatório de estoque em formato CSV.
+    """
+    stock_report = VendingMachineReports(**db_config)
+    csv_file = stock_report.generate_stock_report_csv()
+    stock_report.close()
+
+    # Retornar o arquivo CSV
+    return send_file(
+        io.BytesIO(csv_file.getvalue().encode()),
+        mimetype='text/csv',
+        as_attachment=True,
+        download_name='stock_report.csv'
+    )
+
 
 @app.route('/vms')
 def vms():
