@@ -1,9 +1,10 @@
 """
-Module for managing event subscriptions, notifications, and strategies.
+Module for managing event subscriptions, notifications, and update strategies.
 
 This module provides the `EventManager` class, which facilitates the subscription 
 and notification of events, as well as handling custom strategies for publishing 
-and updating subscribers.
+and updating subscribers. It enables a flexible and extensible event-driven 
+architecture where multiple subscribers can react to specific events with custom logic.
 
 Author: Isabela Yabe
 Last Modified: 07/12/2024
@@ -12,7 +13,7 @@ Status: Complete
 Dependencies:
     - custom_logger.setup_logger
     - pub_strategy.PubNotifyStrategy, DefaultPubNotifyStrategy
-    - sub_strategy.SubUpdateStrategy, DefaultSubUpdateStrategy, PurchaseProductSubUpdateStrategy
+    - sub_strategy.SubUpdateStrategy
 """
 
 from custom_logger import setup_logger
@@ -80,14 +81,6 @@ class EventManager():
         Args:
             event_type (str): The type of event to unsubscribe from.
             subscriber (object): The subscriber to remove.
-
-        Logs:
-            - Logs info when a subscriber is successfully removed.
-            - Logs a warning if the event type has no subscribers.
-            - Logs an error if the subscriber is not found.
-
-        Raises:
-            None
         """
         if event_type in self.__subscribers:
             try:
@@ -107,14 +100,6 @@ class EventManager():
             data (dict): The data to send to the subscribers.
             *args: Additional positional arguments for the notify strategy.
             **kwargs: Additional keyword arguments for the notify strategy.
-
-        Logs:
-            - Logs a warning if no subscribers exist for the event type.
-            - Logs an error if the notification fails.
-            - Logs info when the notification is successful.
-
-        Raises:
-            None
         """
         if not self.subscribers.get(event_type, []):
             logger.warning(f"No subscribers to notify for event {event_type}.")
