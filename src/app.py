@@ -191,25 +191,27 @@ def comment():
 @app.route('/add_comment', methods=['POST'])
 def add_comment():
     data = request.json
-    id = data['product_id']
+    id = data['id']
     manager = DatabaseManagerCentral(**db_config)
-    
-    user_id = active_user['username']
+    user = manager.users_profile.search_record(username=active_user['username'])
+    if not user:
+        return jsonify({"success": False, "error": "User not found"})
+    user_id = user[0][0]
     text = data['text']
-    tipe = data['type']
+    type = data['type']
 
     try:
         manager = DatabaseManagerCentral(**db_config)
-        if tipe == 'product':
+        if type == 'product':
             comment_profile = manager.product_comment
-        elif tipe == 'vending_machine':
+        elif type == 'vending_machine':
             comment_profile = manager.vending_machine_comment
         comment_id = comment_profile.insert_row(id=id, user_id=user_id, text=text)
         return jsonify({"success": True, "comment_id": comment_id})
     except ValueError as e:
         return jsonify({"success": False, "error": str(e)})
     
-# Route to get comments for a product
+# Route to get comments for a products
 @app.route('/get_comments/<int:product_id>', methods=['GET'])
 def get_comments(product_id):
     pass

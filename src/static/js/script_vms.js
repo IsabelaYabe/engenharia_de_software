@@ -69,8 +69,9 @@ document.getElementById('submit-comment').addEventListener('click', function () 
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            vm_id: vmId,
-            text: commentText
+            id: vmId,
+            text: commentText,
+            type: 'vending_machine'
         }),
     })
     .then(response => response.json())
