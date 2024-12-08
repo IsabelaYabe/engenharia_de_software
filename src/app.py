@@ -216,9 +216,21 @@ def add_comment():
         return jsonify({"success": False, "error": str(e)})
     
 # Route to get comments for a products
-@app.route('/get_comments/<int:product_id>', methods=['GET'])
-def get_comments(product_id):
-    pass
+@app.route('/get_comments/<int:id>/<string:type>', methods=['GET'])
+def get_comments(id, type):
+    logger.debug(f"Getting comments for {type} {id}")
+    manager = DatabaseManagerCentral(**db_config)
+    if type == 'product':
+        comment_profile = manager.product_comment
+        comments = comment_profile.search_record(product_id=id)
+    elif type == 'vending_machine':
+        comment_profile = manager.vending_machine_comment
+        comments = comment_profile.search_record(vending_machine_id=id)
+    else:
+        return jsonify({"success": False, "error": "Invalid type"}), 400
+
+    logger.debug(f"Comments for {type} {id}: {comments}")
+    return jsonify({"data": comments})
 
 # Route to the complaints page for commun users
 @app.route('/complaint')

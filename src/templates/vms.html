@@ -66,19 +66,25 @@
     </table>
 </div>
 
-<div id="comment" style="text-align: right;">
-
-    <p id="comment-title">Click on a vending machine and give us your opinion</p>
-
-    <div>
-        <label for="comment-text">Enter your comment:</label>
-        <textarea id="comment-text" rows="4" cols="50" placeholder="Write your comment here..."></textarea>
+<div style="display: flex; justify-content: space-between;">
+    <div id="comments-section" style="width: 48%; text-align: left;">
+        <!-- Comments will be displayed here -->
+         <ul id="comments-list"></ul>
     </div>
 
-    <button id="submit-comment">Submit Comment</button>
+    <div id="comment" style="width: 48%; text-align: right;">
+        <p id="comment-title">Click on a vending machine and give us your opinion</p>
 
-    <div id="comments-section">
-        <!-- Comments will be displayed here -->
+        <div>
+            <label for="comment-text">Enter your comment:</label>
+            <textarea id="comment-text" rows="4" cols="50" placeholder="Write your comment here..."></textarea>
+        </div>
+
+        <button id="submit-comment">Submit Comment</button>
+
+        <div id="comments-section">
+            <!-- Comments will be displayed here -->
+        </div>
     </div>
 </div>
 

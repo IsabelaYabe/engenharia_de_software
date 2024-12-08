@@ -49,6 +49,7 @@ function handleTableClick(id) {
     if (commentButton) {
         commentButton.setAttribute('data-vm-id', id);
     }
+    fetchComments(id);
 }
 
 // Add a new comment for the product
@@ -87,6 +88,37 @@ document.getElementById('submit-comment').addEventListener('click', function () 
         console.error('Error:', error);
     });
 });
+
+// Fetch comments for the product
+function fetchComments(vmId) {
+    fetch(`/get_comments/${vmId}/vending_machine`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(comments => {
+            const commentsList = document.getElementById('comments-list');
+            console.log(comments);
+            if (commentsList) {
+                commentsList.innerHTML = ''; // Clear the comments list
+            }
+
+            if (commentsList) {
+                comments.forEach(comment => {
+                    const commentItem = document.createElement('li');
+                    console.log(comment);
+                    commentItem.textContent = comment[1];
+                    commentsList.appendChild(commentItem);
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching comments:', error);
+            // Optionally, display an error message to the user
+        });
+}
 
 // Fetch vm information when the DOM content is fully loaded
 document.addEventListener('DOMContentLoaded', fetchVmInfo);
