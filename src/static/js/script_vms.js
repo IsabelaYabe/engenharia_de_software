@@ -19,7 +19,7 @@ function fetchVmInfo() {
             body.forEach(item => {
                 const row = document.createElement('tr');
                 row.style.cursor = 'pointer';
-                row.addEventListener('click', handleTableClick);
+                row.addEventListener('click', () => handleTableClick(item[0]));
                 row.innerHTML = `
                     <td>${item[1]}</td>
                     <td>${item[2]}</td>
@@ -39,8 +39,12 @@ function fetchVmInfo() {
         });
 }
 
-function handleTableClick() {
+function handleTableClick(id) {
     console.log("Table clicked");
+    const commentTitle = document.getElementById('comment-title');
+    if (commentTitle) {
+        commentTitle.textContent = "Fale sobre nós o que está achando da VM " + id;
+    }
 }
 
 // Add a new comment for the product
