@@ -101,7 +101,7 @@ class BannedWordsStrategy(ValidationStrategy):
                 raise ValueError("All values in input data must be strings")
 
         if banned_words_found:
-            message = f"Request contains banned words: {", ".join(banned_words_found)}"
+            message = f"Request contains banned words: {', '.join(banned_words_found)}"
             logger.warning(message)
             return message
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Vending Machine</title>
+</head>
+<body>
+     <button onclick="window.location.href='/vms'">Voltar</button>
+    <h1>Adicionar Nova Vending Machine</h1>
+    <form action="/add_vm" method="POST">
+        <label for="name">Nome da Vending Machine:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="location">Localização:</label>
+        <input type="text" id="location" name="location" required><br><br>
+        
+        <button type="submit">Adicionar</button>
+    </form>
+</body>
+</html>

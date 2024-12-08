@@ -3,6 +3,8 @@ from database_manager_central import DatabaseManagerCentral
 from flask_cors import CORS
 from custom_logger import setup_logger
 from decorators_method import request_validations
+from flask import Flask, request, render_template, redirect, url_for, flash
+
 
 app = Flask(__name__)
 CORS(app)
@@ -184,6 +186,42 @@ def vms():
     Render the vending machines page.
     """
     return render_template('vms.html')
+
+@app.route('/addvm', methods=['GET'])
+def add_vm_form():
+    """
+    Rota para exibir o formulário de adição de vending machine.
+    """
+    return render_template('add_vm.html')
+
+
+@app.route('/add_vm', methods=['POST'])
+def add_vm():
+    """
+    Endpoint para adicionar uma nova vending machine.
+    """
+    data = request.form
+    name = data['name']
+    location = data['location']
+    manager = DatabaseManagerCentral(**db_config)
+
+    if active_user['user_type'] == 'owner':
+        owner_id = manager.owners_profile.search_record(username=active_user['username'])
+    elif active_user['user_type'] == 'admin':
+        owner_id = manager.users_profile.search_record(username=active_user['username'])
+
+    # Check if the vending machine already exists
+    if manager.vending_machines_profile.search_record(name=name):
+        flash('Vending machine já existe!', 'danger')
+        return redirect(url_for('add_vm_form'))
+    
+    # Add the vending machine
+    manager.add_vending_machine(name, location, owner_id[0][0])
+
+    # Redirect to the form page
+    flash('Vending machine adicionada com sucesso!', 'success')
+    return redirect(url_for('add_vm_form'))  # Mude o destino conforme necessário
+
 
 @app.route('/get_vm_info', methods=['GET'])
 def get_vm_info():
