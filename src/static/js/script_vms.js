@@ -48,7 +48,7 @@ function fetchVmInfo() {
         })
         .then(userType => {
             console.log(userType);
-            if(userType == "user"){
+            if(userType == "user" || userType == "admin") {
                 const comment = document.getElementById('comment');
                 comment.style.display = 'block';
                 const complaint = document.getElementById('complaint');

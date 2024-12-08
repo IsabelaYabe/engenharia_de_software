@@ -10,10 +10,11 @@ function arrangeMenu() {
         })
         .then(userType => {
             console.log(userType);
-            if(userType == "owner"){
-                const comment = document.getElementById('owner');
-                comment.style.display = 'block';
-            }
+            if(userType == "owner" || userType == "admin") {
+                const pages = document.querySelectorAll('.owner');
+                pages.forEach(page => {
+                    page.style.display = 'block';
+                });    }
         })
 }
 
