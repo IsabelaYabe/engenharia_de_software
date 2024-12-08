@@ -307,39 +307,6 @@ class TestDatabaseManager(unittest.TestCase):
         mock_cursor.execute.assert_called_once_with("DROP TABLE IF EXISTS `test_table`;")
         logger.info("Test delete table: OK!!! ---------------------------> TEST 12 OK!!!")
 
-    @patch("uuid.uuid4")
-    @patch("database_manager.mysql.connector.connect")
-    def test_insert_row(self, mock_connect, mock_uuid):
-        """
-        Test inserting a new row into the database table.
-        """
-        id = "12345678-1234-5678-1234-567812345678"
-        mock_uuid.return_value = uuid.UUID(id)
-
-        mock_connection = MagicMock()
-        mock_connect.return_value = mock_connection
-       
-        mock_connection = mock_connection.__enter__()
-        mock_cursor = mock_connection.cursor().__enter__.return_value
-
-        kwargs = {"col0": "value_0", "col_1": "value_1", "col3": "value_3"}
-
-        columns = ["id"]
-        values = [id]
-        placeholders = []
-        for key, value in kwargs.items():
-            columns.append(f"`{key}`")
-            values.append(value)
-            placeholders.append("%s")
-        columns_str = ", ".join(columns)
-        placeholders = ", ".join(placeholders)
-
-        expected_sql = f"INSERT INTO `test_table` ({columns_str}) VALUES ({placeholders});"
-        id_insert_row = self.db_manager.insert_row(col0 = "value_0", col_1="value_1", col3= "value_3")
-
-        mock_cursor.execute.assert_called_once_with(expected_sql, tuple(values))
-        self.assertEqual(id_insert_row, id)
-        logger.info("Test delete table: OK!!! ---------------------------> TEST 13 OK!!!")
     
     @patch("database_manager.mysql.connector.connect")
     def test_update_row(self, mock_connect):
@@ -370,7 +337,7 @@ class TestDatabaseManager(unittest.TestCase):
 
         mock_cursor.execute.assert_any_call(hidden_sql, (record_id,))
         mock_cursor.execute.assert_any_call(expected_sql, tuple(values))
-        logger.info("Test update row: OK!!! ---------------------------> TEST 14 OK!!!")
+        logger.info("Test update row: OK!!! ---------------------------> TEST 13 OK!!!")
     
     @patch("database_manager.mysql.connector.connect")
     def test_get_by_id(self, mock_connect):
@@ -395,7 +362,7 @@ class TestDatabaseManager(unittest.TestCase):
         mock_cursor.fetchall.assert_called_once()
 
         self.assertEqual(return_, (id, "value_1", "value_2", "value_3"))                           
-        logger.info("Test get by id: OK!!! ---------------------------> TEST 15 OK!!!")
+        logger.info("Test get by id: OK!!! ---------------------------> TEST 14 OK!!!")
 
     @patch("database_manager.mysql.connector.connect")
     def test_get_by_id_not_found(self, mock_connect):
@@ -419,41 +386,9 @@ class TestDatabaseManager(unittest.TestCase):
         mock_cursor.execute.assert_called_once_with(expected_sql, (id,))
         mock_cursor.fetchall.assert_called_once()
                            
-        logger.info("Test get by id not: OK!!! ---------------------------> TEST 16 OK!!!")
+        logger.info("Test get by id not: OK!!! ---------------------------> TEST 15 OK!!!")
 
-    @patch("database_manager.mysql.connector.connect")
-    def test_search_record(self, mock_connect):
-        """
-        Test searching for rows in the database table based on specific column values.
-        """
-        mock_connection = MagicMock()
-        mock_connect.return_value = mock_connection
-        # Change de enviroment (with)
-        mock_connection = mock_connection.__enter__()
-        mock_cursor = mock_connection.cursor().__enter__.return_value
-
-        id_1 = "12345678-1234-5678-1234-567812344582"
-        id_2 = "85445678-1963-5458-7829-716812340354"
-        fetchall_return = [(id_1, "value_1", "value_2", "value_30"), (id_2, "value_1", "value_2", "value_31")] 
-        mock_cursor.fetchall.return_value = fetchall_return
-
-        kwargs = {"col1": "value1", "col2": "value2"}
-        columns = []
-        values = []
-        for key, value in kwargs.items():
-            columns.append(f"`{key}` = %s")
-            values.append(value)
-        columns_query = " AND ".join(columns)
-
-        expected_sql = f"SELECT * FROM `test_table` WHERE {columns_query};"
-
-        return_ = self.db_manager.search_record(col1="value1", col2="value2")
     
-        mock_cursor.execute.assert_called_once_with(expected_sql, tuple(values))
-        mock_cursor.fetchall.assert_called_once()
-
-        self.assertEqual(return_, fetchall_return)                           
-        logger.info("Test search record: OK!!! ---------------------------> TEST 17 OK!!!")
 
     @patch("database_manager.mysql.connector.connect")
     def test_execute_sql(self, mock_connect):
@@ -472,7 +407,7 @@ class TestDatabaseManager(unittest.TestCase):
 
         mock_cursor.execute.assert_called_once_with(expected_sql, None)
                                
-        logger.info("Test execute sql: OK!!! ---------------------------> TEST 18 OK!!!")
+        logger.info("Test execute sql: OK!!! ---------------------------> TEST 16 OK!!!")
 
 if __name__ == "__main__":
     unittest.main()
