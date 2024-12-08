@@ -50,13 +50,17 @@ def register():
     manager = DatabaseManagerCentral(**db_config)
     if user_type == 'user':
         table = manager
+        if table.users_profile.search_record(email=email):
+            return "Email already exists", 400
         table.add_user(*info)
 
     elif user_type == 'owner':
         table = manager
+        if table.owners_profile.search_record(email=email):
+            return "Email already exists", 400
         table.add_owner(*info)
 
-        active_user['user_type'] = user_type
+    active_user['user_type'] = user_type
     active_user['username'] = username
     return redirect(url_for('menu'))
     
