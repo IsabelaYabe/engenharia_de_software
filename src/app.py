@@ -9,8 +9,8 @@ CORS(app)
 
 logger = setup_logger()
 active_user = {
-    "username": None,
-    "user_type": None
+    "username": "Al1ce",
+    "user_type": "user"
 }
 
 # Database configuration
@@ -26,8 +26,8 @@ def index():
     """
     Render the home page with buttons to other pages.
     """
-    active_user['username'] = None
-    active_user['user_type'] = None
+    active_user['username'] = "Al1ce"
+    active_user['user_type'] = "user"
     return render_template('index.html')
 
 @app.route('/register', methods=['POST'])
@@ -87,7 +87,7 @@ def login():
 
 @app.route('/logout')
 def logout():
-    active_user = None
+    active_user = "Al1ce"
     return redirect(url_for('index'))
 
 @app.route('/user_profile')
@@ -348,6 +348,32 @@ def get_complaints(id, type):
 @app.route('/get_role', methods=['GET'])
 def get_role():
     return jsonify(active_user['user_type'])
+
+# Buy a product
+@app.route('/buy_product', methods=['POST'])
+def buy_product():
+    data = request.json
+    product_id = data['product_id']
+    vending_machine_id = data['vending_machine_id']
+    quantity = data['quantity']
+    manager = DatabaseManagerCentral(**db_config)
+    product_info = manager.products_profile.search_record(id=product_id)
+    if not product_info:
+        return jsonify({"success": False, "error": "Product not found"}), 400
+    product_info = product_info[0]
+    price = product_info[3]
+    total_price = float(price) * float(quantity)
+    user_info = manager.users_profile.search_record(username=active_user['username'])
+    if not user_info:
+        return jsonify({"success": False, "error": "User not found"}), 400
+    user_info = user_info[0]
+    budget = user_info[9]
+    if budget < total_price:
+        return jsonify({"success": False, "error": "Insufficient funds"}), 400
+    new_budget = budget - total_price
+    amount_paid_per_unit = total_price / int(quantity)
+    manager.add_purchase_transaction(user_info[0], product_id, vending_machine_id, int(quantity), amount_paid_per_unit)
+    return jsonify({"success": True, "new_budget": new_budget})
     
 
 if __name__ == "__main__":

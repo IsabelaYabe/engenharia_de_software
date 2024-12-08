@@ -165,7 +165,7 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
                 
                 update_row(
                     existing_id,
-                    budget=new_budget+old_budget
+                    budget=old_budget-new_budget
                 )
                 
                 logger.info(f"Updated budget for user '{user}' to: {new_budget+old_budget}")

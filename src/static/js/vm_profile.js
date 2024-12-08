@@ -1,3 +1,36 @@
+function startPurchase(product_id) {
+    const quantitySelector = document.querySelector('#quantity-selector-' + product_id);
+    const quantity = quantitySelector.value;
+    const vending_machine_id = window.location.pathname.split('/')[2];
+    console.log(`Buying product ${product_id} with quantity ${quantity}`);
+    fetch('/buy_product', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            product_id: product_id,
+            quantity: quantity,
+            vending_machine_id: vending_machine_id
+        })
+    })
+        .then(response => {
+            console.log(response);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            alert('Product purchased successfully!');
+        })
+        .catch(error => {
+            console.error('Error buying product:', error);
+            alert('Error buying product');
+        });
+    }
+
 // Function to create a widget for a product
 function createProductWidget(product) {
     const widget = document.createElement('div');
@@ -8,7 +41,8 @@ function createProductWidget(product) {
         <p>${product[2]}</p>
         <p>Price: ${product[3]}</p>
         <p>Quantity: ${product[4]}</p>
-        <button class="btn btn-primary">Add to Cart</button>
+        <input type="number" id="quantity-selector-${product[0]}" class="quantity-selector" min="1" max=${product[4]} value="1">
+        <button onclick="startPurchase(${product[0]})" class="btn btn-primary">Buy right now!</button>
     `;
     return widget;
 }
