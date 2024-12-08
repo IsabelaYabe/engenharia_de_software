@@ -103,6 +103,7 @@ def pubsub(cls):
                             logger.warning(f"No update strategy registered for event '{event_type}'. Using default.")
                         self.event_manager_sub.subscribe(event_type, self)
                         logger.info(f"Subscribed to event {event_type}")
+                        logger.debug(f"Subscribers: {self.event_manager_sub.subscribers}")
                 except Exception as e:
                      logger.error(f"Failed to subscribe to event {events_type_sub}: {e}")
     
