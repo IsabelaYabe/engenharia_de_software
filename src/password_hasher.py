@@ -23,7 +23,6 @@ from singleton_decorator import singleton
 
 logger = setup_logger()
 
-@singleton
 class PasswordHasher:
     """
     Class responsible for password hashing and encryption.
