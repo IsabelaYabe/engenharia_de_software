@@ -19,7 +19,7 @@ Dependencies:
 """
 from database_manager import DatabaseManager, Config, ConfigPub, ConfigSub
 from event_manager.event_manager import EventManager
-from sub_strategy.sub_update_strategy import PurchaseProductSubUpdateStrategy
+from sub_strategy.sub_update_strategy import PurchaseProductSubUpdateStrategy, WithdrawSubUpdateStrategy
 from singleton_decorator import singleton
 from custom_logger import setup_logger
 from dataclasses import dataclass
@@ -116,10 +116,11 @@ class DatabaseManagerCentral:
 
         self.event_manager = EventManager()
         self.event_manager.update_strategies["PurchaseProductEvent"] = PurchaseProductSubUpdateStrategy()
+        self.event_manager.update_strategies["WithdrawMoneyEvent"] = WithdrawSubUpdateStrategy()
 
         self.__products_config = Config(self.host, self.user, self.password, self.database, "products_profile", ["id", "name", "description", "price", "quantity", "vending_machine_id", "timestamp"], "id")
         self.__products_config_pub = None
-        self.__products_config_sub = ConfigSub(event_manager=self.event_manager, events_type_sub=["PurchaseProductEvent"])
+        self.__products_config_sub = ConfigSub(event_manager=self.event_manager, events_type_sub=["PurchaseProductEvent", "WithdrawMoneyEvent"])
         self.__products_profile = DatabaseManager(self.__products_config, self.__products_config_pub, self.__products_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile"})
         logger.debug(f"Products profile table created successfully. {self.__products_profile}")
         logger.debug(f"Products profile table created successfully. {self.__products_profile.show_table()}")
@@ -139,7 +140,7 @@ class DatabaseManagerCentral:
         logger.debug(f"Vending machines profile table created successfully. {self.__vending_machines_profile.show_table()}")
 
         self.__owners_config = Config(self.host, self.user, self.password, self.database, "owners_profile", ["id", "username", "email", "password", "first name", "last name", "birthdate", "phone_number", "address", "budget"], "id")
-        self.__owners_config_pub = None
+        self.__owners_config_pub = ConfigPub(event_manager=self.event_manager, events_type_pub=["WithdrawMoneyEvent"])
         self.__owners_config_sub = None
         self.__owners_profile = DatabaseManager(self.__owners_config, self.__owners_config_pub, self.__owners_config_sub, immutable_columns=["birthdate", "first_name", "last_name"])
         logger.debug(f"Owners profile table created successfully. {self.__owners_profile}")
@@ -827,6 +828,50 @@ class DatabaseManagerCentral:
         """
         return {column: value for column, value in zip(columns, record_tuple)}
 
+    def withdraw_money_from_vm(self, owner_id, vending_machine_id, amount):
+        """
+        Withdraws money from the vending machine's budget.
+
+        Args:
+            vending_machine_id (str): The ID of the vending machine.
+            amount (float): The amount to withdraw.
+
+        Returns:
+            None
+
+        Raises:
+            Exception: If an error occurs during the update operation.
+        """
+        try:
+            vending_machine = self.vending_machines_profile.search_record(id=vending_machine_id)
+            if not vending_machine:
+                raise ValueError(f"Vending machine with ID '{vending_machine_id}' not found.")
+            
+            current_budget = vending_machine[0][4]
+            if current_budget < amount:
+                raise ValueError(f"Insufficient budget for vending machine ID '{vending_machine_id}'. Available: {current_budget}, Required: {amount}.")
+            
+            new_budget = current_budget - amount
+            self.__owners_profile.update_row(owner_id=owner_id, budget=new_budget)
+            if self.__owners_config_pub and self.__owners_config_pub.event_manager:
+                event_data = {
+                    "vending_machine_id": vending_machine_id,
+                    "amount": amount,
+                    "new_budget": new_budget
+                }
+                try:
+                    self.__owners_config_pub.event_manager.notify("WithdrawMoneyEvent", event_data)
+                    logger.info(f"WithdrawMoneyEvent published with data: {event_data}")
+                except Exception as notify_error:
+                    logger.error(f"Failed to notify event 'WithdrawMoneyEvent': {notify_error}")
+                    raise RuntimeError(f"Failed to publish event: {notify_error}")
+            else:
+                logger.warning("No EventManager configured for event publishing.")
+            
+            logger.info(f"Vending machine budget '{vending_machine_id}' updated to '{new_budget}'")
+        except Exception as e:
+            logger.error(f"Error updating vending machine budget '{vending_machine_id}': {e}")
+            raise
 
     @property
     def host(self):
