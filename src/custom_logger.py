@@ -12,7 +12,7 @@ Status: Complete
 
 Dependencies:
     - logging
-    - decorators.singleton
+    - singleton_decorator.singleton
 
 Classes:
     - LogFilter: A logging filter class that excludes sensitive information from logs.
@@ -21,7 +21,6 @@ Classes:
 Functions:
     - setup_logger(): Returns an instance of `CustomLogger` for convenient access to a pre-configured logger.
 """
-
 import logging
 from logging import Filter
 from logging import FileHandler, StreamHandler, Formatter
