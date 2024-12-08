@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, render_template, redirect, url_for
 from database_manager_central import DatabaseManagerCentral
 from flask_cors import CORS
 from custom_logger import setup_logger
+from decorators_method import request_validations
 
 app = Flask(__name__)
 CORS(app)
@@ -215,6 +216,7 @@ def comment():
 
 # Route to add a comment
 @app.route('/add_comment', methods=['POST'])
+@request_validations("POST")
 def add_comment():
     data = request.json
     id = data['id']
@@ -265,19 +267,36 @@ def complaints():
 
 # Route to add a complaint
 @app.route('/add_complaint', methods=['POST'])
+@request_validations("POST")
 def add_complaint():
-    pass
-    """data = request.json
-    vending_machine_id = data.get('vending_machine_id')  # Usa get para evitar KeyError
-    user_id = data.get('user_id')  # Usa get para evitar KeyError
+    data = request.json
+    id = data.get('id')  # Usa get para evitar KeyError
+    manager = DatabaseManagerCentral(**db_config)
+    #vending_machine_id = data.get('vending_machine_id')  # Usa get para evitar KeyError
+    user = manager.users_profile.search_record(username=active_user['username'])
+    if active_user['user_type'] == 'owner':
+        return jsonify({"success": False, "error": "Owners cannot comment"})
+    if not user:
+        return jsonify({"success": False, "error": "User not found"})
+    user_id = user[0][0]
     text = data.get('text')  # Usa get para evitar KeyError
+    type = data.get('type')
 
     try:
-        complaint_manager = Complaint(**db_config)
-        complaint_id = complaint_manager.create_complaint(user_id, vending_machine_id, text)  # Alterado a ordem dos parâmetros
+        manager = DatabaseManagerCentral(**db_config)
+        if type == 'product':
+            complaint_profile = manager.product_complaint
+            complaint_profile.insert_row(text=text, product_id=id, user_id=user_id)
+        elif type == 'vending_machine':
+            complaint_profile = manager.vending_machine_complaint
+            logger.debug(f"Adding complaint for vending machine {id}")
+            complaint_profile.insert_row(text=text, vending_machine_id=id, user_id=user_id)
+            logger.debug(f"Complaint added for vending machine {id}")
+        else: return jsonify({"success": False, "error": "Invalid type"}), 400
+        complaint_id = complaint_profile.get_last_id()
         return jsonify({"success": True, "complaint_id": complaint_id})
     except ValueError as e:
-        return jsonify({"success": False, "error": str(e)})"""
+        return jsonify({"success": False, "error": str(e)})
 
 
 
@@ -289,8 +308,20 @@ def admin_complaints():
 
 # Route to get complaints 
 @app.route('/get_complaints', methods=['GET'])
-def get_complaints():
-    pass
+def get_complaints(id, type):
+    logger.debug(f"Getting complaints for {type} {id}")
+    manager = DatabaseManagerCentral(**db_config)
+    if type == 'product':
+        complaint_profile = manager.product_complaint
+        complaints = complaint_profile.search_record(product_id=id)
+    elif type == 'vending_machine':
+        complaint_profile = manager.vending_machine_complaint
+        complaints = complaint_profile.search_record(vending_machine_id=id)
+    else:
+        return jsonify({"success": False, "error": "Invalid type"}), 400
+
+    logger.debug(f"complaints for {type} {id}: {complaints}")
+    return jsonify({"data": complaints})
 
 #Get the role of the user
 @app.route('/get_role', methods=['GET'])

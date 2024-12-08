@@ -40,10 +40,11 @@
 <div class="button-container">
     <button onclick="window.location.href='/user_profile'">Go to your User Page</button>
     <button onclick="window.location.href='/vms'">Go to Vending Machines</button>
-    <button onclick="window.location.href='/stock'">Go to Stock</button>
-    <button onclick="window.location.href='/complaint'">Go to Complaints: User Page</button>
-    <button onclick="window.location.href='/admin_complaints'">Go to Complaints: Admin Page</button>
+    <button id="owner" onclick="window.location.href='/stock'" style="display: none;">Go to Stock</button>
+    <button id="owner" onclick="window.location.href='/admin_complaints'" style="display: none;">Go to Complaints: Admin Page</button>
 </div>
+
+<<script src="../static/js/menu.js"></script>
 
 </body>
 </html>
