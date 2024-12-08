@@ -67,42 +67,34 @@
 </div>
 
 <div style="display: flex; justify-content: space-between;">
-    <div id="comments-section" style="width: 48%; text-align: left;">
-        <!-- Comments will be displayed here -->
-         <ul id="comments-list"></ul>
+    <div id="comments-section" style="width: 48%; text-align: left; background-color: #e0f7fa; padding: 10px; border-radius: 5px;">
+        <h2>Comments</h2>
+        <ul id="comments-list"></ul>
     </div>
-    <div id="complaints-section" style="width: 48%; text-align: left;">
-        <!-- Comments will be displayed here -->
-         <ul id="complaints-list"></ul>
+    <div id="complaints-section" style="width: 48%; text-align: left; background-color: #ffebee; padding: 10px; border-radius: 5px;">
+        <h2>Complaints</h2>
+        <ul id="complaints-list"></ul>
     </div>
-
-    <div id="comment" style="width: 48%; display: none;">
+</div>
+<div style="display: flex; justify-content: space-between; margin-top: 20px;">
+    <div id="comment" style="width: 48%; background-color: #e0f7fa; padding: 10px; border-radius: 5px;display: none;">
         <p id="comment-title">Click on a vending machine and give us your opinion</p>
-
         <div>
             <label for="comment-text">Enter your comment:</label>
             <textarea id="comment-text" rows="4" cols="50" placeholder="Write your comment here..."></textarea>
         </div>
-
         <button id="submit-comment">Submit Comment</button>
-
-        <div id="comments-section">
-            <!-- Comments will be displayed here -->
-        </div>
     </div>
 
-    <div id="complaint" style="width: 48%; display: none;">
-        <p id="complaint-title">Click on a vending machine and make a warning </p>
-    
-        <!-- Textarea for the complaint -->
+    <div id="complaint" style="width: 48%; background-color: #ffebee; padding: 10px; border-radius: 5px;display: none;">
+        <p id="complaint-title">Click on a vending machine and make a warning</p>
         <div>
             <label for="complaint-text">Enter your complaint:</label>
             <textarea id="complaint-text" rows="4" cols="50" placeholder="Write your complaint here..."></textarea>
         </div>
-    
-        <!-- Button to submit the complaint -->
         <button id="submit-complaint">Submit Complaint</button>
     </div>
+</div>
 </div>
 
 <script src="../static/js/script_vms.js"></script>

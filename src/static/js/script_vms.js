@@ -183,6 +183,7 @@ document.getElementById('submit-complaint').addEventListener('click', function (
     .then(data => {
         if (data.success) {
             alert('Complaint added successfully!');
+            fetchComplaints(vmId);  // Reload complaints
         } else {
             alert('Failed to add complaint: ' + data.error);
         }
@@ -212,7 +213,6 @@ function fetchComplaints(vmId) {
             if(complaints.length == 0){
                 const complaintItem = document.createElement('li');
                 complaintItem.textContent = "No complaints yet!";
-                
                 complaintsList.appendChild(complaintItem);
             }
             else{
@@ -222,6 +222,7 @@ function fetchComplaints(vmId) {
                 complaintItem.textContent = complaint[1];
                 complaintsList.appendChild(complaintItem);
             });
+            
         }
         })
         .catch(error => {

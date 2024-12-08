@@ -307,7 +307,7 @@ def admin_complaints():
 
 
 # Route to get complaints 
-@app.route('/get_complaints', methods=['GET'])
+@app.route('/get_complaints/<int:id>/<string:type>', methods=['GET'])
 def get_complaints(id, type):
     logger.debug(f"Getting complaints for {type} {id}")
     manager = DatabaseManagerCentral(**db_config)
