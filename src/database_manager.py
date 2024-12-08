@@ -159,7 +159,7 @@ class DatabaseManager():
         
         try:
             for event_type in self.events_type_sub:
-                if event_type not in self.event_manager_sub.update_strategies:
+                if event_type not in self.event_manager_sub.update_strategies.keys():
                     logger.warning(f"No update strategy registered for event '{event_type}'. Using default.")
                 self.event_manager_sub.subscribe(event_type, self)
                 logger.info(f"Subscribed to event {event_type}")
