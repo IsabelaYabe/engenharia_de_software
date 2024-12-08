@@ -580,6 +580,19 @@ class DatabaseManagerCentral:
                 raise ValueError(f"Insufficient quantity for product ID '{product_id}'. Available: {available_quantity}, Requested: {quantity}.")
             logger.debug(f"Product quantity available: {available_quantity}")
             
+            user = self.users_profile.search_record(id=user_id)
+            if not user:
+                raise ValueError(f"User with ID '{user_id}' does not exist.")
+            
+            logger.debug(f"User found: {user}")
+            user_budget = user[0][9]
+            total_cost = quantity * amount_paid_per_unit
+
+            if user_budget < total_cost:
+                logger.error(f"Insufficient budget for user ID '{user_id}'. Available: {user_budget}, Required: {total_cost}.")
+                raise ValueError(f"Insufficient budget for user ID '{user_id}'. Available: {user_budget}, Required: {total_cost}.")
+            logger.debug(f"User budget available: {user_budget}")
+
             data = {
                 "user_id": user_id,
                 "product_id": product_id,

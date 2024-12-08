@@ -96,10 +96,10 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
     def update(self, data, table_name, search_record, update_row):
         logger.info(f"Executing update strategy with data: {data}")
         logger.debug(f"Table name: {table_name}")
+        quantity = data["quantity"]
         if table_name == "products_profile":
             product = data["product_id"]
             vending_machine_id = data["vending_machine_id"]
-            quantity = data["quantity"]
             try:
                 existing_records = search_record(id=product, vending_machine_id=vending_machine_id)
 
@@ -110,10 +110,7 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
                 logger.debug(f"Records: {existing_records}")   
                 existing_product = existing_records[0]
                 existing_id = existing_product[0]  
-                existing_quantity = existing_product[4]
-                if quantity > existing_quantity:
-                    logger.warning(f"Insufficient stock for product '{product}' in vending machine '{vending_machine_id}'. Available: {existing_quantity}, Requested: {quantity}")
-                    return       
+                existing_quantity = existing_product[4] 
 
                 new_quantity = existing_quantity - quantity
                 update_row(existing_id, quantity=new_quantity)
@@ -126,32 +123,52 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
 
         elif table_name == "vending_machines_profile":
             vending_machine = data["vending_machine_id"]
-            new_budget = data["quantity"]*data["amount_paid_per_unit"]
+            new_budget = quantity*data["amount_paid_per_unit"]
             logger.debug(f"Vending machine: {vending_machine}, New budget: {new_budget}")
             try:
                 existing_records = search_record(id=vending_machine)
-                old_budget = existing_records[0][4]
+
+                if not existing_records:
+                    logger.warning(f"Vending machine '{vending_machine}' not found. Purchase aborted.")
+                    return
+                
+                logger.debug(f"Existing records: {existing_records}")
+                existing_product = existing_records[0]
+                existing_id = existing_product[0]
+                old_budget = existing_product[4]
+
                 update_row(
-                    record_id=vending_machine,
+                    existing_id,
                     budget=new_budget+old_budget
                 )
+
                 logger.info(f"Updated budget for vending machine '{vending_machine}' to: {new_budget+old_budget}")
+
             except Exception as e:
                 logger.error(f"Failed to update budget for vending machine '{vending_machine}': {e}")
                 raise
 
         elif table_name == "users_profile":
             user = data["user_id"]
-            new_balance = data["amount_paid_per_unit"]*data["quantity"]
-            logger.debug(f"User: {user}, New balance: {new_balance}")
+            logger.debug(f"User: {user}")
+            new_budget = quantity*data["amount_paid_per_unit"]
+            logger.debug(f"User: {user}, budget: {new_budget}")
             try:
                 existing_records = search_record(id=user)
-                old_balance = existing_records[0][9]
+                if not existing_records:
+                    logger.warning(f"User '{user}' not found. Purchase aborted.")
+                    return
+                logger.debug(f"Existing records: {existing_records}")
+                existing_user = existing_records[0]
+                existing_id = existing_user[0]
+                old_balance = existing_user[9]
+                
                 update_row(
-                    record_id=user,
-                    balance=new_balance+old_balance
+                    existing_id,
+                    balance=new_budget+old_balance
                 )
-                logger.info(f"Updated balance for user '{user}' to: {new_balance+old_balance}")
+                
+                logger.info(f"Updated balance for user '{user}' to: {new_budget+old_balance}")
             except Exception as e:
                 logger.error(f"Failed to update balance for user '{user}': {e}")
                 raise
