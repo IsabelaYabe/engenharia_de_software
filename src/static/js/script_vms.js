@@ -24,7 +24,7 @@ function fetchVmInfo() {
                 row.innerHTML = `
                     <td>${item[1]}</td>
                     <td>${item[2]}</td>
-                    <td>${item[4]}</td>
+                    <td>${item[6]}</td>
                     <td>${item[3]}</td>
                     <td><button class="btn btn-primary" onclick="window.location.href='/vm_profile/${item[0]}'">View</button></td>
                 `;

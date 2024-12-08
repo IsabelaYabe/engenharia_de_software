@@ -21,7 +21,7 @@ function withdraw(vm_id) {
         })
         .then(data => {
             console.log(data);
-            alert('Product purchased successfully!');
+            alert('Budget withdrawed successfully!');
         })
         .catch(error => {
             console.error('Error buying product:', error);

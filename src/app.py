@@ -129,6 +129,9 @@ def get_user_info():
         "budget": info[9],
         "user_type": user_type
     }
+    if user_type == 'admin':
+        budget_owner = manager.owners_profile.search_record(username=username)[0][9]
+        response['budget'] = budget_owner + response['budget']
     return jsonify(response)
 
 
@@ -387,20 +390,24 @@ def machinesview():
 # Route to withdraw money
 @app.route('/withdraw_vm', methods=['POST'])
 def withdraw_vm():
+    logger.debug("Withdraw money")
     data = request.json
     amount = data['amount']
     vm_id = data['vending_machine_id']
     manager = DatabaseManagerCentral(**db_config)
-    if active_user['user_type'] != 'owner':
+    if active_user['user_type'] == 'owner':
         owner_info = manager.owners_profile.search_record(username=active_user['username'])
     elif active_user['user_type'] == 'admin':
-        owner_info = manager.users_profile.search_record(id=data['owner_id'])
+        logger.debug("Admin user")
+        owner_info = manager.users_profile.search_record(username=active_user['username'])
+        logger.debug(f"Owner info: {owner_info}")
     if not owner_info:
         return jsonify({"success": False, "error": "owner not found"}), 400
     owner_info = owner_info[0]
     budget = owner_info[9]
     new_budget = float(budget) + float(amount)
-    manager.withdraw_money_from_vm(owner_info[0], vm_id, amount)
+    logger.debug(f"New budget: {new_budget}")
+    manager.withdraw_money_from_vm(owner_info[0], vm_id, float(amount))
     return jsonify({"success": True, "new_budget": new_budget})
     
 @app.route('/get_vm_particular', methods=['GET'])
