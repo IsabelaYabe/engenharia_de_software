@@ -115,6 +115,7 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
                 new_quantity = existing_quantity - quantity
                 update_row(existing_id, quantity=new_quantity)
 
+                logger.debug(f"Existing quantity: {existing_quantity}, New quantity: {new_quantity} AQUI KALIL product")
                 logger.info(f"Purchase successful. Updated product '{product}' in vending machine '{vending_machine_id}' to new quantity: {new_quantity}")
 
             except Exception as e:
@@ -142,6 +143,7 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
                     budget=new_budget+old_budget
                 )
 
+                logger.debug(f"Old budget: {old_budget}, New budget: {new_budget} AQUI KALIL VM")
                 logger.info(f"Updated budget for vending machine '{vending_machine}' to: {new_budget+old_budget}")
 
             except Exception as e:
@@ -158,7 +160,7 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
                 if not existing_records:
                     logger.warning(f"User '{user}' not found. Purchase aborted.")
                     return
-                logger.debug(f"Existing records: {existing_records}")
+                logger.debug(f"Existing user records: {existing_records} AQUI KALIL")
                 existing_user = existing_records[0]
                 existing_id = existing_user[0]
                 old_balance = existing_user[9]
@@ -167,7 +169,7 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
                     existing_id,
                     balance=new_budget+old_balance
                 )
-                
+                logger.debug(f"AQUI KALIL USER: old_balance: {old_balance}, new_budget: {new_budget}")
                 logger.info(f"Updated balance for user '{user}' to: {new_budget+old_balance}")
             except Exception as e:
                 logger.error(f"Failed to update balance for user '{user}': {e}")

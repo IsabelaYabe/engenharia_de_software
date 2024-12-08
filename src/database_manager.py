@@ -529,6 +529,7 @@ class DatabaseManager():
                 logger.info(f"Received event {event_type} with data: {data}")
                 logger.debug(f"Table name: {self.table_name}")
                 strategy.update(data, self.table_name, self.search_record, self.update_row)
+                logger.debug(f"Update strategy: {strategy}")
             except Exception as e:
                 logger.error(f"Failed to handle event '{event_type}': {e}")
         else:
