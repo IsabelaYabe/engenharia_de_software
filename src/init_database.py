@@ -240,7 +240,12 @@ if __name__ == "__main__":
     manager.add_product_quantity("1", "1", 200)
     print(manager.search_table("products_profile", quantity=15))
     print(manager.get_sales_report(datetime(2024, 12, 7, 00, 00, 00), datetime(2024, 12, 8, 00, 00, 00)))
+    manager.withdraw_money_from_vm("1", "1", 10.0)
     print("\n\n\n\n")
     
     
     manager.show()
+
+    items = manager.vending_machines_profile.show_table()
+    print(items)
+    
