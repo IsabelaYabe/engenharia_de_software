@@ -99,7 +99,7 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
 
         Args:
             data (dict): A dictionary containing the event data, expected to have the following keys:
-                - `name` (str): The name of the product to update.
+                - `name` (str): The id of the product to update.
                 - `vending_machine_id` (str): The ID of the vending machine where the product is located.
                 - `quantity` (int): The quantity of the product being purchased.
 
