@@ -51,6 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname; // Exemplo: "/vm_profile/1"
     const segments = path.split('/'); // Divide a URL em partes, como ["", "vm_profile", "1"]
     const id = segments[segments.length - 1]; // Pega o último segmento, que é o "1"
+    const header = document.querySelector('h1');
+    header.textContent = `VM Profile: ${id}`;
     console.log(id);
 
     // Você pode usar o ID para buscar informações
