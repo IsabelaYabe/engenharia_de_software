@@ -9,8 +9,8 @@ CORS(app)
 
 logger = setup_logger()
 active_user = {
-    "username": None,
-    "user_type": None
+    "username": "Al1ce",
+    "user_type": "admin"
 }
 
 # Database configuration
@@ -26,8 +26,8 @@ def index():
     """
     Render the home page with buttons to other pages.
     """
-    active_user['username'] = None
-    active_user['user_type'] = None
+    active_user['username'] = "Al1ce"
+    active_user['user_type'] = "admin"
     return render_template('index.html')
 
 @app.route('/register', methods=['POST'])
@@ -49,7 +49,7 @@ def register():
         return "Passwords do not match", 400
 
     manager = DatabaseManagerCentral(**db_config)
-    if user_type == 'user':
+    if user_type == 'user' or user_type == 'admin':
         table = manager
         if table.users_profile.search_record(email=email):
             return "Email already exists", 400
@@ -78,7 +78,10 @@ def login():
         exists = manager.login_user(f"{user_type}s_profile", username, password)
         if not exists:
             return "Invalid username or password", 400
-        active_user['user_type'] = user_type
+        if username == "Al1ce":
+            active_user['user_type'] = "admin"
+        else:
+            active_user['user_type'] = user_type
         active_user['username'] = username
         return redirect(url_for('menu'))
     except ValueError as e:
@@ -87,7 +90,8 @@ def login():
 
 @app.route('/logout')
 def logout():
-    active_user = None
+    active_user['user_type'] = "Al1ce"
+    active_user['username'] = "admin"
     return redirect(url_for('index'))
 
 @app.route('/user_profile')
@@ -107,7 +111,7 @@ def get_user_info():
     username = active_user['username']
     logger.debug(f"Getting info for {user_type} {username}")
     manager = DatabaseManagerCentral(**db_config)
-    if user_type == 'user':
+    if user_type == 'user' or user_type == 'admin':
         table = manager.users_profile
     elif user_type == 'owner':
         table = manager.owners_profile
@@ -125,6 +129,9 @@ def get_user_info():
         "budget": info[9],
         "user_type": user_type
     }
+    if user_type == 'admin':
+        budget_owner = manager.owners_profile.search_record(username=username)[0][9]
+        response['budget'] = budget_owner + response['budget']
     return jsonify(response)
 
 
@@ -148,7 +155,10 @@ def get_stock_info():
     Endpoint for retrieving stock information about products and their associated vending machines.
     """
     manager = DatabaseManagerCentral(**db_config)
-    owner_id = manager.owners_profile.search_record(username=active_user['username'])
+    if active_user['user_type'] == 'owner':
+        owner_id = manager.owners_profile.search_record(username=active_user['username'])
+    elif active_user['user_type'] == 'admin':
+        owner_id = manager.users_profile.search_record(username=active_user['username'])
     logger.debug(f"User id: {owner_id}")
     info = manager.vending_machines_profile.search_record(owner_id=owner_id[0][0])
     logger.debug(f"Stock info: {info}")
@@ -257,6 +267,18 @@ def get_comments(id, type):
     else:
         return jsonify({"success": False, "error": "Invalid type"}), 400
 
+    vm_name = manager.vending_machines_profile.search_record(id=comments[0][2])[0][1]
+    logger.debug(f"Vending machine name: {vm_name}")
+    i = 0
+    for comment in comments:
+        username = manager.users_profile.search_record(id=comment[3])[0][1]
+        comments[i] = {"id": comment[0], "text": comment[1], "vm_name": vm_name, "username": username}
+        logger.debug(f"Comment: {comment}")
+        i += 1
+    
+
+
+
     logger.debug(f"Comments for {type} {id}: {comments}")
     return jsonify({"data": comments})
 
@@ -300,14 +322,11 @@ def add_complaint():
 
 
 
-# Route to the complaints page for admin users
-@app.route('/admin_complaints')
-def admin_complaints():
-    return render_template('complaints_viewer_manager.html')
+
 
 
 # Route to get complaints 
-@app.route('/get_complaints', methods=['GET'])
+@app.route('/get_complaints/<int:id>/<string:type>', methods=['GET'])
 def get_complaints(id, type):
     logger.debug(f"Getting complaints for {type} {id}")
     manager = DatabaseManagerCentral(**db_config)
@@ -320,6 +339,15 @@ def get_complaints(id, type):
     else:
         return jsonify({"success": False, "error": "Invalid type"}), 400
 
+    vm_name = manager.vending_machines_profile.search_record(id=complaints[0][2])[0][1]
+    logger.debug(f"Vending machine name: {vm_name}")
+    i = 0
+    for complaint in complaints:
+        username = manager.users_profile.search_record(id=complaint[3])[0][1]
+        complaints[i] = {"id": complaint[0], "text": complaint[1], "vm_name": vm_name, "username": username}
+        logger.debug(f"complaint: {complaint}")
+        i += 1
+
     logger.debug(f"complaints for {type} {id}: {complaints}")
     return jsonify({"data": complaints})
 
@@ -327,7 +355,76 @@ def get_complaints(id, type):
 @app.route('/get_role', methods=['GET'])
 def get_role():
     return jsonify(active_user['user_type'])
+
+# Buy a product
+@app.route('/buy_product', methods=['POST'])
+def buy_product():
+    data = request.json
+    product_id = data['product_id']
+    vending_machine_id = data['vending_machine_id']
+    quantity = data['quantity']
+    manager = DatabaseManagerCentral(**db_config)
+    product_info = manager.products_profile.search_record(id=product_id)
+    if not product_info:
+        return jsonify({"success": False, "error": "Product not found"}), 400
+    product_info = product_info[0]
+    price = product_info[3]
+    total_price = float(price) * float(quantity)
+    user_info = manager.users_profile.search_record(username=active_user['username'])
+    if not user_info:
+        return jsonify({"success": False, "error": "User not found"}), 400
+    user_info = user_info[0]
+    budget = user_info[9]
+    if budget < total_price:
+        return jsonify({"success": False, "error": "Insufficient funds"}), 400
+    new_budget = budget - total_price
+    amount_paid_per_unit = total_price / int(quantity)
+    manager.add_purchase_transaction(user_info[0], product_id, vending_machine_id, int(quantity), amount_paid_per_unit)
+    return jsonify({"success": True, "new_budget": new_budget})
+
+# Route to the complaints page for admin users
+@app.route('/machines_view')
+def machinesview():
+    return render_template('machines_view.html')
+
+# Route to withdraw money
+@app.route('/withdraw_vm', methods=['POST'])
+def withdraw_vm():
+    logger.debug("Withdraw money")
+    data = request.json
+    amount = data['amount']
+    vm_id = data['vending_machine_id']
+    manager = DatabaseManagerCentral(**db_config)
+    if active_user['user_type'] == 'owner':
+        owner_info = manager.owners_profile.search_record(username=active_user['username'])
+    elif active_user['user_type'] == 'admin':
+        logger.debug("Admin user")
+        owner_info = manager.users_profile.search_record(username=active_user['username'])
+        logger.debug(f"Owner info: {owner_info}")
+    if not owner_info:
+        return jsonify({"success": False, "error": "owner not found"}), 400
+    owner_info = owner_info[0]
+    budget = owner_info[9]
+    new_budget = float(budget) + float(amount)
+    logger.debug(f"New budget: {new_budget}")
+    manager.withdraw_money_from_vm(owner_info[0], vm_id, float(amount))
+    return jsonify({"success": True, "new_budget": new_budget})
     
+@app.route('/get_vm_particular', methods=['GET'])
+def get_vm_particular():
+    """
+    Endpoint for retrieving vending machine information.
+    """
+    manager = DatabaseManagerCentral(**db_config)
+    if active_user['user_type'] == 'owner':
+        owner_id = manager.owners_profile.search_record(username=active_user['username'])
+    elif active_user['user_type'] == 'admin':
+        owner_id = manager.users_profile.search_record(username=active_user['username'])
+    table = manager.vending_machines_profile
+    info = table.search_record(owner_id=owner_id[0][0])
+    logger.debug(f"Vending machines info: {info}")
+    return jsonify({"data": info})
+
 
 if __name__ == "__main__":
     app.run(debug=True)

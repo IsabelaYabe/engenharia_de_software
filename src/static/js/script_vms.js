@@ -24,7 +24,7 @@ function fetchVmInfo() {
                 row.innerHTML = `
                     <td>${item[1]}</td>
                     <td>${item[2]}</td>
-                    <td>${item[4]}</td>
+                    <td>${item[6]}</td>
                     <td>${item[3]}</td>
                     <td><button class="btn btn-primary" onclick="window.location.href='/vm_profile/${item[0]}'">View</button></td>
                 `;
@@ -48,7 +48,7 @@ function fetchVmInfo() {
         })
         .then(userType => {
             console.log(userType);
-            if(userType == "user"){
+            if(userType == "user" || userType == "admin") {
                 const comment = document.getElementById('comment');
                 comment.style.display = 'block';
                 const complaint = document.getElementById('complaint');
@@ -142,11 +142,33 @@ function fetchComments(vmId) {
                 commentsList.appendChild(commentItem);
             }
             else{
+            
+            const commentSectionTitle = document.getElementById('comment-section-title');
+            if (commentSectionTitle) {
+                commentSectionTitle.textContent = `Comments on ${vmId}`;
+            }
+
             comments["data"].forEach(comment => {
-                const commentItem = document.createElement('li');
-                console.log(comment);
-                commentItem.textContent = comment[1];
-                commentsList.appendChild(commentItem);
+            const commentWidget = document.createElement('div');
+            commentWidget.className = 'comment-widget';
+            commentWidget.style.border = '1px solid #ccc';
+            commentWidget.style.padding = '10px';
+            commentWidget.style.marginBottom = '10px';
+            commentWidget.style.borderRadius = '5px';
+            
+            const commentHeader = document.createElement('div');
+            commentHeader.innerHTML = `<strong>VM:</strong> ${comment[1]}`;
+            commentHeader.className = 'comment-header';
+            commentHeader.textContent = `${comment["text"]}`;
+            
+            const commentBody = document.createElement('div');
+            commentBody.className = 'comment-body';
+            commentBody.style.fontSize = '12px'; // Decrease font size
+            commentBody.textContent = comment["username"];
+            
+            commentWidget.appendChild(commentHeader);
+            commentWidget.appendChild(commentBody);
+            commentsList.appendChild(commentWidget);
             });
         }
         })
@@ -183,6 +205,7 @@ document.getElementById('submit-complaint').addEventListener('click', function (
     .then(data => {
         if (data.success) {
             alert('Complaint added successfully!');
+            fetchComplaints(vmId);  // Reload complaints
         } else {
             alert('Failed to add complaint: ' + data.error);
         }
@@ -212,22 +235,46 @@ function fetchComplaints(vmId) {
             if(complaints.length == 0){
                 const complaintItem = document.createElement('li');
                 complaintItem.textContent = "No complaints yet!";
-                
                 complaintsList.appendChild(complaintItem);
             }
             else{
-            complaints["data"].forEach(complaint => {
-                const complaintItem = document.createElement('li');
-                console.log(complaint);
-                complaintItem.textContent = complaint[1];
-                complaintsList.appendChild(complaintItem);
+                const complaintSectionTitle = document.getElementById('complaint-section-title');
+                if (complaintSectionTitle) {
+                    complaintSectionTitle.textContent = `Complaints on ${vmId}`;
+                }
+
+                complaints["data"].forEach(complaint => {
+                const complaintWidget = document.createElement('div');
+                complaintWidget.className = 'complaint-widget';
+                complaintWidget.style.border = '1px solid #ccc';
+                complaintWidget.style.padding = '10px';
+                complaintWidget.style.marginBottom = '10px';
+                complaintWidget.style.borderRadius = '5px';
+                
+                const complaintHeader = document.createElement('div');
+                complaintHeader.innerHTML = `<strong>VM:</strong> ${complaint[1]}`;
+                complaintHeader.className = 'complaint-header';
+                complaintHeader.textContent = `${complaint["text"]}`;
+                
+                const complaintBody = document.createElement('div');
+                complaintBody.className = 'complaint-body';
+                complaintBody.style.fontSize = '12px'; // Decrease font size
+                complaintBody.textContent = complaint["username"];
+            
+                complaintWidget.appendChild(complaintHeader);
+                complaintWidget.appendChild(complaintBody);
+                complaintsList.appendChild(complaintWidget);
             });
+            
         }
         })
         .catch(error => {
             console.error('Error fetching complaints:', error);
             // Optionally, display an error message to the user
         });
+
+        
+        
 }
 
 // Fetch vm information when the DOM content is fully loaded
