@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS owners_profile (
     birthdate DATE,
     phone_number VARCHAR(20),
     address TEXT,
-    budget DECIMAL(10, 2) DEFAULT 0
+    budget FLOAT DEFAULT 0
 );
 
 -- Tabela `users_profile`
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS users_profile (
     birthdate DATE,
     phone_number VARCHAR(20),
     address TEXT,
-    budget DECIMAL(10, 2) DEFAULT 0
+    budget FLOAT DEFAULT 0
 );
 
 -- Tabela `vending_machines_profile`
@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS vending_machines_profile (
     name VARCHAR(255) NOT NULL,
     location TEXT NOT NULL,
     status VARCHAR(50) DEFAULT 'active',
+    budget FLOAT DEFAULT 0,
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
     owner_id INT NOT NULL,
     FOREIGN KEY (owner_id) REFERENCES owners_profile(id) ON DELETE CASCADE
@@ -42,7 +43,7 @@ CREATE TABLE IF NOT EXISTS products_profile (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    price DECIMAL(10, 2) NOT NULL,
+    price FLOAT NOT NULL,
     quantity INT NOT NULL,
     vending_machine_id INT NOT NULL,
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -79,7 +80,7 @@ CREATE TABLE IF NOT EXISTS purchase_transaction (
     vending_machine_id INT NOT NULL,
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
     quantity INT NOT NULL,
-    amount_paid_per_unit DECIMAL(10, 2) NOT NULL,
+    amount_paid_per_unit FLOAT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users_profile(id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products_profile(id) ON DELETE CASCADE,
     FOREIGN KEY (vending_machine_id) REFERENCES vending_machines_profile(id) ON DELETE CASCADE
