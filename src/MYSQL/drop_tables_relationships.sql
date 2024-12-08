@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS favorite_products;
+DROP TABLE IF EXISTS favorite_vending_machines;
+DROP TABLE IF EXISTS vending_machine_comment;
+DROP TABLE IF EXISTS vending_machine_complaint;
+DROP TABLE IF EXISTS purchase_transaction;
+DROP TABLE IF EXISTS product_comment;
+DROP TABLE IF EXISTS product_complaint;
+DROP TABLE IF EXISTS products_profile;
+DROP TABLE IF EXISTS vending_machines_profile;
+DROP TABLE IF EXISTS users_profile;
+DROP TABLE IF EXISTS owners_profile;

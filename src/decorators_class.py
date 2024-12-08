@@ -87,7 +87,8 @@ def pubsub(cls):
                     if event_type in self.events_type_sub:
                         try:
                             logger.info(f"Received event {event_type} with data: {data}")
-                            strategy.update(data)
+                            logger.debug(f"Table name: {self.table_name}")
+                            strategy.update(data, self.search_record, self.update_row)
                         except Exception as e:
                             logger.error(f"Failed to handle event '{event_type}': {e}")
                     else:

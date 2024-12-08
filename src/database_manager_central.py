@@ -24,6 +24,7 @@ from singleton_decorator import singleton
 from custom_logger import setup_logger
 from dataclasses import dataclass
 from password_hasher import PasswordHasher, hash_password_decorator
+import mysql.connector
 
 logger = setup_logger()
 
@@ -78,6 +79,41 @@ class DatabaseManagerCentral:
         self.__database = database
         self.__password_hasher = PasswordHasher()
 
+         # Load SQL script to create tables and relationships
+        try:
+            with open("src\MYSQL\create_tables_relationships.sql", "r") as file:
+                logger.debug("Reading SQL script to create tables and relationships.")
+                create_tables_sql = file.read()
+        except FileNotFoundError:
+            logger.error("SQL script file not found.")
+            raise
+        except Exception as e:
+            logger.error(f"Error reading SQL script file: {e}")
+            raise
+
+        try:
+            conn = mysql.connector.connect(host = self.__host, user = self.__user, password = self.__password, database = self.__database)
+            logger.debug("Successful connection")
+        except mysql.connector.Error as e:
+            logger.error("Unsuccessful connection: %s (errno=%d)", e.msg, e.errno)
+            raise
+        logger.info("Connected into database")
+
+        # Execute the SQL script to create tables and relationships
+        with conn.cursor() as cursor:
+            sql_statements = create_tables_sql.split(";")
+            for statement in sql_statements:
+                if statement.strip():  # Ignorar instruções vazias
+                    cursor.execute(statement.strip())
+        
+
+        logger.debug("Database tables and relationships created successfully.")
+        
+        print("""dfhd suwfe uosd dc qwyeb qwe
+              dws
+              wd
+              wdehd1jdw0w""")
+
         self.event_manager = EventManager()
         self.event_manager.update_strategies["PurchaseProductEvent"] = PurchaseProductSubUpdateStrategy()
 
@@ -85,56 +121,68 @@ class DatabaseManagerCentral:
         self.__products_config_pub = None
         self.__products_config_sub = ConfigSub(event_manager=self.event_manager, events_type_sub=["PurchaseProductEvent"])
         self.__products_profile = DatabaseManager(self.__products_config, self.__products_config_pub, self.__products_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile"})
-        
+        logger.debug(f"Products profile table created successfully. {self.__products_profile}")
+        logger.debug(f"Products profile table created successfully. {self.__products_profile.show_table()}")
         self.__users_config = Config(self.host, self.user, self.password, self.database, "users_profile", ["id", "username", "email", "password", "first_name", "last_name", "birthdate", "phone number", "address", "budget"], "id")
         self.__users_config_pub = None
         self.__users_config_sub = None
         self.__users_profile = DatabaseManager(self.__users_config, self.__users_config_pub, self.__users_config_sub, immutable_columns=["birthdate", "first_name", "last_name"])
-        
+        logger.debug(f"Users profile table created successfully. {self.__users_profile}")
+        logger.debug(f"Users profile table created successfully. {self.__users_profile.show_table()}")
         self.__vending_machines_config = Config(self.host, self.user, self.password, self.database, "vending_machines_profile", ["id", "name", "location", "status", "timestamp", "owner_id"], "id")
         self.__vending_machines_config_pub = None
         self.__vending_machines_config_sub = None
         self.__vending_machines_profile = DatabaseManager(self.__vending_machines_config, self.__vending_machines_config_pub, self.__vending_machines_config_sub, immutable_columns=None, foreign_keys={"owner_id": "owners_profile"})
-
+        logger.debug(f"Vending machines profile table created successfully. {self.__vending_machines_profile}")
+        logger.debug(f"Vending machines profile table created successfully. {self.__vending_machines_profile.show_table()}")
         self.__owners_config = Config(self.host, self.user, self.password, self.database, "owners_profile", ["id", "username", "email", "password", "first name", "last name", "birthdate", "phone_number", "address", "budget"], "id")
         self.__owners_config_pub = None
         self.__owners_config_sub = None
         self.__owners_profile = DatabaseManager(self.__owners_config, self.__owners_config_pub, self.__owners_config_sub, immutable_columns=["birthdate", "first_name", "last_name"])
-    
+        logger.debug(f"Owners profile table created successfully. {self.__owners_profile}")
+        logger.debug(f"Owners profile table created successfully. {self.__owners_profile.show_table()}")
         self.__product_complaint_config = Config(self.host, self.user, self.password, self.database, "product_complaint", ["id", "text", "product_id", "user_id", "timestamp"], column_id="id")
         self.__product_complaint_config_pub = None
         self.__product_complaint_config_sub = None
         self.__product_complaint = DatabaseManager(self.__product_complaint_config, self.__product_complaint_config_pub, self.__product_complaint_config_sub, immutable_columns=None, foreign_keys={"product_id": "products_profile", "user_id": "users_profile"})
-
+        logger.debug(f"Product complaint table created successfully. {self.__product_complaint}")
+        logger.debug(f"Product complaint table created successfully. {self.__product_complaint.show_table()}")
         self.__product_comment_config = Config(self.host, self.user, self.password, self.database, "product_comment", ["id", "text", "product_id", "user_id", "timestamp"], column_id="id")
         self.__product_comment_config_pub = None
         self.__product_comment_config_sub = None
         self.__product_comment = DatabaseManager(self.__product_comment_config, self.__product_comment_config_pub, self.__product_comment_config_sub, immutable_columns=None, foreign_keys={"product_id": "products_profile", "user_id": "users_profile"})
-
+        logger.debug(f"Product comment table created successfully. {self.__product_comment}")
+        logger.debug(f"Product comment table created successfully. {self.__product_comment.show_table()}")
         self.__purchase_transaction_config = Config(self.host, self.user, self.password, self.database, "purchase_transaction", ["id", "user_id", "product_id", "vending_machine_id", "timestamp", "quantity", "amount_paid_per_unit"], column_id="id")
         self.__purchase_transaction_config_pub = ConfigPub(event_manager=self.event_manager, events_type_pub=["PurchaseProductEvent"])
         self.__purchase_transaction_config_sub = None
         self.__purchase_transaction = DatabaseManager(self.__purchase_transaction_config, self.__purchase_transaction_config_pub, self.__purchase_transaction_config_sub, immutable_columns=None, foreign_keys={"user_id": "users_profile", "product_id": "products_profile", "vending_machine_id": "vending_machines_profile"})
-        
+        logger.debug(f"Purchase transaction table created successfully. {self.__purchase_transaction}")
+        logger.debug(f"Purchase transaction table created successfully. {self.__purchase_transaction.show_table()}")
         self.__vending_machine_complaint_config = Config(self.host, self.user, self.password, self.database, "vending_machine_complaint", ["id", "text", "vending_machine_id", "user id", "timestamp"], column_id="id")
         self.__vending_machine_complaint_config_pub = None
         self.__vending_machine_complaint_config_sub = None
         self.__vending_machine_complaint = DatabaseManager( self.__vending_machine_complaint_config, self.__vending_machine_complaint_config_pub, self.__vending_machine_complaint_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile", "user_id": "users_profile"})
-
+        logger.debug(f"Vending machine complaint table created successfully. {self.__vending_machine_complaint}")
+        logger.debug(f"Vending machine complaint table created successfully. {self.__vending_machine_complaint.show_table()}")
         self.__vending_machine_comment_config = Config(self.host, self.user, self.password, self.database, "vending_machine_comment", ["id", "text", "vending_machine_id", "user_id", "timestamp"], column_id="id")
         self.__vending_machine_comment_config_pub = None
         self.__vending_machine_comment_config_sub = None
         self.__vending_machine_comment = DatabaseManager( self.__vending_machine_comment_config, self.__vending_machine_comment_config_pub, self.__vending_machine_comment_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile", "user_id": "users_profile"})
-
+        logger.debug(f"Vending machine comment table created successfully. {self.__vending_machine_comment}")
+        logger.debug(f"Vending machine comment table created successfully. {self.__vending_machine_comment.show_table()}")
         self.__favorite_vending_machines_config = Config(self.host, self.user, self.password, self.database, "favorite_vending_machines", ["id", "vending_machine_id", "user_id"], column_id="id")
         self.__favorite_vending_machines_config_pub = None
         self.__favorite_vending_machines_config_sub = None
         self.__favorite_vending_machines = DatabaseManager( self.__favorite_vending_machines_config, self.__favorite_vending_machines_config_pub, self.__favorite_vending_machines_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile", "user_id": "users_profile"})
-
+        logger.debug(f"Favorite vending machines table created successfully. {self.__favorite_vending_machines}")
+        logger.debug(f"Favorite vending machines table created successfully. {self.__favorite_vending_machines.show_table()}")
         self.__favorite_products_config = Config(self.host, self.user, self.password, self.database, "favorite_products", ["id", "product_id", "user_id"], column_id="id")
         self.__favorite_products_config_pub = None
         self.__favorite_products_config_sub = None
         self.__favorite_products = DatabaseManager( self.__favorite_products_config, self.__favorite_products_config_pub, self.__favorite_products_config_sub, immutable_columns=None, foreign_keys={"product_id": "products_profile", "user_id": "users_profile"})
+        logger.debug(f"Favorite products table created successfully. {self.__favorite_products}")
+        logger.debug(f"Favorite products table created successfully. {self.__favorite_products.show_table()}")
 
         self.__instance_tables = InstancesTables(
             products_profile = self.__products_profile,
@@ -149,6 +197,25 @@ class DatabaseManagerCentral:
             favorite_products = self.__favorite_products,
             favorite_vending_machines = self.__favorite_vending_machines
         )
+    
+        
+
+    def show(self):
+        for table_name, table_instance in self.instance_tables.__dict__.items():
+            print(f"Table: {table_name}")
+            head, records = table_instance.show_table()
+            print("Columns:")
+            for col in head:
+                print(col, end=" ")
+            print()
+            print("Records:")
+            if records:
+                for record in records:
+                    print(record)
+            else:
+                print("No records found.")
+        
+        return head, records
 
     def insert_record(self, table_name, data, foreign_keys=None):
         """
@@ -167,19 +234,23 @@ class DatabaseManagerCentral:
             ValueError: If any validation fails or insertion encounters an issue.
         """
         try:
+            logger.debug(f"Validating record data for table '{table_name}'")
             if foreign_keys:
                 for fk_table, fk_column in foreign_keys.items():
+                    logger.debug(f"Validating foreign key '{fk_column}' in table '{fk_table}'")
                     fk_value = data.get(fk_column)
+                    logger.debug(f"Foreign key value: {fk_value}")
                     if fk_value is None:
                         logger.error(f"Foreign key '{fk_column}' must be provided.")
                         raise ValueError(f"Foreign key '{fk_column}' must be provided.")
 
                     logger.debug(f"Validating foreign key '{fk_column}' with value '{fk_value}' in table '{fk_table}'")
                     table_instance = getattr(self.instance_tables, fk_table, None)
-
+                    logger.debug(f"Table instance: {table_instance}")
                     if not table_instance:
                         raise ValueError(f"Foreign key table '{fk_table}' not found in instance tables.")
-                    record_exists = table_instance.search_record(**{fk_column: fk_value})
+                    logger.debug(f"Searching for foreign key id with value '{fk_value}' in table '{fk_table}'")
+                    record_exists = table_instance.search_record(**{"id": fk_value})
 
                     logger.debug(f"Record exists: {record_exists}")
                     if not record_exists:
@@ -232,7 +303,7 @@ class DatabaseManagerCentral:
             foreign_keys={"vending_machines_profile": "vending_machine_id"}
         )
 
-    @hash_password_decorator
+    @hash_password_decorator(password_position=2)
     def add_user(self, username, email, password, first_name, last_name, birthdate, phone_number, address, budget):
         """
         Adds a new user to the `users_profile` table.
@@ -264,7 +335,7 @@ class DatabaseManagerCentral:
         }
         return self.insert_record("users_profile", data)
     
-    def add_product_comment(self, product_id, user_id, text):
+    def add_product_comment(self, text, product_id, user_id):
         """
         Adds a comment for a product in the `product_comment` table.
 
@@ -338,7 +409,7 @@ class DatabaseManagerCentral:
             foreign_keys={"vending_machines_profile": "vending_machine_id", "users_profile": "user_id"}
         )
 
-    def add_vending_machine_comment(self, vending_machine_id, user_id, text):
+    def add_vending_machine_comment(self, text, vending_machine_id, user_id):
         """
         Adds a comment for a vending machine in the `vending_machine_comment` table.
 
@@ -354,9 +425,9 @@ class DatabaseManagerCentral:
             ValueError: If foreign key validation fails.
         """
         data = {
-            "vending_machine_id": vending_machine_id,
-            "user_id": user_id,
             "text": text,
+            "vending_machine_id": vending_machine_id,
+            "user_id": user_id
         }
         return self.insert_record(
             "vending_machine_comment",
@@ -364,7 +435,7 @@ class DatabaseManagerCentral:
             foreign_keys={"vending_machines_profile": "vending_machine_id", "users_profile": "user_id"}
         )
 
-    def add_vending_machine_complaint(self, vending_machine_id, user_id, text):
+    def add_vending_machine_complaint(self, text, vending_machine_id, user_id):
         """
         Adds a complaint for a vending machine in the `vending_machine_complaint` table.
 
@@ -380,9 +451,9 @@ class DatabaseManagerCentral:
             ValueError: If foreign key validation fails.
         """
         data = {
-            "vending_machine_id": vending_machine_id,
-            "user_id": user_id,
             "text": text,
+            "vending_machine_id": vending_machine_id,
+            "user_id": user_id
         }
         return self.insert_record(
             "vending_machine_complaint",
@@ -390,7 +461,7 @@ class DatabaseManagerCentral:
             foreign_keys={"vending_machines_profile": "vending_machine_id", "users_profile": "user_id"}
         )
 
-    def add_product_complaint(self, product_id, user_id, text):
+    def add_product_complaint(self, text, product_id, user_id):
         """
         Adds a complaint for a product in the `product_complaint` table.
 
@@ -406,9 +477,9 @@ class DatabaseManagerCentral:
             ValueError: If foreign key validation fails.
         """
         data = {
+            "text": text,
             "product_id": product_id,
             "user_id": user_id,
-            "text": text,
         }
         return self.insert_record(
             "product_complaint",
@@ -416,7 +487,7 @@ class DatabaseManagerCentral:
             foreign_keys={"products_profile": "product_id", "users_profile": "user_id"}
         )
 
-    @hash_password_decorator
+    @hash_password_decorator(password_position=2)
     def add_owner(self, username, email, password, first_name, last_name, birthdate, phone_number, address, budget):
         """
         Updates the budget of an owner in the database.
@@ -441,7 +512,7 @@ class DatabaseManagerCentral:
         }
         return self.insert_record("owners_profile", data)
 
-    def add_vending_machine(self, name, location, status, owner_id):
+    def add_vending_machine(self, name, location, owner_id):
         """
         Adds a new vending machine to the `vending_machines_profile` table.
 
@@ -460,7 +531,6 @@ class DatabaseManagerCentral:
         data = {
             "name": name,
             "location": location,
-            "status": status,
             "owner_id": owner_id,
         }
         
@@ -494,7 +564,7 @@ class DatabaseManagerCentral:
                 raise ValueError(f"Product with ID '{product_id}' does not exist.")
             
             logger.debug(f"Product found: {product}")
-            available_quantity = product[0]["quantity"]
+            available_quantity = product[0][4]
             
             if available_quantity < quantity:
                 raise ValueError(f"Insufficient quantity for product ID '{product_id}'. Available: {available_quantity}, Requested: {quantity}.")
@@ -590,7 +660,7 @@ class DatabaseManagerCentral:
             logger.error(f"Error updating owner's budget '{owner_id}': {e}")
             raise
 
-    def add_product_quantity(self, product_id=None, name=None, vending_machine_id=None, quantity_to_add=0):
+    def add_product_quantity(self, product_id=None, vending_machine_id=None, quantity_to_add=0):
         """
         Adds a specified quantity to an existing product in the database.
 
@@ -613,8 +683,8 @@ class DatabaseManagerCentral:
 
             if product_id:
                 product = self.__products_profile.get_by_id(product_id)
-            elif name and vending_machine_id:
-                products = self.__products_profile.search_record(name=name, vending_machine_id=vending_machine_id)
+            elif vending_machine_id:
+                products = self.__products_profile.search_record(product_id=product_id)
                 if not products:
                     raise ValueError("Product not found with the criteria provided.")
                 product = products[0]  
@@ -725,12 +795,11 @@ class DatabaseManagerCentral:
             user_record = table_instance.search_record(username=username, password=encrypted_password)
 
             if user_record:
-                user_data = self._map_tuple_to_dict(user_record[0], table_instance.columns)
-                logger.info(f"Login successful for user: {username} in table: {table_name}")
-                return user_data
+                logger.info(f"User '{username}' successfully logged in.")
+                return True
             else:
                 logger.error(f"Invalid username or password for user: {username} in table: {table_name}")
-                return None
+                return False
 
         except ValueError as ve:
             logger.error(f"ValueError: {ve}")

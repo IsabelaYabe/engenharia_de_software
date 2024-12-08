@@ -22,6 +22,7 @@ import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "src")))
 from custom_logger import setup_logger
+from random import randint
 
 logger = setup_logger()
 

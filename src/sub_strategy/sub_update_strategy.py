@@ -93,13 +93,13 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
     and updates the quantity if the purchase is valid.
     """
 
-    def update(self, data):
+    def update(self, data, search_record, update_row):
         """
         Executes the update logic for the "PurchaseProductEvent".
 
         Args:
             data (dict): A dictionary containing the event data, expected to have the following keys:
-                - `name` (str): The name of the product to update.
+                - `name` (str): The id of the product to update.
                 - `vending_machine_id` (str): The ID of the vending machine where the product is located.
                 - `quantity` (int): The quantity of the product being purchased.
 
@@ -115,11 +115,12 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
             Exception: If an error occurs during the update process.
         """
         logger.info(f"Executing update strategy with data: {data}")
-        name = data["name"]
+        
+        name = data["product_id"]
         vending_machine_id = data["vending_machine_id"]
         quantity = data["quantity"]
         try:
-            existing_records = self.search_record(name=name, vending_machine_id=vending_machine_id)
+            existing_records = search_record(id=name, vending_machine_id=vending_machine_id)
             
             if not existing_records:
                 logger.warning(f"Product '{name}' not found in vending machine '{vending_machine_id}'. Purchase aborted.")
@@ -127,14 +128,14 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
             
             logger.debug(f"Records: {existing_records}")   
             existing_product = existing_records[0]
-            existing_id = existing_product["id"]  
-            existing_quantity = existing_product["quantity"]
+            existing_id = existing_product[0]  
+            existing_quantity = existing_product[4]
             if quantity > existing_quantity:
                 logger.warning(f"Insufficient stock for product '{name}' in vending machine '{vending_machine_id}'. Available: {existing_quantity}, Requested: {quantity}")
                 return       
 
             new_quantity = existing_quantity - quantity
-            self.update_row(existing_id, quantity=new_quantity)
+            update_row(existing_id, quantity=new_quantity)
 
             logger.info(f"Purchase successful. Updated product '{name}' in vending machine '{vending_machine_id}' to new quantity: {new_quantity}")
         

@@ -31,7 +31,6 @@ Decorators:
 from dataclasses import dataclass, field
 from custom_logger import setup_logger
 import mysql.connector
-import uuid
 import re
 from copy import deepcopy
 
@@ -43,8 +42,8 @@ from decorators_class import pubsub
 from event_manager.event_manager import EventManager
 from utils.utils import tuple_rows_to_dict
 
-
 logger = setup_logger()
+
 @dataclass
 class Config:
     """
@@ -139,6 +138,11 @@ class DatabaseManager():
         }
         self.__table_name = config.table_name
         self.__columns = config.columns
+        self.__columns_parameters = []
+        for column in self.__columns:
+            if column != "id" or column != "timestamp":
+                self.__columns_parameters.append(column)
+                
         self.__column_id = config.column_id
         self.__foreign_keys = foreign_keys
         self.__foreign_keys_columns =  list(deepcopy(self.__foreign_keys).keys()) if self.__foreign_keys else None
@@ -214,6 +218,7 @@ class DatabaseManager():
      
         with self.__connect() as conn, conn.cursor() as cursor:    
             cursor.execute(alter_table_sql)
+            conn.commit()
         self.__columns.append(column_name) 
         logger.info(f"Column {column_name} was added to {self.__table_name} as {type} and not_null {not_null}")       
 
@@ -306,22 +311,27 @@ class DatabaseManager():
         Raises:
             ValueError: If insertion fails due to invalid data or constraints.
         """
-        id = str(uuid.uuid4())
-        column_id = self.__column_id
-        columns = [column_id]
-        values = [id]
+        columns = []
+        values = []
         placeholders = []
         for key, value in kwargs.items():
             columns.append(f"`{key}`")
             values.append(value)
             placeholders.append("%s")
         columns_str = ", ".join(columns)
+        logger.debug(f"Columns: {columns_str}")
         placeholders = ", ".join(placeholders)
+        logger.debug(f"Placeholders: {placeholders}")
         insert_sql = f"INSERT INTO `{self.__table_name}` ({columns_str}) VALUES ({placeholders});"
         
+        logger.debug(f"Insert SQL: {insert_sql}")
+        logger.debug(f"Values: {values}")
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(insert_sql, tuple(values))
+            conn.commit()
+            id = cursor.lastrowid
             logger.info(f"Row ({kwargs}) inserted in table {self.__table_name} with id {id}")
+        
         return id
 
     @immutable_fields("immutable_columns")
@@ -360,6 +370,7 @@ class DatabaseManager():
 
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(query, tuple(values))
+            conn.commit()
             new_row = self.get_by_id(record_id)      
             logger.info(f"Row {record_id} id from table {self.table_name} updated columns: {columns} (from {old_row} (old row) to {new_row} (new row))")
       
@@ -400,6 +411,10 @@ class DatabaseManager():
         Raises:
             Exception: If the search query fails for any reason.
         """
+        logger.debug(f"Searching for records with: {kwargs}")
+        logger.debug(f"Tabela: {self.__table_name}")
+        logger.debug(f"Columns: {self.__columns}")
+        logger.debug(f"Show table: {self.show_table()}")
         columns = []
         values = []
         for key, value in kwargs.items():
@@ -424,17 +439,20 @@ class DatabaseManager():
         Raises:
             Exception: If the search query fails for any reason.
         """
-        query = f"SELECT * FROM `{self.__table_name}`;"
+        head_query = f'SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = %s;'
+        query = f'SELECT * FROM `{self.__table_name}`;'
         with self.__connect() as conn, conn.cursor() as cursor:
+            cursor.execute(head_query, (self.__table_name,))
+            head = [column[0] for column in cursor.fetchall()]
             cursor.execute(query)
             return_execute = cursor.fetchall()
-            if return_execute == []:
+            if not return_execute:
                 logger.warning(f"No instance found in table: {self.__table_name}")
             else:
                 logger.info(f"Got all instances in table: {self.__table_name}")
-                return return_execute
+            return head, return_execute
         
-    def execute_sql(self, query, params=None, fetch_one=False, fetch_all=False, error_message=""):
+    def execute_sql(self, query, params=None, fetch_one=False, fetch_all=False, error_message="", commit=False):
         """
         Executes a raw SQL query on the database.
 
@@ -453,10 +471,32 @@ class DatabaseManager():
         """
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(query, params)
+            if commit:
+                conn.commit()
             if fetch_all:
                 return cursor.fetchall()
             elif fetch_one:
                 return cursor.fetchone()
+    
+    def get_info(self):
+        """
+        Get information about the table.
+
+        Returns:
+            dict: Information about the table.
+        """
+        head, rows = self.show_table()
+
+        return {
+            "table_name": self.__table_name,
+            "columns": self.__columns,
+            "column_id": self.__column_id,
+            "foreign_keys": self.__foreign_keys,
+            "foreign_keys_columns": self.__foreign_keys_columns,
+            "immutable_columns": self.__immutable_columns,
+            "head": head,
+            "rows": rows
+        }
     
     @property
     def db_config(self):

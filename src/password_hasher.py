@@ -74,19 +74,22 @@ class PasswordHasher:
             logger.error(f"Error hashing password: {e}")
             raise Exception("Error hashing password.") from e
 
-def hash_password_decorator(func):
-    """
-    Decorator to hash the 'password' argument before calling the target function.
-    
-    It assumes that the function being decorated has a 'self' as the first argument 
-    (i.e., it is a method of a class) and that 'password' is present in the arguments.
-    """
-    def wrapper(self, *args, **kwargs):
+def hash_password_decorator(password_position):
+    def decorator(func):
         """
-        Wraps the target function, hashes the 'password' in kwargs, and calls the function.
+        Decorator to hash the 'password' argument before calling the target function.
+
+        It assumes that the function being decorated has a 'self' as the first argument 
+        (i.e., it is a method of a class) and that 'password' is present in the arguments.
         """
-        if "password" in kwargs:
+        def wrapper(self, *args, **kwargs):
+            """
+            Wraps the target function, hashes the 'password' in kwargs, and calls the function.
+            """
+            args = list(args)
             logger.info("Hashing password before calling the original function.")
-            kwargs["password"] = self.password_hasher.hash_password(kwargs["password"])
-        return func(self, *args, **kwargs)
-    return wrapper
+            args[password_position] = self.password_hasher.hash_password(args[password_position])
+            args = tuple(args)
+            return func(self, *args, **kwargs)
+        return wrapper
+    return decorator

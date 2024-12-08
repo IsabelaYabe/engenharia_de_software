@@ -1,12 +1,12 @@
 from flask import Flask, request, jsonify, render_template
-from profiles.stock_profile import StockProfile
-from profiles.vms_profile import VMProfile
-from profiles.comment_profile import CommentProfile
-from profiles.complaint_profile import Complaint
+from database_manager_central import DatabaseManagerCentral
 from flask_cors import CORS
+from custom_logger import setup_logger
 
 app = Flask(__name__)
 CORS(app)
+
+logger = setup_logger()
 
 # Database configuration
 db_config = {
@@ -35,10 +35,7 @@ def get_stock_info():
     """
     Endpoint for retrieving stock information about products and their associated vending machines.
     """
-    stock_profile = StockProfile(**db_config)
-    stock_info = stock_profile.get_stock_info()
-    stock_profile.close()
-    return jsonify(stock_info)
+    pass
 
 @app.route('/vms')
 def vms():
@@ -52,20 +49,19 @@ def get_vm_info():
     """
     Endpoint for retrieving vending machine information.
     """
-    vm_profile = VMProfile(**db_config)
-    vm_info = vm_profile.get_vm_info()
-    vm_profile.close()
-    return jsonify(vm_info)
+    manager = DatabaseManagerCentral(**db_config)
+    table = manager.vending_machines_profile
+    info = table.get_info()
+    logger.debug(f"Vending machines info: {info}")
+    return jsonify({"header": info["head"], "data": info["rows"]})
+    pass
 
 @app.route('/get_vm_products/<int:vm_id>', methods=['GET'])
 def get_vm_products(vm_id):
     """
     Endpoint for retrieving vending machine products.
     """
-    vm_profile = VMProfile(**db_config)
-    vm_products = vm_profile.get_vm_products(vm_id)
-    vm_profile.close()
-    return jsonify(vm_products)
+    pass
 
 @app.route('/comment')
 def comment():
@@ -77,7 +73,9 @@ def comment():
 # Route to add a comment
 @app.route('/add_comment', methods=['POST'])
 def add_comment():
-    data = request.json
+    pass
+
+    """data = request.json
     product_id = data['product_id']
     user_id = data['user_id']
     text = data['text']
@@ -87,15 +85,12 @@ def add_comment():
         comment_id = comment_profile.create_comment(product_id, user_id, text)
         return jsonify({"success": True, "comment_id": comment_id})
     except ValueError as e:
-        return jsonify({"success": False, "error": str(e)})
+        return jsonify({"success": False, "error": str(e)})"""
     
 # Route to get comments for a product
 @app.route('/get_comments/<int:product_id>', methods=['GET'])
 def get_comments(product_id):
-    comment_profile = CommentProfile(**db_config)
-    comments = comment_profile.get_comments_by_product(product_id)
-    comment_profile.close()
-    return jsonify(comments)
+    pass
 
 # Route to the complaints page for commun users
 @app.route('/complaint')
@@ -105,7 +100,8 @@ def complaints():
 # Route to add a complaint
 @app.route('/add_complaint', methods=['POST'])
 def add_complaint():
-    data = request.json
+    pass
+    """data = request.json
     vending_machine_id = data.get('vending_machine_id')  # Usa get para evitar KeyError
     user_id = data.get('user_id')  # Usa get para evitar KeyError
     text = data.get('text')  # Usa get para evitar KeyError
@@ -115,7 +111,7 @@ def add_complaint():
         complaint_id = complaint_manager.create_complaint(user_id, vending_machine_id, text)  # Alterado a ordem dos parâmetros
         return jsonify({"success": True, "complaint_id": complaint_id})
     except ValueError as e:
-        return jsonify({"success": False, "error": str(e)})
+        return jsonify({"success": False, "error": str(e)})"""
 
 
 
@@ -128,12 +124,7 @@ def admin_complaints():
 # Route to get complaints 
 @app.route('/get_complaints', methods=['GET'])
 def get_complaints():
-    try:
-        complaint_manager = Complaint(**db_config)
-        complaints = complaint_manager.get_all_complaints()
-        return jsonify(complaints)
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    pass
     
 
 if __name__ == "__main__":
