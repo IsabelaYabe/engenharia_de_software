@@ -29626,3 +29626,777 @@
 2024-12-08 00:41:04,598 | INFO | database_manager:search_record - Records founds: [(1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 207, 1, datetime.datetime(2024, 12, 8, 0, 37, 5)), (2, 'Pepsi', 'Muito refrescante', Decimal('4.50'), 14, 1, datetime.datetime(2024, 12, 8, 0, 37, 5)), (5, 'Guaraná', 'Sabor original', Decimal('4.50'), 30, 1, datetime.datetime(2024, 12, 8, 0, 37, 5)), (8, 'Suco de Uva', 'Natural', Decimal('3.50'), 15, 1, datetime.datetime(2024, 12, 8, 0, 37, 5)), (11, 'Cerveja', 'Gelada', Decimal('5.00'), 10, 1, datetime.datetime(2024, 12, 8, 0, 37, 5))]
 2024-12-08 00:41:05,636 | INFO | database_manager:__connect - Connected into database
 2024-12-08 00:41:05,640 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:00,207 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:51:00,207 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:51:00,303 | INFO | drop:drop_database - Connected into database
+2024-12-08 00:51:02,085 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:51:02,085 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:51:02,176 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-08 00:51:02,408 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-08 00:51:02,409 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-08 00:51:02,409 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-08 00:51:02,410 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-08 00:51:02,410 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-08 00:51:02,418 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,421 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-08 00:51:02,423 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-08 00:51:02,431 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,437 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-08 00:51:02,438 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-08 00:51:02,448 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,453 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-08 00:51:02,455 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-08 00:51:02,464 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,470 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-08 00:51:02,473 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-08 00:51:02,483 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,487 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-08 00:51:02,488 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-08 00:51:02,498 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,502 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-08 00:51:02,504 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-08 00:51:02,504 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-08 00:51:02,518 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,523 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-08 00:51:02,525 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-08 00:51:02,534 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,540 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-08 00:51:02,542 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-08 00:51:02,552 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,557 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-08 00:51:02,559 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-08 00:51:02,567 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,571 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-08 00:51:02,573 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-08 00:51:02,587 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,591 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-08 00:51:02,600 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,603 | WARNING | database_manager:show_table - No instance found in table: products_profile
+2024-12-08 00:51:02,616 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,620 | WARNING | database_manager:show_table - No instance found in table: users_profile
+2024-12-08 00:51:02,632 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,635 | WARNING | database_manager:show_table - No instance found in table: vending_machines_profile
+2024-12-08 00:51:02,645 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,649 | WARNING | database_manager:show_table - No instance found in table: owners_profile
+2024-12-08 00:51:02,659 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,662 | WARNING | database_manager:show_table - No instance found in table: product_complaint
+2024-12-08 00:51:02,673 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,675 | WARNING | database_manager:show_table - No instance found in table: product_comment
+2024-12-08 00:51:02,687 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,690 | WARNING | database_manager:show_table - No instance found in table: purchase_transaction
+2024-12-08 00:51:02,700 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,703 | WARNING | database_manager:show_table - No instance found in table: vending_machine_complaint
+2024-12-08 00:51:02,715 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,719 | WARNING | database_manager:show_table - No instance found in table: vending_machine_comment
+2024-12-08 00:51:02,729 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,732 | WARNING | database_manager:show_table - No instance found in table: favorite_products
+2024-12-08 00:51:02,740 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,742 | WARNING | database_manager:show_table - No instance found in table: favorite_vending_machines
+2024-12-08 00:51:02,744 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-08 00:51:02,745 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-08 00:51:02,758 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,761 | INFO | database_manager:insert_row - Row ({'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}) inserted in table users_profile with id 1
+2024-12-08 00:51:02,762 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '1' and data {'username': 'Al1ce', 'email': 'alicinha@gmail.com', 'password': '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'first_name': 'Alice', 'last_name': 'Silva', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Baixo', 'budget': 50.0}
+2024-12-08 00:51:02,763 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-08 00:51:02,764 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-08 00:51:02,774 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,777 | INFO | database_manager:insert_row - Row ({'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}) inserted in table users_profile with id 2
+2024-12-08 00:51:02,778 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '2' and data {'username': 'Bob', 'email': 'bob@example.com', 'password': '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'first_name': 'Bob', 'last_name': 'Smith', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua de Cima', 'budget': 60.0}
+2024-12-08 00:51:02,780 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-08 00:51:02,781 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-08 00:51:02,792 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,794 | INFO | database_manager:insert_row - Row ({'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}) inserted in table users_profile with id 3
+2024-12-08 00:51:02,795 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '3' and data {'username': 'Charlie', 'email': 'charlie@example.com', 'password': '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'first_name': 'Charlie', 'last_name': 'Brown', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua do Meio', 'budget': 70.0}
+2024-12-08 00:51:02,797 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-08 00:51:02,798 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-08 00:51:02,807 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,809 | INFO | database_manager:insert_row - Row ({'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}) inserted in table users_profile with id 4
+2024-12-08 00:51:02,811 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '4' and data {'username': 'David', 'email': 'david@example.com', 'password': '0f14089313b20c1723ec1d660b0aaa4f473cf5b321cd370f2d48b7bcf9a7b234', 'first_name': 'David', 'last_name': 'Johnson', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Nova', 'budget': 80.0}
+2024-12-08 00:51:02,813 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-08 00:51:02,813 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-08 00:51:02,823 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,826 | INFO | database_manager:insert_row - Row ({'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}) inserted in table users_profile with id 5
+2024-12-08 00:51:02,826 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '5' and data {'username': 'Eve', 'email': 'eve@example.com', 'password': '9b429e2c486fc24baa239ae21a60bacd3290e4d93ef5526835200a6fc57c2ed0', 'first_name': 'Eve', 'last_name': 'Davis', 'birthdate': '2024-12-07', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Velha', 'budget': 90.0}
+2024-12-08 00:51:02,828 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-08 00:51:02,828 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-08 00:51:02,838 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,841 | INFO | database_manager:insert_row - Row ({'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}) inserted in table users_profile with id 6
+2024-12-08 00:51:02,842 | INFO | database_manager_central:insert_record - Record added to 'users_profile' with ID '6' and data {'username': 'Frank', 'email': 'frank@example.com', 'password': '2e51672858831d330326f5bbd72a42848314e6d6a35b5b75670b1e602fa04f3d', 'first_name': 'Frank', 'last_name': 'Miller', 'birthdate': '2024-12-06', 'phone_number': 'pizzaria_buonasserra', 'address': 'Rua Alta', 'budget': 100.0}
+2024-12-08 00:51:02,843 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-08 00:51:02,843 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-08 00:51:02,853 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,856 | INFO | database_manager:insert_row - Row ({'username': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}) inserted in table owners_profile with id 1
+2024-12-08 00:51:02,857 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '1' and data {'username': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first_name': 'Gar', 'last_name': 'Ry', 'birthdate': '2024-12-05', 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': 52.0}
+2024-12-08 00:51:02,858 | INFO | password_hasher:wrapper - Hashing password before calling the original function.
+2024-12-08 00:51:02,858 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-08 00:51:02,868 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,871 | INFO | database_manager:insert_row - Row ({'username': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}) inserted in table owners_profile with id 2
+2024-12-08 00:51:02,872 | INFO | database_manager_central:insert_record - Record added to 'owners_profile' with ID '2' and data {'username': 'Harry', 'email': 'harry@example.com', 'password': 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'first_name': 'Harry', 'last_name': 'Potter', 'birthdate': '2024-12-06', 'phone_number': '4002-8923', 'address': 'Rua de Cima', 'budget': 62.0}
+2024-12-08 00:51:02,883 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,887 | INFO | database_manager:show_table - Got all instances in table: owners_profile
+2024-12-08 00:51:02,900 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,902 | INFO | database_manager:search_record - Records founds: [(1, 'Garry', 'g2@gmail.com', '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'Gar', 'Ry', datetime.date(2024, 12, 5), '4002-8922', 'Rua de Baixo', Decimal('52.00'))]
+2024-12-08 00:51:02,912 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,919 | INFO | database_manager:insert_row - Row ({'name': 'VM1', 'location': 'Rua de Baixo', 'owner_id': '1'}) inserted in table vending_machines_profile with id 1
+2024-12-08 00:51:02,920 | INFO | database_manager_central:insert_record - Record added to 'vending_machines_profile' with ID '1' and data {'name': 'VM1', 'location': 'Rua de Baixo', 'owner_id': '1'}
+2024-12-08 00:51:02,931 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,935 | INFO | database_manager:show_table - Got all instances in table: owners_profile
+2024-12-08 00:51:02,944 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,945 | INFO | database_manager:search_record - Records founds: [(1, 'Garry', 'g2@gmail.com', '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'Gar', 'Ry', datetime.date(2024, 12, 5), '4002-8922', 'Rua de Baixo', Decimal('52.00'))]
+2024-12-08 00:51:02,959 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,965 | INFO | database_manager:insert_row - Row ({'name': 'VM2', 'location': 'Rua de Cima', 'owner_id': '1'}) inserted in table vending_machines_profile with id 2
+2024-12-08 00:51:02,966 | INFO | database_manager_central:insert_record - Record added to 'vending_machines_profile' with ID '2' and data {'name': 'VM2', 'location': 'Rua de Cima', 'owner_id': '1'}
+2024-12-08 00:51:02,975 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,978 | INFO | database_manager:show_table - Got all instances in table: owners_profile
+2024-12-08 00:51:02,988 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:02,991 | INFO | database_manager:search_record - Records founds: [(2, 'Harry', 'harry@example.com', 'd4cfaf03600bf1a55ba4372ceb17ff9234576eb062c1f8b78bd3c53c703f194c', 'Harry', 'Potter', datetime.date(2024, 12, 6), '4002-8923', 'Rua de Cima', Decimal('62.00'))]
+2024-12-08 00:51:03,001 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,004 | INFO | database_manager:insert_row - Row ({'name': 'VM3', 'location': 'Rua do Meio', 'owner_id': '2'}) inserted in table vending_machines_profile with id 3
+2024-12-08 00:51:03,005 | INFO | database_manager_central:insert_record - Record added to 'vending_machines_profile' with ID '3' and data {'name': 'VM3', 'location': 'Rua do Meio', 'owner_id': '2'}
+2024-12-08 00:51:03,014 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,017 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:03,029 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,030 | INFO | database_manager:search_record - Records founds: [(1, 'VM1', 'Rua de Baixo', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:03,041 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,043 | INFO | database_manager:insert_row - Row ({'name': 'Coca-Cola', 'description': 'Refrescante demais', 'price': 5.0, 'quantity': 10, 'vending_machine_id': 1}) inserted in table products_profile with id 1
+2024-12-08 00:51:03,044 | INFO | database_manager_central:insert_record - Record added to 'products_profile' with ID '1' and data {'name': 'Coca-Cola', 'description': 'Refrescante demais', 'price': 5.0, 'quantity': 10, 'vending_machine_id': 1}
+2024-12-08 00:51:03,054 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,060 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:03,070 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,072 | INFO | database_manager:search_record - Records founds: [(1, 'VM1', 'Rua de Baixo', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:03,083 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,091 | INFO | database_manager:insert_row - Row ({'name': 'Pepsi', 'description': 'Muito refrescante', 'price': 4.5, 'quantity': 15, 'vending_machine_id': 1}) inserted in table products_profile with id 2
+2024-12-08 00:51:03,092 | INFO | database_manager_central:insert_record - Record added to 'products_profile' with ID '2' and data {'name': 'Pepsi', 'description': 'Muito refrescante', 'price': 4.5, 'quantity': 15, 'vending_machine_id': 1}
+2024-12-08 00:51:03,105 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,108 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:03,118 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,120 | INFO | database_manager:search_record - Records founds: [(2, 'VM2', 'Rua de Cima', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:03,134 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,137 | INFO | database_manager:insert_row - Row ({'name': 'Fanta', 'description': 'Sabor laranja', 'price': 4.0, 'quantity': 20, 'vending_machine_id': 2}) inserted in table products_profile with id 3
+2024-12-08 00:51:03,138 | INFO | database_manager_central:insert_record - Record added to 'products_profile' with ID '3' and data {'name': 'Fanta', 'description': 'Sabor laranja', 'price': 4.0, 'quantity': 20, 'vending_machine_id': 2}
+2024-12-08 00:51:03,150 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,153 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:03,162 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,165 | INFO | database_manager:search_record - Records founds: [(3, 'VM3', 'Rua do Meio', 'active', datetime.datetime(2024, 12, 8, 0, 51, 3), 2)]
+2024-12-08 00:51:03,174 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,177 | INFO | database_manager:insert_row - Row ({'name': 'Sprite', 'description': 'Refrescante e limonada', 'price': 4.0, 'quantity': 25, 'vending_machine_id': 3}) inserted in table products_profile with id 4
+2024-12-08 00:51:03,178 | INFO | database_manager_central:insert_record - Record added to 'products_profile' with ID '4' and data {'name': 'Sprite', 'description': 'Refrescante e limonada', 'price': 4.0, 'quantity': 25, 'vending_machine_id': 3}
+2024-12-08 00:51:03,187 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,189 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:03,200 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,202 | INFO | database_manager:search_record - Records founds: [(1, 'VM1', 'Rua de Baixo', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:03,212 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,215 | INFO | database_manager:insert_row - Row ({'name': 'Guaraná', 'description': 'Sabor original', 'price': 4.5, 'quantity': 30, 'vending_machine_id': 1}) inserted in table products_profile with id 5
+2024-12-08 00:51:03,216 | INFO | database_manager_central:insert_record - Record added to 'products_profile' with ID '5' and data {'name': 'Guaraná', 'description': 'Sabor original', 'price': 4.5, 'quantity': 30, 'vending_machine_id': 1}
+2024-12-08 00:51:03,227 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,231 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:03,240 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,242 | INFO | database_manager:search_record - Records founds: [(2, 'VM2', 'Rua de Cima', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:03,251 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,258 | INFO | database_manager:insert_row - Row ({'name': 'Água', 'description': 'Mineral', 'price': 2.0, 'quantity': 50, 'vending_machine_id': 2}) inserted in table products_profile with id 6
+2024-12-08 00:51:03,260 | INFO | database_manager_central:insert_record - Record added to 'products_profile' with ID '6' and data {'name': 'Água', 'description': 'Mineral', 'price': 2.0, 'quantity': 50, 'vending_machine_id': 2}
+2024-12-08 00:51:03,273 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,276 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:03,285 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,286 | INFO | database_manager:search_record - Records founds: [(3, 'VM3', 'Rua do Meio', 'active', datetime.datetime(2024, 12, 8, 0, 51, 3), 2)]
+2024-12-08 00:51:03,299 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,303 | INFO | database_manager:insert_row - Row ({'name': 'Suco de Laranja', 'description': 'Natural', 'price': 3.5, 'quantity': 10, 'vending_machine_id': 3}) inserted in table products_profile with id 7
+2024-12-08 00:51:03,304 | INFO | database_manager_central:insert_record - Record added to 'products_profile' with ID '7' and data {'name': 'Suco de Laranja', 'description': 'Natural', 'price': 3.5, 'quantity': 10, 'vending_machine_id': 3}
+2024-12-08 00:51:03,317 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,319 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:03,328 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,331 | INFO | database_manager:search_record - Records founds: [(1, 'VM1', 'Rua de Baixo', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:03,343 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,346 | INFO | database_manager:insert_row - Row ({'name': 'Suco de Uva', 'description': 'Natural', 'price': 3.5, 'quantity': 15, 'vending_machine_id': 1}) inserted in table products_profile with id 8
+2024-12-08 00:51:03,347 | INFO | database_manager_central:insert_record - Record added to 'products_profile' with ID '8' and data {'name': 'Suco de Uva', 'description': 'Natural', 'price': 3.5, 'quantity': 15, 'vending_machine_id': 1}
+2024-12-08 00:51:03,357 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,360 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:03,371 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,372 | INFO | database_manager:search_record - Records founds: [(2, 'VM2', 'Rua de Cima', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:03,383 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,386 | INFO | database_manager:insert_row - Row ({'name': 'Chá Gelado', 'description': 'Sabor limão', 'price': 3.0, 'quantity': 20, 'vending_machine_id': 2}) inserted in table products_profile with id 9
+2024-12-08 00:51:03,388 | INFO | database_manager_central:insert_record - Record added to 'products_profile' with ID '9' and data {'name': 'Chá Gelado', 'description': 'Sabor limão', 'price': 3.0, 'quantity': 20, 'vending_machine_id': 2}
+2024-12-08 00:51:03,399 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,402 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:03,412 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,413 | INFO | database_manager:search_record - Records founds: [(3, 'VM3', 'Rua do Meio', 'active', datetime.datetime(2024, 12, 8, 0, 51, 3), 2)]
+2024-12-08 00:51:03,423 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,425 | INFO | database_manager:insert_row - Row ({'name': 'Energético', 'description': 'Para dar energia', 'price': 6.0, 'quantity': 5, 'vending_machine_id': 3}) inserted in table products_profile with id 10
+2024-12-08 00:51:03,426 | INFO | database_manager_central:insert_record - Record added to 'products_profile' with ID '10' and data {'name': 'Energético', 'description': 'Para dar energia', 'price': 6.0, 'quantity': 5, 'vending_machine_id': 3}
+2024-12-08 00:51:03,438 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,442 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:03,451 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,452 | INFO | database_manager:search_record - Records founds: [(1, 'VM1', 'Rua de Baixo', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:03,464 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,469 | INFO | database_manager:insert_row - Row ({'name': 'Cerveja', 'description': 'Gelada', 'price': 5.0, 'quantity': 10, 'vending_machine_id': 1}) inserted in table products_profile with id 11
+2024-12-08 00:51:03,470 | INFO | database_manager_central:insert_record - Record added to 'products_profile' with ID '11' and data {'name': 'Cerveja', 'description': 'Gelada', 'price': 5.0, 'quantity': 10, 'vending_machine_id': 1}
+2024-12-08 00:51:03,481 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,484 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:03,494 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,495 | INFO | database_manager:search_record - Records founds: [(1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 10, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:03,512 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,517 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:03,525 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,527 | INFO | database_manager:search_record - Records founds: [(2, 'Bob', 'bob@example.com', '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'Bob', 'Smith', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua de Cima', Decimal('60.00'))]
+2024-12-08 00:51:03,540 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,544 | INFO | database_manager:insert_row - Row ({'text': 'Produto vencido', 'product_id': 1, 'user_id': 2}) inserted in table product_complaint with id 1
+2024-12-08 00:51:03,545 | INFO | database_manager_central:insert_record - Record added to 'product_complaint' with ID '1' and data {'text': 'Produto vencido', 'product_id': 1, 'user_id': 2}
+2024-12-08 00:51:03,555 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,558 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:03,569 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,571 | INFO | database_manager:search_record - Records founds: [(2, 'Pepsi', 'Muito refrescante', Decimal('4.50'), 15, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:03,584 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,588 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:03,598 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,600 | INFO | database_manager:search_record - Records founds: [(3, 'Charlie', 'charlie@example.com', '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'Charlie', 'Brown', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua do Meio', Decimal('70.00'))]
+2024-12-08 00:51:03,613 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,616 | INFO | database_manager:insert_row - Row ({'text': 'Produto vencido', 'product_id': 2, 'user_id': 3}) inserted in table product_complaint with id 2
+2024-12-08 00:51:03,617 | INFO | database_manager_central:insert_record - Record added to 'product_complaint' with ID '2' and data {'text': 'Produto vencido', 'product_id': 2, 'user_id': 3}
+2024-12-08 00:51:03,627 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,629 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:03,640 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,642 | INFO | database_manager:search_record - Records founds: [(3, 'Fanta', 'Sabor laranja', Decimal('4.00'), 20, 2, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:03,652 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,655 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:03,665 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,667 | INFO | database_manager:search_record - Records founds: [(1, 'Al1ce', 'alicinha@gmail.com', '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'Alice', 'Silva', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua de Baixo', Decimal('50.00'))]
+2024-12-08 00:51:03,683 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,687 | INFO | database_manager:insert_row - Row ({'text': 'Produto vencido', 'product_id': 3, 'user_id': 1}) inserted in table product_complaint with id 3
+2024-12-08 00:51:03,688 | INFO | database_manager_central:insert_record - Record added to 'product_complaint' with ID '3' and data {'text': 'Produto vencido', 'product_id': 3, 'user_id': 1}
+2024-12-08 00:51:03,697 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,699 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:03,710 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,711 | INFO | database_manager:search_record - Records founds: [(1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 10, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:03,722 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,725 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:03,734 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,735 | INFO | database_manager:search_record - Records founds: [(2, 'Bob', 'bob@example.com', '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'Bob', 'Smith', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua de Cima', Decimal('60.00'))]
+2024-12-08 00:51:03,747 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,750 | INFO | database_manager:insert_row - Row ({'product_id': 1, 'user_id': 2, 'text': 'Muito bom'}) inserted in table product_comment with id 1
+2024-12-08 00:51:03,752 | INFO | database_manager_central:insert_record - Record added to 'product_comment' with ID '1' and data {'product_id': 1, 'user_id': 2, 'text': 'Muito bom'}
+2024-12-08 00:51:03,762 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,765 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:03,774 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,776 | INFO | database_manager:search_record - Records founds: [(2, 'Pepsi', 'Muito refrescante', Decimal('4.50'), 15, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:03,790 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,794 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:03,803 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,805 | INFO | database_manager:search_record - Records founds: [(3, 'Charlie', 'charlie@example.com', '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'Charlie', 'Brown', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua do Meio', Decimal('70.00'))]
+2024-12-08 00:51:03,817 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,820 | INFO | database_manager:insert_row - Row ({'product_id': 2, 'user_id': 3, 'text': 'Muito bom'}) inserted in table product_comment with id 2
+2024-12-08 00:51:03,821 | INFO | database_manager_central:insert_record - Record added to 'product_comment' with ID '2' and data {'product_id': 2, 'user_id': 3, 'text': 'Muito bom'}
+2024-12-08 00:51:03,832 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,834 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:03,845 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,848 | INFO | database_manager:search_record - Records founds: [(3, 'Fanta', 'Sabor laranja', Decimal('4.00'), 20, 2, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:03,860 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,863 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:03,874 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,875 | INFO | database_manager:search_record - Records founds: [(1, 'Al1ce', 'alicinha@gmail.com', '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'Alice', 'Silva', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua de Baixo', Decimal('50.00'))]
+2024-12-08 00:51:03,889 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,893 | INFO | database_manager:insert_row - Row ({'product_id': 3, 'user_id': 1, 'text': 'Muito bom'}) inserted in table product_comment with id 3
+2024-12-08 00:51:03,894 | INFO | database_manager_central:insert_record - Record added to 'product_comment' with ID '3' and data {'product_id': 3, 'user_id': 1, 'text': 'Muito bom'}
+2024-12-08 00:51:03,905 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,908 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:03,916 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,918 | INFO | database_manager:search_record - Records founds: [(1, 'VM1', 'Rua de Baixo', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:03,932 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,935 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:03,944 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,945 | INFO | database_manager:search_record - Records founds: [(2, 'Bob', 'bob@example.com', '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'Bob', 'Smith', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua de Cima', Decimal('60.00'))]
+2024-12-08 00:51:03,958 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,961 | INFO | database_manager:insert_row - Row ({'text': 'Máquina quebrada', 'vending_machine_id': 1, 'user_id': 2}) inserted in table vending_machine_complaint with id 1
+2024-12-08 00:51:03,962 | INFO | database_manager_central:insert_record - Record added to 'vending_machine_complaint' with ID '1' and data {'text': 'Máquina quebrada', 'vending_machine_id': 1, 'user_id': 2}
+2024-12-08 00:51:03,974 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,976 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:03,987 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:03,989 | INFO | database_manager:search_record - Records founds: [(2, 'VM2', 'Rua de Cima', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:04,000 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,003 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:04,011 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,012 | INFO | database_manager:search_record - Records founds: [(3, 'Charlie', 'charlie@example.com', '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'Charlie', 'Brown', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua do Meio', Decimal('70.00'))]
+2024-12-08 00:51:04,023 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,026 | INFO | database_manager:insert_row - Row ({'text': 'Máquina quebrada', 'vending_machine_id': 2, 'user_id': 3}) inserted in table vending_machine_complaint with id 2
+2024-12-08 00:51:04,027 | INFO | database_manager_central:insert_record - Record added to 'vending_machine_complaint' with ID '2' and data {'text': 'Máquina quebrada', 'vending_machine_id': 2, 'user_id': 3}
+2024-12-08 00:51:04,037 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,040 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:04,050 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,053 | INFO | database_manager:search_record - Records founds: [(3, 'VM3', 'Rua do Meio', 'active', datetime.datetime(2024, 12, 8, 0, 51, 3), 2)]
+2024-12-08 00:51:04,065 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,067 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:04,077 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,078 | INFO | database_manager:search_record - Records founds: [(1, 'Al1ce', 'alicinha@gmail.com', '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'Alice', 'Silva', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua de Baixo', Decimal('50.00'))]
+2024-12-08 00:51:04,094 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,097 | INFO | database_manager:insert_row - Row ({'text': 'Máquina quebrada', 'vending_machine_id': 3, 'user_id': 1}) inserted in table vending_machine_complaint with id 3
+2024-12-08 00:51:04,098 | INFO | database_manager_central:insert_record - Record added to 'vending_machine_complaint' with ID '3' and data {'text': 'Máquina quebrada', 'vending_machine_id': 3, 'user_id': 1}
+2024-12-08 00:51:04,108 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,110 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:04,119 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,122 | INFO | database_manager:search_record - Records founds: [(1, 'VM1', 'Rua de Baixo', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:04,134 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,137 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:04,146 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,147 | INFO | database_manager:search_record - Records founds: [(2, 'Bob', 'bob@example.com', '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'Bob', 'Smith', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua de Cima', Decimal('60.00'))]
+2024-12-08 00:51:04,160 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,163 | INFO | database_manager:insert_row - Row ({'text': 'Muito bom', 'vending_machine_id': 1, 'user_id': 2}) inserted in table vending_machine_comment with id 1
+2024-12-08 00:51:04,164 | INFO | database_manager_central:insert_record - Record added to 'vending_machine_comment' with ID '1' and data {'text': 'Muito bom', 'vending_machine_id': 1, 'user_id': 2}
+2024-12-08 00:51:04,176 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,180 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:04,192 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,195 | INFO | database_manager:search_record - Records founds: [(2, 'VM2', 'Rua de Cima', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:04,209 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,212 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:04,224 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,228 | INFO | database_manager:search_record - Records founds: [(3, 'Charlie', 'charlie@example.com', '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'Charlie', 'Brown', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua do Meio', Decimal('70.00'))]
+2024-12-08 00:51:04,242 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,244 | INFO | database_manager:insert_row - Row ({'text': 'Muito bom', 'vending_machine_id': 2, 'user_id': 3}) inserted in table vending_machine_comment with id 2
+2024-12-08 00:51:04,244 | INFO | database_manager_central:insert_record - Record added to 'vending_machine_comment' with ID '2' and data {'text': 'Muito bom', 'vending_machine_id': 2, 'user_id': 3}
+2024-12-08 00:51:04,255 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,257 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:04,270 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,272 | INFO | database_manager:search_record - Records founds: [(3, 'VM3', 'Rua do Meio', 'active', datetime.datetime(2024, 12, 8, 0, 51, 3), 2)]
+2024-12-08 00:51:04,281 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,285 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:04,295 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,297 | INFO | database_manager:search_record - Records founds: [(1, 'Al1ce', 'alicinha@gmail.com', '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'Alice', 'Silva', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua de Baixo', Decimal('50.00'))]
+2024-12-08 00:51:04,308 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,311 | INFO | database_manager:insert_row - Row ({'text': 'Muito bom', 'vending_machine_id': 3, 'user_id': 1}) inserted in table vending_machine_comment with id 3
+2024-12-08 00:51:04,311 | INFO | database_manager_central:insert_record - Record added to 'vending_machine_comment' with ID '3' and data {'text': 'Muito bom', 'vending_machine_id': 3, 'user_id': 1}
+2024-12-08 00:51:04,326 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,329 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:04,339 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,340 | INFO | database_manager:search_record - Records founds: [(1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 10, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:04,353 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,355 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:04,364 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,365 | INFO | database_manager:search_record - Records founds: [(1, 'Al1ce', 'alicinha@gmail.com', '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'Alice', 'Silva', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua de Baixo', Decimal('50.00'))]
+2024-12-08 00:51:04,375 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,378 | INFO | database_manager:insert_row - Row ({'user_id': 1, 'product_id': 1}) inserted in table favorite_products with id 1
+2024-12-08 00:51:04,379 | INFO | database_manager_central:insert_record - Record added to 'favorite_products' with ID '1' and data {'user_id': 1, 'product_id': 1}
+2024-12-08 00:51:04,392 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,395 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:04,404 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,405 | INFO | database_manager:search_record - Records founds: [(2, 'Pepsi', 'Muito refrescante', Decimal('4.50'), 15, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:04,417 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,420 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:04,432 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,433 | INFO | database_manager:search_record - Records founds: [(2, 'Bob', 'bob@example.com', '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'Bob', 'Smith', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua de Cima', Decimal('60.00'))]
+2024-12-08 00:51:04,445 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,448 | INFO | database_manager:insert_row - Row ({'user_id': 2, 'product_id': 2}) inserted in table favorite_products with id 2
+2024-12-08 00:51:04,449 | INFO | database_manager_central:insert_record - Record added to 'favorite_products' with ID '2' and data {'user_id': 2, 'product_id': 2}
+2024-12-08 00:51:04,460 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,463 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:04,473 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,474 | INFO | database_manager:search_record - Records founds: [(3, 'Fanta', 'Sabor laranja', Decimal('4.00'), 20, 2, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:04,485 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,488 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:04,501 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,503 | INFO | database_manager:search_record - Records founds: [(3, 'Charlie', 'charlie@example.com', '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'Charlie', 'Brown', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua do Meio', Decimal('70.00'))]
+2024-12-08 00:51:04,515 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,518 | INFO | database_manager:insert_row - Row ({'user_id': 3, 'product_id': 3}) inserted in table favorite_products with id 3
+2024-12-08 00:51:04,519 | INFO | database_manager_central:insert_record - Record added to 'favorite_products' with ID '3' and data {'user_id': 3, 'product_id': 3}
+2024-12-08 00:51:04,533 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,535 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:04,543 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,544 | INFO | database_manager:search_record - Records founds: [(1, 'VM1', 'Rua de Baixo', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:04,557 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,559 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:04,572 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,573 | INFO | database_manager:search_record - Records founds: [(1, 'Al1ce', 'alicinha@gmail.com', '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'Alice', 'Silva', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua de Baixo', Decimal('50.00'))]
+2024-12-08 00:51:04,584 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,588 | INFO | database_manager:insert_row - Row ({'user_id': 1, 'vending_machine_id': 1}) inserted in table favorite_vending_machines with id 1
+2024-12-08 00:51:04,589 | INFO | database_manager_central:insert_record - Record added to 'favorite_vending_machines' with ID '1' and data {'user_id': 1, 'vending_machine_id': 1}
+2024-12-08 00:51:04,605 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,609 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:04,619 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,620 | INFO | database_manager:search_record - Records founds: [(2, 'VM2', 'Rua de Cima', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:04,633 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,637 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:04,648 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,649 | INFO | database_manager:search_record - Records founds: [(2, 'Bob', 'bob@example.com', '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'Bob', 'Smith', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua de Cima', Decimal('60.00'))]
+2024-12-08 00:51:04,660 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,665 | INFO | database_manager:insert_row - Row ({'user_id': 2, 'vending_machine_id': 2}) inserted in table favorite_vending_machines with id 2
+2024-12-08 00:51:04,666 | INFO | database_manager_central:insert_record - Record added to 'favorite_vending_machines' with ID '2' and data {'user_id': 2, 'vending_machine_id': 2}
+2024-12-08 00:51:04,678 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,681 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:04,691 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,692 | INFO | database_manager:search_record - Records founds: [(3, 'VM3', 'Rua do Meio', 'active', datetime.datetime(2024, 12, 8, 0, 51, 3), 2)]
+2024-12-08 00:51:04,710 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,713 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:04,722 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,724 | INFO | database_manager:search_record - Records founds: [(3, 'Charlie', 'charlie@example.com', '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'Charlie', 'Brown', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua do Meio', Decimal('70.00'))]
+2024-12-08 00:51:04,736 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,739 | INFO | database_manager:insert_row - Row ({'user_id': 3, 'vending_machine_id': 3}) inserted in table favorite_vending_machines with id 3
+2024-12-08 00:51:04,740 | INFO | database_manager_central:insert_record - Record added to 'favorite_vending_machines' with ID '3' and data {'user_id': 3, 'vending_machine_id': 3}
+2024-12-08 00:51:04,749 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,752 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:04,761 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,763 | INFO | database_manager:search_record - Records founds: [(1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 10, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:04,777 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,780 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:04,790 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,791 | INFO | database_manager:search_record - Records founds: [(1, 'Al1ce', 'alicinha@gmail.com', '370f2809fbcc1c474173a2eb5d938c2e339fa2963e589472e7104c758d27af80', 'Alice', 'Silva', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua de Baixo', Decimal('50.00'))]
+2024-12-08 00:51:04,806 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,809 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:04,819 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,821 | INFO | database_manager:search_record - Records founds: [(1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 10, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:04,832 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,835 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:04,846 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,848 | INFO | database_manager:search_record - Records founds: [(1, 'VM1', 'Rua de Baixo', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:04,859 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,862 | INFO | database_manager:insert_row - Row ({'user_id': 1, 'product_id': 1, 'vending_machine_id': 1, 'quantity': 3, 'amount_paid_per_unit': 5.0}) inserted in table purchase_transaction with id 1
+2024-12-08 00:51:04,863 | INFO | database_manager_central:insert_record - Record added to 'purchase_transaction' with ID '1' and data {'user_id': 1, 'product_id': 1, 'vending_machine_id': 1, 'quantity': 3, 'amount_paid_per_unit': 5.0}
+2024-12-08 00:51:04,863 | INFO | database_manager_central:add_purchase_transaction - Purchase transaction recorded with ID '1' for user '1'
+2024-12-08 00:51:04,864 | INFO | pub_notify_strategy:notify - Notifying subscribers for event PurchaseProductEvent with data: {'transaction_id': 1, 'user_id': 1, 'product_id': 1, 'vending_machine_id': 1, 'quantity': 3, 'amount_paid_per_unit': 5.0}
+2024-12-08 00:51:04,864 | INFO | decorators_class:update - Received event PurchaseProductEvent with data: {'transaction_id': 1, 'user_id': 1, 'product_id': 1, 'vending_machine_id': 1, 'quantity': 3, 'amount_paid_per_unit': 5.0}
+2024-12-08 00:51:04,865 | INFO | sub_update_strategy:update - Executing update strategy with data: {'transaction_id': 1, 'user_id': 1, 'product_id': 1, 'vending_machine_id': 1, 'quantity': 3, 'amount_paid_per_unit': 5.0}
+2024-12-08 00:51:04,874 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,878 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:04,889 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,891 | INFO | database_manager:search_record - Records founds: [(1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 10, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:04,900 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,901 | INFO | database_manager:get_by_id - Got instance with id: 1
+2024-12-08 00:51:04,902 | INFO | decorators_method:wrapper - Record with ID 1 found
+2024-12-08 00:51:04,903 | INFO | utils:tuple_to_dict - Dictionary: {'id': 1, 'name': 'Coca-Cola', 'description': 'Refrescante demais', 'price': Decimal('5.00'), 'quantity': 10, 'vending_machine_id': 1, 'timestamp': datetime.datetime(2024, 12, 8, 0, 51, 3)}
+2024-12-08 00:51:04,904 | INFO | decorators_method:wrapper - Update allowed fields
+2024-12-08 00:51:04,912 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,913 | INFO | database_manager:get_by_id - Got instance with id: 1
+2024-12-08 00:51:04,922 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,934 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,935 | INFO | database_manager:get_by_id - Got instance with id: 1
+2024-12-08 00:51:04,936 | INFO | database_manager:update_row - Row 1 id from table products_profile updated columns: quantity (from (1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 10, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)) (old row) to (1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 7, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)) (new row))
+2024-12-08 00:51:04,937 | INFO | sub_update_strategy:update - Purchase successful. Updated product '1' in vending machine '1' to new quantity: 7
+2024-12-08 00:51:04,938 | INFO | pub_notify_strategy:notify - Subscriber products_profile updated for event PurchaseProductEvent
+2024-12-08 00:51:04,939 | INFO | event_manager:notify - Event PurchaseProductEvent notified successfully
+2024-12-08 00:51:04,939 | INFO | database_manager_central:add_purchase_transaction - Event 'PurchaseProductEvent' published with data: {'transaction_id': 1, 'user_id': 1, 'product_id': 1, 'vending_machine_id': 1, 'quantity': 3, 'amount_paid_per_unit': 5.0}
+2024-12-08 00:51:04,950 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,953 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:04,963 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,965 | INFO | database_manager:search_record - Records founds: [(2, 'Pepsi', 'Muito refrescante', Decimal('4.50'), 15, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:04,980 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,984 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:04,995 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:04,996 | INFO | database_manager:search_record - Records founds: [(2, 'Bob', 'bob@example.com', '8d059c3640b97180dd2ee453e20d34ab0cb0f2eccbe87d01915a8e578a202b11', 'Bob', 'Smith', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua de Cima', Decimal('60.00'))]
+2024-12-08 00:51:05,007 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,011 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:05,021 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,022 | INFO | database_manager:search_record - Records founds: [(2, 'Pepsi', 'Muito refrescante', Decimal('4.50'), 15, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:05,033 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,036 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:05,046 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,048 | INFO | database_manager:search_record - Records founds: [(1, 'VM1', 'Rua de Baixo', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:05,058 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,061 | INFO | database_manager:insert_row - Row ({'user_id': 2, 'product_id': 2, 'vending_machine_id': 1, 'quantity': 1, 'amount_paid_per_unit': 4.5}) inserted in table purchase_transaction with id 2
+2024-12-08 00:51:05,061 | INFO | database_manager_central:insert_record - Record added to 'purchase_transaction' with ID '2' and data {'user_id': 2, 'product_id': 2, 'vending_machine_id': 1, 'quantity': 1, 'amount_paid_per_unit': 4.5}
+2024-12-08 00:51:05,062 | INFO | database_manager_central:add_purchase_transaction - Purchase transaction recorded with ID '2' for user '2'
+2024-12-08 00:51:05,062 | INFO | pub_notify_strategy:notify - Notifying subscribers for event PurchaseProductEvent with data: {'transaction_id': 2, 'user_id': 2, 'product_id': 2, 'vending_machine_id': 1, 'quantity': 1, 'amount_paid_per_unit': 4.5}
+2024-12-08 00:51:05,063 | INFO | decorators_class:update - Received event PurchaseProductEvent with data: {'transaction_id': 2, 'user_id': 2, 'product_id': 2, 'vending_machine_id': 1, 'quantity': 1, 'amount_paid_per_unit': 4.5}
+2024-12-08 00:51:05,064 | INFO | sub_update_strategy:update - Executing update strategy with data: {'transaction_id': 2, 'user_id': 2, 'product_id': 2, 'vending_machine_id': 1, 'quantity': 1, 'amount_paid_per_unit': 4.5}
+2024-12-08 00:51:05,075 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,079 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:05,089 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,090 | INFO | database_manager:search_record - Records founds: [(2, 'Pepsi', 'Muito refrescante', Decimal('4.50'), 15, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:05,099 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,100 | INFO | database_manager:get_by_id - Got instance with id: 2
+2024-12-08 00:51:05,100 | INFO | decorators_method:wrapper - Record with ID 2 found
+2024-12-08 00:51:05,101 | INFO | utils:tuple_to_dict - Dictionary: {'id': 2, 'name': 'Pepsi', 'description': 'Muito refrescante', 'price': Decimal('4.50'), 'quantity': 15, 'vending_machine_id': 1, 'timestamp': datetime.datetime(2024, 12, 8, 0, 51, 3)}
+2024-12-08 00:51:05,101 | INFO | decorators_method:wrapper - Update allowed fields
+2024-12-08 00:51:05,111 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,112 | INFO | database_manager:get_by_id - Got instance with id: 2
+2024-12-08 00:51:05,121 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,132 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,133 | INFO | database_manager:get_by_id - Got instance with id: 2
+2024-12-08 00:51:05,134 | INFO | database_manager:update_row - Row 2 id from table products_profile updated columns: quantity (from (2, 'Pepsi', 'Muito refrescante', Decimal('4.50'), 15, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)) (old row) to (2, 'Pepsi', 'Muito refrescante', Decimal('4.50'), 14, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)) (new row))
+2024-12-08 00:51:05,135 | INFO | sub_update_strategy:update - Purchase successful. Updated product '2' in vending machine '1' to new quantity: 14
+2024-12-08 00:51:05,135 | INFO | pub_notify_strategy:notify - Subscriber products_profile updated for event PurchaseProductEvent
+2024-12-08 00:51:05,136 | INFO | event_manager:notify - Event PurchaseProductEvent notified successfully
+2024-12-08 00:51:05,136 | INFO | database_manager_central:add_purchase_transaction - Event 'PurchaseProductEvent' published with data: {'transaction_id': 2, 'user_id': 2, 'product_id': 2, 'vending_machine_id': 1, 'quantity': 1, 'amount_paid_per_unit': 4.5}
+2024-12-08 00:51:05,146 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,150 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:05,159 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,161 | INFO | database_manager:search_record - Records founds: [(3, 'Fanta', 'Sabor laranja', Decimal('4.00'), 20, 2, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:05,173 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,176 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:05,187 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,189 | INFO | database_manager:search_record - Records founds: [(3, 'Charlie', 'charlie@example.com', '1afda89737a745f15d42807d54f67c803727d75ce443b0f3a659531b38ae660f', 'Charlie', 'Brown', datetime.date(2024, 12, 7), 'pizzaria_buonasserra', 'Rua do Meio', Decimal('70.00'))]
+2024-12-08 00:51:05,200 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,203 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:05,212 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,214 | INFO | database_manager:search_record - Records founds: [(3, 'Fanta', 'Sabor laranja', Decimal('4.00'), 20, 2, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:05,229 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,233 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:05,242 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,243 | INFO | database_manager:search_record - Records founds: [(2, 'VM2', 'Rua de Cima', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1)]
+2024-12-08 00:51:05,256 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,258 | INFO | database_manager:insert_row - Row ({'user_id': 3, 'product_id': 3, 'vending_machine_id': 2, 'quantity': 5, 'amount_paid_per_unit': 4.0}) inserted in table purchase_transaction with id 3
+2024-12-08 00:51:05,259 | INFO | database_manager_central:insert_record - Record added to 'purchase_transaction' with ID '3' and data {'user_id': 3, 'product_id': 3, 'vending_machine_id': 2, 'quantity': 5, 'amount_paid_per_unit': 4.0}
+2024-12-08 00:51:05,260 | INFO | database_manager_central:add_purchase_transaction - Purchase transaction recorded with ID '3' for user '3'
+2024-12-08 00:51:05,260 | INFO | pub_notify_strategy:notify - Notifying subscribers for event PurchaseProductEvent with data: {'transaction_id': 3, 'user_id': 3, 'product_id': 3, 'vending_machine_id': 2, 'quantity': 5, 'amount_paid_per_unit': 4.0}
+2024-12-08 00:51:05,261 | INFO | decorators_class:update - Received event PurchaseProductEvent with data: {'transaction_id': 3, 'user_id': 3, 'product_id': 3, 'vending_machine_id': 2, 'quantity': 5, 'amount_paid_per_unit': 4.0}
+2024-12-08 00:51:05,262 | INFO | sub_update_strategy:update - Executing update strategy with data: {'transaction_id': 3, 'user_id': 3, 'product_id': 3, 'vending_machine_id': 2, 'quantity': 5, 'amount_paid_per_unit': 4.0}
+2024-12-08 00:51:05,270 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,273 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:05,285 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,287 | INFO | database_manager:search_record - Records founds: [(3, 'Fanta', 'Sabor laranja', Decimal('4.00'), 20, 2, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:05,296 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,298 | INFO | database_manager:get_by_id - Got instance with id: 3
+2024-12-08 00:51:05,299 | INFO | decorators_method:wrapper - Record with ID 3 found
+2024-12-08 00:51:05,299 | INFO | utils:tuple_to_dict - Dictionary: {'id': 3, 'name': 'Fanta', 'description': 'Sabor laranja', 'price': Decimal('4.00'), 'quantity': 20, 'vending_machine_id': 2, 'timestamp': datetime.datetime(2024, 12, 8, 0, 51, 3)}
+2024-12-08 00:51:05,299 | INFO | decorators_method:wrapper - Update allowed fields
+2024-12-08 00:51:05,308 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,309 | INFO | database_manager:get_by_id - Got instance with id: 3
+2024-12-08 00:51:05,319 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,329 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,331 | INFO | database_manager:get_by_id - Got instance with id: 3
+2024-12-08 00:51:05,332 | INFO | database_manager:update_row - Row 3 id from table products_profile updated columns: quantity (from (3, 'Fanta', 'Sabor laranja', Decimal('4.00'), 20, 2, datetime.datetime(2024, 12, 8, 0, 51, 3)) (old row) to (3, 'Fanta', 'Sabor laranja', Decimal('4.00'), 15, 2, datetime.datetime(2024, 12, 8, 0, 51, 3)) (new row))
+2024-12-08 00:51:05,333 | INFO | sub_update_strategy:update - Purchase successful. Updated product '3' in vending machine '2' to new quantity: 15
+2024-12-08 00:51:05,334 | INFO | pub_notify_strategy:notify - Subscriber products_profile updated for event PurchaseProductEvent
+2024-12-08 00:51:05,334 | INFO | event_manager:notify - Event PurchaseProductEvent notified successfully
+2024-12-08 00:51:05,334 | INFO | database_manager_central:add_purchase_transaction - Event 'PurchaseProductEvent' published with data: {'transaction_id': 3, 'user_id': 3, 'product_id': 3, 'vending_machine_id': 2, 'quantity': 5, 'amount_paid_per_unit': 4.0}
+2024-12-08 00:51:05,343 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,345 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:05,359 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,361 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:05,371 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,374 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:05,384 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,388 | INFO | database_manager:show_table - Got all instances in table: owners_profile
+2024-12-08 00:51:05,399 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,402 | INFO | database_manager:show_table - Got all instances in table: product_complaint
+2024-12-08 00:51:05,412 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,416 | INFO | database_manager:show_table - Got all instances in table: product_comment
+2024-12-08 00:51:05,428 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,432 | INFO | database_manager:show_table - Got all instances in table: purchase_transaction
+2024-12-08 00:51:05,442 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,444 | INFO | database_manager:show_table - Got all instances in table: vending_machine_complaint
+2024-12-08 00:51:05,455 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,458 | INFO | database_manager:show_table - Got all instances in table: vending_machine_comment
+2024-12-08 00:51:05,467 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,469 | INFO | database_manager:show_table - Got all instances in table: favorite_products
+2024-12-08 00:51:05,480 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,483 | INFO | database_manager:show_table - Got all instances in table: favorite_vending_machines
+2024-12-08 00:51:05,494 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,495 | INFO | database_manager:get_by_id - Got instance with id: 1
+2024-12-08 00:51:05,496 | INFO | decorators_method:wrapper - Record with ID 1 found
+2024-12-08 00:51:05,496 | INFO | utils:tuple_to_dict - Dictionary: {'id': 1, 'name': 'VM1', 'location': 'Rua de Baixo', 'status': 'active', 'timestamp': datetime.datetime(2024, 12, 8, 0, 51, 2), 'owner_id': 1}
+2024-12-08 00:51:05,497 | INFO | decorators_method:wrapper - Update allowed fields
+2024-12-08 00:51:05,505 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,506 | INFO | database_manager:get_by_id - Got instance with id: 1
+2024-12-08 00:51:05,513 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,525 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,527 | INFO | database_manager:get_by_id - Got instance with id: 1
+2024-12-08 00:51:05,527 | INFO | database_manager:update_row - Row 1 id from table vending_machines_profile updated columns: status (from (1, 'VM1', 'Rua de Baixo', 'active', datetime.datetime(2024, 12, 8, 0, 51, 2), 1) (old row) to (1, 'VM1', 'Rua de Baixo', 'inactive', datetime.datetime(2024, 12, 8, 0, 51, 2), 1) (new row))
+2024-12-08 00:51:05,528 | INFO | database_manager_central:update_vending_machine_status - Vending machine status '1' updated to 'inactive'
+2024-12-08 00:51:05,536 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,537 | INFO | database_manager:get_by_id - Got instance with id: 1
+2024-12-08 00:51:05,538 | INFO | decorators_method:wrapper - Record with ID 1 found
+2024-12-08 00:51:05,539 | INFO | utils:tuple_to_dict - Dictionary: {'id': 1, 'username': 'Garry', 'email': 'g2@gmail.com', 'password': '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'first name': 'Gar', 'last name': 'Ry', 'birthdate': datetime.date(2024, 12, 5), 'phone_number': '4002-8922', 'address': 'Rua de Baixo', 'budget': Decimal('52.00')}
+2024-12-08 00:51:05,539 | INFO | decorators_method:wrapper - Update allowed fields
+2024-12-08 00:51:05,547 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,549 | INFO | database_manager:get_by_id - Got instance with id: 1
+2024-12-08 00:51:05,559 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,570 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,572 | INFO | database_manager:get_by_id - Got instance with id: 1
+2024-12-08 00:51:05,573 | INFO | database_manager:update_row - Row 1 id from table owners_profile updated columns: budget (from (1, 'Garry', 'g2@gmail.com', '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'Gar', 'Ry', datetime.date(2024, 12, 5), '4002-8922', 'Rua de Baixo', Decimal('52.00')) (old row) to (1, 'Garry', 'g2@gmail.com', '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'Gar', 'Ry', datetime.date(2024, 12, 5), '4002-8922', 'Rua de Baixo', Decimal('100.00')) (new row))
+2024-12-08 00:51:05,574 | INFO | database_manager_central:update_owner_budget - Owner's budget '1' updated to '100.0'
+2024-12-08 00:51:05,583 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,584 | INFO | database_manager:get_by_id - Got instance with id: 1
+2024-12-08 00:51:05,598 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,600 | INFO | database_manager:get_by_id - Got instance with id: 1
+2024-12-08 00:51:05,601 | INFO | decorators_method:wrapper - Record with ID 1 found
+2024-12-08 00:51:05,602 | INFO | utils:tuple_to_dict - Dictionary: {'id': 1, 'name': 'Coca-Cola', 'description': 'Refrescante demais', 'price': Decimal('5.00'), 'quantity': 7, 'vending_machine_id': 1, 'timestamp': datetime.datetime(2024, 12, 8, 0, 51, 3)}
+2024-12-08 00:51:05,602 | INFO | decorators_method:wrapper - Update allowed fields
+2024-12-08 00:51:05,609 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,610 | INFO | database_manager:get_by_id - Got instance with id: 1
+2024-12-08 00:51:05,621 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,641 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,643 | INFO | database_manager:get_by_id - Got instance with id: 1
+2024-12-08 00:51:05,644 | INFO | database_manager:update_row - Row 1 id from table products_profile updated columns: quantity (from (1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 7, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)) (old row) to (1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 207, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)) (new row))
+2024-12-08 00:51:05,645 | INFO | database_manager_central:add_product_quantity - Product quantity 'Coca-Cola' (ID: 1) increased from 7 to 207.
+2024-12-08 00:51:05,655 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,658 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:05,673 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,675 | INFO | database_manager:search_record - Records founds: [(3, 'Fanta', 'Sabor laranja', Decimal('4.00'), 15, 2, datetime.datetime(2024, 12, 8, 0, 51, 3)), (8, 'Suco de Uva', 'Natural', Decimal('3.50'), 15, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:05,676 | INFO | database_manager_central:search_table - Search performed on table 'products_profile' with filters {'quantity': 15}: [(3, 'Fanta', 'Sabor laranja', Decimal('4.00'), 15, 2, datetime.datetime(2024, 12, 8, 0, 51, 3)), (8, 'Suco de Uva', 'Natural', Decimal('3.50'), 15, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:51:05,685 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,688 | INFO | database_manager_central:get_sales_report - Sales report generated between 2024-12-07 00:00:00 and 2024-12-08 00:00:00: []
+2024-12-08 00:51:05,689 | INFO | password_hasher:hash_password - Hashing password using SHA-256.
+2024-12-08 00:51:05,689 | INFO | database_manager_central:login_user - Attempting login for user: Garry in table: owners_profile
+2024-12-08 00:51:05,701 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,705 | INFO | database_manager:show_table - Got all instances in table: owners_profile
+2024-12-08 00:51:05,715 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,716 | INFO | database_manager:search_record - Records founds: [(1, 'Garry', 'g2@gmail.com', '18ee24150dcb1d96752a4d6dd0f20dfd8ba8c38527e40aa8509b7adecf78f9c6', 'Gar', 'Ry', datetime.date(2024, 12, 5), '4002-8922', 'Rua de Baixo', Decimal('100.00'))]
+2024-12-08 00:51:05,716 | INFO | database_manager_central:login_user - User 'Garry' successfully logged in.
+2024-12-08 00:51:05,725 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,726 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:51:05,738 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,741 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:51:05,750 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,752 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:51:05,764 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,767 | INFO | database_manager:show_table - Got all instances in table: owners_profile
+2024-12-08 00:51:05,778 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,779 | INFO | database_manager:show_table - Got all instances in table: product_complaint
+2024-12-08 00:51:05,790 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,794 | INFO | database_manager:show_table - Got all instances in table: product_comment
+2024-12-08 00:51:05,805 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,809 | INFO | database_manager:show_table - Got all instances in table: purchase_transaction
+2024-12-08 00:51:05,818 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,821 | INFO | database_manager:show_table - Got all instances in table: vending_machine_complaint
+2024-12-08 00:51:05,832 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,835 | INFO | database_manager:show_table - Got all instances in table: vending_machine_comment
+2024-12-08 00:51:05,844 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,846 | INFO | database_manager:show_table - Got all instances in table: favorite_products
+2024-12-08 00:51:05,856 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:51:05,859 | INFO | database_manager:show_table - Got all instances in table: favorite_vending_machines
+2024-12-08 00:51:07,563 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:51:07,563 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:51:07,957 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:51:07,957 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:52:52,494 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-08 00:52:52,510 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-08 00:52:52,511 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-08 00:52:52,512 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-08 00:52:52,512 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-08 00:52:52,512 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-08 00:52:52,522 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:52:52,526 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:52:52,529 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-08 00:52:52,538 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:52:52,541 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:52:52,543 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-08 00:52:52,551 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:52:52,555 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:52:52,558 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-08 00:52:52,567 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:52:52,569 | INFO | database_manager:show_table - Got all instances in table: owners_profile
+2024-12-08 00:52:52,570 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-08 00:52:52,578 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:52:52,580 | INFO | database_manager:show_table - Got all instances in table: product_complaint
+2024-12-08 00:52:52,581 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-08 00:52:52,591 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:52:52,594 | INFO | database_manager:show_table - Got all instances in table: product_comment
+2024-12-08 00:52:52,596 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-08 00:52:52,597 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-08 00:52:52,605 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:52:52,608 | INFO | database_manager:show_table - Got all instances in table: purchase_transaction
+2024-12-08 00:52:52,609 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-08 00:52:52,618 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:52:52,623 | INFO | database_manager:show_table - Got all instances in table: vending_machine_complaint
+2024-12-08 00:52:52,625 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-08 00:52:52,636 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:52:52,638 | INFO | database_manager:show_table - Got all instances in table: vending_machine_comment
+2024-12-08 00:52:52,640 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-08 00:52:52,648 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:52:52,651 | INFO | database_manager:show_table - Got all instances in table: favorite_vending_machines
+2024-12-08 00:52:52,652 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-08 00:52:52,663 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:52:52,665 | INFO | database_manager:show_table - Got all instances in table: favorite_products
+2024-12-08 00:52:52,674 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:52:52,677 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:54:07,424 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:54:07,425 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:54:36,754 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:54:36,755 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:55:34,884 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:55:34,884 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:56:18,708 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:56:18,708 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:56:36,784 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:56:36,785 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:56:47,635 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:56:47,635 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:57:12,838 | INFO | banned_words_strategy:__init__ - Banned words loaded successfully.
+2024-12-08 00:57:12,839 | INFO | sql_injection_strategy:__init__ - SQL injection patterns initialized.
+2024-12-08 00:57:30,771 | INFO | database_manager_central:__init__ - Connected into database
+2024-12-08 00:57:30,790 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: products_profile
+2024-12-08 00:57:30,791 | INFO | decorators_class:new_init - The data was instantiated as a subscriber of events: ['PurchaseProductEvent']
+2024-12-08 00:57:30,791 | INFO | event_manager:subscribe - Created new subscriber list for event PurchaseProductEvent
+2024-12-08 00:57:30,791 | INFO | event_manager:subscribe - Subscriber added to event PurchaseProductEvent
+2024-12-08 00:57:30,792 | INFO | decorators_class:new_init - Subscribed to event PurchaseProductEvent
+2024-12-08 00:57:30,801 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:57:30,804 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:57:30,805 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: users_profile
+2024-12-08 00:57:30,816 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:57:30,820 | INFO | database_manager:show_table - Got all instances in table: users_profile
+2024-12-08 00:57:30,822 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machines_profile
+2024-12-08 00:57:30,830 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:57:30,833 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:57:30,834 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: owners_profile
+2024-12-08 00:57:30,842 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:57:30,845 | INFO | database_manager:show_table - Got all instances in table: owners_profile
+2024-12-08 00:57:30,848 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_complaint
+2024-12-08 00:57:30,860 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:57:30,862 | INFO | database_manager:show_table - Got all instances in table: product_complaint
+2024-12-08 00:57:30,863 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: product_comment
+2024-12-08 00:57:30,873 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:57:30,876 | INFO | database_manager:show_table - Got all instances in table: product_comment
+2024-12-08 00:57:30,877 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: purchase_transaction
+2024-12-08 00:57:30,878 | INFO | decorators_class:new_init - The data was instantiated as a publisher of events: ['PurchaseProductEvent']
+2024-12-08 00:57:30,891 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:57:30,894 | INFO | database_manager:show_table - Got all instances in table: purchase_transaction
+2024-12-08 00:57:30,895 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_complaint
+2024-12-08 00:57:30,903 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:57:30,905 | INFO | database_manager:show_table - Got all instances in table: vending_machine_complaint
+2024-12-08 00:57:30,906 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: vending_machine_comment
+2024-12-08 00:57:30,916 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:57:30,922 | INFO | database_manager:show_table - Got all instances in table: vending_machine_comment
+2024-12-08 00:57:30,923 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_vending_machines
+2024-12-08 00:57:30,932 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:57:30,935 | INFO | database_manager:show_table - Got all instances in table: favorite_vending_machines
+2024-12-08 00:57:30,936 | INFO | database_manager:__init__ - Initializing DatabaseManager for table: favorite_products
+2024-12-08 00:57:30,944 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:57:30,947 | INFO | database_manager:show_table - Got all instances in table: favorite_products
+2024-12-08 00:57:30,960 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:57:30,962 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:58:03,549 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:58:03,554 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:58:03,568 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:58:03,570 | INFO | database_manager:search_record - Records founds: [(1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 207, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (2, 'Pepsi', 'Muito refrescante', Decimal('4.50'), 14, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (5, 'Guaraná', 'Sabor original', Decimal('4.50'), 30, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (8, 'Suco de Uva', 'Natural', Decimal('3.50'), 15, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (11, 'Cerveja', 'Gelada', Decimal('5.00'), 10, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:58:26,038 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:58:26,041 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 00:58:40,409 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:58:40,412 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 00:58:40,424 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:58:40,426 | INFO | database_manager:search_record - Records founds: [(1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 207, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (2, 'Pepsi', 'Muito refrescante', Decimal('4.50'), 14, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (5, 'Guaraná', 'Sabor original', Decimal('4.50'), 30, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (8, 'Suco de Uva', 'Natural', Decimal('3.50'), 15, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (11, 'Cerveja', 'Gelada', Decimal('5.00'), 10, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 00:58:49,579 | INFO | database_manager:__connect - Connected into database
+2024-12-08 00:58:49,582 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:05:18,045 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:05:18,047 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:05:41,935 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:05:41,937 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:05:43,960 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:05:43,962 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:06:08,153 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:06:08,156 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:06:09,098 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:06:09,101 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:06:32,344 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:06:32,346 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:06:45,881 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:06:45,884 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 01:06:45,897 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:06:45,899 | INFO | database_manager:search_record - Records founds: [(1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 207, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (2, 'Pepsi', 'Muito refrescante', Decimal('4.50'), 14, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (5, 'Guaraná', 'Sabor original', Decimal('4.50'), 30, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (8, 'Suco de Uva', 'Natural', Decimal('3.50'), 15, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (11, 'Cerveja', 'Gelada', Decimal('5.00'), 10, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 01:06:47,645 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:06:47,648 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:07:52,122 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:07:52,126 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:07:53,306 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:07:53,309 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:08:15,933 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:08:15,936 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:09:49,850 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:09:49,853 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:09:56,989 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:09:56,992 | INFO | database_manager:show_table - Got all instances in table: products_profile
+2024-12-08 01:09:57,002 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:09:57,004 | INFO | database_manager:search_record - Records founds: [(1, 'Coca-Cola', 'Refrescante demais', Decimal('5.00'), 207, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (2, 'Pepsi', 'Muito refrescante', Decimal('4.50'), 14, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (5, 'Guaraná', 'Sabor original', Decimal('4.50'), 30, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (8, 'Suco de Uva', 'Natural', Decimal('3.50'), 15, 1, datetime.datetime(2024, 12, 8, 0, 51, 3)), (11, 'Cerveja', 'Gelada', Decimal('5.00'), 10, 1, datetime.datetime(2024, 12, 8, 0, 51, 3))]
+2024-12-08 01:10:00,637 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:10:00,640 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:11:10,389 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:11:10,392 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:11:22,993 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:11:22,997 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile
+2024-12-08 01:12:00,325 | INFO | database_manager:__connect - Connected into database
+2024-12-08 01:12:00,328 | INFO | database_manager:show_table - Got all instances in table: vending_machines_profile

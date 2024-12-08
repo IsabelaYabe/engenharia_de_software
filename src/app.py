@@ -85,17 +85,22 @@ def comment():
 def add_comment():
     pass
 
-    """data = request.json
-    product_id = data['product_id']
+    data = request.json
+    id = data['product_id']
     user_id = data['user_id']
     text = data['text']
+    tipe = data['type']
 
     try:
-        comment_profile = CommentProfile(**db_config)
-        comment_id = comment_profile.create_comment(product_id, user_id, text)
+        manager = DatabaseManagerCentral(**db_config)
+        if tipe == 'product':
+            comment_profile = manager.product_comment
+        elif tipe == 'vending_machine':
+            comment_profile = manager.vending_machine_comment
+        comment_id = comment_profile.insert_row(id=id, user_id=user_id, text=text)
         return jsonify({"success": True, "comment_id": comment_id})
     except ValueError as e:
-        return jsonify({"success": False, "error": str(e)})"""
+        return jsonify({"success": False, "error": str(e)})
     
 # Route to get comments for a product
 @app.route('/get_comments/<int:product_id>', methods=['GET'])

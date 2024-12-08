@@ -52,7 +52,6 @@
     <table>
         <thead>
             <tr>
-                <th>Vending Machine ID</th>
                 <th>Vending Machine Name</th>
                 <th>Location</th>
                 <th>Owner</th>
@@ -64,6 +63,29 @@
             <!-- VM data will be inserted here -->
         </tbody>
     </table>
+</div>
+
+<div id="comment" style="text-align: right;">
+    <div>
+        <label for="product-id">Select Product ID:</label>
+        <input type="number" id="product-id" placeholder="Enter product ID">
+    </div>
+    
+    <div>
+        <label for="user-id">Select User ID:</label>
+        <input type="number" id="user-id" placeholder="Enter user ID">
+    </div>
+
+    <div>
+        <label for="comment-text">Enter your comment:</label>
+        <textarea id="comment-text" rows="4" cols="50" placeholder="Write your comment here..."></textarea>
+    </div>
+
+    <button id="submit-comment">Submit Comment</button>
+
+    <div id="comments-section">
+        <!-- Comments will be displayed here -->
+    </div>
 </div>
 
 <script src="../static/js/script_vms.js"></script>
