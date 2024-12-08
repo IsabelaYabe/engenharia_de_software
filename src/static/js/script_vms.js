@@ -104,15 +104,19 @@ function fetchComments(vmId) {
             if (commentsList) {
                 commentsList.innerHTML = ''; // Clear the comments list
             }
-
-            if (commentsList) {
-                comments.forEach(comment => {
-                    const commentItem = document.createElement('li');
-                    console.log(comment);
-                    commentItem.textContent = comment[1];
-                    commentsList.appendChild(commentItem);
-                });
+            if(comments.length == 0){
+                const commentItem = document.createElement('li');
+                commentItem.textContent = "No comments yet!";
+                commentsList.appendChild(commentItem);
             }
+            else{
+            comments["data"].forEach(comment => {
+                const commentItem = document.createElement('li');
+                console.log(comment);
+                commentItem.textContent = comment[1];
+                commentsList.appendChild(commentItem);
+            });
+        }
         })
         .catch(error => {
             console.error('Error fetching comments:', error);
