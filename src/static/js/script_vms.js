@@ -142,11 +142,33 @@ function fetchComments(vmId) {
                 commentsList.appendChild(commentItem);
             }
             else{
+            
+            const commentSectionTitle = document.getElementById('comment-section-title');
+            if (commentSectionTitle) {
+                commentSectionTitle.textContent = `Comments on ${vmId}`;
+            }
+
             comments["data"].forEach(comment => {
-                const commentItem = document.createElement('li');
-                console.log(comment);
-                commentItem.textContent = comment[1];
-                commentsList.appendChild(commentItem);
+            const commentWidget = document.createElement('div');
+            commentWidget.className = 'comment-widget';
+            commentWidget.style.border = '1px solid #ccc';
+            commentWidget.style.padding = '10px';
+            commentWidget.style.marginBottom = '10px';
+            commentWidget.style.borderRadius = '5px';
+            
+            const commentHeader = document.createElement('div');
+            commentHeader.innerHTML = `<strong>VM:</strong> ${comment[1]}`;
+            commentHeader.className = 'comment-header';
+            commentHeader.textContent = `${comment["text"]}`;
+            
+            const commentBody = document.createElement('div');
+            commentBody.className = 'comment-body';
+            commentBody.style.fontSize = '12px'; // Decrease font size
+            commentBody.textContent = comment["username"];
+            
+            commentWidget.appendChild(commentHeader);
+            commentWidget.appendChild(commentBody);
+            commentsList.appendChild(commentWidget);
             });
         }
         })

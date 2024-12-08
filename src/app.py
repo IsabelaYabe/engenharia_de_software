@@ -257,6 +257,18 @@ def get_comments(id, type):
     else:
         return jsonify({"success": False, "error": "Invalid type"}), 400
 
+    vm_name = manager.vending_machines_profile.search_record(id=comments[0][2])[0][1]
+    logger.debug(f"Vending machine name: {vm_name}")
+    i = 0
+    for comment in comments:
+        username = manager.users_profile.search_record(id=comment[3])[0][1]
+        comments[i] = {"id": comment[0], "text": comment[1], "vm_name": vm_name, "username": username}
+        logger.debug(f"Comment: {comment}")
+        i += 1
+    
+
+
+
     logger.debug(f"Comments for {type} {id}: {comments}")
     return jsonify({"data": comments})
 
