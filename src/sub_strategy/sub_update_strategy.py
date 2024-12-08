@@ -50,7 +50,7 @@ class DefaultSubUpdateStrategy(SubUpdateStrategy):
     It logs the process and raises exceptions for invalid operations.
     """
 
-    def update(self, data):
+    def update(self, data, table_name, search_record, update_row):
         """
         Executes the default update logic with the provided data.
 

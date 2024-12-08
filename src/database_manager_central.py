@@ -844,22 +844,32 @@ class DatabaseManagerCentral:
         """
         try:
             vending_machine = self.vending_machines_profile.search_record(id=vending_machine_id)
-            owner_id = self.owners_profile.search_record(id=owner_id)
             if not vending_machine:
                 raise ValueError(f"Vending machine with ID '{vending_machine_id}' not found.")
+            logger.debug(f"Vending machine found: {vending_machine}")
             
-            current_budget = vending_machine[0][4]
-            if current_budget < amount:
-                raise ValueError(f"Insufficient budget for vending machine ID '{vending_machine_id}'. Available: {current_budget}, Required: {amount}.")
+            owner = self.owners_profile.search_record(id=owner_id)
+            if not owner:
+                raise ValueError(f"Owner with ID '{owner_id}' not found.")
+            logger.debug(f"Owner found: {owner}")
             
-            new_budget = current_budget - amount
-            current_budget = owner_id[0][9]
-            new_budget_owner = current_budget + amount
-            self.__owners_profile.update_row(owner_id, budget=new_budget_owner)
+            current_vm_budget = vending_machine[0][4]  # Supondo que o orçamento está na 4ª posição da tupla
+            if current_vm_budget < amount:
+                raise ValueError(f"Insufficient budget for vending machine ID '{vending_machine_id}'. Available: {current_vm_budget}, Required: {amount}.")
+
+            
+            new_vm_budget = current_vm_budget - amount
+
+            current_owner_budget = owner[0][9]
+            new_owner_budget = current_owner_budget + amount
+
+            self.__owners_profile.update_row(record_id=owner_id,budget=new_owner_budget)
             if self.__owners_config_pub and self.__owners_config_pub.event_manager:
                 event_data = {
                     "vending_machine_id": vending_machine_id,
-                    "new_budget": new_budget
+                    "new_budget": new_vm_budget,
+                    "owner_id": owner_id,
+                    "withdrawn_amount": amount
                 }
                 try:
                     logger.debug(f"Publishing WithdrawMoneyEvent with data: {event_data}")
@@ -873,7 +883,7 @@ class DatabaseManagerCentral:
             else:
                 logger.warning("No EventManager configured for event publishing.")
             
-            logger.info(f"Vending machine budget '{vending_machine_id}' updated to '{new_budget}'")
+            logger.info(f"Vending machine budget '{vending_machine_id}' updated to '{new_vm_budget}'")
         except Exception as e:
             logger.error(f"Error updating vending machine budget '{vending_machine_id}': {e}")
             raise
@@ -1059,7 +1069,7 @@ class DatabaseManagerCentral:
             self.__vending_machines_config_pub = new_config_pub
             self.__vending_machines_config_sub = new_config_sub
             self.__vending_machines_profile = DatabaseManager(new_config, new_config_pub, new_config_sub, new_immutable_columns, new_foreign_keys)
-            self.__instance_tables.vending_machine = self.__vending_machines_profile
+            self.__instance_tables.vending_machine_profile = self.__vending_machines_profile
             logger.info(f"Update vending_machines_profile, new name: {new_config.table_name}")
         except Exception as e:
             logger.error(f"Failed to setter {new_config.table_name}: {e}")
