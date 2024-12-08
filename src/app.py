@@ -42,22 +42,23 @@ def register():
     phone_number = request.form['phone-number']
     address = request.form['address']
 
+    info = [username, email, password, first_name, last_name, birthdate, phone_number, address, 0]
+
     if password != confirm_password:
         return "Passwords do not match", 400
 
     manager = DatabaseManagerCentral(**db_config)
     if user_type == 'user':
-        table = manager.users_profile
+        table = manager
+        table.add_user(*info)
+
     elif user_type == 'owner':
-        table = manager.owners_profile
-    
-    try:
-        table.insert_row(username=username, password=password, email=email, first_name=first_name, last_name=last_name, birthdate=birthdate, phone_number=phone_number, address=address)
+        table = manager
+        table.add_owner(*info)
+
         active_user['user_type'] = user_type
-        active_user['username'] = username
-        return redirect(url_for('menu'))
-    except ValueError as e:
-        return str(e), 400
+    active_user['username'] = username
+    return redirect(url_for('menu'))
     
 @app.route('/login', methods=['POST'])
 def login():
@@ -66,13 +67,10 @@ def login():
     password = request.form['password']
 
     manager = DatabaseManagerCentral(**db_config)
-    if user_type == 'user':
-        table = manager.users_profile
-    elif user_type == 'owner':
-        table = manager.owners_profile
+    
     
     try:
-        exists = table.search_record(username=username, password=password)
+        exists = manager.login_user(f"{user_type}s_profile", username, password)
         if not exists:
             return "Invalid username or password", 400
         active_user['user_type'] = user_type
