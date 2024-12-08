@@ -167,7 +167,7 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
                 
                 update_row(
                     existing_id,
-                    balance=new_budget+old_balance
+                    budget=new_budget+old_balance
                 )
                 logger.debug(f"AQUI KALIL USER: old_balance: {old_balance}, new_budget: {new_budget}")
                 logger.info(f"Updated balance for user '{user}' to: {new_budget+old_balance}")

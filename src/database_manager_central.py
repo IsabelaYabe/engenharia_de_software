@@ -689,7 +689,7 @@ class DatabaseManagerCentral:
                 raise ValueError("The quantity to be added must be greater than zero.")
 
             if product_id and vending_machine_id:
-                products = self.__products_profile.search_record(product_id=product_id, vending_machine_id=vending_machine_id)
+                products = self.__products_profile.search_record(id=product_id, vending_machine_id=vending_machine_id)
                 if not products:
                     raise ValueError("Product not found with the criteria provided.")
                 product = products[0]  
