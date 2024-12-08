@@ -220,7 +220,7 @@ def add_vm():
 
     # Redirect to the form page
     flash('Vending machine adicionada com sucesso!', 'success')
-    return redirect(url_for('add_vm_form'))  # Mude o destino conforme necessário
+    return redirect(url_for('vms'))  # Mude o destino conforme necessário
 
 
 @app.route('/get_vm_info', methods=['GET'])
@@ -355,11 +355,6 @@ def add_complaint():
     except ValueError as e:
         return jsonify({"success": False, "error": str(e)})
 
-
-
-
-
-
 # Route to get complaints 
 @app.route('/get_complaints/<int:id>/<string:type>', methods=['GET'])
 def get_complaints(id, type):
@@ -390,6 +385,37 @@ def get_complaints(id, type):
 @app.route('/get_role', methods=['GET'])
 def get_role():
     return jsonify(active_user['user_type'])
+
+@app.route('/addProduct', methods=['GET'])
+def add_product_form():
+    """
+    Route to display the product addition form.
+    """
+    return render_template('add_product.html')
+
+@app.route('/add_product', methods=['POST'])
+def add_product():
+    """
+    Endpoint to add a new product in the vending machine.
+    """
+    data = request.form
+    name = data['name']
+    description = data['description']
+    price = data['price']
+    quantity = data['quantity']
+    vending_machine_id = data['vending_machine_id']
+    manager = DatabaseManagerCentral(**db_config)
+
+    if active_user['user_type'] == 'owner':
+        owner_id = manager.owners_profile.search_record(username=active_user['username'])
+    elif active_user['user_type'] == 'admin':
+        owner_id = manager.users_profile.search_record(username=active_user['username'])
+    
+    manager.add_product(name, description, price, quantity, vending_machine_id)
+
+    # Redireciona para a página inicial ou lista de vending machines
+    flash('Produto adicionado com sucesso!', 'success')
+    return redirect(url_for('add_product_form'))  # Change the destination as needed
 
 # Buy a product
 @app.route('/buy_product', methods=['POST'])

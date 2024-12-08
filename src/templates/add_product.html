@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Produto</title>
+</head>
+<body>
+     <button onclick="window.location.href='/vms'">Voltar</button>
+    <h1>Adicionar Produto a uma Vending Machine</h1>
+    
+    <!-- Mensagens de feedback -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    <form action="/add_product" method="POST">
+        <label for="name">Nome do Produto:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="description">Descrição do Produto:</label><br>
+        <textarea id="description" name="description" rows="3" required></textarea><br><br>
+        
+        <label for="price">Preço:</label><br>
+        <input type="number" id="price" name="price" step="0.01" min="0" required><br><br>
+        
+        <label for="quantity">Quantidade:</label><br>
+        <input type="number" id="quantity" name="quantity" min="1" required><br><br>
+        
+        <label for="vending_machine_id">ID da Vending Machine:</label><br>
+        <input type="number" id="vending_machine_id" name="vending_machine_id" required><br><br>
+        
+        <button type="submit">Adicionar Produto</button>
+    </form>
+</body>
+</html>
