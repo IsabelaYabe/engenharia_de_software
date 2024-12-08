@@ -93,7 +93,7 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
     and updates the quantity if the purchase is valid.
     """
 
-    def update(self, data):
+    def update(self, data, search_record, update_row):
         """
         Executes the update logic for the "PurchaseProductEvent".
 
@@ -120,7 +120,7 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
         vending_machine_id = data["vending_machine_id"]
         quantity = data["quantity"]
         try:
-            existing_records = self.search_record(name=name, vending_machine_id=vending_machine_id)
+            existing_records = search_record(name=name, vending_machine_id=vending_machine_id)
             
             if not existing_records:
                 logger.warning(f"Product '{name}' not found in vending machine '{vending_machine_id}'. Purchase aborted.")
@@ -135,7 +135,7 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
                 return       
 
             new_quantity = existing_quantity - quantity
-            self.update_row(existing_id, quantity=new_quantity)
+            update_row(existing_id, quantity=new_quantity)
 
             logger.info(f"Purchase successful. Updated product '{name}' in vending machine '{vending_machine_id}' to new quantity: {new_quantity}")
         
