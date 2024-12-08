@@ -120,7 +120,7 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
         vending_machine_id = data["vending_machine_id"]
         quantity = data["quantity"]
         try:
-            existing_records = search_record(name=name, vending_machine_id=vending_machine_id)
+            existing_records = search_record(id=name, vending_machine_id=vending_machine_id)
             
             if not existing_records:
                 logger.warning(f"Product '{name}' not found in vending machine '{vending_machine_id}'. Purchase aborted.")
