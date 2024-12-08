@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, redirect, url_for
 from database_manager_central import DatabaseManagerCentral
 from flask_cors import CORS
 from custom_logger import setup_logger
@@ -7,6 +7,10 @@ app = Flask(__name__)
 CORS(app)
 
 logger = setup_logger()
+active_user = {
+    "username": None,
+    "user_type": None
+}
 
 # Database configuration
 db_config = {
@@ -25,10 +29,16 @@ def index():
 
 @app.route('/register', methods=['POST'])
 def register():
-    user_type = request.form['user_type']
+    user_type = request.form['user-type']
     username = request.form['username']
+    email = request.form['email']
     password = request.form['password']
     confirm_password = request.form['confirm-password']
+    first_name = request.form['first-name']
+    last_name = request.form['last-name']
+    birthdate = request.form['birthdate']
+    phone_number = request.form['phone-number']
+    address = request.form['address']
 
     if password != confirm_password:
         return "Passwords do not match", 400
@@ -38,11 +48,78 @@ def register():
         table = manager.users_profile
     elif user_type == 'owner':
         table = manager.owners_profile
-    pass
+    
     try:
-        table.insert_row(username=username, password=password)
+        table.insert_row(username=username, password=password, email=email, first_name=first_name, last_name=last_name, birthdate=birthdate, phone_number=phone_number, address=address)
+        active_user['user_type'] = user_type
+        active_user['username'] = username
+        return redirect(url_for('menu'))
+    except ValueError as e:
+        return str(e), 400
+    
+@app.route('/login', methods=['POST'])
+def login():
+    user_type = request.form['user-type']
+    username = request.form['username']
+    password = request.form['password']
 
-    return redirect(url_for('home'))
+    manager = DatabaseManagerCentral(**db_config)
+    if user_type == 'user':
+        table = manager.users_profile
+    elif user_type == 'owner':
+        table = manager.owners_profile
+    
+    try:
+        exists = table.search_record(username=username, password=password)
+        if not exists:
+            return "Invalid username or password", 400
+        active_user['user_type'] = user_type
+        active_user['username'] = username
+        return redirect(url_for('menu'))
+    except ValueError as e:
+        return str(e), 400
+
+
+@app.route('/logout')
+def logout():
+    active_user = None
+    return redirect(url_for('index'))
+
+@app.route('/user_profile')
+def user_profile():
+    """
+    Render the user profile page.
+    """
+    return render_template('user_profile.html')
+
+@app.route('/get_user_info', methods=['GET'])
+def get_user_info():
+    """
+    Endpoint for retrieving user information.
+    """
+    user_type = active_user['user_type']
+    username = active_user['username']
+    manager = DatabaseManagerCentral(**db_config)
+    if user_type == 'user':
+        table = manager.users_profile
+    elif user_type == 'owner':
+        table = manager.owners_profile
+    info = table.search_record(username=username)
+    logger.debug(f"User info: {info}")
+    info = info[0]
+    response = {
+        "username": info[1],
+        "email": info[2],
+        "first_name": info["first_name"],
+        "last_name": info["last_name"],
+        "birthdate": info["birthdate"],
+        "phone_number": info["phone_number"],
+        "address": info["address"],
+        "user_type": user_type
+    }
+    if info:
+        info = info[0]
+    return jsonify(info)
 
 
 @app.route('/menu')
@@ -169,8 +246,6 @@ def admin_complaints():
 @app.route('/get_complaints', methods=['GET'])
 def get_complaints():
     pass
-
-#Register a new user and login
     
 
 if __name__ == "__main__":

@@ -63,32 +63,44 @@
                     <option value="owner">Owner</option>
                 </select>
                 <br><br>
-                <label for="new-username">Username:</label>
-                <input type="text" id="new-username" name="username" required>
-                <br><br>
-                <label for="new-password">Password:</label>
-                <input type="password" id="new-password" name="password" required>
-                <br><br>
-                <label for="confirm-password">Confirm Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
-                <br><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <br><br>
-                <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" name="first-name">
-                <br><br>
-                <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" name="last-name">
-                <br><br>
-                <label for="birthdate">Birthdate:</label>
-                <input type="date" id="birthdate" name="birthdate">
-                <br><br>
-                <label for="phone-number">Phone Number:</label>
-                <input type="tel" id="phone-number" name="phone-number">
-                <br><br>
-                <label for="address">Address:</label>
-                <textarea id="address" name="address"></textarea>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <div style="flex: 1 1 45%;">
+                        <label for="new-username">Username:</label>
+                        <input type="text" id="new-username" name="username" required>
+                    </div>
+                    <div style="flex: 1 1 45%;">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div style="flex: 1 1 45%;">
+                        <label for="new-password">Password:</label>
+                        <input type="password" id="new-password" name="password" required>
+                    </div>
+                    <div style="flex: 1 1 45%;">
+                        <label for="confirm-password">Confirm Password:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+                    <div style="flex: 1 1 45%;">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" name="first-name">
+                    </div>
+                    <div style="flex: 1 1 45%;">
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name" name="last-name">
+                    </div>
+                    <div style="flex: 1 1 45%;">
+                        <label for="birthdate">Birthdate:</label>
+                        <input type="date" id="birthdate" name="birthdate">
+                    </div>
+                    <div style="flex: 1 1 45%;">
+                        <label for="phone-number">Phone Number:</label>
+                        <input type="tel" id="phone-number" name="phone-number">
+                    </div>
+                    <div style="flex: 1 1 100%;">
+                        <label for="address">Address:</label>
+                        <textarea id="address" name="address"></textarea>
+                    </div>
+                </div>
                 <br><br>
                 <button type="submit">Register</button>
             </form>
@@ -96,6 +108,11 @@
         <div class="login-container">
             <h2>Login</h2>
             <form action="/login" method="post">
+                <label for="user-type">Register as:</label>
+                <select id="user-type" name="user-type" required>
+                    <option value="user">User</option>
+                    <option value="owner">Owner</option>
+                </select>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
                 <br><br>
