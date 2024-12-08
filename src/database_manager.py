@@ -539,6 +539,18 @@ class DatabaseManager():
 
             
 
+    def get_last_id(self):
+        """
+        Get the last inserted ID.
+
+        Returns:
+            int: The last inserted ID.
+        """
+        query = f"SELECT LAST_INSERT_ID();"
+        with self.__connect() as conn, conn.cursor() as cursor:
+            cursor.execute(query)
+            return cursor.fetchone()[0]
+    
     @property
     def db_config(self):
         return self.__db_config

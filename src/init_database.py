@@ -241,6 +241,8 @@ if __name__ == "__main__":
     print(manager.search_table("products_profile", quantity=15))
     print(manager.get_sales_report(datetime(2024, 12, 7, 00, 00, 00), datetime(2024, 12, 8, 00, 00, 00)))
     manager.withdraw_money_from_vm("1", "1", 10.0)
+    #manager.delete_product("1")
+    print(manager.login_user("owners_profile", "Garry", "sdf"))
     print("\n\n\n\n")
     
     
