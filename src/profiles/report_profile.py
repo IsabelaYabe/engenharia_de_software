@@ -1,6 +1,8 @@
 import mysql.connector
 import io
 import csv
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
 
 class VendingMachineReports:
     def __init__(self, host, user, password, database):
@@ -80,67 +82,6 @@ class VendingMachineReports:
         for row in stock_data
     ]
 
-    # def generate_html_report(self, stock_data):
-    #     """
-    #     Gera o relatório completo em HTML.
-    #     """
-    #     html_content = """
-    #     <html>
-    #     <head><title>Relatório das Vending Machines</title></head>
-    #     <body>
-    #         <h1>Relatório de Vending Machines</h1>
-
-    #         <h2>Relatório de Estoque</h2>
-    #         <table border="1">
-    #             <tr><th>Produto</th><th>Máquina</th><th>Estoque disponível</th></tr
-    #     """
-        # for row in sales_data:
-        #     html_content += f"""
-        #         <tr>
-        #             <td>{row[0]}</td>
-        #             <td>{row[1]}</td>
-        #             <td>{row[2]}</td>
-        #             <td>{row[3]}</td>
-        #         </tr>
-        #     """
-        # html_content += "</table>"
-
-        # html_content += """
-        #     <h2>Relatório de Avaliações</h2>
-        #     <table border="1">
-        #         <tr><th>Produto</th><th>Média de Avaliação</th><th>Total de Avaliações</th></tr>
-        # """
-        # for row in ratings_data:
-        #     html_content += f"""
-        #         <tr>
-        #             <td>{row[0]}</td>
-        #             <td>{row[1]}</td>
-        #             <td>{row[2]}</td>
-        #         </tr>
-        #     """
-        # html_content += "</table>"
-
-        # html_content += """
-        #     <h2>Relatório de Estoque</h2>
-        #     <table border="1">
-        #         <tr><th>Produto</th><th>Máquina</th><th>Quantidade em Estoque</th></tr>
-        # """
-        # for row in stock_data:
-        #     html_content += f"""
-        #         <tr>
-        #             <td>{row[0]}</td>
-        #             <td>{row[1]}</td>
-        #             <td>{row[2]}</td>
-        #         </tr>
-        #     """
-        # html_content += "</table>"
-
-        # html_content += "</body></html>"
-
-        # # Salvar o relatório em um arquivo HTML
-        # with open("relatorio_vending_machines.html", "w") as file:
-        #     file.write(html_content)
-        
     def generate_stock_report_csv(self):
         """
         Gera o relatório de estoque em formato CSV.
@@ -158,13 +99,50 @@ class VendingMachineReports:
         self.__cursor.execute(query)
         stock_data = self.__cursor.fetchall()
 
-        # Gerar CSV em memória
         output = io.StringIO()
         writer = csv.writer(output)
-        writer.writerow(["Product Name", "Product Quantity", "Vending Machine Name"])  # Cabeçalhos do CSV
+        writer.writerow(["Product Name", "Product Quantity", "Vending Machine Name"]) 
         for row in stock_data:
             writer.writerow(row)
-        output.seek(0)  # Voltar ao início do arquivo para leitura
+        output.seek(0)  
+        return output
+    
+    def generate_stock_report_pdf(self):
+        """
+        Gera o relatório de estoque em formato PDF.
+        """
+        query = """
+        SELECT 
+            p.Name AS product_name, 
+            p.Quantity AS product_quantity,
+            vm.Name AS vending_machine_name
+        FROM 
+            Products AS p
+        JOIN 
+            VMs AS vm ON p.VMID = vm.VMID
+        """
+        self.__cursor.execute(query)
+        stock_data = self.__cursor.fetchall()
+        
+        output = io.BytesIO()
+        pdf = canvas.Canvas(output, pagesize=letter)
+        pdf.setFont("Helvetica", 12)
+
+        pdf.drawString(30, 750, "Stock Report")
+        pdf.drawString(30, 735, "-----------------------------------------")
+
+        y_position = 720
+        for row in stock_data:
+            product_name, product_quantity, vending_machine_name = row
+            pdf.drawString(30, y_position, f"Product: {product_name}, Quantity: {product_quantity}, Machine: {vending_machine_name}")
+            y_position -= 15
+            if y_position < 50: 
+                pdf.showPage()
+                pdf.setFont("Helvetica", 12)
+                y_position = 750
+
+        pdf.save()
+        output.seek(0)
         return output
 
     def close(self):

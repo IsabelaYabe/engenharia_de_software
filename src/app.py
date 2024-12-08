@@ -60,8 +60,8 @@ def get_report():
     stock_report.close()
     return jsonify(report)
 
-@app.route('/download_stock_report', methods=['GET'])
-def download_stock_report():
+@app.route('/download_stock_report_csv', methods=['GET'])
+def download_stock_report_csv():
     """
     Endpoint para download do relatório de estoque em formato CSV.
     """
@@ -75,6 +75,23 @@ def download_stock_report():
         mimetype='text/csv',
         as_attachment=True,
         download_name='stock_report.csv'
+    )
+
+@app.route('/download_stock_report_pdf', methods=['GET'])
+def download_stock_report_pdf():
+    """
+    Endpoint para download do relatório de estoque em formato PDF.
+    """
+    stock_report = VendingMachineReports(**db_config)
+    pdf_file = stock_report.generate_stock_report_pdf()
+    stock_report.close()
+
+    # Retornar o arquivo PDF
+    return send_file(
+        io.BytesIO(pdf_file.getvalue()),
+        mimetype='application/pdf',
+        as_attachment=True,
+        download_name='stock_report.pdf'
     )
 
 
