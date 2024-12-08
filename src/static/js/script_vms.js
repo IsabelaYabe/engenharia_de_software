@@ -1,5 +1,6 @@
 // Fetch vm information from the server and populate the table
 function fetchVmInfo() {
+    console.log("Fetching vm info");
     fetch('/get_vm_info')
         .then(response => {
             if (!response.ok) {
@@ -37,6 +38,23 @@ function fetchVmInfo() {
             console.error('Error fetching vm info:', error);
             // Optionally, display an error message to the user
         });
+    console.log("Fetching vm info done");
+    fetch('/get_role')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(userType => {
+            console.log(userType);
+            if(userType == "user"){
+                const comment = document.getElementById('comment');
+                comment.style.display = 'block';
+            }
+        })
+        
+
 }
 
 function handleTableClick(id) {
@@ -49,6 +67,7 @@ function handleTableClick(id) {
     if (commentButton) {
         commentButton.setAttribute('data-vm-id', id);
     }
+    console.log(id);
     fetchComments(id);
 }
 

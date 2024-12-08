@@ -265,6 +265,11 @@ def admin_complaints():
 @app.route('/get_complaints', methods=['GET'])
 def get_complaints():
     pass
+
+#Get the role of the user
+@app.route('/get_role', methods=['GET'])
+def get_role():
+    return jsonify(active_user['user_type'])
     
 
 if __name__ == "__main__":
