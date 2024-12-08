@@ -844,6 +844,7 @@ class DatabaseManagerCentral:
         """
         try:
             vending_machine = self.vending_machines_profile.search_record(id=vending_machine_id)
+            owner_id = self.owners_profile.search_record(id=owner_id)
             if not vending_machine:
                 raise ValueError(f"Vending machine with ID '{vending_machine_id}' not found.")
             
@@ -852,11 +853,12 @@ class DatabaseManagerCentral:
                 raise ValueError(f"Insufficient budget for vending machine ID '{vending_machine_id}'. Available: {current_budget}, Required: {amount}.")
             
             new_budget = current_budget - amount
-            self.__owners_profile.update_row(owner_id=owner_id, budget=new_budget)
+            current_budget = owner_id[0][9]
+            new_budget_owner = current_budget + amount
+            self.__owners_profile.update_row(owner_id, budget=new_budget_owner)
             if self.__owners_config_pub and self.__owners_config_pub.event_manager:
                 event_data = {
                     "vending_machine_id": vending_machine_id,
-                    "amount": amount,
                     "new_budget": new_budget
                 }
                 try:

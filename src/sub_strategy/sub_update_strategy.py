@@ -177,23 +177,14 @@ class WithdrawSubUpdateStrategy(SubUpdateStrategy):
     def update(self, data, table_name, search_record, update_row):
         logger.info(f"Executing update strategy with data: {data}")
         logger.debug(f"Table name: {table_name}")
-        
+        logger.debug("AQUI KALIL! WITHDRAW SUB UPDATE STRATEGY")
         if table_name == "vending_machines_profile":
             vending_machine = data["vending_machine_id"]
             new_budget = data["new_budget"]
             logger.debug(f"Vending machine: {vending_machine}, New budget: {new_budget}")
             try:
-                existing_records = search_record(id=vending_machine)
-
-                if not existing_records:
-                    logger.warning(f"Vending machine '{vending_machine}' not found. Purchase aborted.")
-                    return
-                
-                logger.debug(f"Existing records: {existing_records}")
-                existing_product = existing_records[0]
-                existing_id = existing_product[0]
                 update_row(
-                    existing_id,
+                    vending_machine,
                     budget=new_budget
                 )
 
