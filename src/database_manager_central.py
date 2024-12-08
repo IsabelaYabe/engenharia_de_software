@@ -7,7 +7,7 @@ event notifications, and other database-related functionality.
 
 Author: Isabela Yabe
 Last Modified: 07/12/2024
-Status: In Progress (pending additional tests and logging updates)
+Status: Complete
 
 Dependencies:
     - database_manager.DatabaseManager
@@ -63,6 +63,7 @@ class DatabaseManagerCentral:
         event_manager (EventManager): Centralized event manager for handling notifications.
         __instance_tables (InstancesTables): Dataclass instance containing table-specific managers.
     """
+
     def __init__(self, host, user, password, database):
         """
         Initializes the `DatabaseManagerCentral` instance and sets up the event manager and table managers.
@@ -79,40 +80,7 @@ class DatabaseManagerCentral:
         self.__database = database
         self.__password_hasher = PasswordHasher()
 
-         # Load SQL script to create tables and relationships
-        try:
-            with open("src\MYSQL\create_tables_relationships.sql", "r") as file:
-                logger.debug("Reading SQL script to create tables and relationships.")
-                create_tables_sql = file.read()
-        except FileNotFoundError:
-            logger.error("SQL script file not found.")
-            raise
-        except Exception as e:
-            logger.error(f"Error reading SQL script file: {e}")
-            raise
-
-        try:
-            conn = mysql.connector.connect(host = self.__host, user = self.__user, password = self.__password, database = self.__database)
-            logger.debug("Successful connection")
-        except mysql.connector.Error as e:
-            logger.error("Unsuccessful connection: %s (errno=%d)", e.msg, e.errno)
-            raise
-        logger.info("Connected into database")
-
-        # Execute the SQL script to create tables and relationships
-        with conn.cursor() as cursor:
-            sql_statements = create_tables_sql.split(";")
-            for statement in sql_statements:
-                if statement.strip():  # Ignorar instruções vazias
-                    cursor.execute(statement.strip())
-        
-
-        logger.debug("Database tables and relationships created successfully.")
-        
-        print("""dfhd suwfe uosd dc qwyeb qwe
-              dws
-              wd
-              wdehd1jdw0w""")
+        self.init_tables()
 
         self.event_manager = EventManager()
         self.event_manager.update_strategies["PurchaseProductEvent"] = PurchaseProductSubUpdateStrategy()
@@ -209,7 +177,32 @@ class DatabaseManagerCentral:
             favorite_vending_machines = self.__favorite_vending_machines
         )
     
-        
+    def init_tables(self):
+            try:
+                with open("src\MYSQL\create_tables_relationships.sql", "r") as file:
+                    logger.debug("Reading SQL script to create tables and relationships.")
+                    create_tables_sql = file.read()
+            except FileNotFoundError:
+                logger.error("SQL script file not found.")
+                raise
+            except Exception as e:
+                logger.error(f"Error reading SQL script file: {e}")
+                raise
+
+            try:
+                conn = mysql.connector.connect(host = self.__host, user = self.__user, password = self.__password, database = self.__database)
+                logger.debug("Successful connection")
+            except mysql.connector.Error as e:
+                logger.error("Unsuccessful connection: %s (errno=%d)", e.msg, e.errno)
+                raise
+            logger.info("Connected into database")
+
+            with conn.cursor() as cursor:
+                sql_statements = create_tables_sql.split(";")
+                for statement in sql_statements:
+                    if statement.strip():  
+                        cursor.execute(statement.strip())
+                conn.commit()
 
     def show(self):
         for table_name, table_instance in self.instance_tables.__dict__.items():
