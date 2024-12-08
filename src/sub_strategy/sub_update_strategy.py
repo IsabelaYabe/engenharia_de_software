@@ -156,7 +156,7 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
                 existing_id = existing_user[0]
                 old_budget = existing_user[9]
                 
-                update_row(existing_id, budget=new_budget+old_budget)
+                update_row(existing_id, budget=old_budget-new_budget)
                 
                 logger.info(f"Updated budget for user '{user}' to: {new_budget+old_budget}")
             except Exception as e:

@@ -12,7 +12,6 @@ Dependencies:
     - mysql.connector
     - custom_logger
     - decorators_method (immutable_fields)
-    - decorators_class (pubsub)
     - event_manager (EventManager)
     - utils (tuple_rows_to_dict)
 
@@ -21,10 +20,6 @@ Classes:
     - ConfigPub: Configuration for publishing events.
     - ConfigSub: Configuration for subscribing to events.
     - DatabaseManager: Main class for managing database tables, including pub-sub functionality.
-
-Decorators:
-    - pubsub: Adds pub-sub functionality for event management.
-    - immutable_fields: Ensures specified columns remain immutable during row updates.
 
 """
 
@@ -47,7 +42,7 @@ logger = setup_logger()
 @dataclass
 class Config:
     """
-    Config class for table configuration.
+    Configuration class for managing database table settings.
 
     Attributes:
         host (str): Database host.
@@ -127,7 +122,16 @@ class DatabaseManager():
     """
 
     def __init__(self, config, config_pub=None, config_sub=None, immutable_columns=None, foreign_keys=None):
+        """
+        Initializes the DatabaseManager.
 
+        Args:
+            config (Config): Configuration object for the database table.
+            config_pub (ConfigPub, optional): Configuration for event publishing.
+            config_sub (ConfigSub, optional): Configuration for event subscription.
+            immutable_columns (list[str], optional): List of immutable columns.
+            foreign_keys (dict, optional): Foreign key constraints for the table.
+        """
         logger.info("Initializing DatabaseManager for table: %s", config.table_name)
         self.__db_config = {
             "host": config.host,
@@ -158,13 +162,11 @@ class DatabaseManager():
                 self.__immutable_columns.append(col)
         
         try:
-            logger.debug(f"Events type subscribed: {self.events_type_sub}")
             for event_type in self.events_type_sub:
                 if event_type not in self.event_manager_sub.update_strategies.keys():
                     logger.warning(f"No update strategy registered for event '{event_type}'. Using default.")
                 self.event_manager_sub.subscribe(event_type, self)
                 logger.info(f"Subscribed to event {event_type}")
-            logger.debug(f"Event Manager Sub: {self.subscribers}")
         except Exception as e:
              logger.error(f"Failed to subscribe to event: {e}")
         
@@ -174,13 +176,9 @@ class DatabaseManager():
 
         Returns:
             mysql.connector.connection_cext.CMySQLConnection: The database connection.
-
-        Raises:
-            mysql.connector.Error: If the connection fails.
         """
         try:
             conn = mysql.connector.connect(**self.__db_config)
-            logger.debug("Successful connection")
         except mysql.connector.Error as e:
             logger.error("Unsuccessful connection: %s (errno=%d)", e.msg, e.errno)
             raise
@@ -194,9 +192,6 @@ class DatabaseManager():
         Args:
             old_column_name (str): The current name of the column.
             new_column_name (str): The new name for the column.
-
-        Raises:
-            ValueError: If attempting to rename the primary key column.
         """
         if old_column_name == self.__column_id:
             logger.error("An attempt was made to change the name of the id column")
@@ -238,9 +233,6 @@ class DatabaseManager():
 
         Args:
             column_name (str): The name of the column to delete.
-
-        Raises:
-            ValueError: If the column to delete does not exist in the table.
         """
         alter_table_sql = f"ALTER TABLE `{self.__table_name}` DROP COLUMN `{column_name}`;"
         
@@ -259,9 +251,8 @@ class DatabaseManager():
         """
         delete_sql = f"DELETE FROM `{self.__table_name}` WHERE `{column}` = %s;"
         list_tuples_row = self.search_record(column=record)
-        logger.debug(f"{list_tuples_row}")
-        tuple_rows_dict = tuple_rows_to_dict(list_tuples_row, self.columns)   
-        logger.debug(f"{tuple_rows_dict}") 
+        tuple_rows_dict = tuple_rows_to_dict(list_tuples_row, self.columns)
+
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(delete_sql, (record,))
             if cursor.rowcount == 0:
@@ -275,11 +266,7 @@ class DatabaseManager():
 
         Args:
             sql_statement (str): The SQL CREATE TABLE statement.
-
-        Raises:
-            ValueError: If the table already exists.
         """
-        logger.debug("Create table teste")
         regex = r"CREATE TABLE\s`?+([a-zA-Z0-9_]+)`?\s*\("
         match = re.search(regex, sql_batabase, re.IGNORECASE)
         table_name = match.group(1)
@@ -317,9 +304,6 @@ class DatabaseManager():
 
         Returns:
             str: The ID of the newly inserted row.
-
-        Raises:
-            ValueError: If insertion fails due to invalid data or constraints.
         """
         columns = []
         values = []
@@ -329,13 +313,9 @@ class DatabaseManager():
             values.append(value)
             placeholders.append("%s")
         columns_str = ", ".join(columns)
-        logger.debug(f"Columns: {columns_str}")
         placeholders = ", ".join(placeholders)
-        logger.debug(f"Placeholders: {placeholders}")
         insert_sql = f"INSERT INTO `{self.__table_name}` ({columns_str}) VALUES ({placeholders});"
         
-        logger.debug(f"Insert SQL: {insert_sql}")
-        logger.debug(f"Values: {values}")
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(insert_sql, tuple(values))
             conn.commit()
@@ -356,13 +336,6 @@ class DatabaseManager():
         Args:
             record_id (str): The primary key of the row to update.
             **kwargs: Key-value pairs representing the columns to update and their new values.
-
-        Raises:
-            ValueError: If there is an attempt to update immutable fields.
-            mysql.connector.Error: If the query execution fails.
-
-        Notes:
-            - The `immutable_fields` decorator ensures that certain fields cannot be updated.
         """
         old_row = self.get_by_id(record_id)
         columns = []
@@ -393,9 +366,6 @@ class DatabaseManager():
 
         Returns:
             tuple or None: The row data if found, or None if no matching row is found.
-
-        Raises:
-            Exception: If the query fails for any reason.
         """
         query = f"SELECT * FROM `{self.__table_name}` WHERE `{self.__column_id}` = %s;"
         
@@ -417,14 +387,7 @@ class DatabaseManager():
 
         Returns:
             list[tuple]: A list of rows that match the search criteria.
-
-        Raises:
-            Exception: If the search query fails for any reason.
         """
-        logger.debug(f"Searching for records with: {kwargs}")
-        logger.debug(f"Tabela: {self.__table_name}")
-        logger.debug(f"Columns: {self.__columns}")
-        logger.debug(f"Show table: {self.show_table()}")
         columns = []
         values = []
         for key, value in kwargs.items():
@@ -445,9 +408,6 @@ class DatabaseManager():
 
         Returns:
             list[tuple]: A list of rows that match the search criteria.
-
-        Raises:
-            Exception: If the search query fails for any reason.
         """
         head_query = f'SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = %s;'
         query = f'SELECT * FROM `{self.__table_name}`;'
@@ -475,9 +435,6 @@ class DatabaseManager():
 
         Returns:
             tuple or list[tuple] or None: The fetched row(s) if applicable, otherwise None.
-
-        Raises:
-            ValueError: If the query execution fails.
         """
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(query, params)
@@ -509,6 +466,13 @@ class DatabaseManager():
         }
     
     def publish_event(self, event_type, **data):
+        """
+        Publishes an event to the event manager.
+
+        Args:
+            event_type (_type_): _description_
+            **data: _description_
+        """
         if self.event_manager_pub == None or self.events_type_pub == None:
             logger.error("Event manager or events type not set")
         if event_type in self.events_type_pub:
@@ -519,7 +483,6 @@ class DatabaseManager():
                  logger.error(f"Failed to publish event {event_type}: {e}")
         else:
              logger.warning(f"Event {event_type} is not in the configured publish list: {self.evets_type_pub}")
-    logger.debug(f"publish_event: {publish_event}")
             
     def update(self, event_type, **data):
         if self.event_manager_sub == None or self.events_type_sub == None:
@@ -529,15 +492,11 @@ class DatabaseManager():
         if event_type in self.events_type_sub:
             try:
                 logger.info(f"Received event {event_type} with data: {data}")
-                logger.debug(f"Table name: {self.table_name}")
                 strategy.update(data, self.table_name, self.search_record, self.update_row)
-                logger.debug(f"Update strategy: {strategy}")
             except Exception as e:
                 logger.error(f"Failed to handle event '{event_type}': {e}")
         else:
              logger.warning(f"Event {event_type} is not in the configured subscribe list: {self.events_type_sub}")
-
-            
 
     def get_last_id(self):
         """
