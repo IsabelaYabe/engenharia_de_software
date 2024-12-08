@@ -146,6 +146,28 @@ def get_stock_info():
     """
     Endpoint for retrieving stock information about products and their associated vending machines.
     """
+    manager = DatabaseManagerCentral(**db_config)
+    owner_id = manager.owners_profile.search_record(username=active_user['username'])
+    logger.debug(f"User id: {owner_id}")
+    info = manager.vending_machines_profile.search_record(owner_id=owner_id[0][0])
+    logger.debug(f"Stock info: {info}")
+    items = []
+    for row in info:
+        vm_id = row[0]
+        logger.debug(f"Vending machine id: {vm_id}")
+        products = manager.products_profile.search_record(vending_machine_id=vm_id)
+        logger.debug(f"Products: {products}")
+        for product in products:
+            items.append({
+                "vm_id": vm_id,
+                "vm_name": row[1],
+                "product_id": product[0],
+                "product_name": product[1],
+                "price": product[3],
+                "quantity": product[4]
+            })
+        
+    return jsonify({"data": items})
     pass
 
 @app.route('/vms')

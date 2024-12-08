@@ -10,15 +10,16 @@ function fetchStockInfo() {
         .then(stockInfo => {
             const tableBody = document.getElementById('stock-table-body');
             tableBody.innerHTML = ''; // Clear the table
-            
-            stockInfo.forEach(item => {
+            console.log(stockInfo);
+            stockInfo["data"].forEach(item => {
                 const row = document.createElement('tr');
+                console.log(item);
                 row.innerHTML = `
-                    <td>${item.vending_machine_id}</td>
-                    <td>${item.vending_machine_name}</td>
+                    <td>${item.vm_id}</td>
+                    <td>${item.vm_name}</td>
                     <td>${item.product_id}</td>
                     <td>${item.product_name}</td>
-                    <td>${item.product_quantity}</td>
+                    <td>${item.quantity}</td>
                 `;
                 tableBody.appendChild(row);
             });
