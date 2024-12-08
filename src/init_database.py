@@ -10,6 +10,7 @@
 import mysql.connector
 from database_manager_central import DatabaseManagerCentral
 from custom_logger import setup_logger
+from datetime import datetime
 
 logger = setup_logger()
 
@@ -232,3 +233,14 @@ if __name__ == "__main__":
     init_database(db_config)
     print("iurbfquwcrhfcmpwoerjfh 94ufb pwrg fquirh qieb qwbrf iergnipqe fprh f hqrf iro roph oqwr ojwji"*3)
     populate_database(db_config)
+
+    manager = DatabaseManagerCentral(**db_config)
+    manager.update_vending_machine_status("1", "inactive")
+    manager.update_owner_budget("1", 100.0)
+    manager.add_product_quantity("1", "1", 200)
+    print(manager.search_table("products_profile", quantity=15))
+    print(manager.get_sales_report(datetime(2024, 12, 7, 00, 00, 00), datetime(2024, 12, 8, 00, 00, 00)))
+    print("\n\n\n\n")
+    
+    
+    manager.show()

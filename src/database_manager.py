@@ -452,7 +452,7 @@ class DatabaseManager():
                 logger.info(f"Got all instances in table: {self.__table_name}")
             return head, return_execute
         
-    def execute_sql(self, query, params=None, fetch_one=False, fetch_all=False, error_message=""):
+    def execute_sql(self, query, params=None, fetch_one=False, fetch_all=False, error_message="", commit=False):
         """
         Executes a raw SQL query on the database.
 
@@ -471,10 +471,32 @@ class DatabaseManager():
         """
         with self.__connect() as conn, conn.cursor() as cursor:
             cursor.execute(query, params)
+            if commit:
+                conn.commit()
             if fetch_all:
                 return cursor.fetchall()
             elif fetch_one:
                 return cursor.fetchone()
+    
+    def get_info(self):
+        """
+        Get information about the table.
+
+        Returns:
+            dict: Information about the table.
+        """
+        head, rows = self.show_table()
+
+        return {
+            "table_name": self.__table_name,
+            "columns": self.__columns,
+            "column_id": self.__column_id,
+            "foreign_keys": self.__foreign_keys,
+            "foreign_keys_columns": self.__foreign_keys_columns,
+            "immutable_columns": self.__immutable_columns,
+            "head": head,
+            "rows": rows
+        }
     
     @property
     def db_config(self):

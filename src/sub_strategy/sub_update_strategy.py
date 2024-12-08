@@ -128,8 +128,8 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
             
             logger.debug(f"Records: {existing_records}")   
             existing_product = existing_records[0]
-            existing_id = existing_product["id"]  
-            existing_quantity = existing_product["quantity"]
+            existing_id = existing_product[0]  
+            existing_quantity = existing_product[4]
             if quantity > existing_quantity:
                 logger.warning(f"Insufficient stock for product '{name}' in vending machine '{vending_machine_id}'. Available: {existing_quantity}, Requested: {quantity}")
                 return       

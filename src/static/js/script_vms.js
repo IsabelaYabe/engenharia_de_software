@@ -8,21 +8,27 @@ function fetchVmInfo() {
             return response.json();
         })
         .then(vmInfo => {
+            console.log(vmInfo);
+            head = vmInfo["header"];
+            body = vmInfo["data"];
             const tableBody = document.getElementById('vm-table-body');
             tableBody.innerHTML = ''; // Clear the table
+
+            console.log(vmInfo);
             
-            vmInfo.forEach(item => {
+            body.forEach(item => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${item.VMID}</td>
-                    <td>${item.Name}</td>
-                    <td>${item.Location}</td>
-                    <td>${item.OwnerID}</td>
-                    <td>${item.Status}</td>
+                    <td>${item[0]}</td>
+                    <td>${item[1]}</td>
+                    <td>${item[2]}</td>
+                    <td>${item[4]}</td>
+                    <td>${item[3]}</td>
                 `;
                 tableBody.appendChild(row);
 
-                fetch(`/get_vm_products/${item.VMID}`)
+                /*
+                fetch(`/get_vm_products/${item.id}`)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Network response was not ok');
@@ -40,6 +46,7 @@ function fetchVmInfo() {
                         productsCell.innerHTML = 'Error fetching products';
                         row.appendChild(productsCell);
                     });
+                */
             });
         })
         .catch(error => {

@@ -197,17 +197,6 @@ class DatabaseManagerCentral:
             favorite_products = self.__favorite_products,
             favorite_vending_machines = self.__favorite_vending_machines
         )
-       
-
-    def verify_creation(self):
-        #conmfirming the creation of the tables
-        for table_name, table_instance in self.instance_tables.__dict__.items():
-            logger.debug(f"Checking if table '{table_name}' exists.")
-            table_exists = table_instance.fetchone()
-            if not table_exists:
-                logger.error(f"Table '{table_name}' not found.")
-                raise ValueError(f"Table '{table_name}' not found.")
-            logger.debug(f"Table '{table_name}' found.")
     
         
 
@@ -225,6 +214,8 @@ class DatabaseManagerCentral:
                     print(record)
             else:
                 print("No records found.")
+        
+        return head, records
 
     def insert_record(self, table_name, data, foreign_keys=None):
         """
@@ -669,7 +660,7 @@ class DatabaseManagerCentral:
             logger.error(f"Error updating owner's budget '{owner_id}': {e}")
             raise
 
-    def add_product_quantity(self, product_id=None, name=None, vending_machine_id=None, quantity_to_add=0):
+    def add_product_quantity(self, product_id=None, vending_machine_id=None, quantity_to_add=0):
         """
         Adds a specified quantity to an existing product in the database.
 
@@ -692,8 +683,8 @@ class DatabaseManagerCentral:
 
             if product_id:
                 product = self.__products_profile.get_by_id(product_id)
-            elif name and vending_machine_id:
-                products = self.__products_profile.search_record(name=name, vending_machine_id=vending_machine_id)
+            elif vending_machine_id:
+                products = self.__products_profile.search_record(product_id=product_id)
                 if not products:
                     raise ValueError("Product not found with the criteria provided.")
                 product = products[0]  
