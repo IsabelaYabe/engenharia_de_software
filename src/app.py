@@ -54,14 +54,24 @@ def get_vm_info():
     info = table.get_info()
     logger.debug(f"Vending machines info: {info}")
     return jsonify({"header": info["head"], "data": info["rows"]})
-    pass
+
+@app.route('/vm_profile/<int:vm_id>')
+def vm_profile(vm_id):
+    """
+    Render the vending machine profile page.
+    """
+    return render_template('vm_profile.html', vm_id=vm_id)
 
 @app.route('/get_vm_products/<int:vm_id>', methods=['GET'])
 def get_vm_products(vm_id):
     """
     Endpoint for retrieving vending machine products.
     """
-    pass
+    manager = DatabaseManagerCentral(**db_config)
+    table = manager.products_profile
+    info = table.search_record(vending_machine_id = vm_id)
+    logger.debug(f"Products of vm {vm_id}: {info}")
+    return jsonify({"data": info})
 
 @app.route('/comment')
 def comment():

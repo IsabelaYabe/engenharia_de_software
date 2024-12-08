@@ -24,29 +24,12 @@ function fetchVmInfo() {
                     <td>${item[2]}</td>
                     <td>${item[4]}</td>
                     <td>${item[3]}</td>
+                    <button class="btn btn-primary" onclick="window.location.href='/vm_profile/${item[0]}'">View</button>
                 `;
                 tableBody.appendChild(row);
 
-                /*
-                fetch(`/get_vm_products/${item.id}`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .then(products => {
-                        const productsCell = document.createElement('td');
-                        productsCell.innerHTML = products.map(product => product.Name).join(', ');
-                        row.appendChild(productsCell);
-                    })
-                    .catch(error => {
-                        console.error(`Error fetching products for VM ${item.VMID}:`, error);
-                        const productsCell = document.createElement('td');
-                        productsCell.innerHTML = 'Error fetching products';
-                        row.appendChild(productsCell);
-                    });
-                */
+            
+                
             });
         })
         .catch(error => {
