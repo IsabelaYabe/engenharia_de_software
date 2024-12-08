@@ -25,6 +25,8 @@ def index():
     """
     Render the home page with buttons to other pages.
     """
+    active_user['username'] = None
+    active_user['user_type'] = None
     return render_template('index.html')
 
 @app.route('/register', methods=['POST'])
@@ -117,11 +119,10 @@ def get_user_info():
         "birthdate": info[6],
         "phone_number": info[7],
         "address": info[8],
+        "budget": info[9],
         "user_type": user_type
     }
-    if info:
-        info = info[0]
-    return jsonify(info)
+    return jsonify(response)
 
 
 @app.route('/menu')

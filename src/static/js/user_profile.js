@@ -4,13 +4,16 @@ function createBio(bio) {
     widget.className = 'bio-widget';
     console.log(bio);
     widget.innerHTML = `
-        <h3>${bio[1]}</h3>
-        <p>${bio[2]}</p>
-        <p>Price: ${bio[3]}</p>
-        <p>Quantity: ${bio[4]}</p>
-        <button class="btn btn-primary">Add to Cart</button>
+        <h3 style="padding-left: 50px;">${bio["username"]}</h3>
+        <p style="padding-left: 50px;">${bio["email"]}</p>
+        <p style="padding-left: 50px;">Name: ${bio["first_name"]} ${bio["last_name"]}</p>
+        <p style="padding-left: 50px;">Birthday: ${bio["birthdate"]}</p>
+        <p style="padding-left: 50px;">Phone: ${bio["phone_number"]}</p>
+        <p style="padding-left: 50px;">Address: ${bio["address"]}</p>
+        <p style="padding-left: 50px;">Budget: ${bio["budget"]}</p>
+        <p style="padding-left: 50px;">Role: ${bio["user_type"]}</p>
     `;
-    return widget;
+    document.body.appendChild(widget);
 }
 
 // Modify fetchVmInfo to use displayProductWidgets
