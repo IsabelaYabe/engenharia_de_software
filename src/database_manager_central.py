@@ -862,8 +862,11 @@ class DatabaseManagerCentral:
                     "new_budget": new_budget
                 }
                 try:
+                    logger.debug(f"Publishing WithdrawMoneyEvent with data: {event_data}")
+                    logger.debug("AQUI KALIL")
                     self.__owners_config_pub.event_manager.notify("WithdrawMoneyEvent", event_data)
                     logger.info(f"WithdrawMoneyEvent published with data: {event_data}")
+                    logger.debug("AQUI KALIL")
                 except Exception as notify_error:
                     logger.error(f"Failed to notify event 'WithdrawMoneyEvent': {notify_error}")
                     raise RuntimeError(f"Failed to publish event: {notify_error}")
