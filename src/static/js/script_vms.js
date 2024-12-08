@@ -43,17 +43,21 @@ function handleTableClick(id) {
     console.log("Table clicked");
     const commentTitle = document.getElementById('comment-title');
     if (commentTitle) {
-        commentTitle.textContent = "Fale sobre nós o que está achando da VM " + id;
+        commentTitle.textContent = "Tells us what you think 'bout machine " + id;
+    }
+    const commentButton = document.getElementById('submit-comment');
+    if (commentButton) {
+        commentButton.setAttribute('data-vm-id', id);
     }
 }
 
 // Add a new comment for the product
 document.getElementById('submit-comment').addEventListener('click', function () {
-    const productId = document.getElementById('product-id').value;
-    const userId = document.getElementById('user-id').value;
+    console.log("Submit comment clicked");
+    const vmId = this.getAttribute('data-vm-id');
     const commentText = document.getElementById('comment-text').value;
 
-    if (!productId || !userId || !commentText) {
+    if (!vmId || !commentText) {
         alert("Please fill in all fields.");
         return;
     }
@@ -65,8 +69,7 @@ document.getElementById('submit-comment').addEventListener('click', function () 
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            product_id: productId,
-            user_id: userId,
+            vm_id: vmId,
             text: commentText
         }),
     })
@@ -74,7 +77,7 @@ document.getElementById('submit-comment').addEventListener('click', function () 
     .then(data => {
         if (data.success) {
             alert('Comment added successfully!');
-            fetchComments(productId);  // Reload comments
+            fetchComments(vmId);  // Reload comments
         } else {
             alert('Failed to add comment: ' + data.error);
         }

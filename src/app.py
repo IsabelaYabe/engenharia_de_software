@@ -190,11 +190,11 @@ def comment():
 # Route to add a comment
 @app.route('/add_comment', methods=['POST'])
 def add_comment():
-    pass
-
     data = request.json
     id = data['product_id']
-    user_id = data['user_id']
+    manager = DatabaseManagerCentral(**db_config)
+    
+    user_id = active_user['username']
     text = data['text']
     tipe = data['type']
 
