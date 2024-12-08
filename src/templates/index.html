@@ -57,6 +57,12 @@
         <div class="register-container">
             <h2>Register</h2>
             <form action="/register" method="post">
+                <label for="user-type">Register as:</label>
+                <select id="user-type" name="user-type" required>
+                    <option value="user">User</option>
+                    <option value="owner">Owner</option>
+                </select>
+                <br><br>
                 <label for="new-username">Username:</label>
                 <input type="text" id="new-username" name="username" required>
                 <br><br>
@@ -65,6 +71,24 @@
                 <br><br>
                 <label for="confirm-password">Confirm Password:</label>
                 <input type="password" id="confirm-password" name="confirm-password" required>
+                <br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br><br>
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name">
+                <br><br>
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name">
+                <br><br>
+                <label for="birthdate">Birthdate:</label>
+                <input type="date" id="birthdate" name="birthdate">
+                <br><br>
+                <label for="phone-number">Phone Number:</label>
+                <input type="tel" id="phone-number" name="phone-number">
+                <br><br>
+                <label for="address">Address:</label>
+                <textarea id="address" name="address"></textarea>
                 <br><br>
                 <button type="submit">Register</button>
             </form>

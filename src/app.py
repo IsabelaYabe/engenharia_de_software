@@ -23,6 +23,35 @@ def index():
     """
     return render_template('index.html')
 
+@app.route('/register', methods=['POST'])
+def register():
+    user_type = request.form['user_type']
+    username = request.form['username']
+    password = request.form['password']
+    confirm_password = request.form['confirm-password']
+
+    if password != confirm_password:
+        return "Passwords do not match", 400
+
+    manager = DatabaseManagerCentral(**db_config)
+    if user_type == 'user':
+        table = manager.users_profile
+    elif user_type == 'owner':
+        table = manager.owners_profile
+    pass
+    try:
+        table.insert_row(username=username, password=password)
+
+    return redirect(url_for('home'))
+
+
+@app.route('/menu')
+def menu():
+    """
+    Render the menu page.
+    """
+    return render_template('menu.html')
+
 @app.route('/stock')
 def stock():
     """
