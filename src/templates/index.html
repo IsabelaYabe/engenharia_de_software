@@ -9,6 +9,12 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+        .header {
+            text-align: center;
+            background-color: #87CEEB;
+            padding: 20px;
+            border-radius: 5px;
+        }
         .button-container {
             display: flex;
             justify-content: space-around;
@@ -26,19 +32,96 @@
         .button-container button:hover {
             background-color: #45a049;
         }
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .register-container, .login-container {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
-
-<h1>Welcome to the Central Page</h1>
-
-<div class="button-container">
-    <button onclick="window.location.href='/vms'">Go to Vending Machines</button>
-    <button onclick="window.location.href='/stock'">Go to Stock</button>
-    <button onclick="window.location.href='/comment'">Go to Comments</button> 
-    <button onclick="window.location.href='/complaint'">Go to Complaints: User Page</button>
-    <button onclick="window.location.href='/admin_complaints'">Go to Complaints: Admin Page</button>
-</div>
-
+    <div class="header">
+        <h1>Bem-vindo ao Nosso Site</h1>
+    </div>
+    <div class="container">
+        <div class="register-container">
+            <h2>Register</h2>
+            <form action="/register" method="post">
+                <label for="user-type">Register as:</label>
+                <select id="user-type" name="user-type" required>
+                    <option value="user">User</option>
+                    <option value="owner">Owner</option>
+                </select>
+                <br><br>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <div style="flex: 1 1 45%;">
+                        <label for="new-username">Username:</label>
+                        <input type="text" id="new-username" name="username" required>
+                    </div>
+                    <div style="flex: 1 1 45%;">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div style="flex: 1 1 45%;">
+                        <label for="new-password">Password:</label>
+                        <input type="password" id="new-password" name="password" required>
+                    </div>
+                    <div style="flex: 1 1 45%;">
+                        <label for="confirm-password">Confirm Password:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+                    <div style="flex: 1 1 45%;">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" name="first-name">
+                    </div>
+                    <div style="flex: 1 1 45%;">
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name" name="last-name">
+                    </div>
+                    <div style="flex: 1 1 45%;">
+                        <label for="birthdate">Birthdate:</label>
+                        <input type="date" id="birthdate" name="birthdate">
+                    </div>
+                    <div style="flex: 1 1 45%;">
+                        <label for="phone-number">Phone Number:</label>
+                        <input type="tel" id="phone-number" name="phone-number">
+                    </div>
+                    <div style="flex: 1 1 100%;">
+                        <label for="address">Address:</label>
+                        <textarea id="address" name="address"></textarea>
+                    </div>
+                </div>
+                <br><br>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+        <div class="login-container">
+            <h2>Login</h2>
+            <form action="/login" method="post">
+                <label for="user-type">Register as:</label>
+                <select id="user-type" name="user-type" required>
+                    <option value="user">User</option>
+                    <option value="owner">Owner</option>
+                </select>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br><br>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

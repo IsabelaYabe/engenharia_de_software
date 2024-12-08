@@ -46,13 +46,13 @@
 
     <!-- Home button -->
     <div class="button-container">
-        <button onclick="window.location.href='/'">Home</button>
+        <button onclick="window.location.href='/menu'">Menu</button>
+        <button onclick="window.location.href='/'" style="background-color: red;">Sair</button>
     </div>
 
     <table>
         <thead>
             <tr>
-                <th>Vending Machine ID</th>
                 <th>Vending Machine Name</th>
                 <th>Location</th>
                 <th>Owner</th>
@@ -64,6 +64,28 @@
             <!-- VM data will be inserted here -->
         </tbody>
     </table>
+</div>
+
+<div style="display: flex; justify-content: space-between;">
+    <div id="comments-section" style="width: 48%; text-align: left;">
+        <!-- Comments will be displayed here -->
+         <ul id="comments-list"></ul>
+    </div>
+
+    <div id="comment" style="width: 48%; display: none;">
+        <p id="comment-title">Click on a vending machine and give us your opinion</p>
+
+        <div>
+            <label for="comment-text">Enter your comment:</label>
+            <textarea id="comment-text" rows="4" cols="50" placeholder="Write your comment here..."></textarea>
+        </div>
+
+        <button id="submit-comment">Submit Comment</button>
+
+        <div id="comments-section">
+            <!-- Comments will be displayed here -->
+        </div>
+    </div>
 </div>
 
 <script src="../static/js/script_vms.js"></script>

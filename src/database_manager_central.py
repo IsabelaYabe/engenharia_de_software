@@ -344,6 +344,7 @@ class DatabaseManagerCentral:
             "address": address,
             "budget": budget,
         }
+        logger.debug(f"Adding user with data: {data}")
         return self.insert_record("users_profile", data)
     
     def add_product_comment(self, text, product_id, user_id):
@@ -766,6 +767,7 @@ class DatabaseManagerCentral:
             logger.error(f"Error generating sales report: {e}")
             raise
 
+    @hash_password_decorator(password_position=2)
     def login_user(self, table_name: str, username: str, password: str):
         """
         Logs in a user by validating the username and password for a specific table.
@@ -794,7 +796,8 @@ class DatabaseManagerCentral:
                 logger.error(f"Table '{table_name}' not found in instance tables.")
                 raise ValueError(f"Table '{table_name}' not found in instance tables.")
 
-            encrypted_password = self.password_hasher.hash_password(password)
+            logger.debug(f"Hashing password for user: {username} with password: {password}")
+            encrypted_password = password
 
             logger.info(f"Attempting login for user: {username} in table: {table_name}")
 
