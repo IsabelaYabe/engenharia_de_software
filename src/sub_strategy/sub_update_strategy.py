@@ -1,8 +1,9 @@
 """
 Module for defining subscriber update strategies.
 
-This module provides an abstract base class `SubUpdateStrategy` and two concrete 
-implementations: `DefaultSubUpdateStrategy` and `PurchaseProductSubUpdateStrategy`.
+This module provides an abstract base class `SubUpdateStrategy` and three concrete 
+implementations: `DefaultSubUpdateStrategy`, `PurchaseProductSubUpdateStrategy`, 
+and `WithdrawSubUpdateStrategy`.
 
 Author: Isabela Yabe
 Last Modified: 07/12/2024
@@ -56,18 +57,7 @@ class DefaultSubUpdateStrategy(SubUpdateStrategy):
 
         Args:
             data (dict): A dictionary containing the data to be processed in the update.
-
-        Logs:
-            - Logs an info message before the update operation begins.
-            - Logs a debug message with the data being processed.
-            - Logs a success message if the update is successful.
-            - Logs an error message if the update fails.
-
-        Raises:
-            ValueError: If the provided data is invalid.
-            Exception: If an error occurs during the update process.
         """
-        logger.info("Executing default update strategy...")
 
         if not isinstance(data, dict):
             logger.error("Invalid data type. Expected a dictionary.")
@@ -86,28 +76,36 @@ class DefaultSubUpdateStrategy(SubUpdateStrategy):
 
 class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
     """
-    Implementation of the `SubUpdateStrategy` interface for the "PurchaseProductEvent".
+    Implementation of the `SubUpdateStrategy` interface for handling product purchases.
 
-    This strategy handles the logic of updating product quantities after a purchase event.
-    It searches for the product in the vending machine, verifies the available quantity, 
-    and updates the quantity if the purchase is valid.
+    This strategy updates product quantities in vending machines, user budgets, 
+    and the vending machine's budget after a purchase event.
     """
 
     def update(self, data, table_name, search_record, update_row):
-        logger.info(f"Executing update strategy with data: {data}")
-        logger.debug(f"Table name: {table_name}")
+        """
+        Executes the update logic for a product purchase.
+
+        Args:
+            data (dict): A dictionary containing the purchase data.
+            table_name (str): The name of the table being updated.
+            search_record (function): A function to search for existing records.
+            update_row (function): A function to update a row in the database.
+        """
         quantity = data["quantity"]
+        
         if table_name == "products_profile":
+            
             product = data["product_id"]
             vending_machine_id = data["vending_machine_id"]
+            
             try:
                 existing_records = search_record(id=product, vending_machine_id=vending_machine_id)
 
                 if not existing_records:
                     logger.warning(f"Product '{product}' not found in vending machine '{vending_machine_id}'. Purchase aborted.")
                     return
-
-                logger.debug(f"Records: {existing_records}")   
+  
                 existing_product = existing_records[0]
                 existing_id = existing_product[0]  
                 existing_quantity = existing_product[4] 
@@ -116,15 +114,15 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
                 update_row(existing_id, quantity=new_quantity)
 
                 logger.info(f"Purchase successful. Updated product '{product}' in vending machine '{vending_machine_id}' to new quantity: {new_quantity}")
-
             except Exception as e:
                 logger.error(f"Failed to update product '{product}' in vending machine '{vending_machine_id}': {e}")
                 raise
 
         elif table_name == "vending_machines_profile":
+
             vending_machine = data["vending_machine_id"]
             new_budget = quantity*data["amount_paid_per_unit"]
-            logger.debug(f"Vending machine: {vending_machine}, New budget: {new_budget}")
+            
             try:
                 existing_records = search_record(id=vending_machine)
 
@@ -132,27 +130,22 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
                     logger.warning(f"Vending machine '{vending_machine}' not found. Purchase aborted.")
                     return
                 
-                logger.debug(f"Existing records: {existing_records}")
                 existing_product = existing_records[0]
                 existing_id = existing_product[0]
                 old_budget = existing_product[4]
 
-                update_row(
-                    existing_id,
-                    budget=new_budget+old_budget
-                )
+                update_row(existing_id, budget=new_budget+old_budget)
 
                 logger.info(f"Updated budget for vending machine '{vending_machine}' to: {new_budget+old_budget}")
-
             except Exception as e:
                 logger.error(f"Failed to update budget for vending machine '{vending_machine}': {e}")
                 raise
 
         elif table_name == "users_profile":
+            
             user = data["user_id"]
-            logger.debug(f"User: {user}")
             new_budget = quantity*data["amount_paid_per_unit"]
-            logger.debug(f"User: {user}, budget: {new_budget}")
+            
             try:
                 existing_records = search_record(id=user)
                 if not existing_records:
@@ -163,10 +156,7 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
                 existing_id = existing_user[0]
                 old_budget = existing_user[9]
                 
-                update_row(
-                    existing_id,
-                    budget=new_budget+old_budget
-                )
+                update_row(existing_id, budget=new_budget+old_budget)
                 
                 logger.info(f"Updated budget for user '{user}' to: {new_budget+old_budget}")
             except Exception as e:
@@ -174,22 +164,34 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
                 raise
 
 class WithdrawSubUpdateStrategy(SubUpdateStrategy):
+    """
+    Implementation of the `SubUpdateStrategy` interface for handling withdrawals from vending machines.
+
+    This strategy updates the budget of a vending machine after a withdrawal event.
+    """
     def update(self, data, table_name, search_record, update_row):
-        logger.info(f"Executing update strategy with data: {data}")
-        logger.debug(f"Table name: {table_name}")
-        logger.debug("AQUI KALIL! WITHDRAW SUB UPDATE STRATEGY")
+        """
+        Executes the update logic for a withdrawal.
+
+        Args:
+            data (dict): A dictionary containing the withdrawal data.
+            table_name (str): The name of the table being updated.
+            search_record (function): A function to search for existing records.
+            update_row (function): A function to update a row in the database.
+        Logs:
+            - Logs info messages before the update process begins.
+            - Logs debug messages with data being processed.
+            - Logs an error message if the update fails.
+        """    
         if table_name == "vending_machines_profile":
+
             vending_machine = data["vending_machine_id"]
             new_budget = data["new_budget"]
-            logger.debug(f"Vending machine: {vending_machine}, New budget: {new_budget}")
+            
             try:
-                update_row(
-                    vending_machine,
-                    budget=new_budget
-                )
+                update_row(vending_machine, budget=new_budget)
 
                 logger.info(f"Updated budget for vending machine '{vending_machine}' to: {new_budget}")
-
             except Exception as e:
                 logger.error(f"Failed to update budget for vending machine '{vending_machine}': {e}")
                 raise
