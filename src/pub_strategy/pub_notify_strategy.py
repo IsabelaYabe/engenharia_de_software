@@ -64,18 +64,9 @@ class DefaultPubNotifyStrategy(PubNotifyStrategy):
             subscribers (list): A list of subscribers to notify.
             *args: Additional positional arguments.
             **kwargs: Additional keyword arguments.
-
-        Logs:
-            - Logs an info message before notifying each subscriber.
-            - Logs an info message when a subscriber is successfully updated.
-            - Logs an error message if a subscriber update fails.
-
-        Raises:
-            None
         """
-        logger.info(f"Notifying subscribers for event {event_type} with data: {data}")
         for subscriber in subscribers:
-            logger.debug(f"Updating subscriber {subscriber.table_name}...")
+
             try:
                 subscriber.update(event_type, **data)
                 logger.info(f"Subscriber {subscriber.table_name} updated for event {event_type}")
