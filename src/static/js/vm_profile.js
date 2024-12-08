@@ -48,9 +48,12 @@ function fetchVmInfo(item) {
 
 // Fetch vm information when the DOM content is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
+    const path = window.location.pathname; // Exemplo: "/vm_profile/1"
+    const segments = path.split('/'); // Divide a URL em partes, como ["", "vm_profile", "1"]
+    const id = segments[segments.length - 1]; // Pega o último segmento, que é o "1"
     console.log(id);
-    const item = { "id": id }; // Replace 'some-id' with the actual ID or parameter you want to pass
+
+    // Você pode usar o ID para buscar informações
+    const item = { "id": id };
     fetchVmInfo(item);
 });
