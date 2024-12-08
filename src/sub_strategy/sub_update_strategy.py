@@ -93,52 +93,65 @@ class PurchaseProductSubUpdateStrategy(SubUpdateStrategy):
     and updates the quantity if the purchase is valid.
     """
 
-    def update(self, data, search_record, update_row):
-        """
-        Executes the update logic for the "PurchaseProductEvent".
-
-        Args:
-            data (dict): A dictionary containing the event data, expected to have the following keys:
-                - `name` (str): The id of the product to update.
-                - `vending_machine_id` (str): The ID of the vending machine where the product is located.
-                - `quantity` (int): The quantity of the product being purchased.
-
-        Logs:
-            - Logs an info message before the update operation begins.
-            - Logs a warning if the product is not found in the vending machine.
-            - Logs a warning if the requested quantity is greater than the available quantity.
-            - Logs a debug message with the product records retrieved.
-            - Logs an info message when the product quantity is successfully updated.
-            - Logs an error message if an exception occurs.
-
-        Raises:
-            Exception: If an error occurs during the update process.
-        """
+    def update(self, data, table_name, search_record, update_row):
         logger.info(f"Executing update strategy with data: {data}")
-        
-        name = data["product_id"]
-        vending_machine_id = data["vending_machine_id"]
-        quantity = data["quantity"]
-        try:
-            existing_records = search_record(id=name, vending_machine_id=vending_machine_id)
-            
-            if not existing_records:
-                logger.warning(f"Product '{name}' not found in vending machine '{vending_machine_id}'. Purchase aborted.")
-                return
-            
-            logger.debug(f"Records: {existing_records}")   
-            existing_product = existing_records[0]
-            existing_id = existing_product[0]  
-            existing_quantity = existing_product[4]
-            if quantity > existing_quantity:
-                logger.warning(f"Insufficient stock for product '{name}' in vending machine '{vending_machine_id}'. Available: {existing_quantity}, Requested: {quantity}")
-                return       
+        logger.debug(f"Table name: {table_name}")
+        if table_name == "products_profile":
+            product = data["product_id"]
+            vending_machine_id = data["vending_machine_id"]
+            quantity = data["quantity"]
+            try:
+                existing_records = search_record(id=product, vending_machine_id=vending_machine_id)
 
-            new_quantity = existing_quantity - quantity
-            update_row(existing_id, quantity=new_quantity)
+                if not existing_records:
+                    logger.warning(f"Product '{product}' not found in vending machine '{vending_machine_id}'. Purchase aborted.")
+                    return
 
-            logger.info(f"Purchase successful. Updated product '{name}' in vending machine '{vending_machine_id}' to new quantity: {new_quantity}")
-        
-        except Exception as e:
-            logger.error(f"Failed to update product '{name}' in vending machine '{vending_machine_id}': {e}")
-            raise
+                logger.debug(f"Records: {existing_records}")   
+                existing_product = existing_records[0]
+                existing_id = existing_product[0]  
+                existing_quantity = existing_product[4]
+                if quantity > existing_quantity:
+                    logger.warning(f"Insufficient stock for product '{product}' in vending machine '{vending_machine_id}'. Available: {existing_quantity}, Requested: {quantity}")
+                    return       
+
+                new_quantity = existing_quantity - quantity
+                update_row(existing_id, quantity=new_quantity)
+
+                logger.info(f"Purchase successful. Updated product '{product}' in vending machine '{vending_machine_id}' to new quantity: {new_quantity}")
+
+            except Exception as e:
+                logger.error(f"Failed to update product '{product}' in vending machine '{vending_machine_id}': {e}")
+                raise
+
+        elif table_name == "vending_machines_profile":
+            vending_machine = data["vending_machine_id"]
+            new_budget = data["quantity"]*data["amount_paid_per_unit"]
+            logger.debug(f"Vending machine: {vending_machine}, New budget: {new_budget}")
+            try:
+                existing_records = search_record(id=vending_machine)
+                old_budget = existing_records[0][4]
+                update_row(
+                    record_id=vending_machine,
+                    budget=new_budget+old_budget
+                )
+                logger.info(f"Updated budget for vending machine '{vending_machine}' to: {new_budget+old_budget}")
+            except Exception as e:
+                logger.error(f"Failed to update budget for vending machine '{vending_machine}': {e}")
+                raise
+
+        elif table_name == "users_profile":
+            user = data["user_id"]
+            new_balance = data["amount_paid_per_unit"]*data["quantity"]
+            logger.debug(f"User: {user}, New balance: {new_balance}")
+            try:
+                existing_records = search_record(id=user)
+                old_balance = existing_records[0][9]
+                update_row(
+                    record_id=user,
+                    balance=new_balance+old_balance
+                )
+                logger.info(f"Updated balance for user '{user}' to: {new_balance+old_balance}")
+            except Exception as e:
+                logger.error(f"Failed to update balance for user '{user}': {e}")
+                raise
