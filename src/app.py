@@ -97,8 +97,10 @@ def get_user_info():
     """
     Endpoint for retrieving user information.
     """
+    logger.debug(f"Active user: {active_user}")
     user_type = active_user['user_type']
     username = active_user['username']
+    logger.debug(f"Getting info for {user_type} {username}")
     manager = DatabaseManagerCentral(**db_config)
     if user_type == 'user':
         table = manager.users_profile
@@ -110,11 +112,11 @@ def get_user_info():
     response = {
         "username": info[1],
         "email": info[2],
-        "first_name": info["first_name"],
-        "last_name": info["last_name"],
-        "birthdate": info["birthdate"],
-        "phone_number": info["phone_number"],
-        "address": info["address"],
+        "first_name": info[4],
+        "last_name": info[5],
+        "birthdate": info[6],
+        "phone_number": info[7],
+        "address": info[8],
         "user_type": user_type
     }
     if info:
