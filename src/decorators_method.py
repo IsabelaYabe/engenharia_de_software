@@ -56,19 +56,37 @@ def request_validations(strategies=[banned_words_strategy, sql_injection_strateg
     Returns:
         function: The decorated function that performs validation before proceeding.
     """
+def request_validations(*request_methods, strategies=[banned_words_strategy, sql_injection_strategy]):
+    """
+    Decorador para aplicar as estratégias de validação de dados em solicitações de API.
+
+    Este decorador verifica os dados das solicitações para garantir que eles não contêm **palavrões** ou **comandos SQL**. 
+    Ele aplica as estratégias de validação configuradas e retorna uma mensagem de erro se algum padrão for detectado.
+
+    Args:
+        *request_methods (str): Métodos HTTP permitidos (ex: "POST", "PUT").
+        strategies (list): Lista de instâncias de estratégia de validação (padrão: BannedWordsStrategy e SQLInjectionStrategy).
+
+    Returns:
+        function: A função decorada que faz a validação antes de continuar.
+    """
     def decorator(funcao):
         @wraps(funcao)
         def wrapped(*args, **kwargs):
-            data = request.get_json()
             if request.method in request_methods:
+                data = request.get_json()
                 if data:
                     for strategy in strategies:
-                        error = strategy.validate(data)
-                        if error: 
-                            logger.error(f"Validation error: {error}, strategy applied: {strategy}")
-                            return jsonify({"error": error}), 400
-                        logger.info(f"Request passed validation, strategy applied: {strategy}")    
-                    logger.info("Request passed validation")
+                        try:
+                            error_message = strategy.validate(data)
+                            if error_message: 
+                                logger.error(f"Validação falhou: {error_message} | Estratégia aplicada: {strategy.__class__.__name__}")
+                                return jsonify({"error": error_message}), 400
+                        except Exception as e:
+                            logger.error(f"Erro na validação da estratégia {strategy.__class__.__name__}: {str(e)}")
+                            return jsonify({"error": f"Erro interno ao validar a requisição"}), 500
+
+                    logger.info("A requisição passou por todas as validações.")
             return funcao(*args, **kwargs)
         return wrapped
     return decorator
@@ -112,16 +130,3 @@ def immutable_fields(attribute_name):
 
         return wrapper
     return decorator
-
-'''
-def transaction_validations(strategies):
-    def decorator(funcao):
-        @wraps(funcao)
-        def wrapped(self, *args, **kwargs):
-            for strategy in strategies:
-                error = strategy.transaction_validation(self, *args, **kwargs)
-                if error:
-                    return jsonify({"error": error}), 400
-            return funcao(self, *args, **kwargs)
-        return wrapped
-    return decorator'''

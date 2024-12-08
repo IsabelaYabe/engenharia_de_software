@@ -50,7 +50,7 @@ class DefaultSubUpdateStrategy(SubUpdateStrategy):
     It logs the process and raises exceptions for invalid operations.
     """
 
-    def update(self, data, table_name, search_record, update_row):
+    def update(self, data):
         """
         Executes the default update logic with the provided data.
 
@@ -68,7 +68,7 @@ class DefaultSubUpdateStrategy(SubUpdateStrategy):
             Exception: If an error occurs during the update process.
         """
         logger.info("Executing default update strategy...")
-        logger.debug("AQUI NÂO KALIL! DEFAULT SUB UPDATE STRATEGY")
+
         if not isinstance(data, dict):
             logger.error("Invalid data type. Expected a dictionary.")
             raise ValueError("Data must be a dictionary.")
