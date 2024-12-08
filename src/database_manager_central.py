@@ -19,7 +19,7 @@ Dependencies:
 """
 from database_manager import DatabaseManager, Config, ConfigPub, ConfigSub
 from event_manager.event_manager import EventManager
-from sub_strategy.sub_update_strategy import PurchaseProductSubUpdateStrategy
+from sub_strategy.sub_update_strategy import PurchaseProductSubUpdateStrategy, WithdrawSubUpdateStrategy
 from singleton_decorator import singleton
 from custom_logger import setup_logger
 from dataclasses import dataclass
@@ -116,6 +116,7 @@ class DatabaseManagerCentral:
 
         self.event_manager = EventManager()
         self.event_manager.update_strategies["PurchaseProductEvent"] = PurchaseProductSubUpdateStrategy()
+        self.event_manager.update_strategies["WithdrawMoneyEvent"] = WithdrawSubUpdateStrategy()
 
         self.__products_config = Config(self.host, self.user, self.password, self.database, "products_profile", ["id", "name", "description", "price", "quantity", "vending_machine_id", "timestamp"], "id")
         self.__products_config_pub = None
@@ -123,60 +124,70 @@ class DatabaseManagerCentral:
         self.__products_profile = DatabaseManager(self.__products_config, self.__products_config_pub, self.__products_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile"})
         logger.debug(f"Products profile table created successfully. {self.__products_profile}")
         logger.debug(f"Products profile table created successfully. {self.__products_profile.show_table()}")
+
         self.__users_config = Config(self.host, self.user, self.password, self.database, "users_profile", ["id", "username", "email", "password", "first_name", "last_name", "birthdate", "phone number", "address", "budget"], "id")
         self.__users_config_pub = None
-        self.__users_config_sub = None
+        self.__users_config_sub = ConfigSub(event_manager=self.event_manager, events_type_sub=["PurchaseProductEvent"])
         self.__users_profile = DatabaseManager(self.__users_config, self.__users_config_pub, self.__users_config_sub, immutable_columns=["birthdate", "first_name", "last_name"])
         logger.debug(f"Users profile table created successfully. {self.__users_profile}")
         logger.debug(f"Users profile table created successfully. {self.__users_profile.show_table()}")
-        self.__vending_machines_config = Config(self.host, self.user, self.password, self.database, "vending_machines_profile", ["id", "name", "location", "status", "timestamp", "owner_id"], "id")
+
+        self.__vending_machines_config = Config(self.host, self.user, self.password, self.database, "vending_machines_profile", ["id", "name", "location", "status", "budget", "timestamp", "owner_id"], "id")
         self.__vending_machines_config_pub = None
-        self.__vending_machines_config_sub = None
+        self.__vending_machines_config_sub = ConfigSub(event_manager=self.event_manager, events_type_sub=["PurchaseProductEvent", "WithdrawMoneyEvent"])
         self.__vending_machines_profile = DatabaseManager(self.__vending_machines_config, self.__vending_machines_config_pub, self.__vending_machines_config_sub, immutable_columns=None, foreign_keys={"owner_id": "owners_profile"})
         logger.debug(f"Vending machines profile table created successfully. {self.__vending_machines_profile}")
         logger.debug(f"Vending machines profile table created successfully. {self.__vending_machines_profile.show_table()}")
+
         self.__owners_config = Config(self.host, self.user, self.password, self.database, "owners_profile", ["id", "username", "email", "password", "first name", "last name", "birthdate", "phone_number", "address", "budget"], "id")
-        self.__owners_config_pub = None
+        self.__owners_config_pub = ConfigPub(event_manager=self.event_manager, events_type_pub=["WithdrawMoneyEvent"])
         self.__owners_config_sub = None
         self.__owners_profile = DatabaseManager(self.__owners_config, self.__owners_config_pub, self.__owners_config_sub, immutable_columns=["birthdate", "first_name", "last_name"])
         logger.debug(f"Owners profile table created successfully. {self.__owners_profile}")
         logger.debug(f"Owners profile table created successfully. {self.__owners_profile.show_table()}")
+
         self.__product_complaint_config = Config(self.host, self.user, self.password, self.database, "product_complaint", ["id", "text", "product_id", "user_id", "timestamp"], column_id="id")
         self.__product_complaint_config_pub = None
         self.__product_complaint_config_sub = None
         self.__product_complaint = DatabaseManager(self.__product_complaint_config, self.__product_complaint_config_pub, self.__product_complaint_config_sub, immutable_columns=None, foreign_keys={"product_id": "products_profile", "user_id": "users_profile"})
         logger.debug(f"Product complaint table created successfully. {self.__product_complaint}")
         logger.debug(f"Product complaint table created successfully. {self.__product_complaint.show_table()}")
+
         self.__product_comment_config = Config(self.host, self.user, self.password, self.database, "product_comment", ["id", "text", "product_id", "user_id", "timestamp"], column_id="id")
         self.__product_comment_config_pub = None
         self.__product_comment_config_sub = None
         self.__product_comment = DatabaseManager(self.__product_comment_config, self.__product_comment_config_pub, self.__product_comment_config_sub, immutable_columns=None, foreign_keys={"product_id": "products_profile", "user_id": "users_profile"})
         logger.debug(f"Product comment table created successfully. {self.__product_comment}")
         logger.debug(f"Product comment table created successfully. {self.__product_comment.show_table()}")
+
         self.__purchase_transaction_config = Config(self.host, self.user, self.password, self.database, "purchase_transaction", ["id", "user_id", "product_id", "vending_machine_id", "timestamp", "quantity", "amount_paid_per_unit"], column_id="id")
         self.__purchase_transaction_config_pub = ConfigPub(event_manager=self.event_manager, events_type_pub=["PurchaseProductEvent"])
         self.__purchase_transaction_config_sub = None
         self.__purchase_transaction = DatabaseManager(self.__purchase_transaction_config, self.__purchase_transaction_config_pub, self.__purchase_transaction_config_sub, immutable_columns=None, foreign_keys={"user_id": "users_profile", "product_id": "products_profile", "vending_machine_id": "vending_machines_profile"})
         logger.debug(f"Purchase transaction table created successfully. {self.__purchase_transaction}")
         logger.debug(f"Purchase transaction table created successfully. {self.__purchase_transaction.show_table()}")
+
         self.__vending_machine_complaint_config = Config(self.host, self.user, self.password, self.database, "vending_machine_complaint", ["id", "text", "vending_machine_id", "user id", "timestamp"], column_id="id")
         self.__vending_machine_complaint_config_pub = None
         self.__vending_machine_complaint_config_sub = None
         self.__vending_machine_complaint = DatabaseManager( self.__vending_machine_complaint_config, self.__vending_machine_complaint_config_pub, self.__vending_machine_complaint_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile", "user_id": "users_profile"})
         logger.debug(f"Vending machine complaint table created successfully. {self.__vending_machine_complaint}")
         logger.debug(f"Vending machine complaint table created successfully. {self.__vending_machine_complaint.show_table()}")
+
         self.__vending_machine_comment_config = Config(self.host, self.user, self.password, self.database, "vending_machine_comment", ["id", "text", "vending_machine_id", "user_id", "timestamp"], column_id="id")
         self.__vending_machine_comment_config_pub = None
         self.__vending_machine_comment_config_sub = None
         self.__vending_machine_comment = DatabaseManager( self.__vending_machine_comment_config, self.__vending_machine_comment_config_pub, self.__vending_machine_comment_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile", "user_id": "users_profile"})
         logger.debug(f"Vending machine comment table created successfully. {self.__vending_machine_comment}")
         logger.debug(f"Vending machine comment table created successfully. {self.__vending_machine_comment.show_table()}")
+
         self.__favorite_vending_machines_config = Config(self.host, self.user, self.password, self.database, "favorite_vending_machines", ["id", "vending_machine_id", "user_id"], column_id="id")
         self.__favorite_vending_machines_config_pub = None
         self.__favorite_vending_machines_config_sub = None
         self.__favorite_vending_machines = DatabaseManager( self.__favorite_vending_machines_config, self.__favorite_vending_machines_config_pub, self.__favorite_vending_machines_config_sub, immutable_columns=None, foreign_keys={"vending_machine_id": "vending_machines_profile", "user_id": "users_profile"})
         logger.debug(f"Favorite vending machines table created successfully. {self.__favorite_vending_machines}")
         logger.debug(f"Favorite vending machines table created successfully. {self.__favorite_vending_machines.show_table()}")
+
         self.__favorite_products_config = Config(self.host, self.user, self.password, self.database, "favorite_products", ["id", "product_id", "user_id"], column_id="id")
         self.__favorite_products_config_pub = None
         self.__favorite_products_config_sub = None
@@ -571,6 +582,19 @@ class DatabaseManagerCentral:
                 raise ValueError(f"Insufficient quantity for product ID '{product_id}'. Available: {available_quantity}, Requested: {quantity}.")
             logger.debug(f"Product quantity available: {available_quantity}")
             
+            user = self.users_profile.search_record(id=user_id)
+            if not user:
+                raise ValueError(f"User with ID '{user_id}' does not exist.")
+            
+            logger.debug(f"User found: {user}")
+            user_budget = user[0][9]
+            total_cost = quantity * amount_paid_per_unit
+
+            if user_budget < total_cost:
+                logger.error(f"Insufficient budget for user ID '{user_id}'. Available: {user_budget}, Required: {total_cost}.")
+                raise ValueError(f"Insufficient budget for user ID '{user_id}'. Available: {user_budget}, Required: {total_cost}.")
+            logger.debug(f"User budget available: {user_budget}")
+
             data = {
                 "user_id": user_id,
                 "product_id": product_id,
@@ -662,35 +686,17 @@ class DatabaseManagerCentral:
             raise
 
     def add_product_quantity(self, product_id=None, vending_machine_id=None, quantity_to_add=0):
-        """
-        Adds a specified quantity to an existing product in the database.
-
-        Args:
-            product_id (str, optional): ID of the product to update. Defaults to None.
-            name (str, optional): Name of the product to update (used with `vending_machine_id`). Defaults to None.
-            vending_machine_id (str, optional): ID of the vending machine containing the product. Defaults to None.
-            quantity_to_add (int): The quantity to add to the product. Must be greater than 0.
-
-        Returns:
-            int: The new quantity of the product after the addition.
-
-        Raises:
-            ValueError: If `quantity_to_add` is not greater than 0, or if the product is not found.
-            Exception: If an error occurs during the update operation.
-        """
         try:
             if quantity_to_add <= 0:
                 raise ValueError("The quantity to be added must be greater than zero.")
 
-            if product_id:
-                product = self.__products_profile.get_by_id(product_id)
-            elif vending_machine_id:
-                products = self.__products_profile.search_record(product_id=product_id)
+            if product_id and vending_machine_id:
+                products = self.__products_profile.search_record(id=product_id, vending_machine_id=vending_machine_id)
                 if not products:
                     raise ValueError("Product not found with the criteria provided.")
                 product = products[0]  
             else:
-                raise ValueError("Either a 'product_id' or 'name' and 'vending_machine_id' must be provided.")
+                raise ValueError("'product_id' and 'vending_machine_id' must be provided.")
 
             if not product:
                 raise ValueError(f"Product not found.")
@@ -825,6 +831,65 @@ class DatabaseManagerCentral:
         """
         return {column: value for column, value in zip(columns, record_tuple)}
 
+    def withdraw_money_from_vm(self, owner_id, vending_machine_id, amount):
+        """
+        Withdraws money from the vending machine's budget.
+
+        Args:
+            vending_machine_id (str): The ID of the vending machine.
+            amount (float): The amount to withdraw.
+
+        Returns:
+            None
+
+        Raises:
+            Exception: If an error occurs during the update operation.
+        """
+        try:
+            vending_machine = self.vending_machines_profile.search_record(id=vending_machine_id)
+            if not vending_machine:
+                raise ValueError(f"Vending machine with ID '{vending_machine_id}' not found.")
+            logger.debug(f"Vending machine found: {vending_machine}")
+            
+            owner = self.owners_profile.search_record(id=owner_id)
+            if not owner:
+                raise ValueError(f"Owner with ID '{owner_id}' not found.")
+            logger.debug(f"Owner found: {owner}")
+            
+            current_vm_budget = vending_machine[0][4]  # Supondo que o orçamento está na 4ª posição da tupla
+            if current_vm_budget < amount:
+                raise ValueError(f"Insufficient budget for vending machine ID '{vending_machine_id}'. Available: {current_vm_budget}, Required: {amount}.")
+
+            
+            new_vm_budget = current_vm_budget - amount
+
+            current_owner_budget = owner[0][9]
+            new_owner_budget = current_owner_budget + amount
+
+            self.__owners_profile.update_row(record_id=owner_id,budget=new_owner_budget)
+            if self.__owners_config_pub and self.__owners_config_pub.event_manager:
+                event_data = {
+                    "vending_machine_id": vending_machine_id,
+                    "new_budget": new_vm_budget,
+                    "owner_id": owner_id,
+                    "withdrawn_amount": amount
+                }
+                try:
+                    logger.debug(f"Publishing WithdrawMoneyEvent with data: {event_data}")
+                    logger.debug("AQUI KALIL")
+                    self.__owners_config_pub.event_manager.notify("WithdrawMoneyEvent", event_data)
+                    logger.info(f"WithdrawMoneyEvent published with data: {event_data}")
+                    logger.debug("AQUI KALIL")
+                except Exception as notify_error:
+                    logger.error(f"Failed to notify event 'WithdrawMoneyEvent': {notify_error}")
+                    raise RuntimeError(f"Failed to publish event: {notify_error}")
+            else:
+                logger.warning("No EventManager configured for event publishing.")
+            
+            logger.info(f"Vending machine budget '{vending_machine_id}' updated to '{new_vm_budget}'")
+        except Exception as e:
+            logger.error(f"Error updating vending machine budget '{vending_machine_id}': {e}")
+            raise
 
     @property
     def host(self):
@@ -1007,7 +1072,7 @@ class DatabaseManagerCentral:
             self.__vending_machines_config_pub = new_config_pub
             self.__vending_machines_config_sub = new_config_sub
             self.__vending_machines_profile = DatabaseManager(new_config, new_config_pub, new_config_sub, new_immutable_columns, new_foreign_keys)
-            self.__instance_tables.vending_machine = self.__vending_machines_profile
+            self.__instance_tables.vending_machine_profile = self.__vending_machines_profile
             logger.info(f"Update vending_machines_profile, new name: {new_config.table_name}")
         except Exception as e:
             logger.error(f"Failed to setter {new_config.table_name}: {e}")

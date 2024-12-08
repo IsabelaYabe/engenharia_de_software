@@ -74,7 +74,13 @@ class DefaultPubNotifyStrategy(PubNotifyStrategy):
             None
         """
         logger.info(f"Notifying subscribers for event {event_type} with data: {data}")
+        if event_type=="WithdrawMoneyEvent":
+                logger.debug("AQUI KALIL WithdrawMoneyEvent")
         for subscriber in subscribers:
+            if event_type=="WithdrawMoneyEvent":
+                logger.debug("AQUI KALIL WithdrawMoneyEvent")
+
+            logger.debug(f"Updating subscriber {subscriber.table_name}...")
             try:
                 subscriber.update(event_type, **data)
                 logger.info(f"Subscriber {subscriber.table_name} updated for event {event_type}")
